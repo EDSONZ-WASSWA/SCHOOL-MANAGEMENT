@@ -1,0 +1,27 @@
+<?xml version="1.0" enconding="UTF-8" ?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<?import javafx.geometry.Insets?>
+<GridPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+          fx:controller="com.nursing.management.controllers.DashboardController"
+          id="dashboardGrid" hgap="20" vgap="20" alignment="center"
+          styleClass="dashboard" stylesheets="@../css/style.css">
+
+    <!--    Spacing for the columns-->
+    <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+    <Label text="Nursing Student Management" styleClass="title-label"
+           GridPane.columnSpan="3" GridPane.rowIndex="0"/>
+
+    <!--    The first Row buttons-->
+    <Button fx:id="btnPersonalInfo" text="Personal Information"
+            onAction="#handlePersonalInfo" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+    <Button fx:id="btnNextOfKin" text="Next Of Kin" onAction="#handleNextOfKin"
+            GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+    <Button fx:id="btnAcademicInfo" GridPane.rowIndex="1" GridPane.columnIndex="2"/>
+
+    <!--    Second Row-->
+    <Button fx:id="btnEmergencyContacts" text="Emergency Contacts" onAction="#handleEmergencyContacts"
+            GridPane.rowIndex="2"/>
