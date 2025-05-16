@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.MotionBlur?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Sphere?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <SplitPane dividerPositions="0.18687374749498994" layoutX="74.0" layoutY="14.0" orientation="VERTICAL" prefHeight="602.0" prefWidth="950.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="159.0" prefWidth="1280.0">
+               <children>
+                  <Pane prefHeight="167.0" prefWidth="1278.0" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Text fill="#07841d" layoutX="336.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="RAKAI COMUNITY SCHOOL OF NURSING">
+                           <font>
+                              <Font name="Times New Roman Bold" size="40.0" />
+                           </font>
+                        </Text>
+                        <ImageView fitHeight="41.0" fitWidth="37.0" layoutX="1484.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/menu.png" />
+                           </image>
+                        </ImageView>
+                        <TextField layoutX="1250.0" layoutY="35.0" prefHeight="26.0" prefWidth="216.0" promptText="serach here..." />
+                        <ImageView fitHeight="35.0" fitWidth="36.0" layoutX="1208.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label layoutX="1213.0" layoutY="41.0" text="search" textFill="#a60909">
+                           <font>
+                              <Font name="Times New Roman Italic" size="14.0" />
+                           </font>
+                           <effect>
+                              <MotionBlur angle="195.14" radius="0.0" />
+                           </effect>
+                        </Label>
+                        <Label layoutX="381.0" layoutY="69.0" prefHeight="28.0" prefWidth="217.0" text="P.O.BOX 23759" textFill="#07841d">
+                           <font>
+                              <Font name="Times New Roman Bold" size="30.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="638.0" layoutY="70.0" text="KYOTERA TEL +256 788946429" textFill="#07841d">
+                           <font>
+                              <Font name="Times New Roman Bold" size="30.0" />
+                           </font>
+                        </Label>
+                        <Sphere layoutX="103.0" layoutY="68.0" radius="50" />
+                        <Label layoutX="46.0" layoutY="32.0" prefHeight="61.0" prefWidth="137.0" text="LOGO" textFill="#a60909">
+                           <font>
+                              <Font name="Times New Roman Italic" size="45.0" />
+                           </font>
+                           <effect>
+                              <MotionBlur angle="195.14" radius="0.0" />
+                           </effect>
+                        </Label>
+                     </children>
+                  </Pane>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" SplitPane.resizableWithParent="false">
+               <children>
+                  <SplitPane dividerPositions="0.1461811352253756" prefHeight="520.0" prefWidth="948.8" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <items>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="934.0" prefWidth="217.0" SplitPane.resizableWithParent="false">
+                           <children>
+                              <Label layoutX="4.0" layoutY="3.0" text="icon" />
+                              <Button defaultButton="true" layoutX="44.0" layoutY="472.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="98.0" text="NEW SET" AnchorPane.bottomAnchor="20.0">
+                                 <font>
+                                    <Font name="Times New Roman Bold" size="12.0" />
+                                 </font>
+                              </Button>
+                              <ListView layoutY="3.0" prefHeight="934.0" prefWidth="262.0" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-60.0" AnchorPane.topAnchor="0.0" />
+                           </children>
+                        </AnchorPane>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="645.0" prefWidth="1082.0" snapToPixel="false" SplitPane.resizableWithParent="false">
+                           <children>
+                              <Button cancelButton="true" layoutX="627.0" layoutY="480.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="98.0" text="LOGOUT" AnchorPane.bottomAnchor="20.0">
+                                 <font>
+                                    <Font name="Times New Roman Bold" size="12.0" />
+                                 </font>
+                              </Button>
+                              <Button defaultButton="true" layoutX="509.0" layoutY="480.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="98.0" text="NEXT" AnchorPane.bottomAnchor="20.0">
+                                 <font>
+                                    <Font name="Times New Roman Bold" size="12.0" />
+                                 </font>
+                              </Button>
+                              <SplitPane dividerPositions="0.531035760607745" layoutX="54.4" layoutY="14.0" mouseTransparent="true" prefHeight="574.0" prefWidth="1081.0" AnchorPane.bottomAnchor="71.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="7.0" AnchorPane.topAnchor="0.0">
+                                <items>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="572.0" prefWidth="622.0" SplitPane.resizableWithParent="false">
+                                       <children>
+                                          <SplitPane dividerPositions="0.4456521739130434" layoutX="27.0" layoutY="47.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="572.0" prefWidth="569.6" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                            <items>
+                                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                                                   <children>
+                                                      <Button layoutX="32.0" layoutY="40.0" mnemonicParsing="false" prefHeight="170.0" prefWidth="418.0" textFill="#045b0d">
+                                                         <cursor>
+                                                            <Cursor fx:constant="HAND" />
+                                                         </cursor>
+                                                      </Button>
+                                                      <ImageView fitHeight="58.0" fitWidth="53.0" layoutX="46.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../images/userPlus.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                      <Label layoutX="115.0" layoutY="58.0" prefHeight="28.0" prefWidth="301.0" text="STUDENTS POPULATION" textFill="#046b12">
+                                                         <font>
+                                                            <Font name="Times New Roman Bold" size="22.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <Label layoutX="59.0" layoutY="106.0" prefHeight="20.0" prefWidth="64.0" text="MALE" textFill="#0c0476">
+                                                         <font>
+                                                            <Font name="Times New Roman Bold" size="18.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <Label layoutX="56.0" layoutY="138.0" prefHeight="20.0" prefWidth="96.0" text="FEMALE" textFill="#0c0476">
+                                                         <font>
+                                                            <Font name="Times New Roman Bold" size="18.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <Label layoutX="56.0" layoutY="171.0" prefHeight="20.0" prefWidth="96.0" text="TOTAL" textFill="#0c0476">
+                                                         <font>
+                                                            <Font name="Times New Roman Bold" size="18.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <TextField layoutX="156.0" layoutY="134.0" prefHeight="26.0" prefWidth="72.0" />
+                                                      <TextField layoutX="156.0" layoutY="168.0" prefHeight="26.0" prefWidth="72.0" />
+                                                      <TextField layoutX="155.0" layoutY="102.0" prefHeight="26.0" prefWidth="72.0" />
+                                                   </children>
+                                                </AnchorPane>
+                                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                                                   <children>
+                                                      <PieChart layoutX="15.0" layoutY="15.0" prefHeight="247.0" prefWidth="533.0" />
+                                                   </children>
+                                                </AnchorPane>
+                                            </items>
+                                          </SplitPane>
+                                       </children>
+                                    </AnchorPane>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="572.0" prefWidth="555.0" SplitPane.resizableWithParent="false">
+                                       <children>
+                                          <BarChart layoutX="12.0" layoutY="20.0" prefHeight="484.0" prefWidth="481.0" title="NUMBER OF STUDENTS FOR EACH SET">
+                                            <xAxis>
+                                              <CategoryAxis label="SET NUMBER" side="BOTTOM" />
+                                            </xAxis>
+                                            <yAxis>
+                                              <NumberAxis label="NUMBER OF STUDENTS" side="LEFT" />
+                                            </yAxis>
+                                          </BarChart>
+                                       </children>
+                                    </AnchorPane>
+                                </items>
+                              </SplitPane>
+                           </children>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </AnchorPane>
+                    </items>
+                  </SplitPane>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>
