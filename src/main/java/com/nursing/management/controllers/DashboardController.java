@@ -1,6 +1,5 @@
 package com.nursing.management.controllers;
 import java.awt.Button;//Fix: Replace java.awt.Button with javafx.scene.control.Button.
-
 import java.io.IOException;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
