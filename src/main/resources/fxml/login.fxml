@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.gluonhq.charm.glisten.control.Avatar?>
+
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
@@ -44,6 +44,5 @@
             <Image url="@../images/userCircle.png" />
          </image>
       </ImageView>
-      <Avatar layoutX="278.0" layoutY="41.0" />
    </children>
 </AnchorPane>

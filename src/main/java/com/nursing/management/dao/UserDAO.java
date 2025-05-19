@@ -1,4 +1,5 @@
 package com.nursing.management.dao;
+import com.nursing.management.models.User;
 /* Retrieves User records from the database.
 - Retrieves User records from the database.
 - Converts rows into user objects for easy manipulation.
@@ -10,9 +11,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.nursing.management.auth.DatabaseConnector;
+import com.nursing.management.models.User;
 
 public class UserDAO{
-	public class getUserByUsername(String username){
+	public User getUserByUsername(String username){
 		String query ="SELECT * FROM user WHERE username=?";
 User user =null;
 try(Connection conn = DatabaseConnector.getConnection();
@@ -21,7 +23,7 @@ try(Connection conn = DatabaseConnector.getConnection();
 	ResultSet rs = stmt.executeQuery();
 	if(rs.next()) {
 		user = new User();
-		user.setId(rs.getInt("id"));
+		user.setid(rs.getInt("id"));
 		user.setUsername(rs.getString("username"));
 		user.setPassword(rs.getString("password"));
 	}

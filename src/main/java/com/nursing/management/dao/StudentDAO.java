@@ -1,5 +1,4 @@
 package com.nursing.management.dao;
-
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -8,8 +7,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-
 import com.nursing.management.auth.DatabaseConnector;
+import com.nursing.management.models.Student;
 /* Retrieves student records from the database.
 - Retrieves student records from the database.
 - Converts rows into Student objects for easy manipulation.
@@ -41,13 +40,13 @@ public List <Student> getAllStudents(){
 	return students;
 }
     
-}
- public void addStudent(Student student) {
+
+ public void addStudent(Student student){
 	 String query = "INSERT INTO students(full_name,dob,district,county,subcounty,village,contacts,nin)" + "VALUES(?,?,?,?,?,?,?,?)";
 	 try(Connection conn = DatabaseConnector.getConnection();
 	PreparedStatement stmt = conn.prepareStatement(query)){
 		 stmt.setString(1,student.getFullName());
-		 stmt.setString(2, Date.valueOf(student.getDob()));
+		 stmt.setDate(2, Date.valueOf(student.getDob()));
 		 stmt.setString(3,student.getDistrict());
 		 stmt.setString(4, student.getCounty());
 		 stmt.setString(5,student.getSubcounty());
@@ -67,7 +66,7 @@ public List <Student> getAllStudents(){
  try(Connection conn = DatabaseConnector.getConnection();
 		 PreparedStatement stmt = conn.prepareStatement(query)){
 	 stmt.setString(1,student.getFullName());
-	 stmt.setString(2, Date.valueOf(student.getDob()));
+	 stmt.setDate(2, Date.valueOf(student.getDob()));
 	 stmt.setString(3,student.getDistrict());
 	 stmt.setString(4, student.getCounty());
 	 stmt.setString(5,student.getSubcounty());
