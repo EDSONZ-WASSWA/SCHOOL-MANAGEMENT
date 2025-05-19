@@ -1,16 +1,25 @@
-package com.nursing.management.controllers;
 
-import javafx.fxml.FXML;
-import javafx.scene.Scene;
-import javafx.scene.control.*;
+
+package com.nursing.management.controllers;
+import java.io.IOException;
+
+import com.nursing.management.dao.StudentDAO;
+import com.nursing.management.models.Student;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.scene.control.cell.PropertyValueFactory;
-import com.nursing.management.models.Student;
-import com.nursing.management.dao.StudentDAO;
-import javafx.stage.Stage;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import java.io.IOException;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableColumnBase;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 
 
 public class StudentListController {
@@ -30,7 +39,7 @@ public class StudentListController {
     private String currentCategory;
 
 
-    /*The initialisation method that loads up the table with data from the backend.
+    /*The initialization method that loads up the table with data from the backend.
     This method is called automatically when the FXML loads.
     This also contains the method that search functionality with the options of
     case sensitivity and the id search
