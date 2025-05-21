@@ -7,7 +7,8 @@
 
 /* Dashboard Styles */
 .dashboard {
-    -fx-background-color: linear-gradient(to bottom right, #f5f7fa, #e4e8eb);
+    -fx-background-color: linear-gradient(to bottom right, #f5f7fa, #cddfec);
+    -fx-padding:3;
 }
 
 .title-label {
@@ -25,7 +26,7 @@
 }
 
 .button {
-    -fx-background-color: #00d2ff;
+    -fx-background-color:  #07892e;
     -fx-text-fill: black;
     -fx-font-weight: bold;
     -fx-background-radius: 5;
@@ -34,16 +35,16 @@
 }
 
 .button:hover {
-    -fx-background-color: #3a7bd5;
+    -fx-background-color:  #3f483f;
     -fx-text-fill: white;
     -fx-cursor: hand;
 }
 
 /* Form Styles */
 .form-title {
-    -fx-font-size: 20px;
+    -fx-font-size: 35px;
     -fx-font-weight: bold;
-    -fx-text-fill: #2c3e50;
+    -fx-text-fill: #07892e;
     -fx-padding: 0 0 15 0;
 }
 
@@ -65,7 +66,7 @@
     -fx-background-color: white;
     -fx-border-color: #bdc3c7;
     -fx-border-width: 1;
-    -fx-background-radius: 3;
+    -fx-background-radius: 5;
 }
 
 .table-view .column-header {
@@ -93,9 +94,9 @@
 /* Tab Pane Styles */
 .tab-pane {
     -fx-background-color: white;
-    -fx-border-color: #bdc3c7;
-    -fx-border-width: 1;
-    -fx-background-radius: 3;
+    -fx-border-color: #026103;
+    -fx-border-width: 1.5;
+    -fx-background-radius: 15;
 }
 
 .tab {
@@ -124,21 +125,23 @@
     -fx-background-color: #2980b9;
 }
 
+.pane{
+	-fx-background-color: linear-gradient(to bottom right, #a8e48c, #a8e48c);
+    -fx-padding:3;
+    -fx-border-radius:10;
+    -fx-border-width: 1.5;
+    -fx-border-color: #f2f4f1;
+}
+
 /* Utility Classes */
 .highlight-box {
     -fx-background-color: white;
-    -fx-background-radius: 5;
+    -fx-background-radius: 10;
     -fx-border-radius: 5;
-    -fx-border-color: #e0e0e0;
+    -fx-border-color: #026103;
     -fx-border-width: 1;
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.05), 5, 0, 0, 2);
-    -fx-padding: 15;
+    -fx-padding: 2;
 }
 
-/* Responsive Adjustments */
-@media (max-width: 800px) {
-    .dashboard .button {
-        -fx-pref-width: 200px;
-        -fx-padding: 10 5;
-    }
-}
+
