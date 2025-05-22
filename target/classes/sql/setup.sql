@@ -10,11 +10,16 @@ CREATE TABLE users (
 
 -- Students table
 CREATE TABLE students (
-    student_id INT PRIMARY KEY AUTO_INCREMENT,
+    student_id UNIQUE INT PRIMARY KEY AUTO_INCREMENT,+
     full_name VARCHAR(100) NOT NULL,
     dob DATE NOT NULL,
-    district VARCHAR(50),
+    district VARCHAR(50) NOT NULL,
     -- Other fields...
+    county VARCHAR(50) NOT NULL,
+    subcounty VARCHAR(50) NOT NULL,
+    village VARCHAR(50) NOT NULL,
+    contacts VARCHAR(10) NOT NULL,
+    nin VARCHAR(14) UNIQUE NOT NULL,
 );
 
 -- Age calculation trigger
