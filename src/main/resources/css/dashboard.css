@@ -64,12 +64,12 @@
 
 /* For Buttons */
 .button {
-    -fx-background-color: transparent;
+  /*   -fx-background-color: transparent;*/
      /* Gradient Background (Dark Blue) */
     /*-fx-background-color: linear-gradient(to bottom right, #1a237e, #0d47a1);*/
     
     /* Text & Font */
-    -fx-text-fill: white;
+    -fx-text-fill: #07058c;
     -fx-font-weight: bold;
     -fx-font-size: 14px;
     
