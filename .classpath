@@ -37,5 +37,7 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/javaFX"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Awsome"/>
+	<classpathentry kind="lib" path="E:/JAVA_WORKSPACE/fontawesomefx-commons-9.1.2.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

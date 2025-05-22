@@ -7,7 +7,12 @@
   <description>This project manages student records using JavaFX and Maven.</description>
   
 <dependencies>
-    <dependency>
+<dependency>
+   <groupId>de.jensd</groupId>
+   <artifactId>fontawesomefx</artifactId>
+   <version>8.0.0</version>
+</dependency>  
+<dependency>
         <groupId>org.openjfx</groupId>
         <artifactId>javafx-controls</artifactId>
         <version>17.0.2</version>
