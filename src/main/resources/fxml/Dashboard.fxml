@@ -274,7 +274,7 @@
                         </BarChart>
                      </children>
                   </AnchorPane>
-                  <AnchorPane layoutX="-60.8" layoutY="6.4" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="643.2" prefWidth="1027.2" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <AnchorPane layoutX="-60.8" layoutY="6.4" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="643.2" prefWidth="1027.2" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
                         <Pane layoutX="-5.6" layoutY="29.0" prefHeight="633.5999999999999" prefWidth="1017.5999999999999" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
@@ -326,16 +326,6 @@
                                     </Button>
                                     <FontAwesomeIconView fill="WHITE" glyphName="TRASH" layoutX="1145.0" layoutY="53.0" size="30" />
                                     <FontAwesomeIconView fill="WHITE" glyphName="EDIT" layoutX="1093.0" layoutY="55.0" size="30" />
-                                    <Button alignment="CENTER_RIGHT" layoutX="984.0" layoutY="22.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="55.0" stylesheets="@../css/dashboard.css">
-                                       <font>
-                                          <Font name="Tahoma Bold" size="13.0" />
-                                       </font>
-                                       <styleClass>
-                                          <String fx:value="buttons" />
-                                          <String fx:value="anchorPane" />
-                                       </styleClass>
-                                    </Button>
-                                    <FontAwesomeIconView fill="WHITE" glyphName="EDIT" layoutX="996.0" layoutY="58.0" size="30" />
                                  </children>
                               </Pane>
                               <Pane accessibleRole="SCROLL_PANE" layoutY="88.0" prefHeight="507.0" prefWidth="1253.0" styleClass="anchorPane">
@@ -368,7 +358,7 @@
                      <children>
                         <ScrollPane fitToWidth="true" hbarPolicy="NEVER" layoutY="-3.200000047683716" prefHeight="898.4" prefWidth="1544.0" stylesheets="@../css/dashboard.css" vbarPolicy="ALWAYS" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <content>
-                              <Pane prefHeight="900.0" prefWidth="1660.8000000000002" styleClass="choice-box" stylesheets="@../css/style.css">
+                              <Pane prefHeight="900.0" prefWidth="1257.0" styleClass="choice-box" stylesheets="@../css/style.css">
                                  <children>
                                     <Label layoutX="430.0" layoutY="6.0" text="REGESTRATION FORM">
                                        <font>
@@ -385,23 +375,27 @@
                                           <Font size="13.0" />
                                        </font>
                                     </Label>
-                                    <TextField layoutX="84.0" layoutY="59.0" prefHeight="26.0" prefWidth="144.0" styleClass="text_Fields" stylesheets="@../css/style.css">
+                                    <TextField layoutX="84.0" layoutY="59.0" prefHeight="26.0" prefWidth="144.0" stylesheets="@../css/dashboardDesign.css">
                                        <font>
                                           <Font size="13.0" />
                                        </font>
+                                       <styleClass>
+                                          <String fx:value="textfield" />
+                                          <String fx:value="text_Fields" />
+                                       </styleClass>
                                     </TextField>
                                     <Label layoutX="243.0" layoutY="65.0" text="Middle Name">
                                        <font>
                                           <Font size="13.0" />
                                        </font>
                                     </Label>
-                                    <TextField layoutX="323.0" layoutY="50.0" prefHeight="26.0" prefWidth="144.0" styleClass="text_Fields" stylesheets="@../css/style.css" />
+                                    <TextField layoutX="328.0" layoutY="50.0" prefHeight="26.0" prefWidth="144.0" styleClass="textfield" stylesheets="@../css/dashboardDesign.css" />
                                     <Label layoutX="487.0" layoutY="65.0" text="Last Name:">
                                        <font>
                                           <Font size="13.0" />
                                        </font>
                                     </Label>
-                                    <TextField layoutX="553.0" layoutY="50.0" prefHeight="26.0" prefWidth="144.0" />
+                                    <TextField layoutX="558.0" layoutY="50.0" prefHeight="26.0" prefWidth="144.0" styleClass="textfield" stylesheets="@../css/dashboardDesign.css" />
                                     <Label layoutX="709.0" layoutY="65.0" text="D.O.B">
                                        <font>
                                           <Font size="13.0" />
@@ -412,55 +406,55 @@
                                           <Font size="13.0" />
                                        </font>
                                     </Label>
-                                    <TextField layoutX="978.0" layoutY="51.0" prefHeight="26.0" prefWidth="144.0" />
+                                    <TextField layoutX="983.0" layoutY="51.0" prefHeight="26.0" prefWidth="144.0" styleClass="textfield" stylesheets="@../css/dashboardDesign.css" />
                                     <Label layoutX="1135.0" layoutY="65.0" text="AGE:">
                                        <font>
                                           <Font size="13.0" />
                                        </font>
                                     </Label>
-                                    <TextField layoutX="1165.0" layoutY="50.0" prefHeight="26.0" prefWidth="35.0" />
+                                    <TextField layoutX="1170.0" layoutY="50.0" prefHeight="26.0" prefWidth="35.0" styleClass="textfield" stylesheets="@../css/dashboardDesign.css" />
                                     <Label layoutX="14.0" layoutY="104.0" text="District">
                                        <font>
                                           <Font size="13.0" />
                                        </font>
                                     </Label>
-                                    <TextField layoutX="70.0" layoutY="89.0" prefHeight="30.0" prefWidth="157.0" />
+                                    <TextField layoutX="75.0" layoutY="89.0" prefHeight="30.0" prefWidth="157.0" styleClass="textfield" stylesheets="@../css/dashboardDesign.css" />
                                     <Label layoutX="243.0" layoutY="104.0" text="Sub County">
                                        <font>
                                           <Font size="13.0" />
                                        </font>
                                     </Label>
-                                    <TextField layoutX="317.0" layoutY="89.0" prefHeight="30.0" prefWidth="156.0" />
+                                    <TextField layoutX="322.0" layoutY="89.0" prefHeight="30.0" prefWidth="156.0" styleClass="textfield" stylesheets="@../css/dashboardDesign.css" />
                                     <Label layoutX="487.0" layoutY="104.0" text="County:">
                                        <font>
                                           <Font size="13.0" />
                                        </font>
                                     </Label>
-                                    <TextField layoutX="536.0" layoutY="89.0" prefHeight="30.0" prefWidth="161.0" />
+                                    <TextField layoutX="541.0" layoutY="89.0" prefHeight="30.0" prefWidth="161.0" styleClass="textfield" stylesheets="@../css/dashboardDesign.css" />
                                     <Label layoutX="706.0" layoutY="104.0" text="Parish:">
                                        <font>
                                           <Font size="13.0" />
                                        </font>
                                     </Label>
-                                    <TextField layoutX="750.0" layoutY="89.0" prefHeight="30.0" prefWidth="175.0" />
+                                    <TextField layoutX="755.0" layoutY="89.0" prefHeight="30.0" prefWidth="175.0" styleClass="textfield" stylesheets="@../css/dashboardDesign.css" />
                                     <Label layoutX="938.0" layoutY="104.0" text="Village">
                                        <font>
                                           <Font size="13.0" />
                                        </font>
                                     </Label>
-                                    <TextField layoutX="982.0" layoutY="89.0" prefHeight="26.0" prefWidth="144.0" />
+                                    <TextField layoutX="987.0" layoutY="89.0" prefHeight="26.0" prefWidth="144.0" styleClass="textfield" stylesheets="@../css/dashboardDesign.css" />
                                     <Label layoutX="14.0" layoutY="147.0" text="Phone Number:">
                                        <font>
                                           <Font size="13.0" />
                                        </font>
                                     </Label>
-                                    <TextField layoutX="104.0" layoutY="132.0" prefHeight="26.0" prefWidth="144.0" />
+                                    <TextField layoutX="109.0" layoutY="132.0" prefHeight="26.0" prefWidth="144.0" styleClass="textfield" stylesheets="@../css/dashboardDesign.css" />
                                     <Label layoutX="308.0" layoutY="147.0" text="Email:">
                                        <font>
                                           <Font size="13.0" />
                                        </font>
                                     </Label>
-                                    <TextField alignment="BOTTOM_LEFT" layoutX="343.0" layoutY="132.0" prefHeight="26.0" prefWidth="266.0" promptText="123@example.com">
+                                    <TextField alignment="BOTTOM_LEFT" layoutX="348.0" layoutY="132.0" prefHeight="26.0" prefWidth="266.0" promptText="123@example.com" styleClass="textfield" stylesheets="@../css/dashboardDesign.css">
                                        <font>
                                           <Font size="13.0" />
                                        </font>
@@ -476,110 +470,110 @@
                                           <Font size="13.0" />
                                        </font>
                                     </Label>
-                                    <TextField layoutX="127.0" layoutY="201.0" prefHeight="26.0" prefWidth="186.0" />
+                                    <TextField layoutX="132.0" layoutY="201.0" prefHeight="26.0" prefWidth="186.0" styleClass="textfield" stylesheets="@../css/dashboardDesign.css" />
                                     <Label layoutX="320.0" layoutY="216.0" text="NIN:">
                                        <font>
                                           <Font size="13.0" />
                                        </font>
                                     </Label>
-                                    <TextField alignment="BOTTOM_LEFT" layoutX="351.0" layoutY="203.0" prefHeight="26.0" prefWidth="177.0" />
+                                    <TextField alignment="BOTTOM_LEFT" layoutX="356.0" layoutY="203.0" prefHeight="26.0" prefWidth="177.0" styleClass="textfield" stylesheets="@../css/dashboardDesign.css" />
                                     <Label layoutX="536.0" layoutY="216.0" text="District:">
                                        <font>
                                           <Font size="13.0" />
                                        </font>
                                     </Label>
-                                    <TextField layoutX="585.0" layoutY="203.0" prefHeight="26.0" prefWidth="161.0" />
+                                    <TextField layoutX="585.0" layoutY="203.0" prefHeight="26.0" prefWidth="161.0" styleClass="textfield" stylesheets="@../css/dashboardDesign.css" />
                                     <Label layoutX="757.0" layoutY="217.0" text="County:">
                                        <font>
                                           <Font size="13.0" />
                                        </font>
                                     </Label>
-                                    <TextField layoutX="810.0" layoutY="202.0" prefHeight="26.0" prefWidth="167.0" />
+                                    <TextField layoutX="810.0" layoutY="202.0" prefHeight="26.0" prefWidth="167.0" styleClass="textfield" stylesheets="@../css/dashboardDesign.css" />
                                     <Label layoutX="996.0" layoutY="216.0" text="Parish:">
                                        <font>
                                           <Font size="13.0" />
                                        </font>
                                     </Label>
-                                    <TextField layoutX="1035.0" layoutY="204.0" prefHeight="26.0" prefWidth="201.0" />
+                                    <TextField layoutX="1035.0" layoutY="204.0" prefHeight="26.0" prefWidth="201.0" styleClass="textfield" stylesheets="@../css/dashboardDesign.css" />
                                     <Label layoutX="322.0" layoutY="248.0" text="Phone Contact:">
                                        <font>
                                           <Font size="13.0" />
                                        </font>
                                     </Label>
-                                    <TextField layoutX="418.0" layoutY="235.0" prefHeight="26.0" prefWidth="139.0" />
+                                    <TextField layoutX="418.0" layoutY="235.0" prefHeight="26.0" prefWidth="139.0" styleClass="textfield" stylesheets="@../css/dashboardDesign.css" />
                                     <Label layoutX="567.0" layoutY="248.0" text="Phone Contact">
                                        <font>
                                           <Font size="13.0" />
                                        </font>
                                     </Label>
-                                    <TextField alignment="BOTTOM_LEFT" layoutX="658.0" layoutY="235.0" prefHeight="26.0" prefWidth="173.0" />
+                                    <TextField alignment="BOTTOM_LEFT" layoutX="658.0" layoutY="235.0" prefHeight="26.0" prefWidth="173.0" styleClass="textfield" stylesheets="@../css/dashboardDesign.css" />
                                     <Label layoutX="841.0" layoutY="248.0" text="Email:">
                                        <font>
                                           <Font size="13.0" />
                                        </font>
                                     </Label>
-                                    <TextField layoutX="882.0" layoutY="235.0" prefHeight="26.0" prefWidth="267.0" />
+                                    <TextField layoutX="882.0" layoutY="235.0" prefHeight="26.0" prefWidth="267.0" styleClass="textfield" stylesheets="@../css/dashboardDesign.css" />
                                     <Label layoutX="21.0" layoutY="248.0" text="Village:">
                                        <font>
                                           <Font size="13.0" />
                                        </font>
                                     </Label>
-                                    <TextField layoutX="72.0" layoutY="235.0" prefHeight="26.0" prefWidth="237.0" />
+                                    <TextField layoutX="77.0" layoutY="235.0" prefHeight="26.0" prefWidth="237.0" styleClass="textfield" stylesheets="@../css/dashboardDesign.css" />
                                     <Label layoutX="25.0" layoutY="302.0" text="Guardian's Name:">
                                        <font>
                                           <Font size="13.0" />
                                        </font>
                                     </Label>
-                                    <TextField layoutX="133.0" layoutY="289.0" prefHeight="26.0" prefWidth="186.0" />
+                                    <TextField layoutX="133.0" layoutY="289.0" prefHeight="26.0" prefWidth="186.0" styleClass="textfield" stylesheets="@../css/dashboardDesign.css" />
                                     <Label layoutX="326.0" layoutY="304.0" text="NIN:">
                                        <font>
                                           <Font size="13.0" />
                                        </font>
                                     </Label>
-                                    <TextField alignment="BOTTOM_LEFT" layoutX="357.0" layoutY="291.0" prefHeight="26.0" prefWidth="177.0" />
+                                    <TextField alignment="BOTTOM_LEFT" layoutX="357.0" layoutY="291.0" prefHeight="26.0" prefWidth="177.0" styleClass="textfield" stylesheets="@../css/dashboardDesign.css" />
                                     <Label layoutX="542.0" layoutY="304.0" text="District:">
                                        <font>
                                           <Font size="13.0" />
                                        </font>
                                     </Label>
-                                    <TextField layoutX="591.0" layoutY="291.0" prefHeight="26.0" prefWidth="161.0" />
+                                    <TextField layoutX="591.0" layoutY="291.0" prefHeight="26.0" prefWidth="161.0" styleClass="textfield" stylesheets="@../css/dashboardDesign.css" />
                                     <Label layoutX="763.0" layoutY="305.0" text="County:">
                                        <font>
                                           <Font size="13.0" />
                                        </font>
                                     </Label>
-                                    <TextField layoutX="816.0" layoutY="290.0" prefHeight="26.0" prefWidth="167.0" />
+                                    <TextField layoutX="816.0" layoutY="290.0" prefHeight="26.0" prefWidth="167.0" styleClass="textfield" stylesheets="@../css/dashboardDesign.css" />
                                     <Label layoutX="1002.0" layoutY="304.0" text="Parish:">
                                        <font>
                                           <Font size="13.0" />
                                        </font>
                                     </Label>
-                                    <TextField layoutX="1041.0" layoutY="292.0" prefHeight="26.0" prefWidth="201.0" />
+                                    <TextField layoutX="1041.0" layoutY="292.0" prefHeight="26.0" prefWidth="201.0" styleClass="textfield" stylesheets="@../css/dashboardDesign.css" />
                                     <Label layoutX="328.0" layoutY="336.0" text="Phone Contact:">
                                        <font>
                                           <Font size="13.0" />
                                        </font>
                                     </Label>
-                                    <TextField layoutX="424.0" layoutY="323.0" prefHeight="26.0" prefWidth="139.0" />
+                                    <TextField layoutX="424.0" layoutY="323.0" prefHeight="26.0" prefWidth="139.0" styleClass="textfield" stylesheets="@../css/dashboardDesign.css" />
                                     <Label layoutX="573.0" layoutY="336.0" text="Phone Contact">
                                        <font>
                                           <Font size="13.0" />
                                        </font>
                                     </Label>
-                                    <TextField alignment="BOTTOM_LEFT" layoutX="664.0" layoutY="323.0" prefHeight="26.0" prefWidth="173.0" />
+                                    <TextField alignment="BOTTOM_LEFT" layoutX="664.0" layoutY="323.0" prefHeight="26.0" prefWidth="173.0" styleClass="textfield" stylesheets="@../css/dashboardDesign.css" />
                                     <Label layoutX="847.0" layoutY="336.0" text="Email:">
                                        <font>
                                           <Font size="13.0" />
                                        </font>
                                     </Label>
-                                    <TextField layoutX="888.0" layoutY="323.0" prefHeight="26.0" prefWidth="267.0" />
+                                    <TextField layoutX="888.0" layoutY="323.0" prefHeight="26.0" prefWidth="267.0" styleClass="textfield" stylesheets="@../css/dashboardDesign.css" />
                                     <Label layoutX="27.0" layoutY="336.0" text="Village:">
                                        <font>
                                           <Font size="13.0" />
                                        </font>
                                     </Label>
-                                    <TextField layoutX="78.0" layoutY="323.0" prefHeight="26.0" prefWidth="237.0" />
-                                    <TextField layoutX="749.0" layoutY="52.0" prefHeight="26.0" prefWidth="177.0" />
+                                    <TextField layoutX="78.0" layoutY="323.0" prefHeight="26.0" prefWidth="237.0" styleClass="textfield" stylesheets="@../css/dashboardDesign.css" />
+                                    <TextField layoutX="754.0" layoutY="52.0" prefHeight="26.0" prefWidth="177.0" styleClass="textfield" stylesheets="@../css/dashboardDesign.css" />
                                     <Separator layoutX="7.0" layoutY="364.0" prefHeight="3.0" prefWidth="1265.0" />
                                     <Label layoutX="9.0" layoutY="367.0" text="ACADEMICS" underline="true">
                                        <font>
@@ -596,33 +590,33 @@
                                           <Font name="Times New Roman Bold Italic" size="14.0" />
                                        </font>
                                     </Label>
-                                    <TextField layoutX="105.0" layoutY="404.0" prefHeight="26.0" prefWidth="186.0" />
+                                    <TextField layoutX="105.0" layoutY="404.0" prefHeight="26.0" prefWidth="186.0" styleClass="textfield" stylesheets="@../css/dashboardDesign.css" />
                                     <Label layoutX="451.0" layoutY="416.0" text="A'Level Results">
                                        <font>
                                           <Font size="13.0" />
                                        </font>
                                     </Label>
-                                    <TextField alignment="BOTTOM_LEFT" layoutX="537.0" layoutY="403.0" prefHeight="26.0" prefWidth="177.0" />
+                                    <TextField alignment="BOTTOM_LEFT" layoutX="537.0" layoutY="403.0" prefHeight="26.0" prefWidth="177.0" styleClass="textfield" stylesheets="@../css/dashboardDesign.css" />
                                     <Label layoutX="13.0" layoutY="440.0" text="Previous Nursing course if applicable">
                                        <font>
                                           <Font name="Times New Roman Bold Italic" size="14.0" />
                                        </font>
                                     </Label>
-                                    <TextField layoutX="11.0" layoutY="464.0" prefHeight="26.0" prefWidth="420.0" promptText="Enter the previous course..." />
+                                    <TextField layoutX="11.0" layoutY="464.0" prefHeight="26.0" prefWidth="420.0" promptText="Enter the previous course..." styleClass="textfield" stylesheets="@../css/dashboardDesign.css" />
                                     <Label layoutX="456.0" layoutY="477.0" text="Year of complition" />
-                                    <TextField alignment="BOTTOM_LEFT" layoutX="578.0" layoutY="465.0" prefHeight="26.0" prefWidth="82.0" />
+                                    <TextField alignment="BOTTOM_LEFT" layoutX="578.0" layoutY="465.0" prefHeight="26.0" prefWidth="82.0" styleClass="textfield" stylesheets="@../css/dashboardDesign.css" />
                                     <Label layoutX="757.0" layoutY="416.0" text="Semester">
                                        <font>
                                           <Font size="13.0" />
                                        </font>
                                     </Label>
-                                    <TextField alignment="BOTTOM_LEFT" layoutX="816.0" layoutY="407.0" prefHeight="26.0" prefWidth="107.0" />
-                                    <Label layoutX="977.0" layoutY="416.0" text="NSIN Number:">
+                                    <TextField alignment="BOTTOM_LEFT" layoutX="816.0" layoutY="407.0" prefHeight="26.0" prefWidth="107.0" styleClass="textfield" stylesheets="@../css/dashboardDesign.css" />
+                                    <Label layoutX="951.0" layoutY="416.0" text="NSIN Number:">
                                        <font>
                                           <Font size="13.0" />
                                        </font>
                                     </Label>
-                                    <TextField layoutX="1061.0" layoutY="407.0" prefHeight="26.0" prefWidth="203.0" />
+                                    <TextField layoutX="1035.0" layoutY="407.0" prefHeight="26.0" prefWidth="203.0" styleClass="textfield" stylesheets="@../css/dashboardDesign.css" />
                                     <Separator layoutX="4.0" layoutY="511.0" prefHeight="3.0" prefWidth="1265.0" />
                                     <Label layoutX="17.0" layoutY="607.0" text="Any known Medical Conditions?">
                                        <font>
@@ -634,44 +628,44 @@
                                           <Font size="13.0" />
                                        </font>
                                     </Label>
-                                    <TextField layoutX="151.0" layoutY="534.0" prefHeight="26.0" prefWidth="236.0" />
+                                    <TextField layoutX="151.0" layoutY="534.0" prefHeight="26.0" prefWidth="236.0" styleClass="textfield" stylesheets="@../css/dashboardDesign.css" />
                                     <Label layoutX="411.0" layoutY="547.0" text="Phone Contacts:">
                                        <font>
                                           <Font size="13.0" />
                                        </font>
                                     </Label>
-                                    <TextField layoutX="511.0" layoutY="535.0" prefHeight="26.0" prefWidth="167.0" promptText="contact 1" />
-                                    <TextField layoutX="511.0" layoutY="559.0" prefHeight="26.0" prefWidth="167.0" promptText="contact 2" />
+                                    <TextField layoutX="511.0" layoutY="535.0" prefHeight="26.0" prefWidth="167.0" promptText="contact 1" styleClass="textfield" stylesheets="@../css/dashboardDesign.css" />
+                                    <TextField layoutX="511.0" layoutY="559.0" prefHeight="26.0" prefWidth="167.0" promptText="contact 2" styleClass="textfield" stylesheets="@../css/dashboardDesign.css" />
                                     <Label layoutX="744.0" layoutY="547.0" text="Relationship to the Student">
                                        <font>
                                           <Font size="13.0" />
                                        </font>
                                     </Label>
-                                    <TextField layoutX="911.0" layoutY="534.0" prefHeight="26.0" prefWidth="165.0" />
+                                    <TextField layoutX="911.0" layoutY="534.0" prefHeight="26.0" prefWidth="165.0" styleClass="textfield" stylesheets="@../css/dashboardDesign.css" />
                                     <Label layoutX="23.0" layoutY="528.0" text="Incase of Emergency, whom should we call?">
                                        <font>
                                           <Font name="Times New Roman Bold" size="14.0" />
                                        </font>
                                     </Label>
-                                    <TextField layoutX="231.0" layoutY="593.0" prefHeight="26.0" prefWidth="236.0" />
+                                    <TextField layoutX="231.0" layoutY="593.0" prefHeight="26.0" prefWidth="236.0" styleClass="textfield" stylesheets="@../css/dashboardDesign.css" />
                                     <Label layoutX="489.0" layoutY="605.0" text="The current medication">
                                        <font>
                                           <Font size="13.0" />
                                        </font>
                                     </Label>
-                                    <TextField layoutX="629.0" layoutY="592.0" prefHeight="26.0" prefWidth="633.0" />
+                                    <TextField layoutX="629.0" layoutY="592.0" prefHeight="26.0" prefWidth="633.0" styleClass="textfield" stylesheets="@../css/dashboardDesign.css" />
                                     <Label layoutX="17.0" layoutY="642.0" text="Physician Contact(If any)">
                                        <font>
                                           <Font name="Tahoma Bold" size="13.0" />
                                        </font>
                                     </Label>
-                                    <TextField layoutX="191.0" layoutY="627.0" prefHeight="26.0" prefWidth="189.0" />
+                                    <TextField layoutX="191.0" layoutY="627.0" prefHeight="26.0" prefWidth="189.0" styleClass="textfield" stylesheets="@../css/dashboardDesign.css" />
                                     <Label layoutX="406.0" layoutY="644.0" text="Do you have any emergency procedures? ">
                                        <font>
                                           <Font name="Times New Roman Bold" size="14.0" />
                                        </font>
                                     </Label>
-                                    <TextField layoutX="667.0" layoutY="633.0" prefHeight="30.0" prefWidth="457.0" />
+                                    <TextField layoutX="667.0" layoutY="633.0" prefHeight="30.0" prefWidth="457.0" styleClass="textfield" stylesheets="@../css/dashboardDesign.css" />
                                     <Label layoutX="23.0" layoutY="683.0" text="Do you have any special needs or accormodation requirments?">
                                        <font>
                                           <Font name="Times New Roman Bold" size="14.0" />
@@ -700,25 +694,35 @@
                                        </font>
                                     </Button>
                                     <FontAwesomeIconView glyphName="EDIT" layoutX="617.0" layoutY="872.0" size="30" />
-                                    <Button alignment="CENTER_RIGHT" layoutX="448.0" layoutY="837.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="107.0" stylesheets="@../css/dashboard.css" text="SAVE">
+                                    <Button alignment="CENTER_RIGHT" layoutX="448.0" layoutY="837.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="107.0" styleClass="add-btn" stylesheets="@../css/dashboard.css" text="SAVE">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
                                     </Button>
                                     <FontAwesomeIconView glyphName="SAVE" layoutX="454.0" layoutY="871.0" size="30" />
-                                    <Button alignment="CENTER_RIGHT" layoutX="758.0" layoutY="837.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="107.0" stylesheets="@../css/dashboard.css" text="DELETE">
+                                    <Button alignment="CENTER_RIGHT" layoutX="758.0" layoutY="837.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="107.0" styleClass="delete-btn" stylesheets="@../css/dashboard.css" text="DELETE">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
                                     </Button>
                                     <FontAwesomeIconView glyphName="TRASH" layoutX="762.0" layoutY="871.0" size="30" />
+                                    <Label layoutX="709.0" layoutY="142.0" text="Religion">
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField alignment="BOTTOM_LEFT" layoutX="758.0" layoutY="135.0" prefHeight="26.0" prefWidth="175.0">
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                    </TextField>
                                  </children>
                               </Pane>
                            </content>
                         </ScrollPane>
                      </children>
                   </AnchorPane>
-                  <AnchorPane layoutX="198.4" layoutY="8.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="643.2" prefWidth="1027.2" styleClass="highlight-box" stylesheets="@../css/style.css" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <AnchorPane layoutX="6.4" layoutY="6.4" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="660.0" prefWidth="1250.0" styleClass="highlight-box" stylesheets="@../css/style.css" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="7.0" AnchorPane.topAnchor="0.0">
                      <children>
                         <AnchorPane layoutX="-1.0" prefHeight="906.4" prefWidth="1654.4" styleClass="highlight-box" stylesheets="@../css/style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
@@ -755,11 +759,10 @@
                                     <Font name="Tahoma Bold" size="16.0" />
                                  </font>
                               </Label>
-                              <FontAwesomeIconView glyphName="PRINT" layoutX="1167.0" layoutY="47.0" size="30" styleClass="dashboard" />
                               <Button layoutX="1164.0" layoutY="19.0" mnemonicParsing="false" />
                               <Pane layoutX="25.0" layoutY="255.0" prefHeight="552.0" prefWidth="1628.0" styleClass="highlight-box" AnchorPane.bottomAnchor="100.20000000000005" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="2.200000000000273" AnchorPane.topAnchor="255.0">
                                  <children>
-                                    <TableView layoutX="1.0" layoutY="1.0" prefHeight="364.0" prefWidth="1237.0">
+                                    <TableView layoutX="-25.0" layoutY="1.0" prefHeight="364.0" prefWidth="1238.0">
                                       <columns>
                                         <TableColumn prefWidth="178.39998495578766" text="YEAR" />
                                         <TableColumn prefWidth="230.40000915527344" text="SEMESTER" />
@@ -769,13 +772,16 @@
                                           <TableColumn prefWidth="221.60003662109375" text="PAPER FOUR" />
                                       </columns>
                                     </TableView>
-                                    <Button alignment="CENTER" layoutX="436.0" layoutY="382.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="95.0" text="BACK" />
-                                    <Button alignment="CENTER" layoutX="568.0" layoutY="382.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="95.0" text="CLOSE" />
-                                    <FontAwesomeIconView glyphName="ARROW_LEFT" layoutX="442.0" layoutY="410.0" size="20" />
-                                    <FontAwesomeIconView glyphName="TIMES" layoutX="572.0" layoutY="410.0" size="20" />
                                  </children>
                               </Pane>
                               <Label layoutX="1167.0" layoutY="62.0" text="PRINT" />
+                              <Button alignment="CENTER" layoutX="1114.0" layoutY="21.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="42.0" />
+                              <FontAwesomeIconView fill="#fff7f7" glyphName="TIMES" layoutX="1127.0" layoutY="48.0" size="20" />
+                              <FontAwesomeIconView fill="#efebeb" glyphName="PRINT" layoutX="1172.0" layoutY="50.0" size="30" styleClass="dashboard" />
+                              <Label layoutX="1123.0" layoutY="62.0" text="EXIT" />
+                              <Button alignment="CENTER" layoutX="1062.0" layoutY="21.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="42.0" />
+                              <FontAwesomeIconView glyphName="ARROW_LEFT" layoutX="1066.0" layoutY="46.0" size="20" />
+                              <Label layoutX="1077.0" layoutY="63.0" text="BACK" />
                            </children>
                         </AnchorPane>
                      </children>
