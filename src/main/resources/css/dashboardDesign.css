@@ -115,7 +115,6 @@
 .textfield:focused{
     -fx-border-width:1px;
     -fx-background-color:#fff;
-   /*  -fx-background-color:linear-gradient(to bottom, #efefef, #eee);*/
 }
 
 .insert-btn{
@@ -190,13 +189,11 @@
 	-fx-text-fill:#fff;
 	-fx-font-family:"tahoma";
 	-fx-font-size:35px;
-	-fx-font-style:"bold";
 }
 
 .lable-white1{
 	-fx-text-fill:#fff;
 	-fx-font-family:"tahoma";
-	-fx-font-style:"bold";
 	-fx-font-size:16px;
 }
 

@@ -169,13 +169,13 @@
                      <children>
                         <AnchorPane layoutX="130.0" layoutY="75.0" prefHeight="574.4" prefWidth="1289.6" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
-                              <AnchorPane layoutX="86.0" layoutY="116.0" prefHeight="574.4" prefWidth="1289.6" stylesheets="@../css/dashboardDesign.css" AnchorPane.bottomAnchor="12.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="12.0">
+                              <AnchorPane layoutX="86.0" layoutY="116.0" prefHeight="574.4" prefWidth="1289.6" stylesheets="@../css/dashboardDesign.css" visible="false" AnchorPane.bottomAnchor="12.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="12.0">
                                  <styleClass>
                                     <String fx:value="shadow" />
                                     <String fx:value="white-bg" />
                                  </styleClass>
                                  <children>
-                                    <AnchorPane layoutX="83.0" layoutY="163.0" prefHeight="550.4" prefWidth="1265.6" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <AnchorPane layoutX="83.0" layoutY="163.0" prefHeight="550.4" prefWidth="1265.6" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                        <children>
                                           <AnchorPane layoutX="21.0" layoutY="8.0" prefHeight="498.0" prefWidth="1245.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="4.0" AnchorPane.rightAnchor="4.0" AnchorPane.topAnchor="4.0">
                                              <styleClass>
@@ -401,7 +401,7 @@
                                     </AnchorPane>
                                  </children>
                               </AnchorPane>
-                              <AnchorPane prefHeight="574.4" prefWidth="1289.6" stylesheets="@../css/dashboardDesign.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                              <AnchorPane prefHeight="574.4" prefWidth="1289.6" stylesheets="@../css/dashboardDesign.css" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <children>
                                     <AnchorPane layoutX="14.4" layoutY="15.0" prefHeight="156.0" prefWidth="1289.6" stylesheets="@../css/dashboardDesign.css" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="15.0">
                                        <children>
@@ -560,7 +560,7 @@
                               </AnchorPane>
                               <AnchorPane layoutX="53.0" layoutY="77.0" prefHeight="574.4" prefWidth="1289.6" stylesheets="@../css/dashboardDesign.css" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <children>
-                                    <AnchorPane layoutX="12.0" layoutY="14.0" prefHeight="565.0" prefWidth="458.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="8.0" AnchorPane.topAnchor="5.0">
+                                    <AnchorPane layoutX="12.0" layoutY="14.0" prefHeight="565.0" prefWidth="458.0" stylesheets="@../css/dashboardDesign.css" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="8.0" AnchorPane.topAnchor="5.0">
                                        <styleClass>
                                           <String fx:value="white-bg" />
                                           <String fx:value="shadow" />
@@ -572,9 +572,9 @@
                                                 <Font name="Tahoma Bold" size="15.0" />
                                              </font>
                                           </Label>
-                                          <TextField layoutX="107.0" layoutY="25.0" prefHeight="26.0" prefWidth="297.0" styleClass="textfield" />
+                                          <TextField layoutX="107.0" layoutY="25.0" prefHeight="26.0" prefWidth="297.0" styleClass="textfield" stylesheets="@../css/dashboardDesign.css" />
                                           <Label layoutX="11.0" layoutY="72.0" prefHeight="18.0" prefWidth="102.0" text="Student Name:" />
-                                          <TextField layoutX="108.0" layoutY="60.0" prefHeight="26.0" prefWidth="297.0" styleClass="textfield" />
+                                          <TextField layoutX="108.0" layoutY="60.0" prefHeight="26.0" prefWidth="297.0" styleClass="textfield" stylesheets="@../css/dashboardDesign.css" />
                                           <Label layoutX="11.0" layoutY="98.0" prefHeight="18.0" prefWidth="283.0" text="Enter students Grades basing on semester" />
                                           <Line endX="335.6000061035156" endY="-1.52587890625E-5" layoutX="113.0" layoutY="124.0" startX="-100.0" />
                                           <Label alignment="CENTER" layoutX="12.0" layoutY="133.0" prefHeight="18.0" prefWidth="426.0" text="YEAR ONE">
@@ -640,7 +640,7 @@
                                           <Label layoutX="125.0" layoutY="480.0" text="P4:" />
                                           <TextField layoutX="151.0" layoutY="470.0" prefHeight="26.0" prefWidth="50.0" styleClass="textfield" />
                                           <Label layoutX="125.0" layoutY="396.0" text="P2:" />
-                                          <TextField layoutX="151.0" layoutY="386.0" prefHeight="26.0" prefWidth="50.0" styleClass="textfield" />
+                                          <TextField layoutX="151.0" layoutY="386.0" prefHeight="26.0" prefWidth="50.0" styleClass="textfield" stylesheets="@../css/dashboardDesign.css" />
                                        </children>
                                     </AnchorPane>
                                     <AnchorPane layoutX="431.0" prefHeight="502.0" prefWidth="792.0" AnchorPane.bottomAnchor="68.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="5.0">
@@ -649,7 +649,7 @@
                                           <String fx:value="shadow" />
                                        </styleClass>
                                        <children>
-                                          <TextField layoutX="14.0" layoutY="8.0" prefHeight="26.0" prefWidth="311.0" promptText="Search Name or NSIN" styleClass="search" />
+                                          <TextField layoutX="14.0" layoutY="8.0" prefHeight="26.0" prefWidth="311.0" promptText="Search Name or NSIN" styleClass="search" stylesheets="@../css/dashboardDesign.css" />
                                           <ImageView fitHeight="18.0" fitWidth="20.0" layoutX="17.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
                                                 <Image url="@../images/people.png" />
@@ -687,7 +687,7 @@
                                           </TableView>
                                        </children>
                                     </AnchorPane>
-                                    <Button layoutX="593.0" layoutY="521.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="89.0" styleClass="clear-btn" text="EDIT">
+                                    <Button layoutX="593.0" layoutY="521.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="89.0" styleClass="clear-btn" stylesheets="@../css/dashboardDesign.css" text="EDIT">
                                        <graphic>
                                           <ImageView fitHeight="84.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
@@ -696,7 +696,7 @@
                                           </ImageView>
                                        </graphic>
                                     </Button>
-                                    <Button layoutX="713.0" layoutY="521.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="95.0" styleClass="delete-btn" text="DELETE">
+                                    <Button layoutX="713.0" layoutY="521.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="95.0" styleClass="delete-btn" stylesheets="@../css/dashboardDesign.css" text="DELETE">
                                        <graphic>
                                           <ImageView fitHeight="84.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
@@ -705,7 +705,165 @@
                                           </ImageView>
                                        </graphic>
                                     </Button>
-                                    <Button layoutX="838.0" layoutY="521.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="95.0" styleClass="add-btn" text="ADD">
+                                    <Button layoutX="838.0" layoutY="521.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="95.0" styleClass="add-btn" stylesheets="@../css/dashboardDesign.css" text="ADD">
+                                       <graphic>
+                                          <ImageView fitHeight="84.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../images/icons8-add-properties-50.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="574.4" prefWidth="1289.6" stylesheets="@../css/dashboardDesign.css">
+                                 <children>
+                                    <AnchorPane layoutX="12.0" layoutY="14.0" prefHeight="565.0" prefWidth="458.0" stylesheets="@../css/dashboardDesign.css" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="8.0" AnchorPane.topAnchor="5.0">
+                                       <styleClass>
+                                          <String fx:value="white-bg" />
+                                          <String fx:value="shadow" />
+                                       </styleClass>
+                                       <children>
+                                          <Label layoutX="10.0" layoutY="37.0" prefHeight="18.0" prefWidth="102.0" text="NSIN NUMBER:" />
+                                          <Label alignment="CENTER" layoutX="12.0" layoutY="4.0" prefHeight="18.0" prefWidth="426.0" text="GRADE SHEET">
+                                             <font>
+                                                <Font name="Tahoma Bold" size="15.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField layoutX="107.0" layoutY="25.0" prefHeight="26.0" prefWidth="297.0" styleClass="textfield" stylesheets="@../css/dashboardDesign.css" />
+                                          <Label layoutX="11.0" layoutY="72.0" prefHeight="18.0" prefWidth="102.0" text="Student Name:" />
+                                          <TextField layoutX="108.0" layoutY="60.0" prefHeight="26.0" prefWidth="297.0" styleClass="textfield" stylesheets="@../css/dashboardDesign.css" />
+                                          <Label layoutX="11.0" layoutY="98.0" prefHeight="18.0" prefWidth="283.0" text="Enter students Grades basing on semester" />
+                                          <Line endX="335.6000061035156" endY="-1.52587890625E-5" layoutX="113.0" layoutY="124.0" startX="-100.0" />
+                                          <Label alignment="CENTER" layoutX="12.0" layoutY="133.0" prefHeight="18.0" prefWidth="426.0" text="YEAR ONE">
+                                             <font>
+                                                <Font name="Tahoma Bold" size="15.0" />
+                                             </font>
+                                          </Label>
+                                          <Line endX="-99.99996948242188" endY="157.79998779296875" layoutX="325.0" layoutY="164.0" startX="-100.0" />
+                                          <Label alignment="CENTER" layoutX="17.0" layoutY="329.0" prefHeight="18.0" prefWidth="426.0" text="YEAR TWO">
+                                             <font>
+                                                <Font name="Tahoma Bold" size="15.0" />
+                                             </font>
+                                          </Label>
+                                          <Line endX="-99.99996948242188" endY="157.79998779296875" layoutX="325.0" layoutY="361.0" startX="-100.0" />
+                                          <Label alignment="CENTER" layoutX="12.0" layoutY="180.0" prefHeight="19.0" prefWidth="192.0" text="SEM 1" underline="true">
+                                             <font>
+                                                <Font name="Tahoma Bold" size="15.0" />
+                                             </font>
+                                          </Label>
+                                          <Label alignment="CENTER" layoutX="237.0" layoutY="180.0" prefHeight="19.0" prefWidth="192.0" text="SEM 2" underline="true">
+                                             <font>
+                                                <Font name="Tahoma Bold" size="15.0" />
+                                             </font>
+                                          </Label>
+                                          <Label alignment="CENTER" layoutX="256.0" layoutY="350.0" prefHeight="19.0" prefWidth="192.0" text="SEM 2">
+                                             <font>
+                                                <Font name="Tahoma Bold" size="15.0" />
+                                             </font>
+                                          </Label>
+                                          <Label alignment="CENTER" layoutX="16.0" layoutY="350.0" prefHeight="19.0" prefWidth="192.0" text="SEM 1" underline="true">
+                                             <font>
+                                                <Font name="Tahoma Bold" size="15.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="17.0" layoutY="209.0" text="P1:" />
+                                          <TextField layoutX="43.0" layoutY="199.0" prefHeight="26.0" prefWidth="50.0" styleClass="textfield" />
+                                          <Label layoutX="14.0" layoutY="297.0" text="P3:" />
+                                          <TextField layoutX="40.0" layoutY="287.0" prefHeight="26.0" prefWidth="50.0" styleClass="textfield" />
+                                          <Label layoutX="127.0" layoutY="292.0" text="P4:" />
+                                          <TextField layoutX="153.0" layoutY="282.0" prefHeight="26.0" prefWidth="50.0" styleClass="textfield" />
+                                          <Label layoutX="127.0" layoutY="208.0" text="P2:" />
+                                          <TextField layoutX="153.0" layoutY="198.0" prefHeight="26.0" prefWidth="50.0" styleClass="textfield" />
+                                          <Label layoutX="251.0" layoutY="219.0" text="P1:" />
+                                          <TextField layoutX="277.0" layoutY="209.0" prefHeight="26.0" prefWidth="50.0" styleClass="textfield" />
+                                          <Label layoutX="248.0" layoutY="307.0" text="P3:" />
+                                          <TextField layoutX="274.0" layoutY="297.0" prefHeight="26.0" prefWidth="50.0" styleClass="textfield" />
+                                          <Label layoutX="361.0" layoutY="302.0" text="P4:" />
+                                          <TextField layoutX="387.0" layoutY="292.0" prefHeight="26.0" prefWidth="50.0" styleClass="textfield" />
+                                          <Label layoutX="361.0" layoutY="218.0" text="P2:" />
+                                          <TextField layoutX="387.0" layoutY="208.0" prefHeight="26.0" prefWidth="50.0" styleClass="textfield" />
+                                          <Label layoutX="251.0" layoutY="392.0" text="P1:" />
+                                          <TextField layoutX="277.0" layoutY="382.0" prefHeight="26.0" prefWidth="50.0" styleClass="textfield" />
+                                          <Label layoutX="248.0" layoutY="480.0" text="P3:" />
+                                          <TextField layoutX="274.0" layoutY="470.0" prefHeight="26.0" prefWidth="50.0" styleClass="textfield" />
+                                          <Label layoutX="361.0" layoutY="475.0" text="P4:" />
+                                          <TextField layoutX="387.0" layoutY="465.0" prefHeight="26.0" prefWidth="50.0" styleClass="textfield" />
+                                          <Label layoutX="361.0" layoutY="391.0" text="P2:" />
+                                          <TextField layoutX="387.0" layoutY="381.0" prefHeight="26.0" prefWidth="50.0" styleClass="textfield" />
+                                          <Label layoutX="15.0" layoutY="397.0" text="P1:" />
+                                          <TextField layoutX="41.0" layoutY="387.0" prefHeight="26.0" prefWidth="50.0" styleClass="textfield" />
+                                          <Label layoutX="12.0" layoutY="485.0" text="P3:" />
+                                          <TextField layoutX="38.0" layoutY="475.0" prefHeight="26.0" prefWidth="50.0" styleClass="textfield" />
+                                          <Label layoutX="125.0" layoutY="480.0" text="P4:" />
+                                          <TextField layoutX="151.0" layoutY="470.0" prefHeight="26.0" prefWidth="50.0" styleClass="textfield" />
+                                          <Label layoutX="125.0" layoutY="396.0" text="P2:" />
+                                          <TextField layoutX="151.0" layoutY="386.0" prefHeight="26.0" prefWidth="50.0" styleClass="textfield" stylesheets="@../css/dashboardDesign.css" />
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane layoutX="431.0" prefHeight="502.0" prefWidth="792.0" stylesheets="@../css/dashboardDesign.css" AnchorPane.bottomAnchor="68.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="5.0">
+                                       <styleClass>
+                                          <String fx:value="white-bg" />
+                                          <String fx:value="shadow" />
+                                       </styleClass>
+                                       <children>
+                                          <TextField layoutX="14.0" layoutY="8.0" prefHeight="26.0" prefWidth="311.0" promptText="Search Name or NSIN" styleClass="search" stylesheets="@../css/dashboardDesign.css" />
+                                          <ImageView fitHeight="18.0" fitWidth="20.0" layoutX="17.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../images/people.png" />
+                                             </image>
+                                          </ImageView>
+                                          <TableView layoutX="6.0" layoutY="51.0" prefHeight="446.0" prefWidth="779.0">
+                                             <columns>
+                                                <TableColumn prefWidth="121.60000801086426" text="NSIN NUMBER" />
+                                                <TableColumn prefWidth="172.79998779296875" text="NAME" />
+                                                <TableColumn prefWidth="163.20001220703125" text="YEAR1/SEM 1">
+                                                   <columns>
+                                                      <TableColumn prefWidth="31.20001220703125" text="P1" />
+                                                      <TableColumn prefWidth="39.2000732421875" text="P2" />
+                                                      <TableColumn prefWidth="39.199951171875" text="P3" />
+                                                      <TableColumn prefWidth="36.0" text="P4" />
+                                                   </columns>
+                                                </TableColumn>
+                                                <TableColumn prefWidth="156.79995727539062" text="YEAR1/SEM2">
+                                                   <columns>
+                                                      <TableColumn prefWidth="35.199951171875" text="P1" />
+                                                      <TableColumn prefWidth="36.000030517578125" text="P2" />
+                                                      <TableColumn prefWidth="41.5999755859375" text="P3" />
+                                                      <TableColumn prefWidth="43.199951171875" text="P4" />
+                                                   </columns>
+                                                </TableColumn>
+                                                <TableColumn prefWidth="177.60002441406255" text="YEAR2/SEM1">
+                                                   <columns>
+                                                      <TableColumn prefWidth="44.0001220703125" text="P1" />
+                                                      <TableColumn prefWidth="35.9998779296875" text="P2" />
+                                                      <TableColumn prefWidth="43.2000732421875" text="P3" />
+                                                      <TableColumn prefWidth="34.4000244140625" text="P4" />
+                                                   </columns>
+                                                </TableColumn>
+                                             </columns>
+                                          </TableView>
+                                       </children>
+                                    </AnchorPane>
+                                    <Button layoutX="593.0" layoutY="521.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="89.0" styleClass="clear-btn" stylesheets="@../css/dashboardDesign.css" text="EDIT">
+                                       <graphic>
+                                          <ImageView fitHeight="84.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../images/icons8-clear-24.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                    <Button layoutX="713.0" layoutY="521.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="95.0" styleClass="delete-btn" stylesheets="@../css/dashboardDesign.css" text="DELETE">
+                                       <graphic>
+                                          <ImageView fitHeight="84.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../images/icons8-delete-48.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                    <Button layoutX="838.0" layoutY="521.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="95.0" styleClass="add-btn" stylesheets="@../css/dashboardDesign.css" text="ADD">
                                        <graphic>
                                           <ImageView fitHeight="84.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
