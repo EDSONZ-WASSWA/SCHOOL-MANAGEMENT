@@ -1,14 +1,4 @@
-/*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
-*/
-/* 
-    Created on : 09 21, 22, 4:12:17 PM
-    Author     : WINDOWS 10
-    Subscribe our Channel --> https://www.youtube.com/channel/UCPgcmw0LXToDn49akUEJBkQ
- * Thanks for the support guys! <3
-*/
+
 
 .top-form{
     -fx-background-color:#fff;
@@ -107,7 +97,7 @@ and open the template in the editor.
 }
 
 .textfield {
-    -fx-background-color: linear-gradient(to bottom, #efefef, #eee);
+    -fx-background-color: #fff;
     /* Set borders: top, right, left transparent; bottom with your gradient */
     -fx-border-color: transparent transparent linear-gradient(to bottom right, #272b3f, #256b51) transparent;
     /* Border widths: top, right, bottom, left */
