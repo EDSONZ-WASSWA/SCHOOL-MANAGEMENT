@@ -1,5 +1,42 @@
-//
-//package com.nursing.management.dao;
+
+package com.nursing.management.dao;
+import com.nursing.*;
+import java.net.URL;
+import java.util.ResourceBundle;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
+import javafx.scene.layout.AnchorPane;
+
+public class UserDAO implements Initializable {
+
+    @FXML
+    private Button close;
+public void close() {
+	System.exit(0);
+}
+    @FXML
+    private Button loginBtn;
+
+    @FXML
+    private AnchorPane main_form;
+
+    @FXML
+    private PasswordField password;
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}
+
+
+
+
+
 //import com.nursing.management.models.User;
 ///* Retrieves User records from the database.
 //- Retrieves User records from the database.
