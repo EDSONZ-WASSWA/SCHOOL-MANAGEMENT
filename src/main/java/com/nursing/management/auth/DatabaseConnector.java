@@ -7,7 +7,7 @@ public class DatabaseConnector {
 public static Connection connectDb() {
 	try {
 		class.forName("com.myql.jdbc.Driver");
-		Connection connect = DriverManager.getConnection("jdbc:mysql://localhost:")
+		Connection connect = DriverManager.getConnection("jdbc:mysql://localhost:");
 	}catch(Exception e) {
 		e.printStackTrace();
 	}
