@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import java.lang.String?>
-<?import java.net.URL?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.AreaChart?>
 <?import javafx.scene.chart.BarChart?>
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
@@ -19,802 +19,710 @@
 <?import javafx.scene.effect.Light.Distant?>
 <?import javafx.scene.effect.Lighting?>
 <?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.paint.Color?>
-<?import javafx.scene.paint.LinearGradient?>
-<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane layoutX="1.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1500.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <BorderPane layoutX="-4.8" layoutY="-0.8" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <top>
-            <AnchorPane prefHeight="124.0" prefWidth="1280.0" styleClass="highlight-box" stylesheets="@../css/style.css" BorderPane.alignment="CENTER">
-               <children>
-                  <AnchorPane layoutX="6.4" layoutY="9.600000000000001" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="124.0" prefWidth="1280.0" styleClass="highlight-box" stylesheets="@../css/style.css" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="1.0">
+      <AnchorPane prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <BorderPane layoutX="119.0" layoutY="55.0" prefHeight="700.0" prefWidth="1500.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <top>
+                  <AnchorPane prefHeight="125.0" prefWidth="1500.0" styleClass="semi-top-form" stylesheets="@../css/dashboardDesign.css" BorderPane.alignment="CENTER">
                      <children>
-                        <Label layoutX="166.0" layoutY="-7.0" prefHeight="54.0" prefWidth="529.0" stylesheets="@../css/style.css" text="RAKAI COMMUNITY SCHOOL OF NURSING" textAlignment="RIGHT" textFill="#07892e" AnchorPane.leftAnchor="350.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="-7.0">
-                           <font>
-                              <Font name="Times New Roman" size="40.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="490.0" layoutY="48.0" prefHeight="20.0" prefWidth="200.0" style="-fx-text-fill: red;" text="&quot;We Serve for Better Health&quot;" textFill="#d40f0c8c" AnchorPane.leftAnchor="650.0">
-                           <font>
-                              <Font name="System Bold Italic" size="14.0" />
-                           </font>
-                        </Label>
-                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="17.6" layoutY="67.0" prefHeight="34.0" prefWidth="1885.0" style="-fx-background-color: #07892e;" text="P.O. BOX 690113, Kyotera, Tel:+256 752 609 399/ +256 392 878 552  || Email: help@rcsn.info | Website:www.rcsn.info" textFill="#f4f2f2" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="9.0">
-                           <font>
-                              <Font name="Times New Roman Bold" size="16.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </AnchorPane>
-               </children>
-            </AnchorPane>
-         </top>
-         <left>
-            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="666.0" prefWidth="241.0" styleClass="nav-form" stylesheets="@../css/dashboardDesign.css" BorderPane.alignment="CENTER">
-               <BorderPane.margin>
-                  <Insets />
-               </BorderPane.margin>
-               <children>
-                  <AnchorPane layoutX="2.6" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="666.4" prefWidth="241.6" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="2.6" AnchorPane.rightAnchor="-2.5999999999999943" AnchorPane.topAnchor="0.0">
+                        <AnchorPane layoutX="63.0" layoutY="-37.0" prefHeight="125.6" prefWidth="1500.0" styleClass="top-form" stylesheets="@../css/dashboardDesign.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <ImageView fitHeight="116.0" fitWidth="154.0" layoutX="6.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/RCSN.jpg" />
+                                 </image>
+                              </ImageView>
+                              <Label alignment="CENTER" layoutX="184.0" layoutY="14.0" prefHeight="30.0" prefWidth="1286.0" styleClass="lable-head" text="RAKAI COMMUNITY SCHOOL OF NURSING" textFill="#18d13d">
+                                 <font>
+                                    <Font name="Times New Roman Bold" size="26.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" layoutX="658.0" layoutY="45.0" prefHeight="18.0" prefWidth="342.0" styleClass="lable-red" text="&quot;We Server for Better Health&quot;" textFill="#fc0000">
+                                 <font>
+                                    <Font name="System Bold Italic" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" layoutX="363.0" layoutY="70.0" prefHeight="20.0" prefWidth="953.0" text="P.O.Box 690113, Kyotera, Tel:0752609399 /0392878552 /0772672106" textFill="#0b0b0b">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" layoutX="373.0" layoutY="93.0" prefHeight="20.0" prefWidth="953.0" text="Email: help@rcsn.info | Website:www.rcsn.info" textFill="#0b0b0b">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Button layoutX="1427.0" layoutY="17.0" maxWidth="-Infinity" minWidth="9.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="9.0" styleClass="close" stylesheets="@../css/dashboardDesign.css" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="1.0" />
+                              <Button layoutX="1430.0" layoutY="9.0" minWidth="38.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="38.0" styleClass="close" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="2.0">
+                                 <graphic>
+                                    <ImageView accessibleRole="BUTTON" fitHeight="44.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" styleClass="close">
+                                       <image>
+                                          <Image url="@../images/close.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button layoutX="1392.0" layoutY="8.8" minWidth="45.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="45.0" styleClass="minimize" AnchorPane.topAnchor="2.0">
+                                 <graphic>
+                                    <ImageView fitHeight="31.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true" styleClass="minimize">
+                                       <image>
+                                          <Image url="@../images/icons8-horizontal-line-96.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                           </children>
+                        </AnchorPane>
+                     </children></AnchorPane>
+               </top>
+               <left>
+                  <AnchorPane prefHeight="989.0" prefWidth="210.0" BorderPane.alignment="CENTER">
                      <children>
-                        <Button alignment="CENTER" contentDisplay="CENTER" layoutX="48.0" layoutY="147.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="184.0" text="HOME" textFill="SNOW">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                           <stylesheets>
-                              <URL value="@../css/style.css" />
-                              <URL value="@../css/dashboardDesign.css" />
-                           </stylesheets>
+                        <AnchorPane layoutX="5.0" layoutY="106.4" prefHeight="575.0" prefWidth="210.0" stylesheets="@../css/dashboardDesign.css" AnchorPane.bottomAnchor="-3.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="2.0">
+                           <children>
+                              <ImageView fitHeight="100.0" fitWidth="95.0" layoutX="14.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/icons8-graduate-48.png" />
+                                 </image>
+                              </ImageView>
+                              <Label layoutX="3.0" layoutY="95.0" prefHeight="18.0" prefWidth="201.0" text="SCHOOL MANAGEMENT SYSTEM" textFill="WHITE">
+                                 <font>
+                                    <Font name="Tahoma Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" layoutX="120.0" layoutY="14.0" prefHeight="18.0" prefWidth="76.0" styleClass="lable-white1" text="ADMIN" textFill="WHITE">
+                                 <font>
+                                    <Font name="Tahoma Bold" size="13.0" />
+                                 </font>
+                              </Label>
+                              <Line endX="100.0" layoutX="103.0" layoutY="124.0" startX="-100.0" stroke="#faf5f5" />
+                              <Button layoutX="15.0" layoutY="137.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="186.0" styleClass="nav-btn" stylesheets="@../css/dashboardDesign.css" text="HOME">
+                                 <graphic>
+                                    <ImageView fitHeight="26.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/icons8-home-50.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button alignment="CENTER" layoutX="9.0" layoutY="190.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="193.0" styleClass="nav-btn" stylesheets="@../css/dashboardDesign.css" text="Regeister Students">
+                                 <graphic>
+                                    <ImageView fitHeight="26.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/icons8-students-50.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button alignment="CENTER" layoutX="9.0" layoutY="233.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="194.0" styleClass="nav-btn" stylesheets="@../css/dashboardDesign.css" text="Students List">
+                                 <graphic>
+                                    <ImageView fitHeight="26.0" fitWidth="61.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/icons8-list-24.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button alignment="CENTER" layoutX="8.0" layoutY="275.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="194.0" styleClass="nav-btn" stylesheets="@../css/dashboardDesign.css" text="Students Grade">
+                                 <graphic>
+                                    <ImageView fitHeight="26.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/icons8-security-pass-50.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button alignment="CENTER" layoutX="32.0" layoutY="508.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="103.0" stylesheets="@../css/dashboardDesign.css" text="Sign Out" AnchorPane.bottomAnchor="15.0">
+                                 <graphic>
+                                    <ImageView fitHeight="26.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/icons8-log-out-64.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <styleClass>
+                                    <String fx:value="logout" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                              </Button>
+                           </children>
                            <styleClass>
-                              <String fx:value="nav-btn" />
-                              <String fx:value="button" />
+                              <String fx:value="nav-form" />
+                              <String fx:value="shadow" />
                            </styleClass>
-                        </Button>
-                        <FontAwesomeIconView glyphName="HOME" layoutX="9.0" layoutY="181.0" size="29" text="" wrappingWidth="24.999996185302734">
-                           <fill>
-                              <LinearGradient endX="1.0" endY="1.0">
-                                 <stops>
-                                    <Stop>
-                                       <color>
-                                          <Color red="1.0" green="1.0" blue="1.0" />
-                                       </color>
-                                    </Stop>
-                                    <Stop offset="1.0">
-                                       <color>
-                                          <Color red="1.0" green="1.0" blue="1.0" />
-                                       </color>
-                                    </Stop>
-                                 </stops>
-                              </LinearGradient>
-                           </fill></FontAwesomeIconView>
-                        <Button alignment="CENTER" contentDisplay="CENTER" layoutX="48.0" layoutY="203.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="182.0" styleClass="nav-btn" text="REGISTER STUDENT" textFill="SNOW">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                           <stylesheets>
-                              <URL value="@../css/style.css" />
-                              <URL value="@../css/dashboardDesign.css" />
-                           </stylesheets>
-                        </Button>
-                        <FontAwesomeIconView fill="#fffcfc" glyphName="USER_PLUS" layoutX="8.0" layoutY="234.0" size="29" />
-                        <Button alignment="CENTER" contentDisplay="CENTER" layoutX="48.0" layoutY="254.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="186.0" styleClass="nav-btn" text="VIEW STUDENTS" textFill="SNOW">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                           <stylesheets>
-                              <URL value="@../css/style.css" />
-                              <URL value="@../css/dashboardDesign.css" />
-                           </stylesheets>
-                        </Button>
-                        <Button alignment="CENTER" contentDisplay="CENTER" layoutX="48.0" layoutY="310.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="186.0" styleClass="nav-btn" text="STUDENTS RESULTS" textFill="SNOW">
-                           <stylesheets>
-                              <URL value="@../css/style.css" />
-                              <URL value="@../css/dashboardDesign.css" />
-                           </stylesheets>
-                        </Button>
-                        <FontAwesomeIconView fill="WHITE" glyphName="USER_PLUS" layoutX="10.0" layoutY="341.0" size="29" />
-                        <FontAwesomeIconView fill="#fffafa" glyphName="LIST" layoutX="9.0" layoutY="289.0" size="28" />
-                        <Button layoutX="31.0" layoutY="606.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="48.0" styleClass="logout" stylesheets="@../css/dashboardDesign.css" />
-                        <Label layoutX="90.0" layoutY="618.0" text="SIGN OUT" textFill="WHITE">
-                           <font>
-                              <Font name="Arial Bold" size="13.0" />
-                           </font>
-                        </Label>
-                        <FontAwesomeIconView fill="#fffdfd" glyphName="SIGN_OUT" layoutX="41.0" layoutY="634.0" size="30" />
-                        <Label alignment="CENTER" layoutX="76.0" layoutY="18.0" prefHeight="31.0" prefWidth="146.0" styleClass="white-bg" text="ADMIN">
-                           <font>
-                              <Font name="Arial Bold" size="19.0" />
-                           </font>
-                        </Label>
-                     </children>
-                     <opaqueInsets>
-                        <Insets right="20.0" />
-                     </opaqueInsets>
-                  </AnchorPane>
-                  <FontAwesomeIconView fill="#f4f0f0" glyphName="USER" layoutX="14.0" layoutY="56.0" size="60" text="" />
-                  <Label alignment="CENTER" layoutX="12.0" layoutY="69.0" prefHeight="70.0" prefWidth="246.0" stylesheets="@../css/style.css" text="Welcome to the Students Data Management System" textFill="WHITE" wrapText="true">
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
-                  </Label>
-                  <Separator layoutX="9.0" layoutY="135.0" prefHeight="2.0" prefWidth="218.0" style="-fx-background-color: WHITE;" />
-                  <Label layoutX="15.0" layoutY="650.0" text="2025||CopyRights@trippleETechnologies" textFill="WHITE">
-                     <font>
-                        <Font name="Times New Roman Bold" size="10.0" />
-                     </font>
-                  </Label>
-               </children>
-               <effect>
-                  <Lighting>
-                     <bumpInput>
-                        <Shadow />
-                     </bumpInput>
-                     <light>
-                        <Light.Distant azimuth="360.0" elevation="111.06" />
-                     </light>
-                  </Lighting>
-               </effect>
-            </AnchorPane>
-         </left>
-         <center>
-            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="666.0" prefWidth="1260.0" BorderPane.alignment="CENTER">
-               <children>
-                  <AnchorPane layoutX="199.2" layoutY="8.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="643.2" prefWidth="1027.2" styleClass="shadow" stylesheets="@../css/dashboard.css" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <children>
-                        <Pane layoutX="29.0" layoutY="31.0" prefHeight="200.0" prefWidth="310.0" styleClass="card" stylesheets="@../css/dashboard.css">
-                           <children>
-                              <FontAwesomeIconView fill="WHITE" glyphName="FEMALE" layoutX="13.0" layoutY="62.0" size="60" styleClass="icons">
-                                 <selectionFill>
-                                    <LinearGradient endX="1.0" endY="0.6515151497089502" startX="0.6628788240028151" startY="0.2651515386321328">
-                                       <stops>
-                                          <Stop>
-                                             <color>
-                                                <Color />
-                                             </color>
-                                          </Stop>
-                                          <Stop offset="1.0">
-                                             <color>
-                                                <Color red="1.0" green="1.0" blue="1.0" />
-                                             </color>
-                                          </Stop>
-                                       </stops>
-                                    </LinearGradient>
-                                 </selectionFill>
-                              </FontAwesomeIconView>
-                              <Label layoutX="79.0" layoutY="21.0" prefHeight="39.0" prefWidth="191.0" text="Female Students">
-                                 <font>
-                                    <Font name="Tahoma Bold" size="22.0" />
-                                 </font>
-                              </Label>
-                              <Label alignment="CENTER" layoutX="49.0" layoutY="102.0" prefHeight="75.0" prefWidth="236.0" text="0" textAlignment="CENTER">
-                                 <font>
-                                    <Font name="Times New Roman Bold" size="68.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </Pane>
-                        <Pane layoutX="368.0" layoutY="28.0" prefHeight="200.0" prefWidth="310.0" styleClass="card" stylesheets="@../css/dashboard.css">
-                           <children>
-                              <FontAwesomeIconView fill="WHITE" glyphName="MALE" layoutX="13.0" layoutY="62.0" size="60" styleClass="icons">
-                                 <selectionFill>
-                                    <LinearGradient endX="1.0" endY="0.6515151497089502" startX="0.6628788240028151" startY="0.2651515386321328">
-                                       <stops>
-                                          <Stop>
-                                             <color>
-                                                <Color />
-                                             </color>
-                                          </Stop>
-                                          <Stop offset="1.0">
-                                             <color>
-                                                <Color red="1.0" green="1.0" blue="1.0" />
-                                             </color>
-                                          </Stop>
-                                       </stops>
-                                    </LinearGradient>
-                                 </selectionFill>
-                              </FontAwesomeIconView>
-                              <Label layoutX="79.0" layoutY="21.0" prefHeight="39.0" prefWidth="191.0" text="Male Students">
-                                 <font>
-                                    <Font name="Tahoma Bold" size="22.0" />
-                                 </font>
-                              </Label>
-                              <Label alignment="CENTER" layoutX="42.0" layoutY="103.0" prefHeight="75.0" prefWidth="236.0" text="0" textAlignment="CENTER">
-                                 <font>
-                                    <Font name="Times New Roman Bold" size="68.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </Pane>
-                        <Pane layoutX="700.0" layoutY="29.0" prefHeight="200.0" prefWidth="310.0" styleClass="card" stylesheets="@../css/dashboard.css">
-                           <children>
-                              <FontAwesomeIconView fill="WHITE" glyphName="FEMALE" layoutX="13.0" layoutY="62.0" size="60" styleClass="icons">
-                                 <selectionFill>
-                                    <LinearGradient endX="1.0" endY="0.6515151497089502" startX="0.6628788240028151" startY="0.2651515386321328">
-                                       <stops>
-                                          <Stop>
-                                             <color>
-                                                <Color />
-                                             </color>
-                                          </Stop>
-                                          <Stop offset="1.0">
-                                             <color>
-                                                <Color red="1.0" green="1.0" blue="1.0" />
-                                             </color>
-                                          </Stop>
-                                       </stops>
-                                    </LinearGradient>
-                                 </selectionFill>
-                              </FontAwesomeIconView>
-                              <Label layoutX="68.0" layoutY="22.0" prefHeight="39.0" prefWidth="230.0" text="Total Number Of Students">
-                                 <font>
-                                    <Font name="Tahoma Bold" size="16.0" />
-                                 </font>
-                              </Label>
-                              <Label alignment="CENTER" layoutX="42.0" layoutY="103.0" prefHeight="75.0" prefWidth="236.0" text="0" textAlignment="CENTER">
-                                 <font>
-                                    <Font name="Times New Roman Bold" size="68.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </Pane>
-                        <Separator layoutX="19.0" layoutY="253.0" prefHeight="14.0" prefWidth="1233.0" />
-                        <BarChart layoutX="17.0" layoutY="279.0" prefHeight="338.0" prefWidth="814.0" title="STUDENTS  DATA IN GRAPHS">
-                          <xAxis>
-                            <CategoryAxis label="STUDENTS PER EACH SET" side="BOTTOM" />
-                          </xAxis>
-                          <yAxis>
-                            <NumberAxis label="NUMBER OF STUDENTS" side="LEFT" />
-                          </yAxis>
-                        </BarChart>
+                        </AnchorPane>
                      </children>
                   </AnchorPane>
-                  <AnchorPane layoutX="-60.8" layoutY="6.4" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="643.2" prefWidth="1027.2" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               </left>
+               <center>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                      <children>
-                        <Pane layoutX="-5.6" layoutY="29.0" prefHeight="633.5999999999999" prefWidth="1017.5999999999999" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <AnchorPane layoutX="130.0" layoutY="75.0" prefHeight="574.4" prefWidth="1289.6" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
-                              <Pane layoutX="-1.0" prefHeight="85.0" prefWidth="1253.0" styleClass="anchorPane">
+                              <AnchorPane layoutX="86.0" layoutY="116.0" prefHeight="574.4" prefWidth="1289.6" stylesheets="@../css/dashboardDesign.css" AnchorPane.bottomAnchor="12.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="12.0">
+                                 <styleClass>
+                                    <String fx:value="shadow" />
+                                    <String fx:value="white-bg" />
+                                 </styleClass>
                                  <children>
-                                    <Label alignment="CENTER" contentDisplay="CENTER" layoutX="456.0" layoutY="12.0" prefHeight="44.0" prefWidth="405.0" text="STUDENTS INFORMATION" textFill="#1f8c04">
-                                       <font>
-                                          <Font name="Times New Roman Bold" size="24.0" />
-                                       </font>
-                                    </Label>
-                                    <Label layoutX="861.0" layoutY="26.0" text="SET: 25">
-                                       <font>
-                                          <Font size="15.0" />
-                                       </font>
-                                    </Label>
-                                    <TextField layoutX="18.0" layoutY="23.0" prefHeight="34.0" prefWidth="305.0" promptText="Search by NSIN" styleClass="anchorPane" stylesheets="@../css/dashboard.css">
-                                       <font>
-                                          <Font name="Tahoma Bold" size="12.0" />
-                                       </font>
-                                    </TextField>
-                                    <FontAwesomeIconView glyphName="SEARCH" layoutX="295.0" layoutY="50.0" size="30" />
-                                    <Button alignment="CENTER_RIGHT" layoutX="1191.0" layoutY="20.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="44.0" stylesheets="@../css/dashboard.css">
-                                       <font>
-                                          <Font name="Tahoma Bold" size="13.0" />
-                                       </font>
-                                       <styleClass>
-                                          <String fx:value="buttons" />
-                                          <String fx:value="anchorPane" />
-                                       </styleClass>
-                                    </Button>
-                                    <FontAwesomeIconView fill="WHITE" glyphName="PRINT" layoutX="1199.0" layoutY="54.0" size="30" text="" />
-                                    <Button alignment="CENTER_RIGHT" layoutX="1137.0" layoutY="20.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="42.0" stylesheets="@../css/dashboard.css">
-                                       <font>
-                                          <Font name="Tahoma Bold" size="13.0" />
-                                       </font>
-                                       <styleClass>
-                                          <String fx:value="buttons" />
-                                          <String fx:value="anchorPane" />
-                                       </styleClass>
-                                    </Button>
-                                    <Button alignment="CENTER_RIGHT" layoutX="1086.0" layoutY="22.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="40.0" stylesheets="@../css/dashboard.css">
-                                       <font>
-                                          <Font name="Tahoma Bold" size="13.0" />
-                                       </font>
-                                       <styleClass>
-                                          <String fx:value="buttons" />
-                                          <String fx:value="anchorPane" />
-                                       </styleClass>
-                                    </Button>
-                                    <FontAwesomeIconView fill="WHITE" glyphName="TRASH" layoutX="1145.0" layoutY="53.0" size="30" />
-                                    <FontAwesomeIconView fill="WHITE" glyphName="EDIT" layoutX="1093.0" layoutY="55.0" size="30" />
+                                    <AnchorPane layoutX="83.0" layoutY="163.0" prefHeight="550.4" prefWidth="1265.6" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <AnchorPane layoutX="21.0" layoutY="8.0" prefHeight="498.0" prefWidth="1245.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="4.0" AnchorPane.rightAnchor="4.0" AnchorPane.topAnchor="4.0">
+                                             <styleClass>
+                                                <String fx:value="white-bg" />
+                                                <String fx:value="shadow" />
+                                             </styleClass>
+                                             <children>
+                                                <ScrollPane layoutX="4.0" layoutY="316.8" prefHeight="173.0" prefWidth="1237.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="4.0" AnchorPane.rightAnchor="4.0" AnchorPane.topAnchor="317.0">
+                                                  <content>
+                                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="954.0" prefWidth="1220.0">
+                                                         <children>
+                                                            <Label layoutX="14.0" layoutY="46.0" prefHeight="18.0" prefWidth="73.0" text="First Name:" />
+                                                            <TextField layoutX="88.0" layoutY="32.0" prefHeight="26.0" prefWidth="155.0" styleClass="textfield" />
+                                                            <Label layoutX="251.0" layoutY="44.0" prefHeight="18.0" prefWidth="86.0" text="Middle Name:" />
+                                                            <TextField layoutX="336.0" layoutY="30.0" prefHeight="26.0" prefWidth="155.0" styleClass="textfield" />
+                                                            <Label layoutX="507.0" layoutY="39.0" prefHeight="18.0" prefWidth="73.0" text="Last Name:" />
+                                                            <TextField layoutX="581.0" layoutY="25.0" prefHeight="26.0" prefWidth="155.0" styleClass="textfield" />
+                                                            <Label layoutX="744.0" layoutY="37.0" prefHeight="18.0" prefWidth="58.0" text="Religion:" />
+                                                            <TextField layoutX="800.0" layoutY="25.0" prefHeight="26.0" prefWidth="155.0" styleClass="textfield" />
+                                                            <Label layoutX="968.0" layoutY="39.0" prefHeight="18.0" prefWidth="48.0" text="D.O.B:" />
+                                                            <DatePicker layoutX="1016.0" layoutY="31.0" prefHeight="29.0" prefWidth="187.0" promptText="Choose" styleClass="textfield" />
+                                                            <Label layoutX="17.0" layoutY="94.0" prefHeight="18.0" prefWidth="73.0" text="NIN NO." />
+                                                            <TextField layoutX="91.0" layoutY="80.0" prefHeight="26.0" prefWidth="155.0" styleClass="textfield" />
+                                                            <Label layoutX="254.0" layoutY="92.0" prefHeight="18.0" prefWidth="66.0" text="District" />
+                                                            <TextField layoutX="304.0" layoutY="78.0" prefHeight="26.0" prefWidth="169.0" styleClass="textfield" />
+                                                            <Label layoutX="491.0" layoutY="87.0" prefHeight="18.0" prefWidth="74.0" text="Sub County:" />
+                                                            <TextField layoutX="566.0" layoutY="73.0" prefHeight="26.0" prefWidth="173.0" styleClass="textfield" />
+                                                            <Label layoutX="747.0" layoutY="85.0" prefHeight="18.0" prefWidth="48.0" text="County:" />
+                                                            <TextField layoutX="798.0" layoutY="73.0" prefHeight="26.0" prefWidth="160.0" styleClass="textfield" />
+                                                            <Label layoutX="971.0" layoutY="87.0" prefHeight="18.0" prefWidth="48.0" text="Parish:" />
+                                                            <Label layoutX="16.0" layoutY="141.0" prefHeight="18.0" prefWidth="50.0" text="Contact:" />
+                                                            <TextField layoutX="72.0" layoutY="127.0" prefHeight="26.0" prefWidth="159.0" styleClass="textfield" />
+                                                            <Label layoutX="253.0" layoutY="139.0" prefHeight="18.0" prefWidth="41.0" text="Email:" />
+                                                            <TextField layoutX="291.0" layoutY="125.0" prefHeight="26.0" prefWidth="262.0" styleClass="textfield" />
+                                                            <Label alignment="CENTER" layoutX="99.0" layoutY="5.0" prefHeight="18.0" prefWidth="1062.0" text="REGISTRATION FORM" underline="true">
+                                                               <font>
+                                                                  <Font name="Times New Roman Bold" size="22.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <TextField layoutX="1019.0" layoutY="71.0" prefHeight="26.0" prefWidth="182.0" styleClass="textfield" />
+                                                            <Label alignment="CENTER" layoutX="17.0" layoutY="172.0" prefHeight="26.0" prefWidth="113.0" text="NEXT OF KIN" underline="true">
+                                                               <font>
+                                                                  <Font name="Times New Roman Bold" size="16.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label layoutX="14.0" layoutY="219.0" prefHeight="18.0" prefWidth="107.0" text="Guardians Name:" />
+                                                            <TextField layoutX="121.0" layoutY="206.0" prefHeight="26.0" prefWidth="229.0" styleClass="textfield" />
+                                                            <Label layoutX="371.0" layoutY="219.0" prefHeight="18.0" prefWidth="50.0" text="NIN NO:" />
+                                                            <TextField layoutX="423.0" layoutY="206.0" prefHeight="26.0" prefWidth="204.0" styleClass="textfield" />
+                                                            <Label layoutX="718.0" layoutY="263.0" prefHeight="18.0" prefWidth="44.0" text="Parish:" />
+                                                            <TextField layoutX="762.0" layoutY="251.0" prefHeight="26.0" prefWidth="155.0" styleClass="textfield" />
+                                                            <Label layoutX="637.0" layoutY="219.0" prefHeight="18.0" prefWidth="68.0" text="Contact 1:" />
+                                                            <TextField layoutX="705.0" layoutY="206.0" prefHeight="26.0" prefWidth="155.0" styleClass="textfield" />
+                                                            <Label layoutX="317.0" layoutY="313.0" prefHeight="18.0" prefWidth="73.0" text="Occupation:" />
+                                                            <TextField layoutX="391.0" layoutY="299.0" prefHeight="26.0" prefWidth="209.0" styleClass="textfield" />
+                                                            <Label layoutX="11.0" layoutY="267.0" prefHeight="18.0" prefWidth="66.0" text="District" />
+                                                            <TextField layoutX="61.0" layoutY="253.0" prefHeight="26.0" prefWidth="169.0" styleClass="textfield" />
+                                                            <Label layoutX="243.0" layoutY="265.0" prefHeight="18.0" prefWidth="74.0" text="Sub County:" />
+                                                            <TextField layoutX="318.0" layoutY="251.0" prefHeight="26.0" prefWidth="173.0" styleClass="textfield" />
+                                                            <Label layoutX="496.0" layoutY="262.0" prefHeight="18.0" prefWidth="48.0" text="County:" />
+                                                            <TextField layoutX="547.0" layoutY="250.0" prefHeight="26.0" prefWidth="160.0" styleClass="textfield" />
+                                                            <Label layoutX="930.0" layoutY="264.0" prefHeight="18.0" prefWidth="50.0" text="Village:" />
+                                                            <TextField layoutX="986.0" layoutY="250.0" prefHeight="26.0" prefWidth="159.0" styleClass="textfield" />
+                                                            <Label layoutX="11.0" layoutY="316.0" prefHeight="18.0" prefWidth="41.0" text="Email:" />
+                                                            <TextField layoutX="49.0" layoutY="302.0" prefHeight="26.0" prefWidth="248.0" styleClass="textfield" />
+                                                            <Label layoutX="878.0" layoutY="217.0" prefHeight="18.0" prefWidth="68.0" text="Contact 2:" />
+                                                            <TextField layoutX="946.0" layoutY="205.0" prefHeight="26.0" prefWidth="155.0" styleClass="textfield" />
+                                                            <Separator layoutX="23.0" layoutY="339.0" prefHeight="14.0" prefWidth="1155.0" />
+                                                            <Label layoutX="14.0" layoutY="360.0" prefHeight="18.0" prefWidth="107.0" text="Guardians Name:" />
+                                                            <TextField layoutX="121.0" layoutY="347.0" prefHeight="26.0" prefWidth="229.0" styleClass="textfield" />
+                                                            <Label layoutX="371.0" layoutY="360.0" prefHeight="18.0" prefWidth="50.0" text="NIN NO:" />
+                                                            <TextField layoutX="423.0" layoutY="347.0" prefHeight="26.0" prefWidth="204.0" styleClass="textfield" />
+                                                            <Label layoutX="718.0" layoutY="404.0" prefHeight="18.0" prefWidth="44.0" text="Parish:" />
+                                                            <TextField layoutX="762.0" layoutY="392.0" prefHeight="26.0" prefWidth="155.0" styleClass="textfield" />
+                                                            <Label layoutX="637.0" layoutY="360.0" prefHeight="18.0" prefWidth="68.0" text="Contact 1:" />
+                                                            <TextField layoutX="705.0" layoutY="347.0" prefHeight="26.0" prefWidth="155.0" styleClass="textfield" />
+                                                            <Label layoutX="317.0" layoutY="454.0" prefHeight="18.0" prefWidth="73.0" text="Occupation:" />
+                                                            <TextField layoutX="391.0" layoutY="440.0" prefHeight="26.0" prefWidth="209.0" styleClass="textfield" />
+                                                            <Label layoutX="11.0" layoutY="408.0" prefHeight="18.0" prefWidth="66.0" text="District" />
+                                                            <TextField layoutX="61.0" layoutY="394.0" prefHeight="26.0" prefWidth="169.0" styleClass="textfield" />
+                                                            <Label layoutX="243.0" layoutY="406.0" prefHeight="18.0" prefWidth="74.0" text="Sub County:" />
+                                                            <TextField layoutX="318.0" layoutY="392.0" prefHeight="26.0" prefWidth="173.0" styleClass="textfield" />
+                                                            <Label layoutX="496.0" layoutY="403.0" prefHeight="18.0" prefWidth="48.0" text="County:" />
+                                                            <TextField layoutX="547.0" layoutY="391.0" prefHeight="26.0" prefWidth="160.0" styleClass="textfield" />
+                                                            <Label layoutX="930.0" layoutY="405.0" prefHeight="18.0" prefWidth="50.0" text="Village:" />
+                                                            <TextField layoutX="986.0" layoutY="391.0" prefHeight="26.0" prefWidth="159.0" styleClass="textfield" />
+                                                            <Label layoutX="11.0" layoutY="457.0" prefHeight="18.0" prefWidth="41.0" text="Email:" />
+                                                            <TextField layoutX="49.0" layoutY="443.0" prefHeight="26.0" prefWidth="248.0" styleClass="textfield" />
+                                                            <Label layoutX="878.0" layoutY="358.0" prefHeight="18.0" prefWidth="68.0" text="Contact 2:" />
+                                                            <TextField layoutX="946.0" layoutY="346.0" prefHeight="26.0" prefWidth="155.0" styleClass="textfield" />
+                                                            <Label alignment="CENTER" layoutX="11.0" layoutY="482.0" prefHeight="26.0" prefWidth="113.0" text="ACCADEMICS" underline="true">
+                                                               <font>
+                                                                  <Font name="Times New Roman Bold" size="16.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label layoutX="132.0" layoutY="486.0" prefHeight="18.0" prefWidth="190.0" text="(Enter details where applicable)">
+                                                               <font>
+                                                                  <Font size="13.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label layoutX="16.0" layoutY="531.0" prefHeight="18.0" prefWidth="66.0" text="NSIN NO:" />
+                                                            <TextField layoutX="90.0" layoutY="517.0" prefHeight="26.0" prefWidth="209.0" styleClass="textfield" />
+                                                            <Label layoutX="320.0" layoutY="529.0" prefHeight="18.0" prefWidth="66.0" text="NSIN NO:" />
+                                                            <TextField layoutX="394.0" layoutY="515.0" prefHeight="26.0" prefWidth="209.0" styleClass="textfield" />
+                                                            <Label layoutX="619.0" layoutY="528.0" prefHeight="18.0" prefWidth="90.0" text="A-Level Points:" />
+                                                            <TextField layoutX="713.0" layoutY="517.0" prefHeight="26.0" prefWidth="58.0" styleClass="textfield" />
+                                                            <Label layoutX="814.0" layoutY="527.0" prefHeight="18.0" prefWidth="102.0" text="O-Level Results:" />
+                                                            <TextField layoutX="914.0" layoutY="518.0" prefHeight="26.0" prefWidth="59.0" styleClass="textfield" />
+                                                            <Label layoutX="18.0" layoutY="562.0" text="Have you ever done any previous Nursing Course?">
+                                                               <font>
+                                                                  <Font name="Tahoma" size="13.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label layoutX="320.0" layoutY="561.0" prefHeight="18.0" prefWidth="144.0" text="(If yes, name it and year)">
+                                                               <font>
+                                                                  <Font name="System Bold Italic" size="12.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <TextField layoutX="16.0" layoutY="579.0" prefHeight="26.0" prefWidth="450.0" promptText="Name the course.." styleClass="textfield" />
+                                                            <TextField layoutX="606.0" layoutY="580.0" prefHeight="26.0" prefWidth="68.0" styleClass="textfield" />
+                                                            <Label layoutX="486.0" layoutY="589.0" prefHeight="18.0" prefWidth="119.0" text="Year of Complition" />
+                                                            <Label layoutX="19.0" layoutY="619.0" prefHeight="18.0" prefWidth="227.0" text="Incase of Emergency, who do we call?">
+                                                               <font>
+                                                                  <Font name="System Bold Italic" size="12.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label layoutX="14.0" layoutY="650.0" prefHeight="18.0" prefWidth="85.0" text="Full Names:" />
+                                                            <TextField layoutX="97.0" layoutY="637.0" prefHeight="26.0" prefWidth="254.0" styleClass="textfield" />
+                                                            <Label layoutX="364.0" layoutY="650.0" prefHeight="18.0" prefWidth="102.0" text="Phone Contacts:" />
+                                                            <TextField layoutX="464.0" layoutY="637.0" prefHeight="26.0" prefWidth="134.0" promptText="Contact i" styleClass="textfield" />
+                                                            <TextField layoutX="606.0" layoutY="637.0" prefHeight="26.0" prefWidth="134.0" promptText="Contact i" styleClass="textfield" />
+                                                            <Label layoutX="795.0" layoutY="654.0" prefHeight="18.0" prefWidth="81.0" text="Relationship:" />
+                                                            <TextField layoutX="875.0" layoutY="640.0" prefHeight="26.0" prefWidth="189.0" styleClass="textfield" />
+                                                            <Label layoutX="16.0" layoutY="681.0" prefHeight="18.0" prefWidth="122.0" text="Physicians contact:" />
+                                                            <TextField layoutX="190.0" layoutY="671.0" prefHeight="26.0" prefWidth="197.0" styleClass="textfield" />
+                                                            <Label layoutX="139.0" layoutY="681.0" prefHeight="18.0" prefWidth="47.0" text="&quot;If any&quot;">
+                                                               <font>
+                                                                  <Font name="System Bold Italic" size="12.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label layoutX="405.0" layoutY="682.0" prefHeight="18.0" prefWidth="159.0" text="Any Medical Conditions?" />
+                                                            <TextField layoutX="579.0" layoutY="672.0" prefHeight="26.0" prefWidth="351.0" styleClass="textfield" />
+                                                            <Label layoutX="17.0" layoutY="716.0" prefHeight="18.0" prefWidth="167.0" text="Any Current Medications?" />
+                                                            <TextField layoutX="175.0" layoutY="707.0" prefHeight="26.0" prefWidth="241.0" styleClass="textfield" />
+                                                            <Label layoutX="16.0" layoutY="830.0" prefHeight="18.0" prefWidth="370.0" text="Do you have any special needs or accomodation requirments?">
+                                                               <font>
+                                                                  <Font name="System Bold Italic" size="12.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label layoutX="17.0" layoutY="748.0" prefHeight="18.0" prefWidth="208.0" text="Any emergency procedures taken?">
+                                                               <font>
+                                                                  <Font name="System Bold" size="12.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <TextArea layoutX="11.0" layoutY="766.0" prefHeight="54.0" prefWidth="844.0" />
+                                                            <TextArea layoutX="11.0" layoutY="848.0" prefHeight="54.0" prefWidth="853.0" />
+                                                            <Label layoutX="749.0" layoutY="131.0" prefHeight="18.0" prefWidth="48.0" text="Gender:" />
+                                                            <ComboBox layoutX="814.0" layoutY="125.0" prefWidth="150.0" promptText="Choose" />
+                                                         </children>
+                                                         <styleClass>
+                                                            <String fx:value="white-bg" />
+                                                            <String fx:value="shadow" />
+                                                         </styleClass>
+                                                      </AnchorPane>
+                                                  </content>
+                                                   <styleClass>
+                                                      <String fx:value="white-bg" />
+                                                      <String fx:value="shadow" />
+                                                   </styleClass>
+                                                   <padding>
+                                                      <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                                   </padding>
+                                                </ScrollPane>
+                                                <Button layoutX="206.0" layoutY="528.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="106.0" styleClass="clear-btn" text="Clear" AnchorPane.bottomAnchor="5.0">
+                                                   <graphic>
+                                                      <ImageView fitHeight="76.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../images/icons8-clear-24.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </graphic>
+                                                </Button>
+                                                <Button layoutX="361.0" layoutY="528.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="106.0" styleClass="delete-btn" text="Delete" AnchorPane.bottomAnchor="5.0">
+                                                   <graphic>
+                                                      <ImageView fitHeight="28.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../images/icons8-delete-48.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </graphic>
+                                                </Button>
+                                                <Button layoutX="772.0" layoutY="529.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="106.0" styleClass="update-btn" text="Update" AnchorPane.bottomAnchor="5.0" />
+                                                <Button layoutX="922.0" layoutY="527.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="106.0" styleClass="add-btn" text="Add" AnchorPane.bottomAnchor="5.0" />
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane layoutX="15.0" layoutY="-7.2" prefHeight="278.0" prefWidth="1236.0" AnchorPane.topAnchor="20.0">
+                                             <styleClass>
+                                                <String fx:value="white-bg" />
+                                                <String fx:value="shadow" />
+                                             </styleClass>
+                                             <children>
+                                                <TextField layoutX="8.0" layoutY="6.0" prefHeight="26.0" prefWidth="230.0" promptText="Search here..." styleClass="search" />
+                                                <ImageView fitHeight="42.0" fitWidth="25.0" layoutX="7.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../images/people.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <TableView layoutX="11.0" layoutY="52.0" prefHeight="218.0" prefWidth="1218.0">
+                                                  <columns>
+                                                    <TableColumn prefWidth="180.79999542236328" text="NSIN NUMBER" />
+                                                    <TableColumn minWidth="0.0" prefWidth="240.00003051757812" text="First Name" />
+                                                      <TableColumn minWidth="0.0" prefWidth="199.19992065429688" text="Last Name" />
+                                                      <TableColumn minWidth="0.0" prefWidth="144.79998779296875" text="CONTACT" />
+                                                      <TableColumn minWidth="0.0" prefWidth="145.59991455078125" text="Gender" />
+                                                      <TableColumn minWidth="0.0" prefWidth="128.0" text="Date Of Birth" />
+                                                      <TableColumn minWidth="0.0" prefWidth="176.0" text="Religion" />
+                                                      <TableColumn minWidth="0.0" prefWidth="0.0" text="C2" />
+                                                  </columns>
+                                                </TableView>
+                                             </children>
+                                          </AnchorPane>
+                                       </children>
+                                    </AnchorPane>
                                  </children>
-                              </Pane>
-                              <Pane accessibleRole="SCROLL_PANE" layoutY="88.0" prefHeight="507.0" prefWidth="1253.0" styleClass="anchorPane">
+                              </AnchorPane>
+                              <AnchorPane prefHeight="574.4" prefWidth="1289.6" stylesheets="@../css/dashboardDesign.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <children>
-                                    <TableView layoutX="-1.0" prefHeight="574.0" prefWidth="1254.0" style="-fx-background-color: -fx-border-color:linear-gradient(to bottom right, #272b3f, #256b51);;" stylesheets="@../css/dashboardDesign.css">
-                                      <columns>
-                                        <TableColumn prefWidth="204.7999792098999" resizable="false" styleClass="dashboardDesign" text="NSIN" />
-                                        <TableColumn prefWidth="300.80006408691406" resizable="false" text="NAME" />
-                                          <TableColumn minWidth="0.0" prefWidth="71.199951171875" resizable="false" text="AGE" />
-                                          <TableColumn prefWidth="76.79998779296875" resizable="false" text="SEX" />
-                                          <TableColumn prefWidth="187.20001220703125" resizable="false" text="CONTACT" />
-                                          <TableColumn prefWidth="231.19989013671875" resizable="false" text="ADDRESS" />
-                                          <TableColumn prefWidth="198.4000244140625" resizable="false" text="RELIGION" />
-                                      </columns>
-                                       <padding>
-                                          <Insets bottom="2.0" left="2.0" />
-                                       </padding>
+                                    <AnchorPane layoutX="14.4" layoutY="15.0" prefHeight="156.0" prefWidth="1289.6" stylesheets="@../css/dashboardDesign.css" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="15.0">
+                                       <children>
+                                          <AnchorPane layoutX="33.0" layoutY="20.0" prefHeight="126.0" prefWidth="290.0" styleClass="card">
+                                             <effect>
+                                                <Lighting>
+                                                   <bumpInput>
+                                                      <Shadow />
+                                                   </bumpInput>
+                                                   <light>
+                                                      <Light.Distant azimuth="180.41" elevation="137.48" />
+                                                   </light>
+                                                </Lighting>
+                                             </effect>
+                                             <children>
+                                                <Label alignment="CENTER" layoutX="53.0" layoutY="88.0" prefHeight="20.0" prefWidth="222.0" styleClass="lable-white1" text="TOTAL POPULATION" textFill="WHITE">
+                                                   <font>
+                                                      <Font name="Tahoma Bold" size="13.0" />
+                                                   </font>
+                                                </Label>
+                                                <ImageView fitHeight="74.0" fitWidth="89.0" layoutX="9.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../images/icons8-people-80.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <Label alignment="TOP_RIGHT" layoutX="93.0" layoutY="14.0" prefHeight="20.0" prefWidth="184.0" styleClass="lable-white" text="0" textFill="WHITE">
+                                                   <font>
+                                                      <Font name="Tahoma Bold" size="13.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane layoutX="469.0" layoutY="20.0" prefHeight="126.0" prefWidth="290.0" styleClass="card">
+                                             <effect>
+                                                <Lighting>
+                                                   <bumpInput>
+                                                      <Shadow />
+                                                   </bumpInput>
+                                                   <light>
+                                                      <Light.Distant azimuth="249.77" elevation="279.5" />
+                                                   </light>
+                                                </Lighting>
+                                             </effect>
+                                             <children>
+                                                <Label alignment="CENTER" layoutX="55.0" layoutY="93.0" prefHeight="20.0" prefWidth="222.0" styleClass="lable-white1" text="FEMALE" textFill="WHITE">
+                                                   <font>
+                                                      <Font name="Tahoma Bold" size="13.0" />
+                                                   </font>
+                                                </Label>
+                                                <ImageView fitHeight="74.0" fitWidth="89.0" layoutX="9.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../images/icons8-woman-50.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <Label alignment="TOP_RIGHT" layoutX="95.0" layoutY="19.0" prefHeight="20.0" prefWidth="184.0" styleClass="lable-white" text="0" textFill="WHITE">
+                                                   <font>
+                                                      <Font name="Tahoma Bold" size="13.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane layoutX="950.0" layoutY="20.0" prefHeight="126.0" prefWidth="290.0" styleClass="card">
+                                             <effect>
+                                                <Lighting>
+                                                   <bumpInput>
+                                                      <Shadow />
+                                                   </bumpInput>
+                                                   <light>
+                                                      <Light.Distant azimuth="134.17" elevation="153.99" />
+                                                   </light>
+                                                </Lighting>
+                                             </effect>
+                                             <children>
+                                                <Label alignment="CENTER" layoutX="61.0" layoutY="85.0" prefHeight="20.0" prefWidth="222.0" styleClass="lable-white1" text="MALE" textFill="WHITE">
+                                                   <font>
+                                                      <Font name="Tahoma Bold" size="13.0" />
+                                                   </font>
+                                                </Label>
+                                                <ImageView fitHeight="74.0" fitWidth="89.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../images/icons8-man-in-a-tuxedo-64.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <Label alignment="TOP_RIGHT" layoutX="101.0" layoutY="11.0" prefHeight="20.0" prefWidth="184.0" styleClass="lable-white" text="0" textFill="WHITE">
+                                                   <font>
+                                                      <Font name="Tahoma Bold" size="13.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </AnchorPane>
+                                       </children>
+                                       <effect>
+                                          <Lighting>
+                                             <bumpInput>
+                                                <Shadow />
+                                             </bumpInput>
+                                             <light>
+                                                <Light.Distant />
+                                             </light>
+                                          </Lighting>
+                                       </effect>
                                        <styleClass>
-                                          <String fx:value="buttons" />
-                                          <String fx:value="row" />
+                                          <String fx:value="white-bg" />
+                                          <String fx:value="shadow" />
                                        </styleClass>
-                                    </TableView>
-                                 </children>
-                              </Pane>
-                           </children>
-                        </Pane>
-                     </children>
-                  </AnchorPane>
-                  <AnchorPane layoutX="223.2" layoutY="8.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="643.2" prefWidth="1027.2" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <children>
-                        <ScrollPane fitToWidth="true" hbarPolicy="NEVER" layoutY="-3.200000047683716" prefHeight="898.4" prefWidth="1544.0" stylesheets="@../css/dashboard.css" vbarPolicy="ALWAYS" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                           <content>
-                              <Pane prefHeight="900.0" prefWidth="1257.0" styleClass="choice-box" stylesheets="@../css/style.css">
-                                 <children>
-                                    <Label layoutX="430.0" layoutY="6.0" text="REGESTRATION FORM">
-                                       <font>
-                                          <Font name="Times New Roman Bold" size="25.0" />
-                                       </font>
-                                    </Label>
-                                    <Label layoutX="14.0" layoutY="35.0" text="STUDENTS INFORMATION" underline="true">
-                                       <font>
-                                          <Font name="Times New Roman Bold" size="15.0" />
-                                       </font>
-                                    </Label>
-                                    <Label layoutX="14.0" layoutY="65.0" text="FirstName:">
-                                       <font>
-                                          <Font size="13.0" />
-                                       </font>
-                                    </Label>
-                                    <TextField layoutX="84.0" layoutY="59.0" prefHeight="26.0" prefWidth="144.0" stylesheets="@../css/dashboardDesign.css">
-                                       <font>
-                                          <Font size="13.0" />
-                                       </font>
+                                    </AnchorPane>
+                                    <AnchorPane layoutX="26.0" layoutY="188.0" prefHeight="354.0" prefWidth="610.0">
                                        <styleClass>
-                                          <String fx:value="textfield" />
-                                          <String fx:value="text_Fields" />
+                                          <String fx:value="shadow" />
+                                          <String fx:value="white-bg" />
                                        </styleClass>
-                                    </TextField>
-                                    <Label layoutX="243.0" layoutY="65.0" text="Middle Name">
-                                       <font>
-                                          <Font size="13.0" />
-                                       </font>
-                                    </Label>
-                                    <TextField layoutX="328.0" layoutY="50.0" prefHeight="26.0" prefWidth="144.0" styleClass="textfield" stylesheets="@../css/dashboardDesign.css" />
-                                    <Label layoutX="487.0" layoutY="65.0" text="Last Name:">
-                                       <font>
-                                          <Font size="13.0" />
-                                       </font>
-                                    </Label>
-                                    <TextField layoutX="558.0" layoutY="50.0" prefHeight="26.0" prefWidth="144.0" styleClass="textfield" stylesheets="@../css/dashboardDesign.css" />
-                                    <Label layoutX="709.0" layoutY="65.0" text="D.O.B">
-                                       <font>
-                                          <Font size="13.0" />
-                                       </font>
-                                    </Label>
-                                    <Label layoutX="947.0" layoutY="65.0" text="NIN:">
-                                       <font>
-                                          <Font size="13.0" />
-                                       </font>
-                                    </Label>
-                                    <TextField layoutX="983.0" layoutY="51.0" prefHeight="26.0" prefWidth="144.0" styleClass="textfield" stylesheets="@../css/dashboardDesign.css" />
-                                    <Label layoutX="1135.0" layoutY="65.0" text="AGE:">
-                                       <font>
-                                          <Font size="13.0" />
-                                       </font>
-                                    </Label>
-                                    <TextField layoutX="1170.0" layoutY="50.0" prefHeight="26.0" prefWidth="35.0" styleClass="textfield" stylesheets="@../css/dashboardDesign.css" />
-                                    <Label layoutX="14.0" layoutY="104.0" text="District">
-                                       <font>
-                                          <Font size="13.0" />
-                                       </font>
-                                    </Label>
-                                    <TextField layoutX="75.0" layoutY="89.0" prefHeight="30.0" prefWidth="157.0" styleClass="textfield" stylesheets="@../css/dashboardDesign.css" />
-                                    <Label layoutX="243.0" layoutY="104.0" text="Sub County">
-                                       <font>
-                                          <Font size="13.0" />
-                                       </font>
-                                    </Label>
-                                    <TextField layoutX="322.0" layoutY="89.0" prefHeight="30.0" prefWidth="156.0" styleClass="textfield" stylesheets="@../css/dashboardDesign.css" />
-                                    <Label layoutX="487.0" layoutY="104.0" text="County:">
-                                       <font>
-                                          <Font size="13.0" />
-                                       </font>
-                                    </Label>
-                                    <TextField layoutX="541.0" layoutY="89.0" prefHeight="30.0" prefWidth="161.0" styleClass="textfield" stylesheets="@../css/dashboardDesign.css" />
-                                    <Label layoutX="706.0" layoutY="104.0" text="Parish:">
-                                       <font>
-                                          <Font size="13.0" />
-                                       </font>
-                                    </Label>
-                                    <TextField layoutX="755.0" layoutY="89.0" prefHeight="30.0" prefWidth="175.0" styleClass="textfield" stylesheets="@../css/dashboardDesign.css" />
-                                    <Label layoutX="938.0" layoutY="104.0" text="Village">
-                                       <font>
-                                          <Font size="13.0" />
-                                       </font>
-                                    </Label>
-                                    <TextField layoutX="987.0" layoutY="89.0" prefHeight="26.0" prefWidth="144.0" styleClass="textfield" stylesheets="@../css/dashboardDesign.css" />
-                                    <Label layoutX="14.0" layoutY="147.0" text="Phone Number:">
-                                       <font>
-                                          <Font size="13.0" />
-                                       </font>
-                                    </Label>
-                                    <TextField layoutX="109.0" layoutY="132.0" prefHeight="26.0" prefWidth="144.0" styleClass="textfield" stylesheets="@../css/dashboardDesign.css" />
-                                    <Label layoutX="308.0" layoutY="147.0" text="Email:">
-                                       <font>
-                                          <Font size="13.0" />
-                                       </font>
-                                    </Label>
-                                    <TextField alignment="BOTTOM_LEFT" layoutX="348.0" layoutY="132.0" prefHeight="26.0" prefWidth="266.0" promptText="123@example.com" styleClass="textfield" stylesheets="@../css/dashboardDesign.css">
-                                       <font>
-                                          <Font size="13.0" />
-                                       </font>
-                                    </TextField>
-                                    <Separator layoutX="14.0" layoutY="183.0" prefHeight="1.0" prefWidth="1239.0" />
-                                    <Label layoutX="16.0" layoutY="187.0" text="NEXT OF KIN" underline="true">
-                                       <font>
-                                          <Font name="Times New Roman Bold" size="15.0" />
-                                       </font>
-                                    </Label>
-                                    <Label layoutX="19.0" layoutY="214.0" text="Guardian's Name:">
-                                       <font>
-                                          <Font size="13.0" />
-                                       </font>
-                                    </Label>
-                                    <TextField layoutX="132.0" layoutY="201.0" prefHeight="26.0" prefWidth="186.0" styleClass="textfield" stylesheets="@../css/dashboardDesign.css" />
-                                    <Label layoutX="320.0" layoutY="216.0" text="NIN:">
-                                       <font>
-                                          <Font size="13.0" />
-                                       </font>
-                                    </Label>
-                                    <TextField alignment="BOTTOM_LEFT" layoutX="356.0" layoutY="203.0" prefHeight="26.0" prefWidth="177.0" styleClass="textfield" stylesheets="@../css/dashboardDesign.css" />
-                                    <Label layoutX="536.0" layoutY="216.0" text="District:">
-                                       <font>
-                                          <Font size="13.0" />
-                                       </font>
-                                    </Label>
-                                    <TextField layoutX="585.0" layoutY="203.0" prefHeight="26.0" prefWidth="161.0" styleClass="textfield" stylesheets="@../css/dashboardDesign.css" />
-                                    <Label layoutX="757.0" layoutY="217.0" text="County:">
-                                       <font>
-                                          <Font size="13.0" />
-                                       </font>
-                                    </Label>
-                                    <TextField layoutX="810.0" layoutY="202.0" prefHeight="26.0" prefWidth="167.0" styleClass="textfield" stylesheets="@../css/dashboardDesign.css" />
-                                    <Label layoutX="996.0" layoutY="216.0" text="Parish:">
-                                       <font>
-                                          <Font size="13.0" />
-                                       </font>
-                                    </Label>
-                                    <TextField layoutX="1035.0" layoutY="204.0" prefHeight="26.0" prefWidth="201.0" styleClass="textfield" stylesheets="@../css/dashboardDesign.css" />
-                                    <Label layoutX="322.0" layoutY="248.0" text="Phone Contact:">
-                                       <font>
-                                          <Font size="13.0" />
-                                       </font>
-                                    </Label>
-                                    <TextField layoutX="418.0" layoutY="235.0" prefHeight="26.0" prefWidth="139.0" styleClass="textfield" stylesheets="@../css/dashboardDesign.css" />
-                                    <Label layoutX="567.0" layoutY="248.0" text="Phone Contact">
-                                       <font>
-                                          <Font size="13.0" />
-                                       </font>
-                                    </Label>
-                                    <TextField alignment="BOTTOM_LEFT" layoutX="658.0" layoutY="235.0" prefHeight="26.0" prefWidth="173.0" styleClass="textfield" stylesheets="@../css/dashboardDesign.css" />
-                                    <Label layoutX="841.0" layoutY="248.0" text="Email:">
-                                       <font>
-                                          <Font size="13.0" />
-                                       </font>
-                                    </Label>
-                                    <TextField layoutX="882.0" layoutY="235.0" prefHeight="26.0" prefWidth="267.0" styleClass="textfield" stylesheets="@../css/dashboardDesign.css" />
-                                    <Label layoutX="21.0" layoutY="248.0" text="Village:">
-                                       <font>
-                                          <Font size="13.0" />
-                                       </font>
-                                    </Label>
-                                    <TextField layoutX="77.0" layoutY="235.0" prefHeight="26.0" prefWidth="237.0" styleClass="textfield" stylesheets="@../css/dashboardDesign.css" />
-                                    <Label layoutX="25.0" layoutY="302.0" text="Guardian's Name:">
-                                       <font>
-                                          <Font size="13.0" />
-                                       </font>
-                                    </Label>
-                                    <TextField layoutX="133.0" layoutY="289.0" prefHeight="26.0" prefWidth="186.0" styleClass="textfield" stylesheets="@../css/dashboardDesign.css" />
-                                    <Label layoutX="326.0" layoutY="304.0" text="NIN:">
-                                       <font>
-                                          <Font size="13.0" />
-                                       </font>
-                                    </Label>
-                                    <TextField alignment="BOTTOM_LEFT" layoutX="357.0" layoutY="291.0" prefHeight="26.0" prefWidth="177.0" styleClass="textfield" stylesheets="@../css/dashboardDesign.css" />
-                                    <Label layoutX="542.0" layoutY="304.0" text="District:">
-                                       <font>
-                                          <Font size="13.0" />
-                                       </font>
-                                    </Label>
-                                    <TextField layoutX="591.0" layoutY="291.0" prefHeight="26.0" prefWidth="161.0" styleClass="textfield" stylesheets="@../css/dashboardDesign.css" />
-                                    <Label layoutX="763.0" layoutY="305.0" text="County:">
-                                       <font>
-                                          <Font size="13.0" />
-                                       </font>
-                                    </Label>
-                                    <TextField layoutX="816.0" layoutY="290.0" prefHeight="26.0" prefWidth="167.0" styleClass="textfield" stylesheets="@../css/dashboardDesign.css" />
-                                    <Label layoutX="1002.0" layoutY="304.0" text="Parish:">
-                                       <font>
-                                          <Font size="13.0" />
-                                       </font>
-                                    </Label>
-                                    <TextField layoutX="1041.0" layoutY="292.0" prefHeight="26.0" prefWidth="201.0" styleClass="textfield" stylesheets="@../css/dashboardDesign.css" />
-                                    <Label layoutX="328.0" layoutY="336.0" text="Phone Contact:">
-                                       <font>
-                                          <Font size="13.0" />
-                                       </font>
-                                    </Label>
-                                    <TextField layoutX="424.0" layoutY="323.0" prefHeight="26.0" prefWidth="139.0" styleClass="textfield" stylesheets="@../css/dashboardDesign.css" />
-                                    <Label layoutX="573.0" layoutY="336.0" text="Phone Contact">
-                                       <font>
-                                          <Font size="13.0" />
-                                       </font>
-                                    </Label>
-                                    <TextField alignment="BOTTOM_LEFT" layoutX="664.0" layoutY="323.0" prefHeight="26.0" prefWidth="173.0" styleClass="textfield" stylesheets="@../css/dashboardDesign.css" />
-                                    <Label layoutX="847.0" layoutY="336.0" text="Email:">
-                                       <font>
-                                          <Font size="13.0" />
-                                       </font>
-                                    </Label>
-                                    <TextField layoutX="888.0" layoutY="323.0" prefHeight="26.0" prefWidth="267.0" styleClass="textfield" stylesheets="@../css/dashboardDesign.css" />
-                                    <Label layoutX="27.0" layoutY="336.0" text="Village:">
-                                       <font>
-                                          <Font size="13.0" />
-                                       </font>
-                                    </Label>
-                                    <TextField layoutX="78.0" layoutY="323.0" prefHeight="26.0" prefWidth="237.0" styleClass="textfield" stylesheets="@../css/dashboardDesign.css" />
-                                    <TextField layoutX="754.0" layoutY="52.0" prefHeight="26.0" prefWidth="177.0" styleClass="textfield" stylesheets="@../css/dashboardDesign.css" />
-                                    <Separator layoutX="7.0" layoutY="364.0" prefHeight="3.0" prefWidth="1265.0" />
-                                    <Label layoutX="9.0" layoutY="367.0" text="ACADEMICS" underline="true">
-                                       <font>
-                                          <Font name="Times New Roman Bold" size="15.0" />
-                                       </font>
-                                    </Label>
-                                    <Label layoutX="11.0" layoutY="416.0" text="O'Level Results">
-                                       <font>
-                                          <Font size="13.0" />
-                                       </font>
-                                    </Label>
-                                    <Label layoutX="9.0" layoutY="389.0" text="Enter accademic details where appropriate">
-                                       <font>
-                                          <Font name="Times New Roman Bold Italic" size="14.0" />
-                                       </font>
-                                    </Label>
-                                    <TextField layoutX="105.0" layoutY="404.0" prefHeight="26.0" prefWidth="186.0" styleClass="textfield" stylesheets="@../css/dashboardDesign.css" />
-                                    <Label layoutX="451.0" layoutY="416.0" text="A'Level Results">
-                                       <font>
-                                          <Font size="13.0" />
-                                       </font>
-                                    </Label>
-                                    <TextField alignment="BOTTOM_LEFT" layoutX="537.0" layoutY="403.0" prefHeight="26.0" prefWidth="177.0" styleClass="textfield" stylesheets="@../css/dashboardDesign.css" />
-                                    <Label layoutX="13.0" layoutY="440.0" text="Previous Nursing course if applicable">
-                                       <font>
-                                          <Font name="Times New Roman Bold Italic" size="14.0" />
-                                       </font>
-                                    </Label>
-                                    <TextField layoutX="11.0" layoutY="464.0" prefHeight="26.0" prefWidth="420.0" promptText="Enter the previous course..." styleClass="textfield" stylesheets="@../css/dashboardDesign.css" />
-                                    <Label layoutX="456.0" layoutY="477.0" text="Year of complition" />
-                                    <TextField alignment="BOTTOM_LEFT" layoutX="578.0" layoutY="465.0" prefHeight="26.0" prefWidth="82.0" styleClass="textfield" stylesheets="@../css/dashboardDesign.css" />
-                                    <Label layoutX="757.0" layoutY="416.0" text="Semester">
-                                       <font>
-                                          <Font size="13.0" />
-                                       </font>
-                                    </Label>
-                                    <TextField alignment="BOTTOM_LEFT" layoutX="816.0" layoutY="407.0" prefHeight="26.0" prefWidth="107.0" styleClass="textfield" stylesheets="@../css/dashboardDesign.css" />
-                                    <Label layoutX="951.0" layoutY="416.0" text="NSIN Number:">
-                                       <font>
-                                          <Font size="13.0" />
-                                       </font>
-                                    </Label>
-                                    <TextField layoutX="1035.0" layoutY="407.0" prefHeight="26.0" prefWidth="203.0" styleClass="textfield" stylesheets="@../css/dashboardDesign.css" />
-                                    <Separator layoutX="4.0" layoutY="511.0" prefHeight="3.0" prefWidth="1265.0" />
-                                    <Label layoutX="17.0" layoutY="607.0" text="Any known Medical Conditions?">
-                                       <font>
-                                          <Font name="Times New Roman Bold" size="14.0" />
-                                       </font>
-                                    </Label>
-                                    <Label layoutX="16.0" layoutY="547.0" text="Contact Person's Name">
-                                       <font>
-                                          <Font size="13.0" />
-                                       </font>
-                                    </Label>
-                                    <TextField layoutX="151.0" layoutY="534.0" prefHeight="26.0" prefWidth="236.0" styleClass="textfield" stylesheets="@../css/dashboardDesign.css" />
-                                    <Label layoutX="411.0" layoutY="547.0" text="Phone Contacts:">
-                                       <font>
-                                          <Font size="13.0" />
-                                       </font>
-                                    </Label>
-                                    <TextField layoutX="511.0" layoutY="535.0" prefHeight="26.0" prefWidth="167.0" promptText="contact 1" styleClass="textfield" stylesheets="@../css/dashboardDesign.css" />
-                                    <TextField layoutX="511.0" layoutY="559.0" prefHeight="26.0" prefWidth="167.0" promptText="contact 2" styleClass="textfield" stylesheets="@../css/dashboardDesign.css" />
-                                    <Label layoutX="744.0" layoutY="547.0" text="Relationship to the Student">
-                                       <font>
-                                          <Font size="13.0" />
-                                       </font>
-                                    </Label>
-                                    <TextField layoutX="911.0" layoutY="534.0" prefHeight="26.0" prefWidth="165.0" styleClass="textfield" stylesheets="@../css/dashboardDesign.css" />
-                                    <Label layoutX="23.0" layoutY="528.0" text="Incase of Emergency, whom should we call?">
-                                       <font>
-                                          <Font name="Times New Roman Bold" size="14.0" />
-                                       </font>
-                                    </Label>
-                                    <TextField layoutX="231.0" layoutY="593.0" prefHeight="26.0" prefWidth="236.0" styleClass="textfield" stylesheets="@../css/dashboardDesign.css" />
-                                    <Label layoutX="489.0" layoutY="605.0" text="The current medication">
-                                       <font>
-                                          <Font size="13.0" />
-                                       </font>
-                                    </Label>
-                                    <TextField layoutX="629.0" layoutY="592.0" prefHeight="26.0" prefWidth="633.0" styleClass="textfield" stylesheets="@../css/dashboardDesign.css" />
-                                    <Label layoutX="17.0" layoutY="642.0" text="Physician Contact(If any)">
-                                       <font>
-                                          <Font name="Tahoma Bold" size="13.0" />
-                                       </font>
-                                    </Label>
-                                    <TextField layoutX="191.0" layoutY="627.0" prefHeight="26.0" prefWidth="189.0" styleClass="textfield" stylesheets="@../css/dashboardDesign.css" />
-                                    <Label layoutX="406.0" layoutY="644.0" text="Do you have any emergency procedures? ">
-                                       <font>
-                                          <Font name="Times New Roman Bold" size="14.0" />
-                                       </font>
-                                    </Label>
-                                    <TextField layoutX="667.0" layoutY="633.0" prefHeight="30.0" prefWidth="457.0" styleClass="textfield" stylesheets="@../css/dashboardDesign.css" />
-                                    <Label layoutX="23.0" layoutY="683.0" text="Do you have any special needs or accormodation requirments?">
-                                       <font>
-                                          <Font name="Times New Roman Bold" size="14.0" />
-                                       </font>
-                                    </Label>
-                                    <TextArea layoutX="16.0" layoutY="699.0" prefHeight="52.0" prefWidth="666.0" />
-                                    <Label layoutX="19.0" layoutY="762.0" text="OTHERS" underline="true">
-                                       <font>
-                                          <Font name="Times New Roman Bold" size="15.0" />
-                                       </font>
-                                    </Label>
-                                    <Label layoutX="19.0" layoutY="780.0" text="Any language proficiency?">
-                                       <font>
-                                          <Font name="Times New Roman Bold" size="14.0" />
-                                       </font>
-                                    </Label>
-                                    <TextField layoutX="195.0" layoutY="761.0" prefHeight="30.0" prefWidth="225.0" />
-                                    <CheckBox layoutX="437.0" layoutY="772.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="234.0" text="Are you a foreign Student?">
-                                       <font>
-                                          <Font name="Tahoma" size="11.0" />
-                                       </font>
-                                    </CheckBox>
-                                    <Button alignment="CENTER_RIGHT" layoutX="609.0" layoutY="838.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="107.0" stylesheets="@../css/dashboard.css" text="EDIT">
-                                       <font>
-                                          <Font size="15.0" />
-                                       </font>
-                                    </Button>
-                                    <FontAwesomeIconView glyphName="EDIT" layoutX="617.0" layoutY="872.0" size="30" />
-                                    <Button alignment="CENTER_RIGHT" layoutX="448.0" layoutY="837.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="107.0" styleClass="add-btn" stylesheets="@../css/dashboard.css" text="SAVE">
-                                       <font>
-                                          <Font size="15.0" />
-                                       </font>
-                                    </Button>
-                                    <FontAwesomeIconView glyphName="SAVE" layoutX="454.0" layoutY="871.0" size="30" />
-                                    <Button alignment="CENTER_RIGHT" layoutX="758.0" layoutY="837.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="107.0" styleClass="delete-btn" stylesheets="@../css/dashboard.css" text="DELETE">
-                                       <font>
-                                          <Font size="15.0" />
-                                       </font>
-                                    </Button>
-                                    <FontAwesomeIconView glyphName="TRASH" layoutX="762.0" layoutY="871.0" size="30" />
-                                    <Label layoutX="709.0" layoutY="142.0" text="Religion">
-                                       <font>
-                                          <Font size="13.0" />
-                                       </font>
-                                    </Label>
-                                    <TextField alignment="BOTTOM_LEFT" layoutX="758.0" layoutY="135.0" prefHeight="26.0" prefWidth="175.0">
-                                       <font>
-                                          <Font size="13.0" />
-                                       </font>
-                                    </TextField>
+                                       <children>
+                                          <BarChart layoutX="28.0" layoutY="26.0" prefHeight="302.0" prefWidth="567.0" title="TOTAL POPULATION CHART">
+                                            <xAxis>
+                                              <CategoryAxis side="BOTTOM" />
+                                            </xAxis>
+                                            <yAxis>
+                                              <NumberAxis side="LEFT" />
+                                            </yAxis>
+                                          </BarChart>
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane layoutX="654.0" layoutY="185.0" prefHeight="167.0" prefWidth="610.0">
+                                       <styleClass>
+                                          <String fx:value="shadow" />
+                                          <String fx:value="white-bg" />
+                                       </styleClass>
+                                       <children>
+                                          <AreaChart layoutX="28.0" layoutY="8.0" prefHeight="154.0" prefWidth="536.0" title="FEMALE REGESTERED STUDENTS">
+                                            <xAxis>
+                                              <CategoryAxis side="BOTTOM" />
+                                            </xAxis>
+                                            <yAxis>
+                                              <NumberAxis side="LEFT" />
+                                            </yAxis>
+                                          </AreaChart>
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane layoutX="657.0" layoutY="374.0" prefHeight="167.0" prefWidth="610.0">
+                                       <styleClass>
+                                          <String fx:value="shadow" />
+                                          <String fx:value="white-bg" />
+                                       </styleClass>
+                                       <children>
+                                          <AreaChart layoutX="46.0" layoutY="9.0" prefHeight="147.0" prefWidth="536.0" title="MALE REGESTERED STUDENTS">
+                                             <xAxis>
+                                                <CategoryAxis side="BOTTOM" />
+                                             </xAxis>
+                                             <yAxis>
+                                                <NumberAxis side="LEFT" />
+                                             </yAxis>
+                                          </AreaChart>
+                                       </children>
+                                    </AnchorPane>
                                  </children>
-                              </Pane>
-                           </content>
-                        </ScrollPane>
-                     </children>
-                  </AnchorPane>
-                  <AnchorPane layoutX="6.4" layoutY="6.4" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="660.0" prefWidth="1250.0" styleClass="highlight-box" stylesheets="@../css/style.css" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="7.0" AnchorPane.topAnchor="0.0">
-                     <children>
-                        <AnchorPane layoutX="-1.0" prefHeight="906.4" prefWidth="1654.4" styleClass="highlight-box" stylesheets="@../css/style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                           <children>
-                              <Label layoutX="498.0" layoutY="6.0" prefHeight="18.0" prefWidth="337.0" text="ASSESMENT SHEET" textFill="#07892e" underline="true">
-                                 <font>
-                                    <Font name="Times New Roman Bold" size="28.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="34.0" layoutY="71.0" text="NSIN NUMBER:">
-                                 <font>
-                                    <Font name="Tahoma" size="15.0" />
-                                 </font>
-                              </Label>
-                              <TextField layoutX="169.0" layoutY="65.0" prefHeight="29.0" prefWidth="219.0" />
-                              <Label layoutX="34.0" layoutY="122.0" text="STUDENTS NAME:">
-                                 <font>
-                                    <Font name="Tahoma" size="15.0" />
-                                 </font>
-                              </Label>
-                              <TextField layoutX="169.0" layoutY="116.0" prefHeight="29.0" prefWidth="219.0" />
-                              <Label layoutX="933.0" layoutY="107.0" text="GENDER:">
-                                 <font>
-                                    <Font name="Tahoma" size="15.0" />
-                                 </font>
-                              </Label>
-                              <TextField layoutX="1001.0" layoutY="102.0" prefHeight="29.0" prefWidth="219.0" />
-                              <Label layoutX="40.0" layoutY="184.0" prefHeight="19.0" prefWidth="123.0" text="AWARD:">
-                                 <font>
-                                    <Font name="Times New Roman" size="15.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="126.0" layoutY="182.0" text="CERTIFICATE IN NURSING AND MIDWIFREY" textFill="#07892e">
-                                 <font>
-                                    <Font name="Tahoma Bold" size="16.0" />
-                                 </font>
-                              </Label>
-                              <Button layoutX="1164.0" layoutY="19.0" mnemonicParsing="false" />
-                              <Pane layoutX="25.0" layoutY="255.0" prefHeight="552.0" prefWidth="1628.0" styleClass="highlight-box" AnchorPane.bottomAnchor="100.20000000000005" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="2.200000000000273" AnchorPane.topAnchor="255.0">
+                              </AnchorPane>
+                              <AnchorPane layoutX="53.0" layoutY="77.0" prefHeight="574.4" prefWidth="1289.6" stylesheets="@../css/dashboardDesign.css" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <children>
-                                    <TableView layoutX="-25.0" layoutY="1.0" prefHeight="364.0" prefWidth="1238.0">
-                                      <columns>
-                                        <TableColumn prefWidth="178.39998495578766" text="YEAR" />
-                                        <TableColumn prefWidth="230.40000915527344" text="SEMESTER" />
-                                          <TableColumn prefWidth="170.40008544921875" text="PAPER ONE" />
-                                          <TableColumn prefWidth="216.79998779296875" text="PAPER TWO" />
-                                          <TableColumn prefWidth="222.39999389648438" text="PAPER THREE" />
-                                          <TableColumn prefWidth="221.60003662109375" text="PAPER FOUR" />
-                                      </columns>
-                                    </TableView>
+                                    <AnchorPane layoutX="12.0" layoutY="14.0" prefHeight="565.0" prefWidth="458.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="8.0" AnchorPane.topAnchor="5.0">
+                                       <styleClass>
+                                          <String fx:value="white-bg" />
+                                          <String fx:value="shadow" />
+                                       </styleClass>
+                                       <children>
+                                          <Label layoutX="10.0" layoutY="37.0" prefHeight="18.0" prefWidth="102.0" text="NSIN NUMBER:" />
+                                          <Label alignment="CENTER" layoutX="12.0" layoutY="4.0" prefHeight="18.0" prefWidth="426.0" text="GRADE SHEET">
+                                             <font>
+                                                <Font name="Tahoma Bold" size="15.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField layoutX="107.0" layoutY="25.0" prefHeight="26.0" prefWidth="297.0" styleClass="textfield" />
+                                          <Label layoutX="11.0" layoutY="72.0" prefHeight="18.0" prefWidth="102.0" text="Student Name:" />
+                                          <TextField layoutX="108.0" layoutY="60.0" prefHeight="26.0" prefWidth="297.0" styleClass="textfield" />
+                                          <Label layoutX="11.0" layoutY="98.0" prefHeight="18.0" prefWidth="283.0" text="Enter students Grades basing on semester" />
+                                          <Line endX="335.6000061035156" endY="-1.52587890625E-5" layoutX="113.0" layoutY="124.0" startX="-100.0" />
+                                          <Label alignment="CENTER" layoutX="12.0" layoutY="133.0" prefHeight="18.0" prefWidth="426.0" text="YEAR ONE">
+                                             <font>
+                                                <Font name="Tahoma Bold" size="15.0" />
+                                             </font>
+                                          </Label>
+                                          <Line endX="-99.99996948242188" endY="157.79998779296875" layoutX="325.0" layoutY="164.0" startX="-100.0" />
+                                          <Label alignment="CENTER" layoutX="17.0" layoutY="329.0" prefHeight="18.0" prefWidth="426.0" text="YEAR TWO">
+                                             <font>
+                                                <Font name="Tahoma Bold" size="15.0" />
+                                             </font>
+                                          </Label>
+                                          <Line endX="-99.99996948242188" endY="157.79998779296875" layoutX="325.0" layoutY="361.0" startX="-100.0" />
+                                          <Label alignment="CENTER" layoutX="12.0" layoutY="180.0" prefHeight="19.0" prefWidth="192.0" text="SEM 1" underline="true">
+                                             <font>
+                                                <Font name="Tahoma Bold" size="15.0" />
+                                             </font>
+                                          </Label>
+                                          <Label alignment="CENTER" layoutX="237.0" layoutY="180.0" prefHeight="19.0" prefWidth="192.0" text="SEM 2" underline="true">
+                                             <font>
+                                                <Font name="Tahoma Bold" size="15.0" />
+                                             </font>
+                                          </Label>
+                                          <Label alignment="CENTER" layoutX="256.0" layoutY="350.0" prefHeight="19.0" prefWidth="192.0" text="SEM 2">
+                                             <font>
+                                                <Font name="Tahoma Bold" size="15.0" />
+                                             </font>
+                                          </Label>
+                                          <Label alignment="CENTER" layoutX="16.0" layoutY="350.0" prefHeight="19.0" prefWidth="192.0" text="SEM 1" underline="true">
+                                             <font>
+                                                <Font name="Tahoma Bold" size="15.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="17.0" layoutY="209.0" text="P1:" />
+                                          <TextField layoutX="43.0" layoutY="199.0" prefHeight="26.0" prefWidth="50.0" styleClass="textfield" />
+                                          <Label layoutX="14.0" layoutY="297.0" text="P3:" />
+                                          <TextField layoutX="40.0" layoutY="287.0" prefHeight="26.0" prefWidth="50.0" styleClass="textfield" />
+                                          <Label layoutX="127.0" layoutY="292.0" text="P4:" />
+                                          <TextField layoutX="153.0" layoutY="282.0" prefHeight="26.0" prefWidth="50.0" styleClass="textfield" />
+                                          <Label layoutX="127.0" layoutY="208.0" text="P2:" />
+                                          <TextField layoutX="153.0" layoutY="198.0" prefHeight="26.0" prefWidth="50.0" styleClass="textfield" />
+                                          <Label layoutX="251.0" layoutY="219.0" text="P1:" />
+                                          <TextField layoutX="277.0" layoutY="209.0" prefHeight="26.0" prefWidth="50.0" styleClass="textfield" />
+                                          <Label layoutX="248.0" layoutY="307.0" text="P3:" />
+                                          <TextField layoutX="274.0" layoutY="297.0" prefHeight="26.0" prefWidth="50.0" styleClass="textfield" />
+                                          <Label layoutX="361.0" layoutY="302.0" text="P4:" />
+                                          <TextField layoutX="387.0" layoutY="292.0" prefHeight="26.0" prefWidth="50.0" styleClass="textfield" />
+                                          <Label layoutX="361.0" layoutY="218.0" text="P2:" />
+                                          <TextField layoutX="387.0" layoutY="208.0" prefHeight="26.0" prefWidth="50.0" styleClass="textfield" />
+                                          <Label layoutX="251.0" layoutY="392.0" text="P1:" />
+                                          <TextField layoutX="277.0" layoutY="382.0" prefHeight="26.0" prefWidth="50.0" styleClass="textfield" />
+                                          <Label layoutX="248.0" layoutY="480.0" text="P3:" />
+                                          <TextField layoutX="274.0" layoutY="470.0" prefHeight="26.0" prefWidth="50.0" styleClass="textfield" />
+                                          <Label layoutX="361.0" layoutY="475.0" text="P4:" />
+                                          <TextField layoutX="387.0" layoutY="465.0" prefHeight="26.0" prefWidth="50.0" styleClass="textfield" />
+                                          <Label layoutX="361.0" layoutY="391.0" text="P2:" />
+                                          <TextField layoutX="387.0" layoutY="381.0" prefHeight="26.0" prefWidth="50.0" styleClass="textfield" />
+                                          <Label layoutX="15.0" layoutY="397.0" text="P1:" />
+                                          <TextField layoutX="41.0" layoutY="387.0" prefHeight="26.0" prefWidth="50.0" styleClass="textfield" />
+                                          <Label layoutX="12.0" layoutY="485.0" text="P3:" />
+                                          <TextField layoutX="38.0" layoutY="475.0" prefHeight="26.0" prefWidth="50.0" styleClass="textfield" />
+                                          <Label layoutX="125.0" layoutY="480.0" text="P4:" />
+                                          <TextField layoutX="151.0" layoutY="470.0" prefHeight="26.0" prefWidth="50.0" styleClass="textfield" />
+                                          <Label layoutX="125.0" layoutY="396.0" text="P2:" />
+                                          <TextField layoutX="151.0" layoutY="386.0" prefHeight="26.0" prefWidth="50.0" styleClass="textfield" />
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane layoutX="431.0" prefHeight="502.0" prefWidth="792.0" AnchorPane.bottomAnchor="68.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="5.0">
+                                       <styleClass>
+                                          <String fx:value="white-bg" />
+                                          <String fx:value="shadow" />
+                                       </styleClass>
+                                       <children>
+                                          <TextField layoutX="14.0" layoutY="8.0" prefHeight="26.0" prefWidth="311.0" promptText="Search Name or NSIN" styleClass="search" />
+                                          <ImageView fitHeight="18.0" fitWidth="20.0" layoutX="17.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../images/people.png" />
+                                             </image>
+                                          </ImageView>
+                                          <TableView layoutX="6.0" layoutY="51.0" prefHeight="446.0" prefWidth="779.0">
+                                            <columns>
+                                              <TableColumn prefWidth="121.60000801086426" text="NSIN NUMBER" />
+                                              <TableColumn prefWidth="172.79998779296875" text="NAME" />
+                                                <TableColumn prefWidth="163.20001220703125" text="YEAR1/SEM 1">
+                                                   <columns>
+                                                      <TableColumn prefWidth="31.20001220703125" text="P1" />
+                                                      <TableColumn prefWidth="39.2000732421875" text="P2" />
+                                                      <TableColumn prefWidth="39.199951171875" text="P3" />
+                                                      <TableColumn prefWidth="36.0" text="P4" />
+                                                   </columns>
+                                                </TableColumn>
+                                                <TableColumn prefWidth="156.79995727539062" text="YEAR1/SEM2">
+                                                   <columns>
+                                                      <TableColumn prefWidth="35.199951171875" text="P1" />
+                                                      <TableColumn prefWidth="36.000030517578125" text="P2" />
+                                                      <TableColumn prefWidth="41.5999755859375" text="P3" />
+                                                      <TableColumn prefWidth="43.199951171875" text="P4" />
+                                                   </columns>
+                                                </TableColumn>
+                                                <TableColumn prefWidth="177.60002441406255" text="YEAR2/SEM1">
+                                                   <columns>
+                                                      <TableColumn prefWidth="44.0001220703125" text="P1" />
+                                                      <TableColumn prefWidth="35.9998779296875" text="P2" />
+                                                      <TableColumn prefWidth="43.2000732421875" text="P3" />
+                                                      <TableColumn prefWidth="34.4000244140625" text="P4" />
+                                                   </columns>
+                                                </TableColumn>
+                                            </columns>
+                                          </TableView>
+                                       </children>
+                                    </AnchorPane>
+                                    <Button layoutX="593.0" layoutY="521.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="89.0" styleClass="clear-btn" text="EDIT">
+                                       <graphic>
+                                          <ImageView fitHeight="84.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../images/icons8-clear-24.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                    <Button layoutX="713.0" layoutY="521.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="95.0" styleClass="delete-btn" text="DELETE">
+                                       <graphic>
+                                          <ImageView fitHeight="84.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../images/icons8-delete-48.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                    <Button layoutX="838.0" layoutY="521.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="95.0" styleClass="add-btn" text="ADD">
+                                       <graphic>
+                                          <ImageView fitHeight="84.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../images/icons8-add-properties-50.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
                                  </children>
-                              </Pane>
-                              <Label layoutX="1167.0" layoutY="62.0" text="PRINT" />
-                              <Button alignment="CENTER" layoutX="1114.0" layoutY="21.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="42.0" />
-                              <FontAwesomeIconView fill="#fff7f7" glyphName="TIMES" layoutX="1127.0" layoutY="48.0" size="20" />
-                              <FontAwesomeIconView fill="#efebeb" glyphName="PRINT" layoutX="1172.0" layoutY="50.0" size="30" styleClass="dashboard" />
-                              <Label layoutX="1123.0" layoutY="62.0" text="EXIT" />
-                              <Button alignment="CENTER" layoutX="1062.0" layoutY="21.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="42.0" />
-                              <FontAwesomeIconView glyphName="ARROW_LEFT" layoutX="1066.0" layoutY="46.0" size="20" />
-                              <Label layoutX="1077.0" layoutY="63.0" text="BACK" />
+                              </AnchorPane>
                            </children>
                         </AnchorPane>
                      </children>
                   </AnchorPane>
-               </children>
-               <stylesheets>
-                  <URL value="@../css/dashboardDesign.css" />
-                  <URL value="@../css/dashboard.css" />
-                  <URL value="@../css/style.css" />
-               </stylesheets>
-               <styleClass>
-                  <String fx:value="white-bg" />
-                  <String fx:value="highlight-box" />
-               </styleClass>
-            </AnchorPane>
-         </center>
-         <bottom>
-            <AnchorPane prefHeight="0.0" prefWidth="1202.0" styleClass="highlight-box" stylesheets="@../css/style.css" BorderPane.alignment="CENTER">
-               <effect>
-                  <Lighting>
-                     <bumpInput>
-                        <Shadow />
-                     </bumpInput>
-                     <light>
-                        <Light.Distant azimuth="0.0">
-                           <color>
-                              <Color red="0.012670565396547318" green="0.2631579041481018" blue="0.05024366453289986" />
-                           </color>
-                        </Light.Distant>
-                     </light>
-                  </Lighting>
-               </effect></AnchorPane>
-         </bottom>
-      </BorderPane>
+               </center>
+            </BorderPane>
+         </children>
+      </AnchorPane>
    </children>
-</AnchorPane>
+</StackPane>
