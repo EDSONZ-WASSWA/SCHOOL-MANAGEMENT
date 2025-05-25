@@ -2,7 +2,7 @@ package com.nursing.management.auth;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-
+/*
 public class DatabaseConnector {
 public static Connection connectDb() {
 	try {
@@ -14,6 +14,7 @@ public static Connection connectDb() {
 	}
 	
 }
+*/
 
 
 
