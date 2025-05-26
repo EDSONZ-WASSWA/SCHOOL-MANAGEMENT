@@ -387,10 +387,13 @@ public class DashboardController implements Initializable{
     private TextField year2_sem_p4;
     
     // The methods to implement
+    
+    //The close window method..
     public void close() {
     	System.exit(0);
     }
     
+    //Minimize window method...
     public void minimise() {
     	Stage stage = (Stage)main_form.getScene().getWindow();
     	stage.setIconified(true);
