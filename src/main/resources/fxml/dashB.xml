@@ -27,7 +27,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="700.0" maxWidth="1500.0" minHeight="700.0" minWidth="1500.0" prefHeight="700.0" prefWidth="1500.0" xmlns="http://javafx.com/javafx/24" xmlns:fx="http://javafx.com/fxml/1">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1500.0" xmlns="http://javafx.com/javafx/24" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <AnchorPane fx:id="main_form" prefHeight="200.0" prefWidth="200.0">
          <children>
@@ -42,7 +42,7 @@
                                     <Image url="@../images/RCSN.jpg" />
                                  </image>
                               </ImageView>
-                              <Label alignment="CENTER" layoutX="184.0" layoutY="14.0" prefHeight="25.0" prefWidth="1230.0" styleClass="lable-head" text="RAKAI COMMUNITY SCHOOL OF NURSING" textFill="#18d13d">
+                              <Label alignment="CENTER" layoutX="184.0" layoutY="14.0" prefHeight="30.0" prefWidth="1286.0" styleClass="lable-head" text="RAKAI COMMUNITY SCHOOL OF NURSING" textFill="#18d13d">
                                  <font>
                                     <Font name="Times New Roman Bold" size="26.0" />
                                  </font>
@@ -62,18 +62,18 @@
                                     <Font name="System Bold" size="14.0" />
                                  </font>
                               </Label>
-                              <Button layoutX="1430.0" layoutY="4.0" minWidth="25.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="25.0" styleClass="close" AnchorPane.rightAnchor="3.0" AnchorPane.topAnchor="3.0">
+                              <Button layoutX="1430.0" layoutY="9.0" minWidth="38.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="38.0" styleClass="close" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="2.0">
                                  <graphic>
-                                    <ImageView fx:id="close_btn" accessibleRole="BUTTON" fitHeight="19.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" styleClass="close">
+                                    <ImageView fx:id="close_btn" accessibleRole="BUTTON" fitHeight="44.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" styleClass="close">
                                        <image>
                                           <Image url="@../images/close.png" />
                                        </image>
                                     </ImageView>
                                  </graphic>
                               </Button>
-                              <Button layoutX="1422.0" layoutY="8.8" minWidth="28.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="28.0" styleClass="minimize" AnchorPane.topAnchor="2.0">
+                              <Button layoutX="1392.0" layoutY="8.8" minWidth="45.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="45.0" styleClass="minimize" AnchorPane.topAnchor="2.0">
                                  <graphic>
-                                    <ImageView fx:id="minimise_btn" fitHeight="18.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true" styleClass="minimize">
+                                    <ImageView fx:id="minimise_btn" fitHeight="31.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true" styleClass="minimize">
                                        <image>
                                           <Image url="@../images/icons8-horizontal-line-96.png" />
                                        </image>
@@ -402,13 +402,13 @@
                                                 </ImageView>
                                                 <TableView fx:id="register_tableView" layoutX="11.0" layoutY="52.0" prefHeight="218.0" prefWidth="1218.0">
                                                   <columns>
-                                                    <TableColumn fx:id="register_nsin_col" prefWidth="180.79999542236328" resizable="false" text="NSIN NUMBER" />
-                                                    <TableColumn fx:id="register_Fname_col" minWidth="0.0" prefWidth="240.00003051757812" resizable="false" text="First Name" />
-                                                      <TableColumn fx:id="register_Lname_col" minWidth="0.0" prefWidth="199.19992065429688" resizable="false" text="Last Name" />
-                                                      <TableColumn fx:id="register_contact_col" minWidth="0.0" prefWidth="144.79998779296875" resizable="false" text="CONTACT" />
-                                                      <TableColumn fx:id="register_gender_col" minWidth="0.0" prefWidth="145.59991455078125" resizable="false" text="Gender" />
-                                                      <TableColumn fx:id="register_DOB_col" minWidth="0.0" prefWidth="128.0" resizable="false" text="Date Of Birth" />
-                                                      <TableColumn fx:id="register_religion_col" minWidth="0.0" prefWidth="176.0" resizable="false" text="Religion" />
+                                                    <TableColumn fx:id="register_nsin_col" prefWidth="180.79999542236328" text="NSIN NUMBER" />
+                                                    <TableColumn fx:id="register_Fname_col" minWidth="0.0" prefWidth="240.00003051757812" text="First Name" />
+                                                      <TableColumn fx:id="register_Lname_col" minWidth="0.0" prefWidth="199.19992065429688" text="Last Name" />
+                                                      <TableColumn fx:id="register_contact_col" minWidth="0.0" prefWidth="144.79998779296875" text="CONTACT" />
+                                                      <TableColumn fx:id="register_gender_col" minWidth="0.0" prefWidth="145.59991455078125" text="Gender" />
+                                                      <TableColumn fx:id="register_DOB_col" minWidth="0.0" prefWidth="128.0" text="Date Of Birth" />
+                                                      <TableColumn fx:id="register_religion_col" minWidth="0.0" prefWidth="176.0" text="Religion" />
                                                       <TableColumn minWidth="0.0" prefWidth="0.0" text="C2" />
                                                   </columns>
                                                 </TableView>
@@ -642,40 +642,32 @@
                                                 <Image url="@../images/people.png" />
                                              </image>
                                           </ImageView>
-                                          <TableView fx:id="gradeTable" layoutX="6.0" layoutY="51.0" prefHeight="446.0" prefWidth="785.0">
+                                          <TableView fx:id="gradeTable" layoutX="6.0" layoutY="51.0" prefHeight="446.0" prefWidth="779.0">
                                             <columns>
-                                              <TableColumn fx:id="Table_nsin" prefWidth="121.60000801086426" resizable="false" text="NSIN NUMBER" />
-                                              <TableColumn fx:id="Table_name" prefWidth="172.79998779296875" resizable="false" text="NAME" />
-                                                <TableColumn fx:id="Table_year1_sem1" prefWidth="163.20001220703125" resizable="false" text="YEAR1/SEM 1">
+                                              <TableColumn fx:id="Table_nsin" prefWidth="121.60000801086426" text="NSIN NUMBER" />
+                                              <TableColumn fx:id="Table_name" prefWidth="172.79998779296875" text="NAME" />
+                                                <TableColumn fx:id="Table_year1_sem1" prefWidth="163.20001220703125" text="YEAR1/SEM 1">
                                                    <columns>
-                                                      <TableColumn fx:id="Table_year1_sem1_p1" prefWidth="36.0" resizable="false" text="P1" />
-                                                      <TableColumn fx:id="Table_year1_sem1_p2" prefWidth="36.0" resizable="false" text="P2" />
-                                                      <TableColumn fx:id="Table_year1_sem1_p3" prefWidth="36.0" resizable="false" text="P3" />
-                                                      <TableColumn fx:id="Table_year1_sem1_p4" prefWidth="36.0" resizable="false" text="P4" />
+                                                      <TableColumn fx:id="Table_year1_sem1_p1" prefWidth="31.20001220703125" text="P1" />
+                                                      <TableColumn fx:id="Table_year1_sem1_p2" prefWidth="39.2000732421875" text="P2" />
+                                                      <TableColumn fx:id="Table_year1_sem1_p3" prefWidth="39.199951171875" text="P3" />
+                                                      <TableColumn fx:id="Table_year1_sem1_p4" prefWidth="36.0" text="P4" />
                                                    </columns>
                                                 </TableColumn>
-                                                <TableColumn fx:id="Table_year1_sem2" prefWidth="156.79995727539062" resizable="false" text="YEAR1/SEM2">
+                                                <TableColumn fx:id="Table_year1_sem2" prefWidth="156.79995727539062" text="YEAR1/SEM2">
                                                    <columns>
-                                                      <TableColumn fx:id="Table_year1_sem2_p1" prefWidth="36.0" resizable="false" text="P1" />
-                                                      <TableColumn fx:id="Table_year1_sem2_p2" prefWidth="36.0" resizable="false" text="P2" />
-                                                      <TableColumn fx:id="Table_year1_sem2_p3" prefWidth="36.0" resizable="false" text="P3" />
-                                                      <TableColumn fx:id="Table_year1_sem2_p4" prefWidth="36.0" resizable="false" text="P4" />
+                                                      <TableColumn fx:id="Table_year1_sem2_p1" prefWidth="35.199951171875" text="P1" />
+                                                      <TableColumn fx:id="Table_year1_sem2_p2" prefWidth="36.000030517578125" text="P2" />
+                                                      <TableColumn fx:id="Table_year1_sem2_p3" prefWidth="41.5999755859375" text="P3" />
+                                                      <TableColumn fx:id="Table_year1_sem2_p4" prefWidth="43.199951171875" text="P4" />
                                                    </columns>
                                                 </TableColumn>
-                                                <TableColumn fx:id="Table_year2_sem1" prefWidth="184.0" resizable="false" text="YEAR2/SEM1">
+                                                <TableColumn fx:id="Table_year2_sem1" prefWidth="177.60002441406255" text="YEAR2/SEM1">
                                                    <columns>
-                                                      <TableColumn fx:id="Table_year2_sem1_p1" prefWidth="36.0" resizable="false" text="P1" />
-                                                      <TableColumn fx:id="Table_year2_sem1_p2" prefWidth="36.0" resizable="false" text="P2" />
-                                                      <TableColumn fx:id="Table_year2_sem1_p3" prefWidth="36.0" resizable="false" text="P3" />
-                                                      <TableColumn fx:id="Table_year2_sem1_p4" prefWidth="36.0" resizable="false" text="P4" />
-                                                   </columns>
-                                                </TableColumn>
-                                                <TableColumn fx:id="Table_year2_sem11" prefWidth="184.0" resizable="false" text="YEAR2/SEM2">
-                                                   <columns>
-                                                      <TableColumn fx:id="Table_year2_sem1_p11" prefWidth="36.0" resizable="false" text="P1" />
-                                                      <TableColumn fx:id="Table_year2_sem1_p21" prefWidth="36.0" resizable="false" text="P2" />
-                                                      <TableColumn fx:id="Table_year2_sem1_p31" prefWidth="36.0" resizable="false" text="P3" />
-                                                      <TableColumn fx:id="Table_year2_sem1_p41" prefWidth="36.0" resizable="false" text="P4" />
+                                                      <TableColumn fx:id="Table_year2_sem1_p1" prefWidth="44.0001220703125" text="P1" />
+                                                      <TableColumn fx:id="Table_year2_sem1_p2" prefWidth="35.9998779296875" text="P2" />
+                                                      <TableColumn fx:id="Table_year2_sem1_p3" prefWidth="43.2000732421875" text="P3" />
+                                                      <TableColumn fx:id="Table_year2_sem1_p4" prefWidth="34.4000244140625" text="P4" />
                                                    </columns>
                                                 </TableColumn>
                                             </columns>
@@ -710,10 +702,6 @@
                                        </graphic>
                                     </Button>
                                  </children>
-                                 <styleClass>
-                                    <String fx:value="white-bg" />
-                                    <String fx:value="shadow" />
-                                 </styleClass>
                               </AnchorPane>
                            </children>
                            <styleClass>
