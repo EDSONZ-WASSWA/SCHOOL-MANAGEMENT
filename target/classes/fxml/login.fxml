@@ -2,9 +2,12 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -27,6 +30,7 @@
                         <Font name="Tahoma" size="20.0" />
                      </font>
                   </Label>
+                  <Button fx:id="loginBtn1" layoutX="17.0" layoutY="344.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="220.0" styleClass="login-btn" stylesheets="@css/login.css" text="Register Account" />
                </children></AnchorPane>
             <AnchorPane layoutX="263.0" layoutY="5.0" prefHeight="400.0" prefWidth="254.0" styleClass="right-form" stylesheets="@css/login.css" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
@@ -35,8 +39,9 @@
                         <Image url="@../images/icons8-user-64.png" />
                      </image>
                   </ImageView>
-                  <PasswordField fx:id="password" layoutX="17.0" layoutY="197.0" prefHeight="30.0" prefWidth="220.0" promptText="Password" styleClass="textfield" stylesheets="@css/login.css" />
-                  <Button fx:id="loginBtn" layoutX="17.0" layoutY="238.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="220.0" styleClass="login-btn" stylesheets="@css/login.css" text="Login" />
+                  <PasswordField fx:id="login_password" layoutX="17.0" layoutY="197.0" prefHeight="30.0" prefWidth="220.0" promptText="Password" styleClass="textfield" stylesheets="@css/login.css" />
+                  <Button fx:id="loginBtn" layoutX="17.0" layoutY="298.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="220.0" styleClass="login-btn" stylesheets="@css/login.css" text="Login" />
+                  <TextField fx:id="password" layoutX="18.0" layoutY="197.0" prefHeight="30.0" prefWidth="220.0" promptText="Password" visible="false" />
                   <Button fx:id="close" layoutX="205.0" layoutY="8.0" mnemonicParsing="false" onAction="#close" prefHeight="20.0" prefWidth="40.0" styleClass="close" stylesheets="@css/login.css" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="2.0">
                      <padding>
                         <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
@@ -63,6 +68,81 @@
                         <Insets bottom="10.0" left="2.0" right="2.0" top="2.0" />
                      </padding>
                   </Label>
+                  <CheckBox fx:id="showPassword" layoutX="18.0" layoutY="240.0" mnemonicParsing="false" onAction="#showPassword" text="Show password" />
+                  <Hyperlink layoutX="141.0" layoutY="237.0" text="Forgot Password?" textFill="#33ebe8" />
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" visible="false">
+         <children>
+            <AnchorPane layoutX="1.0" layoutY="-1.0" prefHeight="400.0" prefWidth="274.0" styleClass="left-form" stylesheets="@css/login.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="252.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="43.0" layoutY="111.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="43.0">
+                     <image>
+                        <Image url="@../images/icons8-padlock-96.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="24.0" layoutY="61.0" prefHeight="25.0" prefWidth="220.0" text="Register Account" textFill="WHITE">
+                     <font>
+                        <Font name="Tahoma" size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="275.0" prefHeight="400.0" prefWidth="254.0" styleClass="right-form" stylesheets="@css/login.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="272.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <PasswordField layoutX="22.0" layoutY="44.0" prefHeight="30.0" prefWidth="220.0" promptText="Enter Password" styleClass="textfield" stylesheets="@css/login.css" />
+                  <PasswordField layoutX="23.0" layoutY="118.0" prefHeight="30.0" prefWidth="220.0" promptText="Confirm Password" styleClass="textfield" stylesheets="@css/login.css" />
+                  <CheckBox layoutX="132.0" layoutY="161.0" mnemonicParsing="false" text="Show Password">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </CheckBox>
+                  <Button layoutX="24.0" layoutY="285.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="220.0" styleClass="login-btn" stylesheets="@css/login.css">
+                     <graphic>
+                        <ImageView fitHeight="18.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/icons8-key-120.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" visible="false">
+         <children>
+            <AnchorPane layoutX="1.0" layoutY="-1.0" prefHeight="400.0" prefWidth="274.0" styleClass="left-form" stylesheets="@css/login.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="252.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="43.0" layoutY="111.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="43.0">
+                     <image>
+                        <Image url="@../images/icons8-padlock-96.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="24.0" layoutY="61.0" prefHeight="25.0" prefWidth="220.0" text="Reset Password?" textFill="WHITE">
+                     <font>
+                        <Font name="Tahoma" size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="275.0" prefHeight="400.0" prefWidth="254.0" styleClass="right-form" stylesheets="@css/login.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="272.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <PasswordField layoutX="22.0" layoutY="44.0" prefHeight="30.0" prefWidth="220.0" promptText="Enter New Password" styleClass="textfield" stylesheets="@css/login.css" />
+                  <PasswordField layoutX="23.0" layoutY="118.0" prefHeight="30.0" prefWidth="220.0" promptText="Confirm New Password" styleClass="textfield" stylesheets="@css/login.css" />
+                  <CheckBox layoutX="132.0" layoutY="161.0" mnemonicParsing="false" text="Show Password">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </CheckBox>
+                  <Button layoutX="24.0" layoutY="285.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="220.0" styleClass="login-btn" stylesheets="@css/login.css" text="Reset Password" />
+                  <ImageView fitHeight="18.0" fitWidth="66.0" layoutX="220.0" layoutY="298.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons8-key-120.png" />
+                     </image>
+                  </ImageView>
                </children>
             </AnchorPane>
          </children>
