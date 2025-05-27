@@ -4,10 +4,9 @@ package com.nursing.management.controllers;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
 import javafx.scene.chart.AreaChart;
 import javafx.scene.chart.BarChart;
 import javafx.scene.control.Button;
@@ -66,19 +65,34 @@ public class DashboardController implements Initializable{
     private TableColumn<?, ?> Table_year2_sem1;
 
     @FXML
+    private TableColumn<?, ?> Table_year2_sem11;
+
+    @FXML
     private TableColumn<?, ?> Table_year2_sem1_p1;
+
+    @FXML
+    private TableColumn<?, ?> Table_year2_sem1_p11;
 
     @FXML
     private TableColumn<?, ?> Table_year2_sem1_p2;
 
     @FXML
+    private TableColumn<?, ?> Table_year2_sem1_p21;
+
+    @FXML
     private TableColumn<?, ?> Table_year2_sem1_p3;
+
+    @FXML
+    private TableColumn<?, ?> Table_year2_sem1_p31;
 
     @FXML
     private TableColumn<?, ?> Table_year2_sem1_p4;
 
     @FXML
-    private ImageView close_btn;
+    private TableColumn<?, ?> Table_year2_sem1_p41;
+
+    @FXML
+    private Button close_btn;
 
     @FXML
     private TextField gradeForm_NAME;
@@ -135,7 +149,7 @@ public class DashboardController implements Initializable{
     private AnchorPane main_form;
 
     @FXML
-    private ImageView minimise_btn;
+    private Button minimise_btn;
 
     @FXML
     private TextField register_Alevel;
@@ -397,6 +411,53 @@ public class DashboardController implements Initializable{
     public void minimise() {
     	Stage stage = (Stage)main_form.getScene().getWindow();
     	stage.setIconified(true);
+    }
+    
+    //Switching between Forms
+    public void switchForms(ActionEvent event) {
+    	if(event.getSource() == home_btn) {
+    		home_Form.setVisible(true);
+    		register_Form.setVisible(false);
+    		register_Form.setVisible(false);
+    		grade_Form.setVisible(false);
+    		home_btn.setStyle("-fx-background-color: linear-gradient(to bottom right,  #3eac5b, #30bc86)");
+    		register_btn.setStyle("-fx-background-color:transparent");
+    		studentsList_btn.setStyle("-fx-background-color:transparent");
+    		StudentsGrade_btn.setStyle("-fx-background-color:transparent");
+    		
+    	}else if(event.getSource() == register_btn) {
+    		home_Form.setVisible(false);
+    		register_Form.setVisible(true);
+    		register_Form.setVisible(true);
+    		grade_Form.setVisible(false);
+    		register_btn.setStyle("-fx-background-color: linear-gradient(to bottom right,  #3eac5b, #30bc86)");
+    		home_btn.setStyle("-fx-background-color:transparent");
+    		studentsList_btn.setStyle("-fx-background-color:transparent");
+    		StudentsGrade_btn.setStyle("-fx-background-color:transparent");
+    		
+    		
+    	}else if(event.getSource() == studentsList_btn) {
+    		home_Form.setVisible(false);
+    		register_Form.setVisible(false);
+    		register_Form.setVisible(true);
+    		grade_Form.setVisible(false);
+    		studentsList_btn.setStyle("-fx-background-color: linear-gradient(to bottom right,  #3eac5b, #30bc86)");
+    		home_btn.setStyle("-fx-background-color:transparent");
+    		register_btn.setStyle("-fx-background-color:transparent");
+    		StudentsGrade_btn.setStyle("-fx-background-color:transparent");
+    		
+    		
+    	}else if(event.getSource() == StudentsGrade_btn) {
+    		home_Form.setVisible(false);
+    		register_Form.setVisible(false);
+    		register_Form.setVisible(false);
+    		grade_Form.setVisible(true);
+    		StudentsGrade_btn.setStyle("-fx-background-color: linear-gradient(to bottom right,  #3eac5b, #30bc86)");
+    		home_btn.setStyle("-fx-background-color:transparent");
+    		register_btn.setStyle("-fx-background-color:transparent");
+    		studentsList_btn.setStyle("-fx-background-color:transparent");
+    	}
+    	
     }
 
 	@Override

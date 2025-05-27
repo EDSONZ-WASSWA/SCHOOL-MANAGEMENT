@@ -32,6 +32,7 @@ public class Main extends Application{
 	stage.show();
 	}
 	public static void main(String[] args) {
+		System.setProperty("prism.marlinrasterizer", "false"); // This line removes the marlin warnings in the Terminal
 		launch (args);
 	}
 }
