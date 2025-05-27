@@ -16,7 +16,7 @@
 
 <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="526.0" styleClass="stack-pane" stylesheets="@css/login.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.nursing.management.dao.UserDAO">
    <children>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0">
+      <AnchorPane fx:id="login_form" prefHeight="200.0" prefWidth="200.0" visible="false">
          <children>
             <AnchorPane fx:id="main_form" layoutX="-10.0" layoutY="40.0" prefHeight="400.0" prefWidth="526.0" styleClass="left-form" stylesheets="@css/login.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
@@ -30,7 +30,7 @@
                         <Font name="Tahoma" size="20.0" />
                      </font>
                   </Label>
-                  <Button fx:id="loginBtn1" layoutX="17.0" layoutY="344.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="220.0" styleClass="login-btn" stylesheets="@css/login.css" text="Register Account" />
+                  <Button fx:id="login_registerAccount" layoutX="17.0" layoutY="344.0" mnemonicParsing="false" onAction="#switchForms" prefHeight="40.0" prefWidth="220.0" styleClass="login-btn" stylesheets="@css/login.css" text="Register Account" />
                </children></AnchorPane>
             <AnchorPane layoutX="263.0" layoutY="5.0" prefHeight="400.0" prefWidth="254.0" styleClass="right-form" stylesheets="@css/login.css" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
@@ -74,7 +74,7 @@
             </AnchorPane>
          </children>
       </AnchorPane>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" visible="false">
+      <AnchorPane fx:id="register_form" prefHeight="200.0" prefWidth="200.0">
          <children>
             <AnchorPane layoutX="1.0" layoutY="-1.0" prefHeight="400.0" prefWidth="274.0" styleClass="left-form" stylesheets="@css/login.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="252.0" AnchorPane.topAnchor="0.0">
                <children>
@@ -92,14 +92,14 @@
             </AnchorPane>
             <AnchorPane layoutX="275.0" prefHeight="400.0" prefWidth="254.0" styleClass="right-form" stylesheets="@css/login.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="272.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <PasswordField layoutX="22.0" layoutY="44.0" prefHeight="30.0" prefWidth="220.0" promptText="Enter Password" styleClass="textfield" stylesheets="@css/login.css" />
-                  <PasswordField layoutX="23.0" layoutY="118.0" prefHeight="30.0" prefWidth="220.0" promptText="Confirm Password" styleClass="textfield" stylesheets="@css/login.css" />
+                  <PasswordField fx:id="register_password" layoutX="22.0" layoutY="44.0" prefHeight="30.0" prefWidth="220.0" promptText="Enter Password" styleClass="textfield" stylesheets="@css/login.css" />
+                  <PasswordField fx:id="register_confirm_password" layoutX="23.0" layoutY="118.0" prefHeight="30.0" prefWidth="220.0" promptText="Confirm Password" styleClass="textfield" stylesheets="@css/login.css" />
                   <CheckBox layoutX="132.0" layoutY="161.0" mnemonicParsing="false" text="Show Password">
                      <font>
                         <Font size="13.0" />
                      </font>
                   </CheckBox>
-                  <Button layoutX="24.0" layoutY="285.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="220.0" styleClass="login-btn" stylesheets="@css/login.css">
+                  <Button fx:id="register_btn" layoutX="24.0" layoutY="285.0" mnemonicParsing="false" onAction="#register" prefHeight="40.0" prefWidth="220.0" styleClass="login-btn" stylesheets="@css/login.css" text="Register">
                      <graphic>
                         <ImageView fitHeight="18.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -108,11 +108,23 @@
                         </ImageView>
                      </graphic>
                   </Button>
+                  <Button fx:id="close" layoutX="200.0" layoutY="3.0" mnemonicParsing="false" onAction="#close" prefHeight="20.0" prefWidth="40.0" styleClass="close" stylesheets="@css/login.css" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="2.0">
+                     <padding>
+                        <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                     </padding>
+                     <graphic>
+                        <ImageView fitHeight="21.0" fitWidth="73.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/icons8-close-64.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
                </children>
             </AnchorPane>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" visible="false">
+      <AnchorPane fx:id="reset_Password_form" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" visible="false">
          <children>
             <AnchorPane layoutX="1.0" layoutY="-1.0" prefHeight="400.0" prefWidth="274.0" styleClass="left-form" stylesheets="@css/login.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="252.0" AnchorPane.topAnchor="0.0">
                <children>
@@ -137,12 +149,24 @@
                         <Font size="13.0" />
                      </font>
                   </CheckBox>
-                  <Button layoutX="24.0" layoutY="285.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="220.0" styleClass="login-btn" stylesheets="@css/login.css" text="Reset Password" />
+                  <Button fx:id="resetPwd_Btn" layoutX="24.0" layoutY="285.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="220.0" styleClass="login-btn" stylesheets="@css/login.css" text="Reset Password" />
                   <ImageView fitHeight="18.0" fitWidth="66.0" layoutX="220.0" layoutY="298.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../images/icons8-key-120.png" />
                      </image>
                   </ImageView>
+                  <Button fx:id="close" layoutX="199.0" layoutY="17.0" mnemonicParsing="false" onAction="#close" prefHeight="20.0" prefWidth="40.0" styleClass="close" stylesheets="@css/login.css" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="2.0">
+                     <padding>
+                        <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                     </padding>
+                     <graphic>
+                        <ImageView fitHeight="21.0" fitWidth="73.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/icons8-close-64.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
                </children>
             </AnchorPane>
          </children>
