@@ -3,17 +3,17 @@ package com.nursing.management.auth;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
-public class DatabaseConnector {
-public static Connection connectDb() {
-	try {
-		class.forName("com.myql.jdbc.Driver");
-		Connection connect = DriverManager.getConnection("jdbc:mysql://localhost:");
-	}catch(Exception e) {
-		e.printStackTrace();
-	}
-	}
-	
-}
+//public class DatabaseConnector {
+//public static Connection connectDb() {
+//	try {
+//		class.forName("com.myql.jdbc.Driver");
+//		Connection connect = DriverManager.getConnection("jdbc:mysql://localhost:");
+//	}catch(Exception e) {
+//		e.printStackTrace();
+//	}
+//	}
+//	
+//}
 
 
 
