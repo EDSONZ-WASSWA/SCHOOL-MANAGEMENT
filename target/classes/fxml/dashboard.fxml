@@ -109,7 +109,7 @@
                                  </font>
                               </Label>
                               <Line endX="100.0" layoutX="103.0" layoutY="124.0" startX="-100.0" stroke="#faf5f5" />
-                              <Button fx:id="logout_btn" alignment="CENTER" layoutX="32.0" layoutY="508.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="103.0" stylesheets="@css/dashboardDesign.css" text="Sign Out" AnchorPane.bottomAnchor="15.0">
+                              <Button fx:id="logout_btn" alignment="CENTER" layoutX="32.0" layoutY="508.0" mnemonicParsing="false" onAction="#logout" prefHeight="38.0" prefWidth="103.0" stylesheets="@css/dashboardDesign.css" text="Sign Out" AnchorPane.bottomAnchor="15.0">
                                  <graphic>
                                     <ImageView fx:id="signOut_btn" fitHeight="26.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
@@ -172,7 +172,7 @@
                      <children>
                         <AnchorPane layoutX="130.0" layoutY="75.0" prefHeight="574.4" prefWidth="1289.6" stylesheets="@css/dashboardDesign.css" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
                            <children>
-                              <AnchorPane fx:id="register_Form" layoutX="86.0" layoutY="116.0" prefHeight="574.4" prefWidth="1289.6" stylesheets="@css/dashboardDesign.css" visible="false" AnchorPane.bottomAnchor="12.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="12.0">
+                              <AnchorPane fx:id="register_Form" layoutX="86.0" layoutY="116.0" prefHeight="574.4" prefWidth="1289.6" stylesheets="@css/dashboardDesign.css" AnchorPane.bottomAnchor="12.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="12.0">
                                  <styleClass>
                                     <String fx:value="shadow" />
                                     <String fx:value="white-bg" />
@@ -335,8 +335,12 @@
                                                             </Label>
                                                             <TextArea fx:id="register_specialNeeds" layoutX="11.0" layoutY="766.0" prefHeight="54.0" prefWidth="844.0" />
                                                             <TextArea fx:id="register_emergencyProcedures" layoutX="11.0" layoutY="848.0" prefHeight="54.0" prefWidth="853.0" />
-                                                            <Label layoutX="749.0" layoutY="131.0" prefHeight="18.0" prefWidth="48.0" text="Gender:" />
-                                                            <ComboBox fx:id="register_gender" layoutX="814.0" layoutY="125.0" prefWidth="150.0" promptText="Choose" />
+                                                            <Label layoutX="979.0" layoutY="131.0" prefHeight="18.0" prefWidth="48.0" text="Gender:" />
+                                                            <ComboBox fx:id="register_gender" layoutX="1044.0" layoutY="125.0" prefWidth="150.0" promptText="Choose" />
+                                                            <Label layoutX="568.0" layoutY="135.0" prefHeight="18.0" prefWidth="30.0" text="MTN:" />
+                                                            <TextField fx:id="mtn" layoutX="595.0" layoutY="123.0" prefHeight="26.0" prefWidth="160.0" styleClass="textfield" />
+                                                            <Label layoutX="769.0" layoutY="136.0" prefHeight="18.0" prefWidth="44.0" text="Airtel:" />
+                                                            <TextField fx:id="airtel" layoutX="817.0" layoutY="124.0" prefHeight="26.0" prefWidth="160.0" styleClass="textfield" />
                                                          </children>
                                                          <styleClass>
                                                             <String fx:value="white-bg" />
@@ -418,7 +422,7 @@
                                     </AnchorPane>
                                  </children>
                               </AnchorPane>
-                              <AnchorPane fx:id="home_Form" prefHeight="574.4" prefWidth="1289.6" stylesheets="@css/dashboardDesign.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                              <AnchorPane fx:id="home_Form" prefHeight="574.4" prefWidth="1289.6" stylesheets="@css/dashboardDesign.css" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <children>
                                     <AnchorPane layoutX="14.4" layoutY="15.0" prefHeight="156.0" prefWidth="1289.6" stylesheets="@css/dashboardDesign.css" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="15.0">
                                        <children>
