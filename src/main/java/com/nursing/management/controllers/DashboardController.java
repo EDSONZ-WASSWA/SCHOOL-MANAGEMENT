@@ -1,15 +1,31 @@
 
 package com.nursing.management.controllers;
 
+import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
+import com.nursing.management.studentsBio;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.chart.AreaChart;
 import javafx.scene.chart.BarChart;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
@@ -18,12 +34,20 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 public class DashboardController implements Initializable{
     @FXML
     private Button StudentsGrade_btn;
+    
+    @FXML
+    private TextField mtn;
+    
+    @FXML
+    private TextField airtel;
 
     @FXML
     private TableColumn<?, ?> Table_name;
@@ -400,6 +424,36 @@ public class DashboardController implements Initializable{
     @FXML
     private TextField year2_sem_p4;
     
+    private Connection connect;
+    private PreparedStatement prepare;
+    private Statement statement;
+    private ResultSet result;
+    
+    /*
+     * THE Students data method to add, edit and delete the students data
+     * This is the overall method that connects to the graphs of the opening login form.
+     * #Keep Coding, No one ever regrets working harder
+     * @KATO ELVIS.dev/2637/477/NRD.
+     * */
+    
+    //STUDENTS REGISTER FORM.
+    
+    public ObservableList<studentsBio> addStudentsListData(){
+    	   ObservableList<studentsBio> listStudents = FXCollections.observableArrayList();
+    	   
+    	   String sql = "SELECT * FROM studentsBio";
+		   return listStudents;
+		   
+		   //Video:2:22:14
+		   //create a public database class
+    }
+    
+    
+    
+    
+    private double x = 0;
+    private double y = 0;
+    
     // The methods to implement
     
     //The close window method..
@@ -458,6 +512,56 @@ public class DashboardController implements Initializable{
     		studentsList_btn.setStyle("-fx-background-color:transparent");
     	}
     	
+    }
+    
+    //The logout Method
+    public void logout() {
+    	try {
+    		Alert alert = new Alert(AlertType.CONFIRMATION);
+        	alert.setTitle("Confirmation Message");
+        	alert.setHeaderText(null);
+        	alert.setContentText("Are you sure about this?");
+        	Optional<ButtonType> option = alert.showAndWait();
+        	if(option.get().equals(ButtonType.OK)) {
+        		
+        		logout_btn.getScene().getWindow().hide();
+        		Parent root = FXMLLoader.load(getClass().getResource("/fxml/login.fxml"));
+        		Stage stage = new Stage();
+        		Scene scene = new Scene(root);
+        		
+        		stage.initStyle(StageStyle.TRANSPARENT);
+        		
+        		
+        		/*Making the alert message Transparent
+        		 * while its being dragged both horizontal and vertical
+        		 * @ Kato Elvis.....
+        		 * EAT: 01:09:46- AM
+        		 * Wed/27/2025
+        		 * */
+        		
+        		root.setOnMousePressed((MouseEvent event) ->{
+        			x = event.getSceneX();
+        			y = event.getSceneY();
+        		});
+        		
+        		root.setOnMouseDragged((MouseEvent event) ->{
+        			stage.setX(event.getScreenX() - x);
+        			stage.setY(event.getScreenY() - y);
+        			
+        			stage.setOpacity(.8);
+        		});
+        		
+        		root.setOnMouseReleased((MouseEvent event) ->{
+        			stage.setOpacity(1);
+        		});
+        		
+        		stage.setScene(scene);
+        		stage.show();
+        	}
+        	
+		
+		} catch (Exception e) {e.printStackTrace();}
+		
     }
 
 	@Override
