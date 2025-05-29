@@ -22,6 +22,7 @@ public class studentsBio {
     private String studentSubcounty;
     private String studentCounty;
     private String studentParish;
+    private String studentEmail;
     private String studentGender;
     //Guardians 1 Data
     private String guardian1Name;
@@ -51,6 +52,7 @@ public class studentsBio {
     private Integer Alevel;
     private Integer Olevel;
     private String prevCourse;
+    private String courseYear;
     private String emergencyName;
     private Integer emergencyContact1;
     private Integer emergencyContact2;
@@ -66,13 +68,13 @@ public class studentsBio {
     //The constructor...
 	public studentsBio(String firstName, String middleName, String lastName, String religion, Date dOB,
 			String studentNIN, String studentDistrict, String studentSubcounty, String studentCounty,
-			String studentParish, String studentGender, String guardian1Name, String guardian1nin,
+			String studentParish, String studentGender, String studentEamil, String guardian1Name, String guardian1nin,
 			Integer guardian1Contact1, Integer guardian1Contact2, String guardian1District, String guardian1Subcounty,
 			String guardian1County, String guardian1Parish, String guardian1Village, String guardian1Email,
 			String guardian1Occupation, String guardian2Name, String guardian2nin, Integer guardian2Contact1,
 			Integer guardian2Contact2, String guardian2District, String guardian2Subcounty, String guardian2County,
 			String guardian2Parish, String guardian2Village, String guardian2Email, String guardian2Occupation,
-			String nSIN, Integer alevel, Integer olevel, String prevCourse, String emergencyName,
+			String nSIN, Integer alevel, Integer olevel, String prevCourse, String courseYear, String emergencyName,
 			Integer emergencyContact1, Integer emergencyContact2, String relationship, Integer physicianContact,
 			String medConditions, String medication, String medProcedures, String specialNeeds, Integer mTN,
 			Integer airtel) {
@@ -88,6 +90,7 @@ public class studentsBio {
 		this.studentCounty = studentCounty;
 		this.studentParish = studentParish;
 		this.studentGender = studentGender;
+		this.studentEmail = studentEmail;
 		this.guardian1Name = guardian1Name;
 		guardian1NIN = guardian1nin;
 		this.guardian1Contact1 = guardian1Contact1;
@@ -114,6 +117,7 @@ public class studentsBio {
 		Alevel = alevel;
 		Olevel = olevel;
 		this.prevCourse = prevCourse;
+		this.courseYear = courseYear;
 		this.emergencyName = emergencyName;
 		this.emergencyContact1 = emergencyContact1;
 		this.emergencyContact2 = emergencyContact2;
@@ -172,6 +176,10 @@ public class studentsBio {
 
 	public String getStudentGender() {
 		return studentGender;
+	}
+	
+	public String getStudentEmail() {
+		return studentEmail;
 	}
 
 	public String getGuardian1Name() {
@@ -321,6 +329,17 @@ public class studentsBio {
 	public Integer getAirtel() {
 		return Airtel;
 	}
+	
+	public String getcourseYear() {
+		return courseYear;
+	}
+
+
+//
+//	public String getEmail() {
+//		// TODO Auto-generated method stub
+//		return Email();
+//	}
     
 
 	

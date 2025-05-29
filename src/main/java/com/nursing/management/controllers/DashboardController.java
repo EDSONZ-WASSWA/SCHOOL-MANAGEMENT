@@ -1,7 +1,10 @@
-
+  /*
+     * THE Students data method to add, edit and delete the students data
+     * This is the overall method that connects to the graphs of the opening login form.
+     * #Keep Coding, No one ever regrets working harder
+     * @KATO ELVIS.dev/2637/477/NRD.
+     * */
 package com.nursing.management.controllers;
-
-import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -11,7 +14,6 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 
 import com.nursing.management.studentsBio;
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -33,6 +35,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -182,10 +185,10 @@ public class DashboardController implements Initializable{
     private DatePicker register_DOB;
 
     @FXML
-    private TableColumn<?, ?> register_DOB_col;
+    private TableColumn<studentsBio, String> register_DOB_col;
 
     @FXML
-    private TableColumn<?, ?> register_Fname_col;
+    private TableColumn<studentsBio, String> register_Fname_col;
 
     @FXML
     private AnchorPane register_Form;
@@ -194,7 +197,7 @@ public class DashboardController implements Initializable{
     private TextField register_LName;
 
     @FXML
-    private TableColumn<?, ?> register_Lname_col;
+    private TableColumn<studentsBio, String> register_Lname_col;
 
     @FXML
     private TextField register_NIN;
@@ -218,7 +221,7 @@ public class DashboardController implements Initializable{
     private TextField register_contact;
 
     @FXML
-    private TableColumn<?, ?> register_contact_col;
+    private TableColumn<studentsBio, Integer> register_contact_col;
 
     @FXML
     private TextField register_county;
@@ -326,7 +329,7 @@ public class DashboardController implements Initializable{
     private ComboBox<?> register_gender;
 
     @FXML
-    private TableColumn<?, ?> register_gender_col;
+    private TableColumn<studentsBio, String> register_gender_col;
 
     @FXML
     private TextField register_medical_conditions;
@@ -335,7 +338,7 @@ public class DashboardController implements Initializable{
     private TextField register_middleName;
 
     @FXML
-    private TableColumn<?, ?> register_nsin_col;
+    private TableColumn<studentsBio, String> register_nsin_col;
 
     @FXML
     private TextField register_parish;
@@ -350,7 +353,7 @@ public class DashboardController implements Initializable{
     private TextField register_religion;
 
     @FXML
-    private TableColumn<?, ?> register_religion_col;
+    private TableColumn<studentsBio, String> register_religion_col;
 
     @FXML
     private TextField register_search;
@@ -362,7 +365,7 @@ public class DashboardController implements Initializable{
     private TextField register_subcounty;
 
     @FXML
-    private TableView<?> register_tableView;
+    private TableView<studentsBio> register_tableView;
 
     @FXML
     private Button register_update_btn;
@@ -429,24 +432,111 @@ public class DashboardController implements Initializable{
     private Statement statement;
     private ResultSet result;
     
-    /*
-     * THE Students data method to add, edit and delete the students data
-     * This is the overall method that connects to the graphs of the opening login form.
-     * #Keep Coding, No one ever regrets working harder
-     * @KATO ELVIS.dev/2637/477/NRD.
-     * */
+  
     
     //STUDENTS REGISTER FORM.
-    
-    public ObservableList<studentsBio> addStudentsListData(){
+        
+    public ObservableList<studentsBio> addStudentsListData(){  //addStudentsListData: object to add students data
     	   ObservableList<studentsBio> listStudents = FXCollections.observableArrayList();
     	   
     	   String sql = "SELECT * FROM studentsBio";
+    	   
+    	 connect = database.connectDb();
+    	   
 		   return listStudents;
-		   
-		   //Video:2:22:14
-		   //create a public database class
     }
+    
+    private ObservableList<studentsBio> addStudentsList;// Object to show lists on the table
+    
+    
+    //Method to add data to the table view...
+    public void addStudentsShowListData() {
+    	addStudentsList = addStudentsListData();
+    	register_nsin_col.setCellValueFactory(new PropertyValueFactory<>("NSIN"));
+    	register_Fname_col.setCellValueFactory(new PropertyValueFactory<>("firstName"));
+    	register_Lname_col.setCellValueFactory(new PropertyValueFactory<>("lastName"));
+    	register_contact_col.setCellValueFactory(new PropertyValueFactory<>("MTN"));
+    	register_gender_col.setCellValueFactory(new PropertyValueFactory<>("studentGender"));
+    	register_DOB_col.setCellValueFactory(new PropertyValueFactory<>("DOB"));
+    	register_religion_col.setCellValueFactory(new PropertyValueFactory<>("religion"));
+    	
+    	register_tableView.setItems(addStudentsList);
+    }
+    
+    
+    //Method to auto detect Selected Student
+    
+    public void addStudentsSelected(){
+    	studentsBio studentsData =     	register_tableView.getSelectionModel().getSelectedItem();
+    	int num =     	register_tableView.getSelectionModel().getSelectedIndex();
+    	
+    	if((num -1) < -1) {return;}
+    	
+    	register_fname.setText(studentsData.getFirstName());
+    	register_middleName.setText(studentsData.getMiddleName());
+    	register_LName.setText(studentsData.getLastName());
+    	register_religion.setText(studentsData.getReligion());
+    	register_DOB.setPromptText(String.valueOf(studentsData.getDOB()));  // Integer converted to String
+    	register_NIN.setText(studentsData.getStudentNIN());
+    	register_district.setText(studentsData.getStudentDistrict());
+    	register_subcounty.setText(studentsData.getStudentSubcounty());
+    	register_county.setText(studentsData.getStudentCounty());
+    	register_email.setText(studentsData.getStudentEmail());
+    	register_gender.setPromptText(studentsData.getStudentGender());
+    	register_parish.setText(studentsData.getStudentParish());
+
+    	// Guardian 1 information
+    	register_gardianName1.setText(studentsData.getGuardian1Name());
+    	register_gardian1_nin.setText(studentsData.getGuardian1NIN());
+    	register_gardian1_parish.setText(studentsData.getGuardian1Parish());
+    	register_gardian1_contact1.setText(String.valueOf(studentsData.getGuardian1Contact1()));  // Integer
+    	register_gardian1_occupation.setText(studentsData.getGuardian1Occupation());
+    	register_gardian1_district.setText(studentsData.getGuardian1District());
+    	register_gardian1_subcounty.setText(studentsData.getGuardian1Subcounty());
+    	register_gardian1_county.setText(studentsData.getGuardian1County());
+    	register_gardian1_village.setText(studentsData.getGuardian1Village());
+    	register_gardian1_email.setText(studentsData.getGuardian1Email());
+    	register_gardian1_contact2.setText(String.valueOf(studentsData.getGuardian1Contact2()));  // Integer
+
+    	// Guardian 2 information
+    	register_gardian2_name.setText(studentsData.getGuardian2Name());
+    	register_gardian2_nin.setText(studentsData.getGuardian2NIN());
+    	register_gardian2_parish.setText(studentsData.getGuardian2Parish());
+    	register_gardian2_contact1.setText(String.valueOf(studentsData.getGuardian2Contact1()));  // Integer
+    	register_gardian2_occupation.setText(studentsData.getGuardian2Occupation());
+    	register_gardian2_district.setText(studentsData.getGuardian2District());
+    	register_gardian2_subcounty.setText(studentsData.getGuardian2Subcounty());
+    	register_gardian2_county.setText(studentsData.getGuardian2County());
+    	register_gardian2_village.setText(studentsData.getGuardian2Village());
+    	register_gardian2_email.setText(studentsData.getGuardian2Email());
+    	register_gardian2_contact2.setText(String.valueOf(studentsData.getGuardian2Contact2()));  // Integer
+
+    	// Academic information
+    	register_NSIN.setText(studentsData.getNSIN());
+    	register_Alevel.setText(String.valueOf(studentsData.getAlevel()));  // Integer
+    	register_Olevel.setText(String.valueOf(studentsData.getOlevel()));  // Integer
+    	register_doneCourse.setText(studentsData.getPrevCourse());
+    	register_year_done.setText(studentsData.getcourseYear());
+
+    	// Emergency contact information
+    	register_emergency_name.setText(studentsData.getEmergencyName());
+    	register_emrgency_contact1.setText(String.valueOf(studentsData.getEmergencyContact1()));  // Integer
+    	register_emrgency_contact2.setText(String.valueOf(studentsData.getEmergencyContact2()));  // Integer
+    	register_relationship.setText(studentsData.getRelationship());
+
+    	// Medical information
+    	register_physician_contact.setText(String.valueOf(studentsData.getPhysicianContact()));  // Integer
+    	register_medical_conditions.setText(studentsData.getMedConditions());
+    	register_current_medication.setText(studentsData.getMedication());
+    	register_specialNeeds.setText(studentsData.getSpecialNeeds());
+    	register_emergencyProcedures.setText(studentsData.getEmergencyName());
+    	airtel.setText(String.valueOf(studentsData.getAirtel()));
+    	
+    	// Integer
+    	
+    //video:2:37:13
+    }
+    
     
     
     
@@ -488,6 +578,8 @@ public class DashboardController implements Initializable{
     		home_btn.setStyle("-fx-background-color:transparent");
     		studentsList_btn.setStyle("-fx-background-color:transparent");
     		StudentsGrade_btn.setStyle("-fx-background-color:transparent");
+    		//I want to make the data to auto update its self when clicked..
+    		addStudentsShowListData();
     		
     		
     	}else if(event.getSource() == studentsList_btn) {
@@ -499,7 +591,8 @@ public class DashboardController implements Initializable{
     		home_btn.setStyle("-fx-background-color:transparent");
     		register_btn.setStyle("-fx-background-color:transparent");
     		StudentsGrade_btn.setStyle("-fx-background-color:transparent");
-    		
+    	     //Auto update the Table when clicked...
+    		addStudentsShowListData();
     		
     	}else if(event.getSource() == StudentsGrade_btn) {
     		home_Form.setVisible(false);
@@ -566,7 +659,8 @@ public class DashboardController implements Initializable{
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		// TODO Auto-generated method stub
+		//Placed here to load Immediately we add and open up the registration form..
+		addStudentsShowListData();
 		
 	}
    

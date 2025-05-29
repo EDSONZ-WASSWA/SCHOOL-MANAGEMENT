@@ -7,7 +7,6 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ResourceBundle;
 
-import com.nursing.management.auth.DatabaseConnector;
 import com.nursing.management.dao.alertMessage;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -63,7 +62,7 @@ public void close() {
     
     public  void login() {
     	String sql = "SELECT * FROM logindata WHERE password = ?";
-    	connect = DatabaseConnector.connectDb();
+    	connect = database.connectDb();
     	try {
     		
     	
@@ -87,7 +86,7 @@ public void close() {
     		alert.errorMessage("Characters should more than 8 digits");
     	}else {
     		String checkPassword ="SELECT * FROM logindata WHERE password ='"+ register_password.getText()+"'";
-    		connect = DatabaseConnector.connectDb();
+    		connect = database.connectDb();
     		try {
     			statement = connect.createStatement();
     			result = statement.executeQuery(checkPassword);

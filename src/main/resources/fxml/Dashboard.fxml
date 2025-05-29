@@ -404,7 +404,7 @@
                                                       <Image url="@../images/people.png" />
                                                    </image>
                                                 </ImageView>
-                                                <TableView fx:id="register_tableView" layoutX="11.0" layoutY="52.0" prefHeight="218.0" prefWidth="1218.0">
+                                                <TableView fx:id="register_tableView" layoutX="11.0" layoutY="52.0" onMouseClicked="#addStudentsSelected" prefHeight="218.0" prefWidth="1218.0">
                                                   <columns>
                                                     <TableColumn fx:id="register_nsin_col" prefWidth="180.79999542236328" resizable="false" text="NSIN NUMBER" />
                                                     <TableColumn fx:id="register_Fname_col" minWidth="0.0" prefWidth="240.00003051757812" resizable="false" text="First Name" />
