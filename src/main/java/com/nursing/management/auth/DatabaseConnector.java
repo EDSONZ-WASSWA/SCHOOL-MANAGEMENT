@@ -1,3 +1,4 @@
+
 package com.nursing.management.auth;
 
 import java.sql.Connection;
@@ -24,3 +25,4 @@ public class DatabaseConnector {
         }
     }
 }
+

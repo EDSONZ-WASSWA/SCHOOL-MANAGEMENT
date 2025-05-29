@@ -13,7 +13,7 @@ public class Main extends Application{
 	private double  y =0;
 	@Override
 	public void start(Stage stage) throws Exception{
-	Parent root = FXMLLoader.load(getClass().getResource("/fxml/login.fxml"));	
+	Parent root = FXMLLoader.load(getClass().getResource("/fxml/Dashboard.fxml"));	
 	Scene scene = new Scene(root);
 	root.setOnMousePressed((MouseEvent event) ->{
 		x = event.getSceneX();
@@ -32,6 +32,7 @@ public class Main extends Application{
 	stage.show();
 	}
 	public static void main(String[] args) {
+		System.setProperty("prism.marlinrasterizer", "false"); // This line removes the marlin warnings in the Terminal
 		launch (args);
 	}
 }

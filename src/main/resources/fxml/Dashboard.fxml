@@ -62,18 +62,18 @@
                                     <Font name="System Bold" size="14.0" />
                                  </font>
                               </Label>
-                              <Button layoutX="1430.0" layoutY="4.0" minWidth="25.0" mnemonicParsing="false" onAction="#close" prefHeight="30.0" prefWidth="25.0" styleClass="close" AnchorPane.rightAnchor="3.0" AnchorPane.topAnchor="3.0">
+                              <Button fx:id="close_btn" layoutX="1430.0" layoutY="4.0" minWidth="25.0" mnemonicParsing="false" onAction="#close" prefHeight="30.0" prefWidth="25.0" styleClass="close" AnchorPane.rightAnchor="3.0" AnchorPane.topAnchor="3.0">
                                  <graphic>
-                                    <ImageView fx:id="close_btn" accessibleRole="BUTTON" fitHeight="19.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" styleClass="close">
+                                    <ImageView accessibleRole="BUTTON" fitHeight="19.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" styleClass="close">
                                        <image>
                                           <Image url="@../images/close.png" />
                                        </image>
                                     </ImageView>
                                  </graphic>
                               </Button>
-                              <Button layoutX="1422.0" layoutY="8.8" minWidth="28.0" mnemonicParsing="false" onAction="#minimise" prefHeight="26.0" prefWidth="28.0" styleClass="minimize" AnchorPane.topAnchor="2.0">
+                              <Button fx:id="minimise_btn" layoutX="1422.0" layoutY="8.8" minWidth="28.0" mnemonicParsing="false" onAction="#minimise" prefHeight="26.0" prefWidth="28.0" styleClass="minimize" AnchorPane.topAnchor="2.0">
                                  <graphic>
-                                    <ImageView fx:id="minimise_btn" fitHeight="18.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true" styleClass="minimize">
+                                    <ImageView fitHeight="18.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true" styleClass="minimize">
                                        <image>
                                           <Image url="@../images/icons8-horizontal-line-96.png" />
                                        </image>
@@ -109,43 +109,7 @@
                                  </font>
                               </Label>
                               <Line endX="100.0" layoutX="103.0" layoutY="124.0" startX="-100.0" stroke="#faf5f5" />
-                              <Button fx:id="home_btn" layoutX="9.0" layoutY="137.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="192.0" styleClass="nav-btn" stylesheets="@css/dashboardDesign.css" text="HOME">
-                                 <graphic>
-                                    <ImageView fitHeight="26.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../images/icons8-home-50.png" />
-                                       </image>
-                                    </ImageView>
-                                 </graphic>
-                              </Button>
-                              <Button fx:id="register_btn" alignment="CENTER" layoutX="9.0" layoutY="185.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="193.0" styleClass="nav-btn" stylesheets="@css/dashboardDesign.css" text="Regeister Students">
-                                 <graphic>
-                                    <ImageView fitHeight="26.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../images/icons8-students-50.png" />
-                                       </image>
-                                    </ImageView>
-                                 </graphic>
-                              </Button>
-                              <Button fx:id="studentsList_btn" alignment="CENTER" layoutX="9.0" layoutY="231.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="194.0" styleClass="nav-btn" stylesheets="@css/dashboardDesign.css" text="Students List">
-                                 <graphic>
-                                    <ImageView fitHeight="26.0" fitWidth="61.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../images/icons8-list-24.png" />
-                                       </image>
-                                    </ImageView>
-                                 </graphic>
-                              </Button>
-                              <Button fx:id="StudentsGrade_btn" alignment="CENTER" layoutX="8.0" layoutY="277.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="194.0" styleClass="nav-btn" stylesheets="@css/dashboardDesign.css" text="Students Grade">
-                                 <graphic>
-                                    <ImageView fitHeight="26.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../images/icons8-security-pass-50.png" />
-                                       </image>
-                                    </ImageView>
-                                 </graphic>
-                              </Button>
-                              <Button fx:id="logout_btn" alignment="CENTER" layoutX="32.0" layoutY="508.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="103.0" stylesheets="@css/dashboardDesign.css" text="Sign Out" AnchorPane.bottomAnchor="15.0">
+                              <Button fx:id="logout_btn" alignment="CENTER" layoutX="32.0" layoutY="508.0" mnemonicParsing="false" onAction="#logout" prefHeight="38.0" prefWidth="103.0" stylesheets="@css/dashboardDesign.css" text="Sign Out" AnchorPane.bottomAnchor="15.0">
                                  <graphic>
                                     <ImageView fx:id="signOut_btn" fitHeight="26.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
@@ -157,6 +121,42 @@
                                     <String fx:value="logout" />
                                     <String fx:value="shadow" />
                                  </styleClass>
+                              </Button>
+                              <Button fx:id="home_btn" layoutX="14.0" layoutY="143.0" mnemonicParsing="false" onAction="#switchForms" prefHeight="42.0" prefWidth="187.0" styleClass="nav-btn" stylesheets="@css/dashboardDesign.css" text="Home">
+                                 <graphic>
+                                    <ImageView fitHeight="29.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/icons8-home-50.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button fx:id="register_btn" layoutX="14.0" layoutY="195.0" mnemonicParsing="false" onAction="#switchForms" prefHeight="42.0" prefWidth="187.0" styleClass="nav-btn" stylesheets="@css/dashboardDesign.css" text="Register Students">
+                                 <graphic>
+                                    <ImageView fitHeight="29.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/icons8-students-50.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button fx:id="studentsList_btn" layoutX="14.0" layoutY="247.0" mnemonicParsing="false" onAction="#switchForms" prefHeight="42.0" prefWidth="187.0" styleClass="nav-btn" stylesheets="@css/dashboardDesign.css" text="Students Details">
+                                 <graphic>
+                                    <ImageView fitHeight="29.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/icons8-list-24.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button fx:id="StudentsGrade_btn" layoutX="15.0" layoutY="297.0" mnemonicParsing="false" onAction="#switchForms" prefHeight="42.0" prefWidth="187.0" styleClass="nav-btn" stylesheets="@css/dashboardDesign.css" text="Students Grades">
+                                 <graphic>
+                                    <ImageView fitHeight="29.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/icons8-security-pass-50.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
                               </Button>
                            </children>
                            <styleClass>
@@ -172,7 +172,7 @@
                      <children>
                         <AnchorPane layoutX="130.0" layoutY="75.0" prefHeight="574.4" prefWidth="1289.6" stylesheets="@css/dashboardDesign.css" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
                            <children>
-                              <AnchorPane fx:id="register_Form" layoutX="86.0" layoutY="116.0" prefHeight="574.4" prefWidth="1289.6" stylesheets="@css/dashboardDesign.css" visible="false" AnchorPane.bottomAnchor="12.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="12.0">
+                              <AnchorPane fx:id="register_Form" layoutX="86.0" layoutY="116.0" prefHeight="574.4" prefWidth="1289.6" stylesheets="@css/dashboardDesign.css" AnchorPane.bottomAnchor="12.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="12.0">
                                  <styleClass>
                                     <String fx:value="shadow" />
                                     <String fx:value="white-bg" />
@@ -335,8 +335,12 @@
                                                             </Label>
                                                             <TextArea fx:id="register_specialNeeds" layoutX="11.0" layoutY="766.0" prefHeight="54.0" prefWidth="844.0" />
                                                             <TextArea fx:id="register_emergencyProcedures" layoutX="11.0" layoutY="848.0" prefHeight="54.0" prefWidth="853.0" />
-                                                            <Label layoutX="749.0" layoutY="131.0" prefHeight="18.0" prefWidth="48.0" text="Gender:" />
-                                                            <ComboBox fx:id="register_gender" layoutX="814.0" layoutY="125.0" prefWidth="150.0" promptText="Choose" />
+                                                            <Label layoutX="979.0" layoutY="131.0" prefHeight="18.0" prefWidth="48.0" text="Gender:" />
+                                                            <ComboBox fx:id="register_gender" layoutX="1044.0" layoutY="125.0" prefWidth="150.0" promptText="Choose" />
+                                                            <Label layoutX="568.0" layoutY="135.0" prefHeight="18.0" prefWidth="30.0" text="MTN:" />
+                                                            <TextField fx:id="mtn" layoutX="595.0" layoutY="123.0" prefHeight="26.0" prefWidth="160.0" styleClass="textfield" />
+                                                            <Label layoutX="769.0" layoutY="136.0" prefHeight="18.0" prefWidth="44.0" text="Airtel:" />
+                                                            <TextField fx:id="airtel" layoutX="817.0" layoutY="124.0" prefHeight="26.0" prefWidth="160.0" styleClass="textfield" />
                                                          </children>
                                                          <styleClass>
                                                             <String fx:value="white-bg" />
@@ -418,7 +422,7 @@
                                     </AnchorPane>
                                  </children>
                               </AnchorPane>
-                              <AnchorPane fx:id="home_Form" prefHeight="574.4" prefWidth="1289.6" stylesheets="@css/dashboardDesign.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                              <AnchorPane fx:id="home_Form" prefHeight="574.4" prefWidth="1289.6" stylesheets="@css/dashboardDesign.css" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <children>
                                     <AnchorPane layoutX="14.4" layoutY="15.0" prefHeight="156.0" prefWidth="1289.6" stylesheets="@css/dashboardDesign.css" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="15.0">
                                        <children>
