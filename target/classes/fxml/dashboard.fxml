@@ -27,7 +27,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="700.0" maxWidth="1500.0" minHeight="700.0" minWidth="1500.0" prefHeight="700.0" prefWidth="1500.0" xmlns="http://javafx.com/javafx/24" xmlns:fx="http://javafx.com/fxml/1">
+<StackPane maxHeight="700.0" maxWidth="1500.0" minHeight="700.0" minWidth="1500.0" prefHeight="700.0" prefWidth="1500.0" xmlns="http://javafx.com/javafx/24" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.nursing.management.controllers.DashboardController">
    <children>
       <AnchorPane fx:id="main_form" prefHeight="200.0" prefWidth="200.0">
          <children>
@@ -62,7 +62,7 @@
                                     <Font name="System Bold" size="14.0" />
                                  </font>
                               </Label>
-                              <Button layoutX="1430.0" layoutY="4.0" minWidth="25.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="25.0" styleClass="close" AnchorPane.rightAnchor="3.0" AnchorPane.topAnchor="3.0">
+                              <Button layoutX="1430.0" layoutY="4.0" minWidth="25.0" mnemonicParsing="false" onAction="#close" prefHeight="30.0" prefWidth="25.0" styleClass="close" AnchorPane.rightAnchor="3.0" AnchorPane.topAnchor="3.0">
                                  <graphic>
                                     <ImageView fx:id="close_btn" accessibleRole="BUTTON" fitHeight="19.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" styleClass="close">
                                        <image>
@@ -71,7 +71,7 @@
                                     </ImageView>
                                  </graphic>
                               </Button>
-                              <Button layoutX="1422.0" layoutY="8.8" minWidth="28.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="28.0" styleClass="minimize" AnchorPane.topAnchor="2.0">
+                              <Button layoutX="1422.0" layoutY="8.8" minWidth="28.0" mnemonicParsing="false" onAction="#minimise" prefHeight="26.0" prefWidth="28.0" styleClass="minimize" AnchorPane.topAnchor="2.0">
                                  <graphic>
                                     <ImageView fx:id="minimise_btn" fitHeight="18.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true" styleClass="minimize">
                                        <image>
@@ -109,7 +109,7 @@
                                  </font>
                               </Label>
                               <Line endX="100.0" layoutX="103.0" layoutY="124.0" startX="-100.0" stroke="#faf5f5" />
-                              <Button fx:id="home_btn" layoutX="15.0" layoutY="137.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="186.0" styleClass="nav-btn" stylesheets="@css/dashboardDesign.css" text="HOME">
+                              <Button fx:id="home_btn" layoutX="9.0" layoutY="137.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="192.0" styleClass="nav-btn" stylesheets="@css/dashboardDesign.css" text="HOME">
                                  <graphic>
                                     <ImageView fitHeight="26.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
@@ -118,7 +118,7 @@
                                     </ImageView>
                                  </graphic>
                               </Button>
-                              <Button fx:id="register_btn" alignment="CENTER" layoutX="9.0" layoutY="190.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="193.0" styleClass="nav-btn" stylesheets="@css/dashboardDesign.css" text="Regeister Students">
+                              <Button fx:id="register_btn" alignment="CENTER" layoutX="9.0" layoutY="185.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="193.0" styleClass="nav-btn" stylesheets="@css/dashboardDesign.css" text="Regeister Students">
                                  <graphic>
                                     <ImageView fitHeight="26.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
@@ -127,7 +127,7 @@
                                     </ImageView>
                                  </graphic>
                               </Button>
-                              <Button fx:id="studentsList_btn" alignment="CENTER" layoutX="9.0" layoutY="233.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="194.0" styleClass="nav-btn" stylesheets="@css/dashboardDesign.css" text="Students List">
+                              <Button fx:id="studentsList_btn" alignment="CENTER" layoutX="9.0" layoutY="231.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="194.0" styleClass="nav-btn" stylesheets="@css/dashboardDesign.css" text="Students List">
                                  <graphic>
                                     <ImageView fitHeight="26.0" fitWidth="61.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
@@ -136,7 +136,7 @@
                                     </ImageView>
                                  </graphic>
                               </Button>
-                              <Button fx:id="StudentsGrade_btn" alignment="CENTER" layoutX="8.0" layoutY="275.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="194.0" styleClass="nav-btn" stylesheets="@css/dashboardDesign.css" text="Students Grade">
+                              <Button fx:id="StudentsGrade_btn" alignment="CENTER" layoutX="8.0" layoutY="277.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="194.0" styleClass="nav-btn" stylesheets="@css/dashboardDesign.css" text="Students Grade">
                                  <graphic>
                                     <ImageView fitHeight="26.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
@@ -426,7 +426,7 @@
                                              <children>
                                                 <Label alignment="CENTER" layoutX="53.0" layoutY="88.0" prefHeight="20.0" prefWidth="222.0" styleClass="lable-white1" text="TOTAL POPULATION" textFill="WHITE">
                                                    <font>
-                                                      <Font name="Tahoma Bold" size="13.0" />
+                                                      <Font name="Tahoma Bold" size="18.0" />
                                                    </font>
                                                 </Label>
                                                 <ImageView fitHeight="74.0" fitWidth="89.0" layoutX="9.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
@@ -436,7 +436,7 @@
                                                 </ImageView>
                                                 <Label fx:id="home_total" alignment="TOP_RIGHT" layoutX="93.0" layoutY="14.0" prefHeight="20.0" prefWidth="184.0" styleClass="lable-white" text="0" textFill="WHITE">
                                                    <font>
-                                                      <Font name="Tahoma Bold" size="13.0" />
+                                                      <Font name="Tahoma Bold" size="42.0" />
                                                    </font>
                                                 </Label>
                                              </children>
@@ -445,7 +445,7 @@
                                              <children>
                                                 <Label alignment="CENTER" layoutX="55.0" layoutY="93.0" prefHeight="20.0" prefWidth="222.0" styleClass="lable-white1" text="FEMALE" textFill="WHITE">
                                                    <font>
-                                                      <Font name="Tahoma Bold" size="13.0" />
+                                                      <Font name="Tahoma Bold" size="18.0" />
                                                    </font>
                                                 </Label>
                                                 <ImageView fitHeight="74.0" fitWidth="89.0" layoutX="9.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
@@ -455,7 +455,7 @@
                                                 </ImageView>
                                                 <Label fx:id="home_female_total" alignment="TOP_RIGHT" layoutX="95.0" layoutY="19.0" prefHeight="20.0" prefWidth="184.0" styleClass="lable-white" text="0" textFill="WHITE">
                                                    <font>
-                                                      <Font name="Tahoma Bold" size="13.0" />
+                                                      <Font name="Tahoma Bold" size="42.0" />
                                                    </font>
                                                 </Label>
                                              </children>
@@ -464,7 +464,7 @@
                                              <children>
                                                 <Label alignment="CENTER" layoutX="61.0" layoutY="85.0" prefHeight="20.0" prefWidth="222.0" styleClass="lable-white1" text="MALE" textFill="WHITE">
                                                    <font>
-                                                      <Font name="Tahoma Bold" size="13.0" />
+                                                      <Font name="Tahoma Bold" size="18.0" />
                                                    </font>
                                                 </Label>
                                                 <ImageView fitHeight="74.0" fitWidth="89.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
@@ -474,7 +474,7 @@
                                                 </ImageView>
                                                 <Label fx:id="home_male_total" alignment="TOP_RIGHT" layoutX="101.0" layoutY="11.0" prefHeight="20.0" prefWidth="184.0" styleClass="lable-white" text="0" textFill="WHITE">
                                                    <font>
-                                                      <Font name="Tahoma Bold" size="13.0" />
+                                                      <Font name="Tahoma Bold" size="42.0" />
                                                    </font>
                                                 </Label>
                                              </children>
