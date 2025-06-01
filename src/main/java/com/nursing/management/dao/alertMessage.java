@@ -1,7 +1,6 @@
 package com.nursing.management.dao;
 
 import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 public class alertMessage{
 	private Alert alert;
 	
