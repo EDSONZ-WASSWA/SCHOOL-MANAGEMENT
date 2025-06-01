@@ -9,11 +9,15 @@ import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
 import com.nursing.management.studentsBio;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -45,12 +49,6 @@ import javafx.stage.StageStyle;
 public class DashboardController implements Initializable{
     @FXML
     private Button StudentsGrade_btn;
-    
-    @FXML
-    private TextField mtn;
-    
-    @FXML
-    private TextField airtel;
 
     @FXML
     private TableColumn<?, ?> Table_name;
@@ -420,6 +418,12 @@ public class DashboardController implements Initializable{
 
     @FXML
     private TextField year2_sem_p2;
+    
+    @FXML
+    private TextField register_student_contact1;
+
+    @FXML
+    private TextField register_student_contact2;
 
     @FXML
     private TextField year2_sem_p3;
@@ -427,110 +431,218 @@ public class DashboardController implements Initializable{
     @FXML
     private TextField year2_sem_p4;
     
+    @FXML
+    private AnchorPane details_Form;
+    
+
+    @FXML
+    private TableColumn<studentsBio, String> details_DOB_col;
+
+    @FXML
+    private TableColumn<studentsBio, String> details_Fname_col;
+
+    @FXML
+    private TableColumn<studentsBio, String> details_Lname_col;
+
+    @FXML
+    private TableColumn<studentsBio, Integer> details_contact_col;
+
+    @FXML
+    private TableColumn<studentsBio, String> details_gender_col;
+
+    @FXML
+    private TableColumn<studentsBio, String> details_nsin_col;
+
+    @FXML
+    private TableColumn<studentsBio, String> details_religion_col;
+
+    @FXML
+    private TableView<studentsBio> details_tableView;
+    
     private Connection connect;
     private PreparedStatement prepare;
     private Statement statement;
     private ResultSet result;
     
-  
+    // # Prompt Method for Gender
+     private String [] genderList = {"Female","Male"};
+     public void addGender() {
+    	 List<String> genderL = new ArrayList<>();
+    	 for(String data: genderList) {
+    		 genderL.add(data);
+    	 }
+    	 ObservableList OBlist = FXCollections.observableArrayList(genderL);
+    	 register_gender.setItems(OBlist);
+     }
     
     //STUDENTS REGISTER FORM.
         
     public ObservableList<studentsBio> addStudentsListData(){  //addStudentsListData: object to add students data
     	   ObservableList<studentsBio> listStudents = FXCollections.observableArrayList();
     	   
-    	   String sql = "SELECT * FROM studentsBio";
-    	   
-    	 connect = database.connectDb();
-    	   
-		   return listStudents;
+    	   String sql = "SELECT * FROM studentsbio";
+    	   connect = database.connectDb();
+    	 
+    	 try {
+    		 studentsBio studentsData;
+			prepare = connect.prepareStatement(sql);
+			result = prepare.executeQuery();
+			
+			while(result.next()) {
+				studentsData = new studentsBio(result.getString("firstName")
+						,result.getString("middleName")
+						, result.getString("lastName")
+						, result.getString("religion")
+						, result.getDate("DOB")
+						, result.getString("studentNIN")
+						, result.getString("studentDistrict")
+						, result.getString("studentSubcounty")
+						, result.getString("studentCounty")
+						, result.getString("studentParish")
+						,result.getString("studentEmail")
+						, result.getString("studentGender")
+						, result.getString("guardian1Name")
+						, result.getString("guardian1NIN")
+						, result.getInt("guardian1Contact1")
+						, result.getInt("guardian1Contact2")
+						, result.getString("guardian1District")
+						, result.getString("guardian1Subcounty")
+						, result.getString("guardian1County")
+						, result.getString("guardian1Parish")
+						, result.getString("guardian1Village")
+						, result.getString("guardian1Email")
+						, result.getString("guardian1Occupation")
+						, result.getString("guardian2Name")
+						, result.getString("guardian2NIN")
+						, result.getInt("guardian2Contact1")
+						, result.getInt("guardian2Contact2")
+						, result.getString("guardian2District")
+						, result.getString("guardian2Subcounty")
+						, result.getString("guardian2County")
+						, result.getString("guardian2Parish")
+						, result.getString("guardian2Village")
+						, result.getString("guardian2Email")
+						, result.getString("guardian2Occupation")
+						, result.getString("NSIN")
+						, result.getInt("Alevel")
+						, result.getInt("Olevel")
+						, result.getString("prevCourse")
+						, result.getInt("courseYear")
+						, result.getString("emergencyName")
+						, result.getInt("emergencyContact1")
+						, result.getInt("emergencyContact2")
+						, result.getString("relationship")
+						, result.getInt("physicianContact")
+						, result.getString("medConditions")
+						, result.getString("medication")
+						, result.getString("medProcedures")
+						, result.getString("specialNeeds")
+						, result.getInt("studentContact1")
+						, result.getInt("studentContact2"));
+				
+				listStudents.add(studentsData);
+						
+			}
+		} catch (SQLException e) {e.printStackTrace();}
+		     return listStudents;
     }
     
+    
+    
     private ObservableList<studentsBio> addStudentsList;// Object to show lists on the table
-    
-    
     //Method to add data to the table view...
     public void addStudentsShowListData() {
     	addStudentsList = addStudentsListData();
     	register_nsin_col.setCellValueFactory(new PropertyValueFactory<>("NSIN"));
-    	register_Fname_col.setCellValueFactory(new PropertyValueFactory<>("firstName"));
-    	register_Lname_col.setCellValueFactory(new PropertyValueFactory<>("lastName"));
-    	register_contact_col.setCellValueFactory(new PropertyValueFactory<>("MTN"));
-    	register_gender_col.setCellValueFactory(new PropertyValueFactory<>("studentGender"));
+    	register_Fname_col.setCellValueFactory(new PropertyValueFactory<>("FirstName"));
+    	register_Lname_col.setCellValueFactory(new PropertyValueFactory<>("LastName"));
+    	register_contact_col.setCellValueFactory(new PropertyValueFactory<>("StudentContact1"));
+    	register_gender_col.setCellValueFactory(new PropertyValueFactory<>("StudentGender"));
     	register_DOB_col.setCellValueFactory(new PropertyValueFactory<>("DOB"));
-    	register_religion_col.setCellValueFactory(new PropertyValueFactory<>("religion"));
+    	register_religion_col.setCellValueFactory(new PropertyValueFactory<>("Religion"));
     	
     	register_tableView.setItems(addStudentsList);
+    	
+    }
+    
+    //Method to add data to details View.
+    public void addToListView() {
+    	addStudentsList = addStudentsListData();
+        details_nsin_col.setCellValueFactory(new PropertyValueFactory<>("NSIN"));
+        details_Fname_col.setCellValueFactory(new PropertyValueFactory<>("FirstName"));
+        details_Lname_col.setCellValueFactory(new PropertyValueFactory<>("LastName"));
+        details_contact_col.setCellValueFactory(new PropertyValueFactory<>("StudentContact1"));
+        details_gender_col.setCellValueFactory(new PropertyValueFactory<>("StudentGender"));
+    	details_DOB_col.setCellValueFactory(new PropertyValueFactory<>("DOB"));
+    	details_religion_col.setCellValueFactory(new PropertyValueFactory<>("Religion"));
+    	
+    	details_tableView.setItems(addStudentsList);
+    	
+        
     }
     
     
     //Method to auto detect Selected Student
-    
     public void addStudentsSelected(){
     	studentsBio studentsData =     	register_tableView.getSelectionModel().getSelectedItem();
-    	int num =     	register_tableView.getSelectionModel().getSelectedIndex();
+    	int num = register_tableView.getSelectionModel().getSelectedIndex();
     	
     	if((num -1) < -1) {return;}
-    	
     	register_fname.setText(studentsData.getFirstName());
-    	register_middleName.setText(studentsData.getMiddleName());
+    	register_middleName.setText(studentsData.getmiddleName());
     	register_LName.setText(studentsData.getLastName());
     	register_religion.setText(studentsData.getReligion());
     	register_DOB.setPromptText(String.valueOf(studentsData.getDOB()));  // Integer converted to String
-    	register_NIN.setText(studentsData.getStudentNIN());
-    	register_district.setText(studentsData.getStudentDistrict());
-    	register_subcounty.setText(studentsData.getStudentSubcounty());
-    	register_county.setText(studentsData.getStudentCounty());
-    	register_email.setText(studentsData.getStudentEmail());
+    	register_NIN.setText(studentsData.getstudentNIN());
+    	register_district.setText(studentsData.getstudentNIN());
+    	register_subcounty.setText(studentsData.getstudentSubcounty());
+    	register_county.setText(studentsData.getstudentCounty());
     	register_gender.setPromptText(studentsData.getStudentGender());
-    	register_parish.setText(studentsData.getStudentParish());
-
+    	register_email.setText(studentsData.getstudentEmail());
+    	register_parish.setText(studentsData.getstudentParish());
     	// Guardian 1 information
-    	register_gardianName1.setText(studentsData.getGuardian1Name());
-    	register_gardian1_nin.setText(studentsData.getGuardian1NIN());
-    	register_gardian1_parish.setText(studentsData.getGuardian1Parish());
-    	register_gardian1_contact1.setText(String.valueOf(studentsData.getGuardian1Contact1()));  // Integer
-    	register_gardian1_occupation.setText(studentsData.getGuardian1Occupation());
-    	register_gardian1_district.setText(studentsData.getGuardian1District());
-    	register_gardian1_subcounty.setText(studentsData.getGuardian1Subcounty());
-    	register_gardian1_county.setText(studentsData.getGuardian1County());
-    	register_gardian1_village.setText(studentsData.getGuardian1Village());
-    	register_gardian1_email.setText(studentsData.getGuardian1Email());
-    	register_gardian1_contact2.setText(String.valueOf(studentsData.getGuardian1Contact2()));  // Integer
-
+    	register_gardianName1.setText(studentsData.getguardian1Name());
+    	register_gardian1_nin.setText(studentsData.getguardian1NIN());
+    	register_gardian1_parish.setText(studentsData.getguardian1Parish());
+    	register_gardian1_contact1.setText(String.valueOf(studentsData.getguardian1Contact1()));  // Integer
+    	register_gardian1_occupation.setText(studentsData.getguardian1Occupation());
+    	register_gardian1_district.setText(studentsData.getguardian1District());
+    	register_gardian1_subcounty.setText(studentsData.getguardian1Subcounty());
+    	register_gardian1_county.setText(studentsData.getguardian1County());
+    	register_gardian1_village.setText(studentsData.getguardian1Village());
+    	register_gardian1_email.setText(studentsData.getguardian1Email());
+    	register_gardian1_contact2.setText(String.valueOf(studentsData.getguardian1Contact2()));  // Integer
     	// Guardian 2 information
-    	register_gardian2_name.setText(studentsData.getGuardian2Name());
-    	register_gardian2_nin.setText(studentsData.getGuardian2NIN());
-    	register_gardian2_parish.setText(studentsData.getGuardian2Parish());
-    	register_gardian2_contact1.setText(String.valueOf(studentsData.getGuardian2Contact1()));  // Integer
-    	register_gardian2_occupation.setText(studentsData.getGuardian2Occupation());
-    	register_gardian2_district.setText(studentsData.getGuardian2District());
-    	register_gardian2_subcounty.setText(studentsData.getGuardian2Subcounty());
-    	register_gardian2_county.setText(studentsData.getGuardian2County());
-    	register_gardian2_village.setText(studentsData.getGuardian2Village());
-    	register_gardian2_email.setText(studentsData.getGuardian2Email());
-    	register_gardian2_contact2.setText(String.valueOf(studentsData.getGuardian2Contact2()));  // Integer
-
+    	register_gardian2_name.setText(studentsData.getguardian2Name());
+    	register_gardian2_nin.setText(studentsData.getguardian2NIN());
+    	register_gardian2_parish.setText(studentsData.getguardian2Parish());
+    	register_gardian2_contact1.setText(String.valueOf(studentsData.getguardian2Contact1()));  // Integer
+    	register_gardian2_occupation.setText(studentsData.getguardian2Occupation());
+    	register_gardian2_district.setText(studentsData.getguardian2District());
+    	register_gardian2_subcounty.setText(studentsData.getguardian2Subcounty());
+    	register_gardian2_county.setText(studentsData.getguardian2County());
+    	register_gardian2_village.setText(studentsData.getguardian2Village());
+    	register_gardian2_email.setText(studentsData.getguardian2Email());
+    	register_gardian2_contact2.setText(String.valueOf(studentsData.getguardian2Contact2()));  // Integer
     	// Academic information
     	register_NSIN.setText(studentsData.getNSIN());
     	register_Alevel.setText(String.valueOf(studentsData.getAlevel()));  // Integer
     	register_Olevel.setText(String.valueOf(studentsData.getOlevel()));  // Integer
-    	register_doneCourse.setText(studentsData.getPrevCourse());
-    	register_year_done.setText(studentsData.getcourseYear());
-
+    	register_doneCourse.setText(studentsData.getprevCourse());
+    	register_year_done.setText(String.valueOf(studentsData.getcourseYear()));
     	// Emergency contact information
-    	register_emergency_name.setText(studentsData.getEmergencyName());
-    	register_emrgency_contact1.setText(String.valueOf(studentsData.getEmergencyContact1()));  // Integer
-    	register_emrgency_contact2.setText(String.valueOf(studentsData.getEmergencyContact2()));  // Integer
-    	register_relationship.setText(studentsData.getRelationship());
-
+    	register_emergency_name.setText(studentsData.getemergencyName());
+    	register_emrgency_contact1.setText(String.valueOf(studentsData.getemergencyContact1()));  // Integer
+    	register_emrgency_contact2.setText(String.valueOf(studentsData.getemergencyContact2()));  // Integer
+    	register_relationship.setText(studentsData.getrelationship());
     	// Medical information
-    	register_physician_contact.setText(String.valueOf(studentsData.getPhysicianContact()));  // Integer
-    	register_medical_conditions.setText(studentsData.getMedConditions());
-    	register_current_medication.setText(studentsData.getMedication());
-    	register_specialNeeds.setText(studentsData.getSpecialNeeds());
-    	register_emergencyProcedures.setText(studentsData.getEmergencyName());
-    	airtel.setText(String.valueOf(studentsData.getAirtel()));
+    	register_emergencyProcedures.setText(studentsData.getmedProcedures());
+    	register_physician_contact.setText(String.valueOf(studentsData.getphysicianContact()));  // Integer
+    	register_medical_conditions.setText(studentsData.getmedConditions());
+    	register_current_medication.setText(studentsData.getmedication());
+    	register_specialNeeds.setText(studentsData.getspecialNeeds());
+    	register_student_contact1.setText(String.valueOf(studentsData.getStudentContact1()));
+    	register_student_contact2.setText(String.valueOf(studentsData.getstudentContact2()));
     	
     	// Integer
     	
@@ -562,7 +674,7 @@ public class DashboardController implements Initializable{
     	if(event.getSource() == home_btn) {
     		home_Form.setVisible(true);
     		register_Form.setVisible(false);
-    		register_Form.setVisible(false);
+    		details_Form.setVisible(false);
     		grade_Form.setVisible(false);
     		home_btn.setStyle("-fx-background-color: linear-gradient(to bottom right,  #3eac5b, #30bc86)");
     		register_btn.setStyle("-fx-background-color:transparent");
@@ -572,7 +684,7 @@ public class DashboardController implements Initializable{
     	}else if(event.getSource() == register_btn) {
     		home_Form.setVisible(false);
     		register_Form.setVisible(true);
-    		register_Form.setVisible(true);
+    		details_Form.setVisible(false);
     		grade_Form.setVisible(false);
     		register_btn.setStyle("-fx-background-color: linear-gradient(to bottom right,  #3eac5b, #30bc86)");
     		home_btn.setStyle("-fx-background-color:transparent");
@@ -580,24 +692,25 @@ public class DashboardController implements Initializable{
     		StudentsGrade_btn.setStyle("-fx-background-color:transparent");
     		//I want to make the data to auto update its self when clicked..
     		addStudentsShowListData();
+    		addGender();
     		
     		
     	}else if(event.getSource() == studentsList_btn) {
     		home_Form.setVisible(false);
     		register_Form.setVisible(false);
-    		register_Form.setVisible(true);
+    		details_Form.setVisible(true);
     		grade_Form.setVisible(false);
     		studentsList_btn.setStyle("-fx-background-color: linear-gradient(to bottom right,  #3eac5b, #30bc86)");
     		home_btn.setStyle("-fx-background-color:transparent");
     		register_btn.setStyle("-fx-background-color:transparent");
     		StudentsGrade_btn.setStyle("-fx-background-color:transparent");
     	     //Auto update the Table when clicked...
-    		addStudentsShowListData();
+    		addToListView();
     		
     	}else if(event.getSource() == StudentsGrade_btn) {
     		home_Form.setVisible(false);
     		register_Form.setVisible(false);
-    		register_Form.setVisible(false);
+    		details_Form.setVisible(false);
     		grade_Form.setVisible(true);
     		StudentsGrade_btn.setStyle("-fx-background-color: linear-gradient(to bottom right,  #3eac5b, #30bc86)");
     		home_btn.setStyle("-fx-background-color:transparent");
@@ -661,11 +774,13 @@ public class DashboardController implements Initializable{
 	public void initialize(URL location, ResourceBundle resources) {
 		//Placed here to load Immediately we add and open up the registration form..
 		addStudentsShowListData();
+		addGender();
+		addToListView();
 		
 	}
    
 
 
 }
-
+//I need to add a column for Students Email...
 
