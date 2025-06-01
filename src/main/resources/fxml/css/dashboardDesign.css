@@ -71,7 +71,7 @@
     -fx-padding:0px;
 }
 .table-view .table-column{
-    -fx-alignment:LEFT_CENTER;
+    -fx-alignment:CENTER_LEFT;
 }
 
 .row{

@@ -26,17 +26,42 @@
 			<attribute name="optional" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-22">
-		<attributes>
-			<attribute name="module" value="true"/>
-			<attribute name="maven.pomderived" value="true"/>
-		</attributes>
-	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
 		<attributes>
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+<<<<<<< HEAD
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/JavaFX"/>
+	<classpathentry kind="lib" path="D:/Programing Softwares/ojdbc14-10.2.0.2.0.jar.zip"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/ELVIS K/.m2/repository/org/openjfx/javafx-graphics/24.0.1/javafx-graphics-24.0.1-win.jar" sourcepath="C:/Users/ELVIS K/.m2/repository/org/openjfx/javafx-graphics/24.0.1/javafx-graphics-24.0.1-sources.jar">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+			<attribute name="maven.groupId" value="org.openjfx"/>
+			<attribute name="maven.artifactId" value="javafx-graphics"/>
+			<attribute name="maven.version" value="24.0.1"/>
+			<attribute name="maven.classifier" value="win"/>
+			<attribute name="maven.scope" value="compile"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/ELVIS K/.m2/repository/org/openjfx/javafx-controls/24.0.1/javafx-controls-24.0.1-win.jar" sourcepath="C:/Users/ELVIS K/.m2/repository/org/openjfx/javafx-controls/24.0.1/javafx-controls-24.0.1-sources.jar">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+			<attribute name="maven.groupId" value="org.openjfx"/>
+			<attribute name="maven.artifactId" value="javafx-controls"/>
+			<attribute name="maven.version" value="24.0.1"/>
+			<attribute name="maven.classifier" value="win"/>
+			<attribute name="maven.scope" value="compile"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="D:/Programing Softwares/mysql-connector-j-9.3.0/mysql-connector-j-9.3.0/mysql-connector-j-9.3.0.jar"/>
+	<classpathentry kind="lib" path="D:/Programing Softwares/ojdbc17.jar"/>
+=======
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/javaFX"/>
 	<classpathentry kind="lib" path="E:/from-Java-WorkSpace/mysql-connector-j-9.2.0.zip"/>
 	<classpathentry kind="lib" path="E:/from-Java-WorkSpace/ojdbc14-10.2.0.2.0.jar.zip"/>
@@ -52,5 +77,6 @@
 	<classpathentry kind="lib" path="C:/javafx-sdk-24.0.1/lib/jfx.incubator.input.jar"/>
 	<classpathentry kind="lib" path="C:/javafx-sdk-24.0.1/lib/jfx.incubator.richtext.jar"/>
 	<classpathentry kind="lib" path="E:/JAVA_WORKSPACE/jbcrypt-0.4.jar"/>
+>>>>>>> b21581ac4d598c4ef24badb24b7ed0e035ff9676
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
