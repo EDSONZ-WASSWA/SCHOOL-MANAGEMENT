@@ -8,8 +8,12 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ResourceBundle;
 
+<<<<<<< HEAD
+import com.nursing.management.dao.alertMessage;
+=======
 import com.nursing.management.auth.DatabaseConnector;
 
+>>>>>>> b21581ac4d598c4ef24badb24b7ed0e035ff9676
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -77,6 +81,11 @@ public class UserDAO implements Initializable {
     alertMessage alert = new alertMessage();
     
     public  void login() {
+
+    	String sql = "SELECT * FROM logindata WHERE password = ?";
+    	connect = database.connectDb();
+
+//>>>>>>> b21581ac4d598c4ef24badb24b7ed0e035ff9676
     	try {
     		
     	
@@ -124,7 +133,7 @@ public class UserDAO implements Initializable {
     		alert.errorMessage("Characters should more than 4 digits");
     	}else {
     		String checkPassword ="SELECT * FROM logindata WHERE password ='"+ register_password.getText()+"'";
-    		connect = DatabaseConnector.connectDb();
+    		connect = database.connectDb();
     		try {
     			statement = connect.createStatement();
     			result =  statement.executeQuery(checkPassword);
