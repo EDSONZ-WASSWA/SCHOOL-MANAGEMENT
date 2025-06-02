@@ -8,6 +8,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ResourceBundle;
 import com.nursing.management.auth.DatabaseConnector;
+import com.nursing.management.dao.alertMessage;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -75,6 +76,8 @@ public class UserDAO implements Initializable {
     alertMessage alert = new alertMessage();
     
     public  void login() {
+    	String sql = "SELECT * FROM logindata WHERE password = ?";
+    	connect = database.connectDb();
     	try {
     		
     	
@@ -130,6 +133,7 @@ public class UserDAO implements Initializable {
     				alert.errorMessage(register_password.getText() + "is already taken");
     			}else {
     				String hashedPassword = BCryptUtil.hashPassword(plainPassword);
+
     				String insertData = "INSERT INTO logindata"+ "(password)"+ "VALUE(?)";
     				prepare = connect.prepareStatement(insertData);
     				prepare.setString(1,register_password.getText());

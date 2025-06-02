@@ -1,8 +1,7 @@
 package com.nursing.management.util;
-
 import org.mindrot.jbcrypt.BCrypt;
-
 public interface BCryptUtil{
+
 	public static String hashPassword(String plainPassword) {
 		return BCrypt.hashpw(plainPassword, BCrypt.gensalt());
 	}
