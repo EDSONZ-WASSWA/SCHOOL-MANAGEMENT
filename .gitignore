@@ -1,4 +1,8 @@
 /target/
+<<<<<<< Updated upstream
 /target/classes/META-INF/maven/com.nursing/management/pom.properties/
 /target/
 /target/
+=======
+/bin/
+>>>>>>> Stashed changes
