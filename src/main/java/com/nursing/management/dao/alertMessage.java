@@ -15,7 +15,7 @@ public class alertMessage{
 		alert = new Alert(Alert.AlertType.INFORMATION);
 		alert.setTitle("Information Message");
 		alert.setContentText(Message);
-		alert.setHeaderText(Message);
+		alert.setHeaderText(null);
 		alert.showAndWait();
 	}
 }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry excluding="target/classes/fxml/css/|target/classes/images/|target/classes/sql/|target/classes/fxml/" kind="src" path="bin"/>
+	<classpathentry excluding="src/main/resources/fxml/css/|src/main/resources/images/|src/main/resources/fxml/|src/main/resources/sql/|src/main/java/com/nursing/management/|src/main/java/com/nursing/|src/main/java/com/|src/main/java/|src/main/resources/" kind="src" path=""/>
 	<classpathentry kind="lib" path="E:/JAVA_WORKSPACE/jbcrypt-0.4.jar"/>
 	<classpathentry kind="lib" path="E:/JAVA_WORKSPACE/mysql-connector-j-9.2.0.jar"/>
 	<classpathentry kind="lib" path="E:/JAVA_WORKSPACE/ojdbc14-10.2.0.2.0.jar"/>
@@ -9,7 +9,5 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/javaFX"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/sql"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
