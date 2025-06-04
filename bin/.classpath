@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path=""/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/JavaFX"/>
+	<classpathentry kind="lib" path="D:/Programing Softwares/mysql-connector-j-9.3.0.zip"/>
+	<classpathentry kind="lib" path="D:/Programing Softwares/ojdbc14-10.2.0.2.0.jar.zip"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-22"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

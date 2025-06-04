@@ -1,0 +1,9 @@
+DELEGATES_PREFERENCE=delegateValidatorList
+USER_BUILD_PREFERENCE=enabledBuildValidatorList
+USER_MANUAL_PREFERENCE=enabledManualValidatorList
+USER_PREFERENCE=overrideGlobalPreferencestruedisableAllValidationfalseversion1.3.100.v202407180051
+eclipse.preferences.version=1
+override=true
+suspend=false
+vals/org.eclipse.wst.xsd.core.xsd/groups=0107include0107fileext03xsdF0107include01111contentType135org.eclipse.tm4e.language_pack.scssT
+vf.version=3

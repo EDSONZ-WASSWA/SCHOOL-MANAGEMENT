@@ -22,7 +22,6 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -183,21 +182,25 @@ public class DashboardController implements Initializable{
     private DatePicker register_DOB;
 
     @FXML
+
     private TableColumn<studentsBio, String> register_DOB_col;
 
     @FXML
     private TableColumn<studentsBio, String> register_Fname_col;
 
     @FXML
+
     private AnchorPane register_Form;
 
     @FXML
     private TextField register_LName;
 
     @FXML
+
     private TableColumn<studentsBio, String> register_Lname_col;
 
     @FXML
+
     private TextField register_NIN;
 
     @FXML
@@ -219,9 +222,11 @@ public class DashboardController implements Initializable{
     private TextField register_contact;
 
     @FXML
+
     private TableColumn<studentsBio, Integer> register_contact_col;
 
     @FXML
+
     private TextField register_county;
 
     @FXML
@@ -326,8 +331,10 @@ public class DashboardController implements Initializable{
     @FXML
     private ComboBox<?> register_gender;
 
+
     @FXML
     private TableColumn<studentsBio, String> register_gender_col;
+
 
     @FXML
     private TextField register_medical_conditions;
@@ -335,8 +342,11 @@ public class DashboardController implements Initializable{
     @FXML
     private TextField register_middleName;
 
+
     @FXML
     private TableColumn<studentsBio, String> register_nsin_col;
+ 
+
 
     @FXML
     private TextField register_parish;
@@ -351,9 +361,12 @@ public class DashboardController implements Initializable{
     private TextField register_religion;
 
     @FXML
+<<<<<<< HEAD
     private TableColumn<studentsBio, String> register_religion_col;
 
     @FXML
+=======
+>>>>>>> c43d67576adfc538b78ba08c149407e52d3e6628
     private TextField register_search;
 
     @FXML
@@ -364,6 +377,29 @@ public class DashboardController implements Initializable{
 
     @FXML
     private TableView<studentsBio> register_tableView;
+<<<<<<< HEAD
+=======
+
+    @FXML
+    private TableColumn<studentsBio, String> register_religion_col;
+    
+    @FXML
+    private TableColumn<studentsBio, String> register_nsin_col;
+    @FXML
+    private TableColumn<studentsBio, String> register_gender_col;
+
+    @FXML
+    private TableColumn<studentsBio, Integer> register_contact_col;
+
+    @FXML
+    private TableColumn<studentsBio, String> register_DOB_col;
+
+    @FXML
+    private TableColumn<studentsBio, String> register_Fname_col;
+    
+    @FXML
+    private TableColumn<studentsBio, String> register_Lname_col;
+
 
     @FXML
     private Button register_update_btn;
