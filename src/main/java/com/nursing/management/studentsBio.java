@@ -27,8 +27,8 @@ public class studentsBio {
     //Guardians 1 Data
     private String guardian1Name;
     private String guardian1NIN;
-    private Integer guardian1Contact1;
-    private Integer guardian1Contact2;
+    private String guardian1Contact1;
+    private String guardian1Contact2;
     private String guardian1District;
     private String guardian1Subcounty;
     private String guardian1County;
@@ -39,8 +39,8 @@ public class studentsBio {
     //Guardian 2
     private String guardian2Name;
     private String guardian2NIN;
-    private Integer guardian2Contact1;
-    private Integer guardian2Contact2;
+    private String guardian2Contact1;
+    private String guardian2Contact2;
     private String guardian2District;
     private String guardian2Subcounty;
     private String guardian2County;
@@ -54,30 +54,30 @@ public class studentsBio {
     private String prevCourse;
     private Integer courseYear;
     private String emergencyName;
-    private Integer emergencyContact1;
-    private Integer emergencyContact2;
+    private String emergencyContact1;
+    private String emergencyContact2;
     private String relationship;
-    private Integer physicianContact;
+    private String physicianContact;
     private String medConditions;
     private String medication;
     private String medProcedures;
     private String specialNeeds;
-    private Integer studentContact1;
-    private Integer studentContact2;
+    private String studentContact1;
+    private String studentContact2;
 
     //The constructor...
 	public studentsBio(String firstName, String middleName, String lastName, String religion, Date DOB,
 			String studentNIN, String studentDistrict, String studentSubcounty, String studentCounty,
 			String studentParish, String studentGender, String studentEmail, String guardian1Name, String guardian1NIN,
-			Integer guardian1Contact1, Integer guardian1Contact2, String guardian1District, String guardian1Subcounty,
+			String guardian1Contact1, String guardian1Contact2, String guardian1District, String guardian1Subcounty,
 			String guardian1County, String guardian1Parish, String guardian1Village, String guardian1Email,
-			String guardian1Occupation, String guardian2Name, String guardian2NIN, Integer guardian2Contact1,
-			Integer guardian2Contact2, String guardian2District, String guardian2Subcounty, String guardian2County,
+			String guardian1Occupation, String guardian2Name, String guardian2NIN, String guardian2Contact1,
+			String guardian2Contact2, String guardian2District, String guardian2Subcounty, String guardian2County,
 			String guardian2Parish, String guardian2Village, String guardian2Email, String guardian2Occupation,
 			String NSIN, Integer Alevel, Integer Olevel, String prevCourse, Integer courseYear, String emergencyName,
-			Integer emergencyContact1, Integer emergencyContact2, String relationship, Integer physicianContact,
-			String medConditions, String medication, String medProcedures, String specialNeeds, Integer studentContact1,
-			Integer studentContact2) {
+			String emergencyContact1, String emergencyContact2, String relationship, String physicianContact,
+			String medConditions, String medication, String medProcedures, String specialNeeds, String studentContact1,
+			String studentContact2) {
 		super();
 		this.firstName = firstName;
 		this.middleName = middleName;
@@ -191,11 +191,11 @@ public class studentsBio {
 		return guardian1NIN;
 	}
 
-	public Integer getguardian1Contact1() {
+	public String getguardian1Contact1() {
 		return guardian1Contact1;
 	}
 
-	public Integer getguardian1Contact2() {
+	public String getguardian1Contact2() {
 		return guardian1Contact2;
 	}
 
@@ -235,11 +235,11 @@ public class studentsBio {
 		return guardian2NIN;
 	}
 
-	public Integer getguardian2Contact1() {
+	public String getguardian2Contact1() {
 		return guardian2Contact1;
 	}
 
-	public Integer getguardian2Contact2() {
+	public String getguardian2Contact2() {
 		return guardian2Contact2;
 	}
 
@@ -291,11 +291,11 @@ public class studentsBio {
 		return emergencyName;
 	}
 
-	public Integer getemergencyContact1() {
+	public String getemergencyContact1() {
 		return emergencyContact1;
 	}
 
-	public Integer getemergencyContact2() {
+	public String getemergencyContact2() {
 		return emergencyContact2;
 	}
 
@@ -303,7 +303,7 @@ public class studentsBio {
 		return relationship;
 	}
 
-	public Integer getphysicianContact() {
+	public String getphysicianContact() {
 		return physicianContact;
 	}
 
@@ -323,11 +323,11 @@ public class studentsBio {
 		return specialNeeds;
 	}
 
-	public Integer getStudentContact1() {
+	public String getStudentContact1() {
 		return studentContact1;
 	}
 
-	public Integer getstudentContact2() {
+	public String getstudentContact2() {
 		return studentContact2;
 	}
 	

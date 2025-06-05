@@ -11,7 +11,7 @@ public class database {
             Class.forName("com.mysql.cj.jdbc.Driver");
             String url = "jdbc:mysql://localhost/nursing_school";
             String user = "root";
-            String pass = ""; // Please enter your password of MYsql  server.
+            String pass = "Daniella101"; // Please enter your password of MYsql  server.
             
             Connection connect = DriverManager.getConnection(url, user, pass);
             System.out.println("Database connected successfully!");
