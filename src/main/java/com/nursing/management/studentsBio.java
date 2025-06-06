@@ -12,60 +12,60 @@ package com.nursing.management;
 import java.sql.Date;
 
 public class studentsBio {
-    private String firstName;
-    private String middleName;
-    private String lastName;
-    private String religion;
-    private Date DOB;
-    private String studentNIN;
-    private String studentDistrict;
-    private String studentSubcounty;
-    private String studentCounty;
-    private String studentParish;
-    private String studentEmail;
-    private String studentGender;
-    //Guardians 1 Data
-    private String guardian1Name;
-    private String guardian1NIN;
-    private Integer guardian1Contact1;
-    private Integer guardian1Contact2;
-    private String guardian1District;
-    private String guardian1Subcounty;
-    private String guardian1County;
-    private String guardian1Parish;
-    private String guardian1Village;
-    private String guardian1Email;
-    private String guardian1Occupation;
-    //Guardian 2
-    private String guardian2Name;
-    private String guardian2NIN;
-    private Integer guardian2Contact1;
-    private Integer guardian2Contact2;
-    private String guardian2District;
-    private String guardian2Subcounty;
-    private String guardian2County;
-    private String guardian2Parish;
-    private String guardian2Village;
-    private String guardian2Email;
-    private String guardian2Occupation;
-    private String NSIN;
-    private Integer Alevel;
-    private Integer Olevel;
-    private String prevCourse;
-    private Integer courseYear;
-    private String emergencyName;
-    private Integer emergencyContact1;
-    private Integer emergencyContact2;
-    private String relationship;
-    private Integer physicianContact;
-    private String medConditions;
-    private String medication;
-    private String medProcedures;
-    private String specialNeeds;
-    private Integer studentContact1;
-    private Integer studentContact2;
+	private String firstName;
+	private String middleName;
+	private String lastName;
+	private String religion;
+	private Date DOB;
+	private String studentNIN;
+	private String studentDistrict;
+	private String studentSubcounty;
+	private String studentCounty;
+	private String studentParish;
+	private String studentEmail;
+	private String studentGender;
+	// Guardians 1 Data
+	private String guardian1Name;
+	private String guardian1NIN;
+	private Integer guardian1Contact1;
+	private Integer guardian1Contact2;
+	private String guardian1District;
+	private String guardian1Subcounty;
+	private String guardian1County;
+	private String guardian1Parish;
+	private String guardian1Village;
+	private String guardian1Email;
+	private String guardian1Occupation;
+	// Guardian 2
+	private String guardian2Name;
+	private String guardian2NIN;
+	private Integer guardian2Contact1;
+	private Integer guardian2Contact2;
+	private String guardian2District;
+	private String guardian2Subcounty;
+	private String guardian2County;
+	private String guardian2Parish;
+	private String guardian2Village;
+	private String guardian2Email;
+	private String guardian2Occupation;
+	private String NSIN;
+	private Integer Alevel;
+	private Integer Olevel;
+	private String prevCourse;
+	private Integer courseYear;
+	private String emergencyName;
+	private Integer emergencyContact1;
+	private Integer emergencyContact2;
+	private String relationship;
+	private Integer physicianContact;
+	private String medConditions;
+	private String medication;
+	private String medProcedures;
+	private String specialNeeds;
+	private Integer studentContact1;
+	private Integer studentContact2;
 
-    //The constructor...
+	// The constructor...
 	public studentsBio(String firstName, String middleName, String lastName, String religion, Date DOB,
 			String studentNIN, String studentDistrict, String studentSubcounty, String studentCounty,
 			String studentParish, String studentGender, String studentEmail, String guardian1Name, String guardian1NIN,
@@ -115,7 +115,7 @@ public class studentsBio {
 		this.guardian2Occupation = guardian2Occupation;
 		this.NSIN = NSIN;
 		this.Alevel = Alevel;
-		this.Olevel =Olevel;
+		this.Olevel = Olevel;
 		this.prevCourse = prevCourse;
 		this.courseYear = courseYear;
 		this.emergencyName = emergencyName;
@@ -128,12 +128,10 @@ public class studentsBio {
 		this.medProcedures = medProcedures;
 		this.specialNeeds = specialNeeds;
 		this.studentContact1 = studentContact1;
-        this.studentContact2 = studentContact2;
+		this.studentContact2 = studentContact2;
 	}
 
-	
-	
-	//The getters 
+	// The getters
 	public String getFirstName() {
 		return firstName;
 	}
@@ -173,7 +171,7 @@ public class studentsBio {
 	public String getstudentParish() {
 		return studentParish;
 	}
-	
+
 	public String getstudentEmail() {
 		return studentEmail;
 	}
@@ -181,7 +179,6 @@ public class studentsBio {
 	public String getStudentGender() {
 		return studentGender;
 	}
-
 
 	public String getguardian1Name() {
 		return guardian1Name;
@@ -330,28 +327,15 @@ public class studentsBio {
 	public Integer getstudentContact2() {
 		return studentContact2;
 	}
-	
+
 	public Integer getcourseYear() {
 		return courseYear;
 	}
-
 
 //
 //	public String getEmail() {
 //		// TODO Auto-generated method stub
 //		return Email();
 //	}
-    
 
-	
-	
-    
-    
-    
-    
-    
-    
-    
-    
-    
 }
