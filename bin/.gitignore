@@ -4,3 +4,8 @@
 
 "bin/" 
 
+/.idea/
+/fxml/
+/META-INF/
+
+

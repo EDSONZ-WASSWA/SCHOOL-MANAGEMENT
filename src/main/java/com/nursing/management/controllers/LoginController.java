@@ -1,4 +1,5 @@
 package com.nursing.management.controllers;
+
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -24,119 +25,122 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-public class LoginController implements Initializable{
+public class LoginController implements Initializable {
 
-    @FXML
-    private Button close;
+	@FXML
+	private Button close;
 
-    @FXML
-    private Button backBtn;
-    @FXML
-    private Button loginBtn;
-    @FXML
-    private AnchorPane main_form;
-    @FXML
-    private AnchorPane login_form;
-    @FXML
-    private  PasswordField login_password;
-    @FXML
-    private PasswordField System_Id;
-    @FXML
-    private TextField login_password_txtField;
-    @FXML
-    private PasswordField new_Confirm_Password;
+	@FXML
+	private Button backBtn;
+	@FXML
+	private Button loginBtn;
+	@FXML
+	private AnchorPane main_form;
+	@FXML
+	private AnchorPane login_form;
+	@FXML
+	private PasswordField login_password;
+	@FXML
+	private PasswordField System_Id;
+	@FXML
+	private TextField login_password_txtField;
+	@FXML
+	private PasswordField new_Confirm_Password;
 
-    @FXML
-    private PasswordField new_Password;
-    @FXML
-    private Button login_registerAccount;
+	@FXML
+	private PasswordField new_Password;
+	@FXML
+	private Button login_registerAccount;
 
-    @FXML
-    private AnchorPane register_form;
-    @FXML
-    private AnchorPane reset_Password_form;
+	@FXML
+	private AnchorPane register_form;
+	@FXML
+	private AnchorPane reset_Password_form;
 
-    @FXML
-    private Button reset_Password_Btn;
-    @FXML
-    private Hyperlink forgot_password_link;
-    @FXML
-    private Button register_btn;
-    @FXML
-    private CheckBox showPassword;
-    @FXML
-    private TextField password_txt;
-    @FXML
-    private PasswordField register_confirm_password;
+	@FXML
+	private Button reset_Password_Btn;
+	@FXML
+	private Hyperlink forgot_password_link;
+	@FXML
+	private Button register_btn;
+	@FXML
+	private CheckBox showPassword;
+	@FXML
+	private TextField password_txt;
+	@FXML
+	private PasswordField register_confirm_password;
 
-    @FXML
-    private PasswordField register_password;
-    @FXML void close() {
-    	System.exit(0);
-    }
-    @FXML
-    public void back() {
-    	login_form.setVisible(true);
-    	register_form.setVisible(false);
-    	reset_Password_form.setVisible(false);
-    }
-    @FXML
-    public void toForgotPasswordPage() {
-     	reset_Password_form.setVisible(true);
-    	login_form.setVisible(false);
-    	register_form.setVisible(false);	
-    }
-    @FXML
-    
-    alertMessage alert = new alertMessage();
-    public void resetPassword() {
-   
-    	//Declarations
-    	String NewPassword = new_Password.getText();
-    	String NewConfirmedPassword = new_Confirm_Password.getText();
-    	String SystemId =System_Id.getText();
-    	
-    		if(SystemId.isEmpty()||NewPassword.isEmpty()||NewConfirmedPassword.isEmpty()) {
-    			alert.errorMessage("Fill The Blanks Please!");
-  			return;
-    		}else if(!NewPassword.equals(NewConfirmedPassword) || !SystemId.equals("EDSON")) {
-    			alert.errorMessage("Non Similar Passwords or Incorrect System_ID");
- 			return;
-    		}else {
-    			
-    			try {
-    				connect = DatabaseConnector.connectDb();
-    				String updatePassword ="UPDATE logindata SET password =?";
-        			prepare = connect.prepareStatement(updatePassword);
-        			prepare.setString(1,NewPassword);
-        			prepare.execute();
-        			alert.successMessage("Password Reset Succesfull!!!!");
-    			}catch(Exception e) {
-    	    		e.printStackTrace();
-    	    	}
-    			}
-    		back();
-    		}
-    		
- 
+	@FXML
+	private PasswordField register_password;
 
-    @FXML
-    public  void login() {
-    //***it crashed loginBtn***	String LoginPassword = login_password.getText();
-    	try {
-    		
-    	
-			if(login_password.getText().isEmpty()) {
+	@FXML
+	void close() {
+		System.exit(0);
+	}
+
+	@FXML
+	public void back() {
+		login_form.setVisible(true);
+		register_form.setVisible(false);
+		reset_Password_form.setVisible(false);
+	}
+
+	@FXML
+	public void toForgotPasswordPage() {
+		reset_Password_form.setVisible(true);
+		login_form.setVisible(false);
+		register_form.setVisible(false);
+	}
+
+	@FXML
+
+	alertMessage alert = new alertMessage();
+
+	public void resetPassword() {
+
+		// Declarations
+		String NewPassword = new_Password.getText();
+		String NewConfirmedPassword = new_Confirm_Password.getText();
+		String SystemId = System_Id.getText();
+
+		if (SystemId.isEmpty() || NewPassword.isEmpty() || NewConfirmedPassword.isEmpty()) {
+			alert.errorMessage("Fill The Blanks Please!");
+			return;
+		} else if (!NewPassword.equals(NewConfirmedPassword) || !SystemId.equals("EDSON")) {
+			alert.errorMessage("Non Similar Passwords or Incorrect System_ID");
+			return;
+		} else {
+
+			try {
+				connect = DatabaseConnector.connectDb();
+				String updatePassword = "UPDATE logindata SET password =?";
+				prepare = connect.prepareStatement(updatePassword);
+				prepare.setString(1, NewPassword);
+				prepare.execute();
+				alert.successMessage("Password Reset Succesfull!!!!");
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		back();
+	}
+
+	@FXML
+	public void login() {
+		// ***it crashed loginBtn*** String LoginPassword = login_password.getText();
+		try {
+
+			if (login_password.getText().isEmpty()) {
 				alert.errorMessage("Enter Password in the space");
 				return;
-			}else {
+			} else {
 				String selectData = "SELECT password FROM logindata WHERE password =?";
 				connect = DatabaseConnector.connectDb();
 				try {
 					prepare = connect.prepareStatement(selectData);
-					prepare.setString(1,login_password.getText());
+					prepare.setString(1, login_password.getText());
 					result = prepare.executeQuery();
-					if(result.next()) {
+					if (result.next()) {
 						alert.successMessage("****Welcome****");
 						System.out.println("gone to DashBoard");
 						Stage currentStage = (Stage) login_password.getScene().getWindow();
@@ -147,108 +151,107 @@ public class LoginController implements Initializable{
 						stage.setScene(scene);
 						stage.setTitle("Student Dashboard");
 						stage.show();
-					}else {
+					} else {
 						alert.errorMessage("Incorrect Password");
 					}
-				}catch(Exception e) {
+				} catch (Exception e) {
 					e.printStackTrace();
 				}
-				
+
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-    }
-    //database tools
-private Connection connect;
-private PreparedStatement prepare;
-private Statement statement;
-private ResultSet result;
+	}
 
-@FXML
-public void register() {
-	//I have encrypted the password
-	String plainPassword = register_password.getText();
-	String confirmPassword = register_confirm_password.getText();
-	if(register_password.getText().isEmpty()||register_confirm_password.getText().isEmpty()) {
-		alert.errorMessage("Fill in the Blanks");
-	}else if(register_password.getText()== register_confirm_password.getText()){
-		alert.errorMessage("Passwords do not match");
-	}else if(register_password.getText().length()< 4) {
-		alert.errorMessage("Characters should more than 4 digits");
-	}else {
-		String checkPassword ="SELECT * FROM logindata WHERE password ='"+ register_password.getText()+"'";
-		connect = DatabaseConnector.connectDb();
-		try {
-			statement = connect.createStatement();
-			result =  statement.executeQuery(checkPassword);
-			if(result.next()) {
-				alert.errorMessage(register_password.getText() + "is already taken");
-			}else {
-				String hashedPassword = BCryptUtil.hashPassword(plainPassword);
-				String insertData = "INSERT INTO logindata"+ "(password)"+ "VALUE(?)";
-				prepare = connect.prepareStatement(insertData);
-				prepare.setString(1,register_password.getText());
-				prepare.executeUpdate();
-				System.out.println("Data Saved to sql");
-				alert.successMessage("Registered Succesfully");
-				clearRegistrationField();
-				login_form.setVisible(true);
-				register_form.setVisible(false);
-				reset_Password_form.setVisible(false);
-				
+	// database tools
+	private Connection connect;
+	private PreparedStatement prepare;
+	private Statement statement;
+	private ResultSet result;
+
+	@FXML
+	public void register() {
+		// I have encrypted the password
+		String plainPassword = register_password.getText();
+		String confirmPassword = register_confirm_password.getText();
+		if (register_password.getText().isEmpty() || register_confirm_password.getText().isEmpty()) {
+			alert.errorMessage("Fill in the Blanks");
+		} else if (register_password.getText() == register_confirm_password.getText()) {
+			alert.errorMessage("Passwords do not match");
+		} else if (register_password.getText().length() < 4) {
+			alert.errorMessage("Characters should more than 4 digits");
+		} else {
+			String checkPassword = "SELECT * FROM logindata WHERE password ='" + register_password.getText() + "'";
+			connect = DatabaseConnector.connectDb();
+			try {
+				statement = connect.createStatement();
+				result = statement.executeQuery(checkPassword);
+				if (result.next()) {
+					alert.errorMessage(register_password.getText() + "is already taken");
+				} else {
+					String hashedPassword = BCryptUtil.hashPassword(plainPassword);
+					String insertData = "INSERT INTO logindata" + "(password)" + "VALUE(?)";
+					prepare = connect.prepareStatement(insertData);
+					prepare.setString(1, register_password.getText());
+					prepare.executeUpdate();
+					System.out.println("Data Saved to sql");
+					alert.successMessage("Registered Succesfully");
+					clearRegistrationField();
+					login_form.setVisible(true);
+					register_form.setVisible(false);
+					reset_Password_form.setVisible(false);
+
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
 			}
-		}catch(Exception e) {
-			e.printStackTrace();
 		}
 	}
-}
 
-@FXML
-public void clearRegistrationField() {
-	register_password.setText("");
-	register_confirm_password.setText("");
-	
-}
-@FXML
-public void showPassword() {
-	//NEED TO WORK ON SHOWPASSWORD
-if(showPassword.isSelected()) {
- String currentPassword =login_password.getText();
- String passwordChars = login_password.getText();
- String current_Password = new String(passwordChars);
- password_txt.setText(currentPassword );
- password_txt.setVisible(true);
- login_password.setVisible(false);
-}else {
- String currentText = password_txt.getText();
- login_password.setText(currentText);
- password_txt.setVisible(false);
- login_password.setVisible(true);   	
-}
-} 
+	@FXML
+	public void clearRegistrationField() {
+		register_password.setText("");
+		register_confirm_password.setText("");
 
-
-@FXML
-public void switchForms(ActionEvent event) {
-	if(event.getSource() == login_registerAccount) {
-		login_form.setVisible(false);
-		register_form.setVisible(true);
-		reset_Password_form.setVisible(false);
-	}else if(event.getSource()== register_btn) {
-		login_form.setVisible(true);
-		register_form.setVisible(false);
-		reset_Password_form.setVisible(false);
 	}
-	
-}
 
-@Override
-public void initialize(URL location, ResourceBundle resources) {
-	// TODO Auto-generated method stub
-	
-}
+	@FXML
+	public void showPassword() {
+		// NEED TO WORK ON SHOWPASSWORD
+		if (showPassword.isSelected()) {
+			String currentPassword = login_password.getText();
+			String passwordChars = login_password.getText();
+			String current_Password = new String(passwordChars);
+			password_txt.setText(currentPassword);
+			password_txt.setVisible(true);
+			login_password.setVisible(false);
+		} else {
+			String currentText = password_txt.getText();
+			login_password.setText(currentText);
+			password_txt.setVisible(false);
+			login_password.setVisible(true);
+		}
+	}
 
+	@FXML
+	public void switchForms(ActionEvent event) {
+		if (event.getSource() == login_registerAccount) {
+			login_form.setVisible(false);
+			register_form.setVisible(true);
+			reset_Password_form.setVisible(false);
+		} else if (event.getSource() == register_btn) {
+			login_form.setVisible(true);
+			register_form.setVisible(false);
+			reset_Password_form.setVisible(false);
+		}
 
+	}
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		// TODO Auto-generated method stub
+
+	}
 
 }
