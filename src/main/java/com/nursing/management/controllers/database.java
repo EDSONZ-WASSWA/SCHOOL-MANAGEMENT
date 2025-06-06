@@ -6,6 +6,7 @@ import java.sql.SQLException;
 
 public class database {
 
+
 	public static Connection connectDb() {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
@@ -30,4 +31,5 @@ public class database {
 		}
 		return null;
 	}
+
 }

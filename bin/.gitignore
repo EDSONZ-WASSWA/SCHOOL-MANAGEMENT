@@ -1,5 +1,11 @@
-/target/
+# /target/
+# <<<<<<< projectIGI
+/bin/
+
 "bin/" 
+
 /.idea/
 /fxml/
 /META-INF/
+
+
