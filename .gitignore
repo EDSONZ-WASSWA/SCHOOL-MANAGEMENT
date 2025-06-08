@@ -1,2 +1,19 @@
-/target/
-"bin/" 
+# Ignore compiled class files
+*.class
+
+# Ignore bin/ directory (compiled output)
+bin/
+
+# Ignore build output directories
+target/
+out/
+
+# Ignore IntelliJ / Eclipse files
+*.iml
+.idea/
+.project
+.classpath
+.settings/
+
+# Ignore JVM crash logs
+hs_err_pid*.log
