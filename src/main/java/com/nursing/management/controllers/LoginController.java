@@ -44,9 +44,14 @@ public class LoginController implements Initializable {
 	private PasswordField System_Id;
 	@FXML
 	private TextField login_password_txtField;
+	  @FXML
+	    private TextField reset_textField;
+    @FXML
+    private TextField register_password_txtField;
 	@FXML
 	private PasswordField new_Confirm_Password;
-
+    @FXML
+    private CheckBox showPasword2;
 	@FXML
 	private PasswordField new_Password;
 	@FXML
@@ -57,6 +62,8 @@ public class LoginController implements Initializable {
 	@FXML
 	private AnchorPane reset_Password_form;
 
+    @FXML
+    private CheckBox show_confirmPassword;
 	@FXML
 	private Button reset_Password_Btn;
 	@FXML
@@ -104,10 +111,11 @@ public class LoginController implements Initializable {
 		String SystemId = System_Id.getText();
 
 		if (SystemId.isEmpty() || NewPassword.isEmpty() || NewConfirmedPassword.isEmpty()) {
-			alert.errorMessage("Fill The Blanks Please!");
+			alert.errorMessage("Fill All The Blank Fields Please!");
 			return;
 		} else if (!NewPassword.equals(NewConfirmedPassword) || !SystemId.equals("EDSON")) {
-			alert.errorMessage("Non Similar Passwords or Incorrect System_ID");
+			alert.errorMessage("Passwords Don't Match or Incorrect System_ID");
+			clearResetFields();
 			return;
 		} else {
 
@@ -117,6 +125,7 @@ public class LoginController implements Initializable {
 				prepare = connect.prepareStatement(updatePassword);
 				prepare.setString(1, NewPassword);
 				prepare.execute();
+				clearResetFields();
 				alert.successMessage("Password Reset Succesfull!!!!");
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -124,10 +133,16 @@ public class LoginController implements Initializable {
 		}
 		back();
 	}
+	@FXML
+	public void clearResetFields() {
+		new_Password.setText("");
+		System_Id.setText("");
+		new_Confirm_Password.setText("");
+	}
 
 	@FXML
 	public void login() {
-		// ***it crashed loginBtn*** String LoginPassword = login_password.getText();
+	
 		try {
 
 			if (login_password.getText().isEmpty()) {
@@ -175,21 +190,27 @@ public class LoginController implements Initializable {
 		// I have encrypted the password
 		String plainPassword = register_password.getText();
 		String confirmPassword = register_confirm_password.getText();
-		if (register_password.getText().isEmpty() || register_confirm_password.getText().isEmpty()) {
-			alert.errorMessage("Fill in the Blanks");
-		} else if (register_password.getText() == register_confirm_password.getText()) {
+		if (plainPassword.isEmpty() ||confirmPassword.isEmpty()) {
+			alert.errorMessage("Fill All The Blank Fields");
+		} else if (!plainPassword.equals(confirmPassword)){
 			alert.errorMessage("Passwords do not match");
-		} else if (register_password.getText().length() < 4) {
-			alert.errorMessage("Characters should more than 4 digits");
+			clearRegistrationField();
+		} else if (plainPassword.length() < 4) {
+			alert.errorMessage("Characters should be more than 4 digits");
 		} else {
 			String checkPassword = "SELECT * FROM logindata WHERE password ='" + register_password.getText() + "'";
 			connect = DatabaseConnector.connectDb();
 			try {
 				statement = connect.createStatement();
 				result = statement.executeQuery(checkPassword);
+				boolean isTableEmpty = true;
 				if (result.next()) {
-					alert.errorMessage(register_password.getText() + "is already taken");
-				} else {
+					int count = result.getInt(1);
+					System.out.println("DEBUG: Row count in table = " + count);
+					 isTableEmpty = (count == 0);
+					    System.out.println("DEBUG: isTableEmpty = " + isTableEmpty);
+				} 
+				if(isTableEmpty) {
 					String hashedPassword = BCryptUtil.hashPassword(plainPassword);
 					String insertData = "INSERT INTO logindata" + "(password)" + "VALUE(?)";
 					prepare = connect.prepareStatement(insertData);
@@ -202,6 +223,9 @@ public class LoginController implements Initializable {
 					register_form.setVisible(false);
 					reset_Password_form.setVisible(false);
 
+				}else {
+					alert.errorMessage("ONLY ONE USER CAN REGISTER FOR A MOMENT");
+					clearRegistrationField();
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -215,21 +239,20 @@ public class LoginController implements Initializable {
 		register_confirm_password.setText("");
 
 	}
+//	***************	  WORK ON SHOWPASSWORD*****************************
 
 	@FXML
 	public void showPassword() {
-		// NEED TO WORK ON SHOWPASSWORD
+	
+		String textBoxContent = login_password_txtField.getText();
+		String PasswordField = login_password.getText();
 		if (showPassword.isSelected()) {
-			String currentPassword = login_password.getText();
-			String passwordChars = login_password.getText();
-			String current_Password = new String(passwordChars);
-			password_txt.setText(currentPassword);
-			password_txt.setVisible(true);
-			login_password.setVisible(false);
+		login_password_txtField.setText(PasswordField);
+		login_password_txtField.setVisible(true);
+		login_password.setVisible(false);
 		} else {
-			String currentText = password_txt.getText();
-			login_password.setText(currentText);
-			password_txt.setVisible(false);
+			login_password.setText(textBoxContent);
+			login_password_txtField.setVisible(false);
 			login_password.setVisible(true);
 		}
 	}
@@ -246,6 +269,33 @@ public class LoginController implements Initializable {
 			reset_Password_form.setVisible(false);
 		}
 
+	}
+	public void showPassword1() {
+		String textContent = register_password_txtField.getText();
+		String RegisterPassword = register_confirm_password.getText();
+		if(show_confirmPassword.isSelected()) {
+			register_password_txtField.setText(RegisterPassword);
+			register_password_txtField.setVisible(true);
+			register_confirm_password.setVisible(false);
+		}else {
+			register_confirm_password.setText(textContent);
+			register_password_txtField.setVisible(false);
+			register_confirm_password.setVisible(true);
+		}
+	}
+	public void showPassword2() {
+		String resetText = reset_textField.getText();
+		String resetPassword = new_Confirm_Password.getText();
+		if(showPasword2.isSelected()) {
+			reset_textField.setText(resetPassword);
+			reset_textField.setVisible(true);
+			new_Confirm_Password.setVisible(false);
+		}else {
+			new_Confirm_Password.setText(resetText);
+			reset_textField.setVisible(false);
+			new_Confirm_Password.setVisible(true);	
+		}
+		
 	}
 
 	@Override
