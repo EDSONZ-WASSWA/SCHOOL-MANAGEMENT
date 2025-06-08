@@ -93,8 +93,9 @@
             <AnchorPane layoutX="275.0" prefHeight="400.0" prefWidth="254.0" styleClass="right-form" stylesheets="@css/login.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="272.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
                   <PasswordField fx:id="register_password" layoutX="22.0" layoutY="44.0" prefHeight="30.0" prefWidth="220.0" promptText="Enter Password" styleClass="textfield" stylesheets="@css/login.css" />
+                  <TextField fx:id="register_password_txtField" layoutX="23.0" layoutY="117.0" prefHeight="30.0" prefWidth="220.0" promptText="Password" visible="false" />
                   <PasswordField fx:id="register_confirm_password" layoutX="23.0" layoutY="118.0" prefHeight="30.0" prefWidth="220.0" promptText="Confirm Password" styleClass="textfield" stylesheets="@css/login.css" />
-                  <CheckBox layoutX="132.0" layoutY="161.0" mnemonicParsing="false" text="Show Password">
+                  <CheckBox fx:id="show_confirmPassword" layoutX="132.0" layoutY="161.0" mnemonicParsing="false" onAction="#showPassword1" text="Show Password">
                      <font>
                         <Font size="13.0" />
                      </font>
@@ -145,8 +146,8 @@
             <AnchorPane layoutX="275.0" prefHeight="400.0" prefWidth="254.0" styleClass="right-form" stylesheets="@css/login.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="272.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
                   <PasswordField fx:id="new_Password" layoutX="22.0" layoutY="66.0" prefHeight="30.0" prefWidth="220.0" promptText="Enter New Password" styleClass="textfield" stylesheets="@css/login.css" />
-                  <PasswordField fx:id="new_Confirm_Password" layoutX="23.0" layoutY="118.0" prefHeight="30.0" prefWidth="220.0" promptText="Confirm New Password" styleClass="textfield" stylesheets="@css/login.css" />
-                  <CheckBox layoutX="132.0" layoutY="161.0" mnemonicParsing="false" text="Show Password">
+                  <PasswordField fx:id="new_Confirm_Password" layoutX="24.0" layoutY="112.0" prefHeight="30.0" prefWidth="220.0" promptText="Confirm New Password" styleClass="textfield" stylesheets="@css/login.css" />
+                  <CheckBox fx:id="showPasword2" layoutX="127.0" layoutY="148.0" mnemonicParsing="false" onAction="#showPassword2" text="Show Password">
                      <font>
                         <Font size="13.0" />
                      </font>
@@ -170,6 +171,7 @@
                      </graphic>
                   </Button>
                   <PasswordField fx:id="System_Id" layoutX="22.0" layoutY="26.0" prefHeight="30.0" prefWidth="220.0" promptText="System_ID" styleClass="textfield" stylesheets="@css/login.css" />
+                  <TextField fx:id="reset_textField" layoutX="24.0" layoutY="112.0" prefHeight="30.0" prefWidth="220.0" visible="false" />
                </children>
             </AnchorPane>
          </children>
