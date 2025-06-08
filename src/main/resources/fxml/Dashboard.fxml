@@ -109,7 +109,7 @@
                                  </font>
                               </Label>
                               <Line endX="100.0" layoutX="103.0" layoutY="124.0" startX="-100.0" stroke="#faf5f5" />
-                              <Button fx:id="logout_btn" alignment="CENTER" layoutX="32.0" layoutY="508.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="103.0" stylesheets="@css/dashboardDesign.css" text="Sign Out" AnchorPane.bottomAnchor="15.0">
+                              <Button fx:id="logout_btn" alignment="CENTER" layoutX="32.0" layoutY="508.0" mnemonicParsing="false" onAction="#logout" prefHeight="38.0" prefWidth="103.0" stylesheets="@css/dashboardDesign.css" text="Sign Out" AnchorPane.bottomAnchor="15.0">
                                  <graphic>
                                     <ImageView fx:id="signOut_btn" fitHeight="26.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
@@ -194,8 +194,8 @@
                                                             <TextField fx:id="register_fname" layoutX="88.0" layoutY="32.0" prefHeight="26.0" prefWidth="155.0" styleClass="textfield" />
                                                             <Label layoutX="251.0" layoutY="44.0" prefHeight="18.0" prefWidth="86.0" text="Middle Name:" />
                                                             <TextField fx:id="register_middleName" layoutX="336.0" layoutY="30.0" prefHeight="26.0" prefWidth="155.0" styleClass="textfield" />
-                                                            <Label layoutX="507.0" layoutY="39.0" prefHeight="18.0" prefWidth="73.0" text="Last Name:" />
-                                                            <TextField fx:id="register_LName" layoutX="581.0" layoutY="27.0" prefHeight="26.0" prefWidth="155.0" styleClass="textfield" />
+                                                            <Label layoutX="507.0" layoutY="43.0" prefHeight="18.0" prefWidth="73.0" text="Last Name:" />
+                                                            <TextField fx:id="register_LName" layoutX="581.0" layoutY="31.0" prefHeight="26.0" prefWidth="155.0" styleClass="textfield" />
                                                             <Label layoutX="744.0" layoutY="37.0" prefHeight="18.0" prefWidth="58.0" text="Religion:" />
                                                             <TextField fx:id="register_religion" layoutX="800.0" layoutY="25.0" prefHeight="26.0" prefWidth="155.0" styleClass="textfield" />
                                                             <Label layoutX="968.0" layoutY="39.0" prefHeight="18.0" prefWidth="48.0" text="D.O.B:" />
@@ -209,10 +209,10 @@
                                                             <Label layoutX="747.0" layoutY="85.0" prefHeight="18.0" prefWidth="48.0" text="County:" />
                                                             <TextField fx:id="register_county" layoutX="798.0" layoutY="73.0" prefHeight="26.0" prefWidth="160.0" styleClass="textfield" />
                                                             <Label layoutX="971.0" layoutY="87.0" prefHeight="18.0" prefWidth="48.0" text="Parish:" />
-                                                            <Label layoutX="16.0" layoutY="141.0" prefHeight="18.0" prefWidth="50.0" text="Contact:" />
-                                                            <TextField fx:id="register_contact" layoutX="72.0" layoutY="127.0" prefHeight="26.0" prefWidth="159.0" styleClass="textfield" />
-                                                            <Label layoutX="253.0" layoutY="139.0" prefHeight="18.0" prefWidth="41.0" text="Email:" />
-                                                            <TextField fx:id="register_email" layoutX="291.0" layoutY="125.0" prefHeight="26.0" prefWidth="262.0" styleClass="textfield" />
+                                                            <Label layoutX="16.0" layoutY="141.0" prefHeight="18.0" prefWidth="63.0" text="Contact 1:" />
+                                                            <TextField fx:id="register_student_contact1" layoutX="81.0" layoutY="127.0" prefHeight="26.0" prefWidth="159.0" styleClass="textfield" />
+                                                            <Label layoutX="559.0" layoutY="139.0" prefHeight="18.0" prefWidth="41.0" text="Email:" />
+                                                            <TextField fx:id="register_email" layoutX="597.0" layoutY="125.0" prefHeight="26.0" prefWidth="262.0" styleClass="textfield" />
                                                             <Label alignment="CENTER" layoutX="99.0" layoutY="5.0" prefHeight="18.0" prefWidth="1062.0" text="REGISTRATION FORM" underline="true">
                                                                <font>
                                                                   <Font name="Times New Roman Bold" size="22.0" />
@@ -281,8 +281,6 @@
                                                             </Label>
                                                             <Label layoutX="16.0" layoutY="531.0" prefHeight="18.0" prefWidth="66.0" text="NSIN NO:" />
                                                             <TextField fx:id="register_NSIN" layoutX="90.0" layoutY="517.0" prefHeight="26.0" prefWidth="209.0" styleClass="textfield" />
-                                                            <Label layoutX="320.0" layoutY="529.0" prefHeight="18.0" prefWidth="66.0" text="NSIN NO:" />
-                                                            <TextField layoutX="394.0" layoutY="515.0" prefHeight="26.0" prefWidth="209.0" styleClass="textfield" />
                                                             <Label layoutX="619.0" layoutY="528.0" prefHeight="18.0" prefWidth="90.0" text="A-Level Points:" />
                                                             <TextField fx:id="register_Alevel" layoutX="713.0" layoutY="517.0" prefHeight="26.0" prefWidth="58.0" styleClass="textfield" />
                                                             <Label layoutX="814.0" layoutY="527.0" prefHeight="18.0" prefWidth="102.0" text="O-Level Results:" />
@@ -333,10 +331,12 @@
                                                                   <Font name="System Bold" size="12.0" />
                                                                </font>
                                                             </Label>
-                                                            <TextArea fx:id="register_specialNeeds" layoutX="11.0" layoutY="766.0" prefHeight="54.0" prefWidth="844.0" />
-                                                            <TextArea fx:id="register_emergencyProcedures" layoutX="11.0" layoutY="848.0" prefHeight="54.0" prefWidth="853.0" />
-                                                            <Label layoutX="749.0" layoutY="131.0" prefHeight="18.0" prefWidth="48.0" text="Gender:" />
-                                                            <ComboBox fx:id="register_gender" layoutX="814.0" layoutY="125.0" prefWidth="150.0" promptText="Choose" />
+                                                            <TextArea fx:id="register_emergencyProcedures" layoutX="11.0" layoutY="766.0" prefHeight="54.0" prefWidth="844.0" promptText="emergency here..." />
+                                                            <TextArea fx:id="register_specialNeeds" layoutX="11.0" layoutY="848.0" prefHeight="54.0" prefWidth="853.0" promptText="Special needs if any " />
+                                                            <Label layoutX="979.0" layoutY="131.0" prefHeight="18.0" prefWidth="48.0" text="Gender:" />
+                                                            <ComboBox fx:id="register_gender" layoutX="1044.0" layoutY="125.0" onAction="#addGender" prefWidth="150.0" promptText="Choose" />
+                                                            <Label layoutX="249.0" layoutY="137.0" prefHeight="18.0" prefWidth="71.0" text="Contact 2" />
+                                                            <TextField fx:id="register_student_contact2" layoutX="312.0" layoutY="128.0" prefHeight="26.0" prefWidth="160.0" styleClass="textfield" />
                                                          </children>
                                                          <styleClass>
                                                             <String fx:value="white-bg" />
@@ -352,7 +352,7 @@
                                                       <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                                                    </padding>
                                                 </ScrollPane>
-                                                <Button fx:id="register_clear_btn" layoutX="206.0" layoutY="528.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="106.0" styleClass="clear-btn" text="Clear" AnchorPane.bottomAnchor="5.0">
+                                                <Button fx:id="register_clear_btn" layoutX="206.0" layoutY="528.0" mnemonicParsing="false" onAction="#clearInputs" prefHeight="35.0" prefWidth="106.0" styleClass="clear-btn" text="Clear" AnchorPane.bottomAnchor="5.0">
                                                    <graphic>
                                                       <ImageView fitHeight="76.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                                                          <image>
@@ -361,7 +361,7 @@
                                                       </ImageView>
                                                    </graphic>
                                                 </Button>
-                                                <Button fx:id="register_delete_btn" layoutX="361.0" layoutY="528.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="106.0" styleClass="delete-btn" text="Delete" AnchorPane.bottomAnchor="5.0">
+                                                <Button fx:id="register_delete_btn" layoutX="361.0" layoutY="528.0" mnemonicParsing="false" onAction="#delete" prefHeight="35.0" prefWidth="106.0" styleClass="delete-btn" text="Delete" AnchorPane.bottomAnchor="5.0">
                                                    <graphic>
                                                       <ImageView fitHeight="28.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                                                          <image>
@@ -370,7 +370,7 @@
                                                       </ImageView>
                                                    </graphic>
                                                 </Button>
-                                                <Button fx:id="register_update_btn" layoutX="772.0" layoutY="529.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="106.0" styleClass="update-btn" text="Update" AnchorPane.bottomAnchor="5.0">
+                                                <Button fx:id="register_update_btn" layoutX="772.0" layoutY="529.0" mnemonicParsing="false" onAction="#updateStudents" prefHeight="35.0" prefWidth="106.0" styleClass="update-btn" text="Update" AnchorPane.bottomAnchor="5.0">
                                                    <graphic>
                                                       <ImageView fitHeight="23.0" fitWidth="71.0" pickOnBounds="true" preserveRatio="true">
                                                          <image>
@@ -378,7 +378,7 @@
                                                          </image>
                                                       </ImageView>
                                                    </graphic></Button>
-                                                <Button fx:id="register_add_btn" layoutX="922.0" layoutY="527.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="106.0" styleClass="add-btn" text="Add" AnchorPane.bottomAnchor="5.0">
+                                                <Button fx:id="register_add_btn" layoutX="922.0" layoutY="527.0" mnemonicParsing="false" onAction="#addStudents" prefHeight="35.0" prefWidth="106.0" styleClass="add-btn" text="Add" AnchorPane.bottomAnchor="5.0">
                                                    <graphic>
                                                       <ImageView fitHeight="25.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
                                                          <image>
@@ -394,13 +394,13 @@
                                                 <String fx:value="shadow" />
                                              </styleClass>
                                              <children>
-                                                <TextField fx:id="register_search" layoutX="8.0" layoutY="6.0" prefHeight="26.0" prefWidth="230.0" promptText="Search here..." styleClass="search" />
+                                                <TextField fx:id="register_search" layoutX="8.0" layoutY="6.0" onKeyTyped="#studentSearch" prefHeight="26.0" prefWidth="230.0" promptText="Search here..." styleClass="search" />
                                                 <ImageView fitHeight="42.0" fitWidth="25.0" layoutX="7.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>
                                                       <Image url="@../images/people.png" />
                                                    </image>
                                                 </ImageView>
-                                                <TableView fx:id="register_tableView" layoutX="11.0" layoutY="52.0" prefHeight="218.0" prefWidth="1218.0">
+                                                <TableView fx:id="register_tableView" layoutY="45.0" onMouseClicked="#addStudentsSelected" prefHeight="218.0" prefWidth="1218.0">
                                                   <columns>
                                                     <TableColumn fx:id="register_nsin_col" prefWidth="180.79999542236328" resizable="false" text="NSIN NUMBER" />
                                                     <TableColumn fx:id="register_Fname_col" minWidth="0.0" prefWidth="240.00003051757812" resizable="false" text="First Name" />
@@ -409,7 +409,6 @@
                                                       <TableColumn fx:id="register_gender_col" minWidth="0.0" prefWidth="145.59991455078125" resizable="false" text="Gender" />
                                                       <TableColumn fx:id="register_DOB_col" minWidth="0.0" prefWidth="128.0" resizable="false" text="Date Of Birth" />
                                                       <TableColumn fx:id="register_religion_col" minWidth="0.0" prefWidth="176.0" resizable="false" text="Religion" />
-                                                      <TableColumn minWidth="0.0" prefWidth="0.0" text="C2" />
                                                   </columns>
                                                 </TableView>
                                              </children>
@@ -418,7 +417,7 @@
                                     </AnchorPane>
                                  </children>
                               </AnchorPane>
-                              <AnchorPane fx:id="home_Form" prefHeight="574.4" prefWidth="1289.6" stylesheets="@css/dashboardDesign.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                              <AnchorPane fx:id="home_Form" prefHeight="574.4" prefWidth="1289.6" stylesheets="@css/dashboardDesign.css" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <children>
                                     <AnchorPane layoutX="14.4" layoutY="15.0" prefHeight="156.0" prefWidth="1289.6" stylesheets="@css/dashboardDesign.css" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="15.0">
                                        <children>
@@ -714,6 +713,54 @@
                                     <String fx:value="white-bg" />
                                     <String fx:value="shadow" />
                                  </styleClass>
+                              </AnchorPane>
+                              <AnchorPane fx:id="details_Form" layoutX="83.0" layoutY="85.0" prefHeight="570.4000000000001" prefWidth="1280.0" stylesheets="@css/dashboardDesign.css" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+                                 <styleClass>
+                                    <String fx:value="white-bg" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                                 <children>
+                                    <AnchorPane prefHeight="570.4000000000001" prefWidth="1280.0" stylesheets="@css/dashboardDesign.css" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="2.0">
+                                       <styleClass>
+                                          <String fx:value="white-bg" />
+                                          <String fx:value="shadow" />
+                                       </styleClass>
+                                       <children>
+                                          <TableView fx:id="details_tableView" layoutY="48.8" onMouseClicked="#addStudentsSelected" prefHeight="502.0" prefWidth="1251.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="7.0" AnchorPane.rightAnchor="7.0" AnchorPane.topAnchor="49.0">
+                                             <columns>
+                                                <TableColumn fx:id="details_nsin_col" prefWidth="154.40003365278244" resizable="false" text="NSIN NUMBER" />
+                                                <TableColumn fx:id="details_Fname_col" minWidth="0.0" prefWidth="282.3999481201172" resizable="false" text="First Name" />
+                                                <TableColumn fx:id="details_Lname_col" minWidth="0.0" prefWidth="264.79998779296875" resizable="false" text="Last Name" />
+                                                <TableColumn fx:id="details_contact_col" minWidth="0.0" prefWidth="163.99993896484375" resizable="false" text="CONTACT" />
+                                                <TableColumn fx:id="details_gender_col" minWidth="0.0" prefWidth="92.00006103515625" resizable="false" text="Gender" />
+                                                <TableColumn fx:id="details_DOB_col" minWidth="0.0" prefWidth="129.59991455078125" resizable="false" text="Date Of Birth" />
+                                                <TableColumn fx:id="details_religion_col" minWidth="0.0" prefWidth="165.5999755859375" resizable="false" text="Religion" />
+                                             </columns>
+                                          </TableView>
+                                          <TextField layoutX="17.0" layoutY="14.0" prefHeight="26.0" prefWidth="266.0" promptText="Search NSIN..." stylesheets="@css/dashboardDesign.css">
+                                             <styleClass>
+                                                <String fx:value="white-bg" />
+                                                <String fx:value="shadow" />
+                                                <String fx:value="search" />
+                                             </styleClass>
+                                          </TextField>
+                                          <ImageView fitHeight="42.0" fitWidth="25.0" layoutX="17.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../images/people.png" />
+                                             </image>
+                                          </ImageView>
+                                          <Button layoutX="1113.0" layoutY="4.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="94.0" styleClass="logout" stylesheets="@css/dashboardDesign.css" text="PRINT">
+                                             <graphic>
+                                                <ImageView fitHeight="28.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../images/icons8-print.gif" />
+                                                   </image>
+                                                </ImageView>
+                                             </graphic>
+                                          </Button>
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
                               </AnchorPane>
                            </children>
                            <styleClass>
