@@ -2,13 +2,19 @@
 package com.nursing.management.controllers;
 
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.ResourceBundle;
+import com.nursing.management.auth.*;
+import com.mysql.cj.xdevapi.Statement;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.AreaChart;
 import javafx.scene.chart.BarChart;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
@@ -400,7 +406,156 @@ public class DashboardController implements Initializable{
     @FXML
     private TextField year2_sem_p4;
     
+    private Connection connect;
+    private PreparedStatement prepare;
+    private Statement statement;
+    private ResultSet result;
+    
     // The methods to implement
+    
+    // the chart methods
+    
+    public void homeDisplayTotalaenrolledStudents() {
+    	String sql = "SELECT COUNT(id) FROM student";
+    	
+    	connect = database.connectDb();
+    	
+    	int countEnrolled = 0;
+    	
+    	try {
+    		prepare = connect.prepareStatement(sql);
+    		result = prepare.executeQuery();
+    		
+    		if(result.next()) {
+    			countEnrolled = result.getInt("COUNT(id)");
+    			
+    		}
+    		home_total.setText(String.valueOf(countEnrolled));
+    		
+    	}catch(Exception e) {e.printStackTrace();}
+    }
+    
+    public void homeDisplayFemaleEnrolled() {
+    	String sql = "SELECT COUNT(id) FROM student WHERE gender = 'Female'";
+    	
+    	connect = database.connectDb();
+    	
+    	try {
+    		int countFemale = 0;
+    		
+    		prepare = connect.prepareStatement(sql);
+    		result = prepare.executeQuery();
+    		
+    		if(result.next()) {
+    			countFemale = result.getInt("COUNT(id)");
+    		}
+    		
+    		home_female_total.setText(String.valueOf(countFemale)); 
+    		
+    	}catch(Exception e) {e.printStackTrace();}
+    	
+    }
+    
+    public void homeDisplayMaleEnrolled() {
+    	String sql = "SELECT COUNT(id) FROM student WHERE gender = 'Male'";
+    	
+    	connect = database.connectDb();
+    	
+    	try {
+    		int countMale = 0;
+    		
+    		prepare = connect.prepareStatement(sql);
+    		result = prepare.executeQuery();
+    		
+    		if(result.next()) {
+    			countMale = result.getInt("COUNT(id)");
+    		}
+    		
+    		home_male_total.setText(String.valueOf(countMale));
+    		
+    		
+    	}catch(Exception e) {e.printStackTrace();}
+    }
+    
+    public void homeDisplayTotalEnrolledChart () {
+    	
+    	home_total_chart.getData () .clear();
+    	
+    	String sql = "SELECT data, COUNT(id) FROM student WHERE status = 'Enrolled'GROUP BY date ORDER BY TIMESTAMP(date) ASC LIMIT 5";
+    	
+    	connect = database.connectDb();
+    	
+    	try {
+    		XYChart.Series chart = new XYChart.Series();
+    		
+    		prepare = connect.prepareStatement(sql);
+    		result = prepare.executeQuery();
+    		
+    		while(result.next()) {
+    			chart.getData().add(new XYChart.Data(result.getString(1), result.getInt(2)));
+    		}
+    		
+    		home_total_chart.getData().add(chart);
+    		
+    	}catch(Exception e) {e.printStackTrace();}
+    	
+    }
+    
+    public void homeDisplayFemaleEnrolledChart() {
+
+    	home_female_chart.getData().clear();
+
+        String sql = "SELECT date, COUNT(id) FROM student WHERE status = 'Enrolled' and gender = 'Female' GROUP BY date ORDER BY TIMESTAMP(date) ASC LIMIT 5";
+
+        connect = DatabaseConnector.connectDb();
+
+        try {
+            XYChart.Series chart = new XYChart.Series();
+
+            prepare = connect.prepareStatement(sql);
+            result = prepare.executeQuery();
+
+            while (result.next()) {
+                chart.getData().add(new XYChart.Data(result.getString(1), result.getInt(2)));
+            }
+
+            home_female_chart.getData().add(chart);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+    
+    
+    
+    public void homeDisplayMaleEnrolledChart() {
+
+    	home_male_chart.getData().clear();
+
+        String sql = "SELECT date, COUNT(id) FROM student WHERE status = 'Enrolled' and gender = 'Male' GROUP BY date ORDER BY TIMESTAMP(date) ASC LIMIT 5";
+
+        connect = DatabaseConnector.connectDb();
+
+        try {
+            XYChart.Series chart = new XYChart.Series();
+
+            prepare = connect.prepareStatement(sql);
+            result = prepare.executeQuery();
+
+            while (result.next()) {
+                chart.getData().add(new XYChart.Data(result.getString(1), result.getInt(2)));
+            }
+
+            home_male_chart.getData().add(chart);
+f
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+    
+    
     
     //The close window method..
     public void close() {
@@ -413,6 +568,16 @@ public class DashboardController implements Initializable{
     	stage.setIconified(true);
     }
     
+    // display username method
+    
+    public void displayUsername() {
+    	username.setText(getData.username);
+    }
+    
+    public void defaultNav() {
+    	home_btn.setStyle("-fx-background-color: linear-gradient(to bottom right,  #3eac5b, #30bc86)");
+    }
+    
     //Switching between Forms
     public void switchForms(ActionEvent event) {
     	if(event.getSource() == home_btn) {
@@ -420,10 +585,18 @@ public class DashboardController implements Initializable{
     		register_Form.setVisible(false);
     		register_Form.setVisible(false);
     		grade_Form.setVisible(false);
+    		
     		home_btn.setStyle("-fx-background-color: linear-gradient(to bottom right,  #3eac5b, #30bc86)");
     		register_btn.setStyle("-fx-background-color:transparent");
     		studentsList_btn.setStyle("-fx-background-color:transparent");
     		StudentsGrade_btn.setStyle("-fx-background-color:transparent");
+    		
+    		homeDisplayTotalaenrolledStudents();
+    	    homeDisplayMaleEnrolled();
+    	    homeDisplayFemaleEnrolled();
+    	    homeDisplayMaleEnrolledChart();
+    	    homeDisplayFemaleEnrolledChart();
+    	    homeDisplayTotalEnrolledChart ();
     		
     	}else if(event.getSource() == register_btn) {
     		home_Form.setVisible(false);
@@ -463,6 +636,15 @@ public class DashboardController implements Initializable{
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
+		displayUsername();
+		defaultNav();
+		
+		homeDisplayTotalaenrolledStudents();
+	    homeDisplayMaleEnrolled();
+	    homeDisplayFemaleEnrolled();
+	    homeDisplayMaleEnrolledChart();
+	    homeDisplayFemaleEnrolledChart();
+	    homeDisplayTotalEnrolledChart ();
 		
 	}
    
