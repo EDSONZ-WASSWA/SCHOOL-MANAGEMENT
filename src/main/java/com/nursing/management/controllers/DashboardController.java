@@ -16,13 +16,10 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-
 import java.util.ResourceBundle;
 import com.nursing.management.auth.*;
 import com.mysql.cj.xdevapi.Statement;
-
 import com.nursing.management.studentsBio;
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -40,7 +37,7 @@ import javafx.scene.chart.XYChart;
 
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
-
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
@@ -196,21 +193,10 @@ public class DashboardController implements Initializable{
 
     @FXML
 
-    private TableColumn<studentsBio, String> register_DOB_col;
-
-    @FXML
-    private TableColumn<studentsBio, String> register_Fname_col;
-
-    @FXML
-
     private AnchorPane register_Form;
 
     @FXML
     private TextField register_LName;
-
-    @FXML
-
-    private TableColumn<studentsBio, String> register_Lname_col;
 
     @FXML
 
@@ -233,10 +219,6 @@ public class DashboardController implements Initializable{
 
     @FXML
     private TextField register_contact;
-
-    @FXML
-
-    private TableColumn<studentsBio, Integer> register_contact_col;
 
     @FXML
 
@@ -357,11 +339,6 @@ public class DashboardController implements Initializable{
 
 
     @FXML
-    private TableColumn<studentsBio, String> register_nsin_col;
- 
-
-
-    @FXML
     private TextField register_parish;
 
     @FXML
@@ -374,8 +351,6 @@ public class DashboardController implements Initializable{
     private TextField register_religion;
 
     @FXML
-
-    private TableColumn<studentsBio, String> register_religion_col;
 
     @FXML
 
@@ -410,7 +385,6 @@ public class DashboardController implements Initializable{
     
     @FXML
     private TableColumn<studentsBio, String> register_Lname_col;
-
 
     @FXML
     private Button register_update_btn;
@@ -477,10 +451,10 @@ public class DashboardController implements Initializable{
 
     @FXML
     private TextField year2_sem_p4;
-    
+
     @FXML
     private AnchorPane details_Form;
-    
+
 
     @FXML
     private TableColumn<studentsBio, String> details_DOB_col;
@@ -505,13 +479,13 @@ public class DashboardController implements Initializable{
 
     @FXML
     private TableView<studentsBio> details_tableView;
-    
+
 
     private Connection connect;
     private PreparedStatement prepare;
     private Statement statement;
     private ResultSet result;
-    
+
     // # Prompt Method for Gender
      private String [] genderList = {"Female","Male"};
      public void addGender() {
@@ -1326,23 +1300,20 @@ f
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 
+
+		//Placed here to load Immediately we add and open up the registration form..
+		addStudentsShowListData();
+		addGender();
+		addToListView();
 		// TODO Auto-generated method stub
 		displayUsername();
-		defaultNav();
-		
+		defaultNav();	
 		homeDisplayTotalaenrolledStudents();
 	    homeDisplayMaleEnrolled();
 	    homeDisplayFemaleEnrolled();
 	    homeDisplayMaleEnrolledChart();
 	    homeDisplayFemaleEnrolledChart();
 	    homeDisplayTotalEnrolledChart ();
-
-		//Placed here to load Immediately we add and open up the registration form..
-		addStudentsShowListData();
-		addGender();
-		addToListView();
-		
-		
 
 		
 		//The date picker and the contents...

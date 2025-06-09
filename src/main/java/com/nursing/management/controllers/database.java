@@ -31,5 +31,8 @@ public class database {
 		}
 		return null;
 	}
+<<<<<<< HEAD
+=======
 
 }
+>>>>>>> c596cc6bb5e6116e2ef4d85107dfa112ea3fbba4
