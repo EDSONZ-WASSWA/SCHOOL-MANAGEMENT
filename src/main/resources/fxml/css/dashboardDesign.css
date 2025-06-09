@@ -97,7 +97,7 @@
 }
 
 .textfield {
-    -fx-background-color: #fff;
+    -fx-background-color:transparent;
     /* Set borders: top, right, left transparent; bottom with your gradient */
     -fx-border-color: transparent transparent linear-gradient(to bottom right, #272b3f, #256b51) transparent;
     /* Border widths: top, right, bottom, left */
@@ -105,9 +105,17 @@
     -fx-font-family: "Tahoma";
     -fx-border-radius: 4px;
 }
+.printTextField{
+	-fx-background-color:transparent;
+	-fx-border-color: transparent;
+	-fx-border:none;
+	-fx-border-width: 0 0 0 0;
+    -fx-font-family: "Tahoma";
+    
+}
 .textfield:focused{
     -fx-border-width:1.8px;
-    -fx-background-color:#fff;
+    -fx-background-color:transparent;
 }
 
 .search{
