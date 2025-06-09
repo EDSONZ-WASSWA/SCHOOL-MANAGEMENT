@@ -9,6 +9,7 @@ import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.LocalDate;
@@ -31,6 +32,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.chart.AreaChart;
 import javafx.scene.chart.BarChart;
+
+import javafx.scene.chart.XYChart;
+
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.chart.XYChart;
@@ -324,11 +328,14 @@ public class DashboardController implements Initializable{
 
 
     @FXML
+    private TableColumn<studentsBio, String> register_gender_col;
+
+
+    @FXML
     private TextField register_medical_conditions;
 
     @FXML
     private TextField register_middleName;
-
 
 
     @FXML
@@ -344,8 +351,6 @@ public class DashboardController implements Initializable{
     private TextField register_religion;
 
     @FXML
-
- 
 
     @FXML
 
@@ -474,6 +479,7 @@ public class DashboardController implements Initializable{
 
     @FXML
     private TableView<studentsBio> details_tableView;
+
 
     private Connection connect;
     private PreparedStatement prepare;
@@ -1011,6 +1017,7 @@ public class DashboardController implements Initializable{
     private double x = 0;
     private double y = 0;
     
+
     // The methods to implement
     
     // the chart methods
@@ -1293,6 +1300,7 @@ f
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 
+
 		//Placed here to load Immediately we add and open up the registration form..
 		addStudentsShowListData();
 		addGender();
@@ -1306,9 +1314,7 @@ f
 	    homeDisplayMaleEnrolledChart();
 	    homeDisplayFemaleEnrolledChart();
 	    homeDisplayTotalEnrolledChart ();
-		
-		
-		
+
 		
 		//The date picker and the contents...
 		register_DOB.setValue(LocalDate.now().minusYears(25));

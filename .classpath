@@ -40,11 +40,19 @@
 		</attributes>
 	</classpathentry>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+
+>>>>>>> c596cc6bb5e6116e2ef4d85107dfa112ea3fbba4
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/javaFX"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/javafx"/>
 	<classpathentry kind="lib" path="C:/Users/USER/Downloads/jfreechart-1.0.19.zip"/>
 	<classpathentry kind="lib" path="C:/Users/USER/Downloads/ojdbc14-10.2.0.2.0.jar.zip"/>
+<<<<<<< HEAD
 >>>>>>> ad37c79 (graphs)
+=======
+
+>>>>>>> c596cc6bb5e6116e2ef4d85107dfa112ea3fbba4
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

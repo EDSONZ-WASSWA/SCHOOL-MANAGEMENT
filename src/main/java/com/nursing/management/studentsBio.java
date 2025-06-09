@@ -67,6 +67,7 @@ public class studentsBio {
 	private Integer studentContact2;
 
 	// The constructor...
+
 	public studentsBio(String firstName, String middleName, String lastName, String religion, Date DOB,
 			String studentNIN, String studentDistrict, String studentSubcounty, String studentCounty,
 			String studentParish, String studentGender, String studentEmail, String guardian1Name, String guardian1NIN,
