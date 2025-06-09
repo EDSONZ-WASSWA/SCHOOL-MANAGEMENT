@@ -18,15 +18,4 @@ out/
 .settings/
 
 # Ignore JVM crash logs
-
 hs_err_pid*.log
-=======
-/target/
-<<<<<<< Updated upstream
-/target/classes/META-INF/maven/com.nursing/management/pom.properties/
-/target/
-/target/
-=======
-/bin/
->>>>>>> Stashed changes
->>>>>>> 9d3347a (Great Commit 2-@KELVIS)
