@@ -12,6 +12,7 @@ package com.nursing.management;
 import java.sql.Date;
 
 public class studentsBio {
+
 	private String firstName;
 	private String middleName;
 	private String lastName;
@@ -69,15 +70,15 @@ public class studentsBio {
 	public studentsBio(String firstName, String middleName, String lastName, String religion, Date DOB,
 			String studentNIN, String studentDistrict, String studentSubcounty, String studentCounty,
 			String studentParish, String studentGender, String studentEmail, String guardian1Name, String guardian1NIN,
-			Integer guardian1Contact1, Integer guardian1Contact2, String guardian1District, String guardian1Subcounty,
+			String guardian1Contact1, String guardian1Contact2, String guardian1District, String guardian1Subcounty,
 			String guardian1County, String guardian1Parish, String guardian1Village, String guardian1Email,
-			String guardian1Occupation, String guardian2Name, String guardian2NIN, Integer guardian2Contact1,
-			Integer guardian2Contact2, String guardian2District, String guardian2Subcounty, String guardian2County,
+			String guardian1Occupation, String guardian2Name, String guardian2NIN, String guardian2Contact1,
+			String guardian2Contact2, String guardian2District, String guardian2Subcounty, String guardian2County,
 			String guardian2Parish, String guardian2Village, String guardian2Email, String guardian2Occupation,
 			String NSIN, Integer Alevel, Integer Olevel, String prevCourse, Integer courseYear, String emergencyName,
-			Integer emergencyContact1, Integer emergencyContact2, String relationship, Integer physicianContact,
-			String medConditions, String medication, String medProcedures, String specialNeeds, Integer studentContact1,
-			Integer studentContact2) {
+			String emergencyContact1, String emergencyContact2, String relationship, String physicianContact,
+			String medConditions, String medication, String medProcedures, String specialNeeds, String studentContact1,
+			String studentContact2) {
 		super();
 		this.firstName = firstName;
 		this.middleName = middleName;
@@ -188,11 +189,11 @@ public class studentsBio {
 		return guardian1NIN;
 	}
 
-	public Integer getguardian1Contact1() {
+	public String getguardian1Contact1() {
 		return guardian1Contact1;
 	}
 
-	public Integer getguardian1Contact2() {
+	public String getguardian1Contact2() {
 		return guardian1Contact2;
 	}
 
@@ -232,11 +233,11 @@ public class studentsBio {
 		return guardian2NIN;
 	}
 
-	public Integer getguardian2Contact1() {
+	public String getguardian2Contact1() {
 		return guardian2Contact1;
 	}
 
-	public Integer getguardian2Contact2() {
+	public String getguardian2Contact2() {
 		return guardian2Contact2;
 	}
 
@@ -288,11 +289,11 @@ public class studentsBio {
 		return emergencyName;
 	}
 
-	public Integer getemergencyContact1() {
+	public String getemergencyContact1() {
 		return emergencyContact1;
 	}
 
-	public Integer getemergencyContact2() {
+	public String getemergencyContact2() {
 		return emergencyContact2;
 	}
 
@@ -300,7 +301,7 @@ public class studentsBio {
 		return relationship;
 	}
 
-	public Integer getphysicianContact() {
+	public String getphysicianContact() {
 		return physicianContact;
 	}
 
@@ -320,11 +321,11 @@ public class studentsBio {
 		return specialNeeds;
 	}
 
-	public Integer getStudentContact1() {
+	public String getStudentContact1() {
 		return studentContact1;
 	}
 
-	public Integer getstudentContact2() {
+	public String getstudentContact2() {
 		return studentContact2;
 	}
 

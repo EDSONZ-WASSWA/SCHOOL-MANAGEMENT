@@ -352,7 +352,7 @@
                                                       <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                                                    </padding>
                                                 </ScrollPane>
-                                                <Button fx:id="register_clear_btn" layoutX="206.0" layoutY="528.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="106.0" styleClass="clear-btn" text="Clear" AnchorPane.bottomAnchor="5.0">
+                                                <Button fx:id="register_clear_btn" layoutX="206.0" layoutY="528.0" mnemonicParsing="false" onAction="#clearInputs" prefHeight="35.0" prefWidth="106.0" styleClass="clear-btn" text="Clear" AnchorPane.bottomAnchor="5.0">
                                                    <graphic>
                                                       <ImageView fitHeight="76.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                                                          <image>
@@ -361,7 +361,7 @@
                                                       </ImageView>
                                                    </graphic>
                                                 </Button>
-                                                <Button fx:id="register_delete_btn" layoutX="361.0" layoutY="528.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="106.0" styleClass="delete-btn" text="Delete" AnchorPane.bottomAnchor="5.0">
+                                                <Button fx:id="register_delete_btn" layoutX="361.0" layoutY="528.0" mnemonicParsing="false" onAction="#delete" prefHeight="35.0" prefWidth="106.0" styleClass="delete-btn" text="Delete" AnchorPane.bottomAnchor="5.0">
                                                    <graphic>
                                                       <ImageView fitHeight="28.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                                                          <image>
@@ -370,7 +370,7 @@
                                                       </ImageView>
                                                    </graphic>
                                                 </Button>
-                                                <Button fx:id="register_update_btn" layoutX="772.0" layoutY="529.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="106.0" styleClass="update-btn" text="Update" AnchorPane.bottomAnchor="5.0">
+                                                <Button fx:id="register_update_btn" layoutX="772.0" layoutY="529.0" mnemonicParsing="false" onAction="#updateStudents" prefHeight="35.0" prefWidth="106.0" styleClass="update-btn" text="Update" AnchorPane.bottomAnchor="5.0">
                                                    <graphic>
                                                       <ImageView fitHeight="23.0" fitWidth="71.0" pickOnBounds="true" preserveRatio="true">
                                                          <image>
@@ -378,7 +378,7 @@
                                                          </image>
                                                       </ImageView>
                                                    </graphic></Button>
-                                                <Button fx:id="register_add_btn" layoutX="922.0" layoutY="527.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="106.0" styleClass="add-btn" text="Add" AnchorPane.bottomAnchor="5.0">
+                                                <Button fx:id="register_add_btn" layoutX="922.0" layoutY="527.0" mnemonicParsing="false" onAction="#addStudents" prefHeight="35.0" prefWidth="106.0" styleClass="add-btn" text="Add" AnchorPane.bottomAnchor="5.0">
                                                    <graphic>
                                                       <ImageView fitHeight="25.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
                                                          <image>
@@ -394,7 +394,7 @@
                                                 <String fx:value="shadow" />
                                              </styleClass>
                                              <children>
-                                                <TextField fx:id="register_search" layoutX="8.0" layoutY="6.0" prefHeight="26.0" prefWidth="230.0" promptText="Search here..." styleClass="search" />
+                                                <TextField fx:id="register_search" layoutX="8.0" layoutY="6.0" onKeyTyped="#studentSearch" prefHeight="26.0" prefWidth="230.0" promptText="Search here..." styleClass="search" />
                                                 <ImageView fitHeight="42.0" fitWidth="25.0" layoutX="7.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>
                                                       <Image url="@../images/people.png" />
