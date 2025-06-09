@@ -105,6 +105,7 @@
     -fx-font-family: "Tahoma";
     -fx-border-radius: 4px;
 }
+/*Added */
 .printTextField{
 	-fx-background-color:transparent;
 	-fx-border-color: transparent;
