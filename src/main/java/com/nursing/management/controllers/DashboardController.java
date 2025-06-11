@@ -183,12 +183,14 @@ public class DashboardController implements Initializable{
     private DatePicker register_DOB;
 
     @FXML
+
     private AnchorPane register_Form;
 
     @FXML
     private TextField register_LName;
 
     @FXML
+
     private TextField register_NIN;
 
     @FXML
@@ -209,7 +211,9 @@ public class DashboardController implements Initializable{
     @FXML
     private TextField register_contact;
 
+
     @FXML
+
     private TextField register_county;
 
     @FXML
@@ -321,8 +325,6 @@ public class DashboardController implements Initializable{
     @FXML
     private TextField register_middleName;
 
-   
-
     @FXML
     private TextField register_parish;
 
@@ -335,7 +337,6 @@ public class DashboardController implements Initializable{
     @FXML
     private TextField register_religion;
 
-    @FXML
     private TextField register_search;
 
     @FXML
@@ -346,6 +347,7 @@ public class DashboardController implements Initializable{
 
     @FXML
     private TableView<studentsBio> register_tableView;
+
 
     @FXML
     private TableColumn<studentsBio, String> register_religion_col;
@@ -366,7 +368,6 @@ public class DashboardController implements Initializable{
     
     @FXML
     private TableColumn<studentsBio, String> register_Lname_col;
-
 
     @FXML
     private Button register_update_btn;
