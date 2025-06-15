@@ -20,4 +20,12 @@ public class alertMessage {
 		alert.setHeaderText(null);
 		alert.showAndWait();
 	}
+	
+	  public void showError(String message) {
+	    	 Alert alert = new Alert(Alert.AlertType.ERROR);
+	    	    alert.setTitle("Input Error");
+	    	    alert.setHeaderText(null);
+	    	    alert.setContentText(message);
+	    	    alert.showAndWait();
+	    }
 }
