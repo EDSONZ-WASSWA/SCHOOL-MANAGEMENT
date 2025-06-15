@@ -8,16 +8,9 @@
  * 
  */
 package com.nursing.management;
-
 import java.sql.Date;
 import java.time.LocalDate;
 import java.time.Period;
-import java.time.ZoneId;
-
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.ObjectProperty;
-import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleObjectProperty;
 
 public class studentsBio {
     private String firstName;
@@ -106,9 +99,7 @@ public class studentsBio {
     private String courseSemister;
     
     private String studentsName;
-   
-    
-    //The constructor...
+
 	public studentsBio(String firstName, String middleName, String lastName, String religion, Date DOB,
 			String studentNIN, String studentDistrict, String studentSubcounty, String studentCounty,
 			String studentParish, String studentGender, String studentEmail, String guardian1Name, String guardian1NIN,
@@ -542,7 +533,7 @@ public class studentsBio {
 	}
 	
 	//The Update Level Dynamically	
-	
+
 }
 
 

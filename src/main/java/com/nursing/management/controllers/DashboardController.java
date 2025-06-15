@@ -16,10 +16,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
-
 import com.nursing.management.studentsBio;
 import com.nursing.management.auth.DatabaseConnector;
 import com.nursing.management.dao.alertMessage;
+import com.nursing.management.dao.database;
 
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
@@ -357,6 +357,7 @@ public class DashboardController implements Initializable{
     private TextField register_religion;
 
     @FXML
+
     private TextField register_search;
 
     @FXML
@@ -376,8 +377,6 @@ public class DashboardController implements Initializable{
     
     @FXML
     private TableColumn<studentsBio, String> register_nsin_col;
-    @FXML
-    private TableColumn<studentsBio, String> register_gender_col;
 
     @FXML
     private TableColumn<studentsBio, Integer> register_contact_col;
@@ -710,7 +709,6 @@ public class DashboardController implements Initializable{
      	register_Lname_col.setCellValueFactory(new PropertyValueFactory<>("LastName"));
      	register_contact_col.setCellValueFactory(new PropertyValueFactory<>("StudentContact1"));
      	register_Age_col.setCellValueFactory(cellData -> {Integer age = cellData.getValue().getAge();return new SimpleObjectProperty<>(age != null ? age : null);});  //Method to calculate age!
-     	register_gender_col.setCellValueFactory(new PropertyValueFactory<>("StudentGender"));
      	register_religion_col.setCellValueFactory(new PropertyValueFactory<>("Religion"));
      	register_tableView.setItems(addStudentsList);
      }
@@ -797,6 +795,7 @@ public class DashboardController implements Initializable{
     //-------------------------------------------------------------------------------------------------------------
     //java.sql.Date DOB = java.sql.Date.valueOf(register_DOB.getValue());
     // Add students Method. this is by clicking the add 
+
      public void addStudents() { 
      	String insertData = "INSERT INTO studentsbio (firstName, middleName, lastName, religion, DOB, studentNIN, studentDistrict, studentSubcounty, studentCounty, studentParish, studentEmail, studentGender,  guardian1Name, guardian1NIN, guardian1Contact1, guardian1Contact2, guardian1District, guardian1Subcounty, guardian1County, guardian1Parish, guardian1Village, guardian1Email, guardian1Occupation, guardian2Name, guardian2NIN, guardian2Contact1, guardian2Contact2, guardian2District, guardian2Subcounty, guardian2County, guardian2Parish, guardian2Village, guardian2Email, guardian2Occupation, NSIN, Alevel, Olevel, prevCourse, courseYear, emergencyName, emergencyContact1, emergencyContact2, relationship, physicianContact, medConditions, medication, medProcedures, specialNeeds, studentContact1, studentContact2,courseTaken,courseLevel,yearCourse,courseSemister )  VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, "
      			+ "?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?,?,?,?)";
@@ -1055,6 +1054,8 @@ public class DashboardController implements Initializable{
      	    System.err.println("Failed query: " + insertData);
      	    }
         }
+
+
     //#################################################################################################
     // Clear Method
     
@@ -1579,8 +1580,11 @@ public class DashboardController implements Initializable{
     // the chart methods
     
     public void homeDisplayTotalaenrolledStudents() {
-    	String sql = "SELECT COUNT(id) FROM studentsbio";
-    	connect = database.connectDb();
+
+    	String sql = "SELECT COUNT(id) FROM studentsBio";
+    	
+    	connect = DatabaseConnector.connectDb();
+
     	int countEnrolled = 0;
     	try {
     		prepare = connect.prepareStatement(sql);
@@ -1596,8 +1600,10 @@ public class DashboardController implements Initializable{
     }
     
     public void homeDisplayFemaleEnrolled() {
+
     	String sql = "SELECT COUNT(id) FROM studentsbio WHERE studentGender = 'Female'";
     	connect = database.connectDb();
+
     	try {
     		int countFemale = 0;
     		
@@ -1615,8 +1621,10 @@ public class DashboardController implements Initializable{
     }
     
     public void homeDisplayMaleEnrolled() {
+
     	String sql = "SELECT COUNT(id) FROM studentsbio WHERE studentGender = 'Male'";
     	connect = database.connectDb();
+
     	
     	try {
     		int countMale = 0;
@@ -1635,9 +1643,11 @@ public class DashboardController implements Initializable{
     public void homeDisplayTotalEnrolledChart () {
     	home_total_chart.getData () .clear();
     	
+
     	String sql = "SELECT courseLevel, COUNT(id) FROM studentsbio WHERE courseLevel IN ('Diploma','Certificate') GROUP BY courseLevel ORDER BY TIMESTAMP(courseLevel) ASC";
+
     	
-    	connect = database.connectDb();
+    	connect = DatabaseConnector.connectDb();
     	
     	
     	
@@ -1663,6 +1673,7 @@ public class DashboardController implements Initializable{
 
     	String sql = "SELECT courseLevel, COUNT(id) FROM studentsbio WHERE courseLevel IN ('Certificate','Diploma') and studentGender = 'Female' GROUP BY courseLevel ORDER BY TIMESTAMP(courseTaken) ASC";
 
+
         connect = DatabaseConnector.connectDb();
 
         try {
@@ -1687,6 +1698,7 @@ public class DashboardController implements Initializable{
     	home_male_chart.getData().clear();
 
         String sql = "SELECT courseLevel, COUNT(id) FROM studentsbio WHERE courseLevel IN ('Certificate','Diploma') and studentGender = 'Male' GROUP BY courseLevel ORDER BY TIMESTAMP(courseTaken) ASC";
+
 
         connect = DatabaseConnector.connectDb();
 
@@ -1720,7 +1732,16 @@ public class DashboardController implements Initializable{
     	Stage stage = (Stage)main_form.getScene().getWindow();
     	stage.setIconified(true);
     }
-    
+
+//    // display username method
+//    
+//   public void displayUsername() {
+//    	username.setText(getData.username);
+//    }
+//    
+    public void defaultNav() {
+    	home_btn.setStyle("-fx-background-color: linear-gradient(to bottom right,  #3eac5b, #30bc86)");
+    }
 
     
 	/*
@@ -1853,12 +1874,16 @@ public class DashboardController implements Initializable{
 		addStudentsShowListData();
 		addGender();
 		addToListView();
+
 		addLevel();
 		addCourse();
 		addYear();
 		addSem();
 		showGradeList();
-		
+
+		//displayUsername();
+		defaultNav();	
+
 		homeDisplayTotalaenrolledStudents();
 	    homeDisplayMaleEnrolled();
 	    homeDisplayFemaleEnrolled();

@@ -1,10 +1,10 @@
  package com.nursing.management;
 import javafx.application.Application;
+import javafx.stage.Stage;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
-import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 public class Main extends Application {
@@ -14,7 +14,7 @@ public class Main extends Application {
 	@Override
 
 	public void start(Stage stage) throws Exception {
-		Parent root = FXMLLoader.load(getClass().getResource("/fxml/Dashboard.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("/fxml/login.fxml"));
 		Scene scene = new Scene(root);
 		root.setOnMousePressed((MouseEvent event) -> {
 			x = event.getSceneX();
@@ -32,10 +32,9 @@ public class Main extends Application {
 		stage.setScene(scene);
 		stage.show();
 	}
-
-
 	public static void main(String[] args) {
 		System.setProperty("prism.marlinrasterizer", "false"); // This line removes the marlin warnings in the Terminal
-		launch(args);
+		launch (args);
 	}
 }
+

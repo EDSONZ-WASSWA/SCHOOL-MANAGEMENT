@@ -7,14 +7,11 @@
   <description>This project manages student records using JavaFX and Maven.</description>
   
 <dependencies>
-
-
 <dependency>
     <groupId>org.mindrot</groupId>
     <artifactId>jbcrypt</artifactId>
     <version>0.4</version>
 </dependency>
-
   
 <dependency>
         <groupId>org.openjfx</groupId>
