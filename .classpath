@@ -1,35 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8">
+	<classpathentry kind="src" output="target/classes" path="src/main/java">
 		<attributes>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="E:/JAVA_WORKSPACE/jbcrypt-0.4.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-23">
+		<attributes>
+			<attribute name="module" value="true"/>
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/javaFX"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/sql"/>
-	<classpathentry kind="lib" path="E:/JAVA_WORKSPACE/jbcrypt-0.4.jar"/>
-	<classpathentry excluding="com/nursing/management/com/nursing/management/" kind="src" output="target/classes" path="src/main/java">
-		<attributes>
-			<attribute name="optional" value="true"/>
-			<attribute name="maven.pomderived" value="true"/>
-		</attributes>
-	</classpathentry>
+	<classpathentry kind="lib" path="E:/JAVA_WORKSPACE/mysql-connector-j-9.2.0.jar"/>
+	<classpathentry kind="lib" path="E:/JAVA_WORKSPACE/ojdbc14-10.2.0.2.0.jar"/>
 	<classpathentry excluding="**" kind="src" output="target/classes" path="src/main/resources">
 		<attributes>
-			<attribute name="maven.pomderived" value="true"/>
-			<attribute name="optional" value="true"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="src" output="target/test-classes" path="src/test/java">
-		<attributes>
-			<attribute name="test" value="true"/>
-			<attribute name="optional" value="true"/>
-			<attribute name="maven.pomderived" value="true"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry excluding="**" kind="src" output="target/test-classes" path="src/test/resources">
-		<attributes>
-			<attribute name="test" value="true"/>
 			<attribute name="maven.pomderived" value="true"/>
 			<attribute name="optional" value="true"/>
 		</attributes>
@@ -39,20 +27,7 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
-
->>>>>>> c596cc6bb5e6116e2ef4d85107dfa112ea3fbba4
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/javaFX"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/javafx"/>
-	<classpathentry kind="lib" path="C:/Users/USER/Downloads/jfreechart-1.0.19.zip"/>
-	<classpathentry kind="lib" path="C:/Users/USER/Downloads/ojdbc14-10.2.0.2.0.jar.zip"/>
-<<<<<<< HEAD
->>>>>>> ad37c79 (graphs)
-=======
-
->>>>>>> c596cc6bb5e6116e2ef4d85107dfa112ea3fbba4
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/sql"/>
+	<classpathentry kind="lib" path="E:/JAVA_WORKSPACE/jfreechart.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

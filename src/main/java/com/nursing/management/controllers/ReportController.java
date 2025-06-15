@@ -1,0 +1,20 @@
+package com.nursing.management.controllers;
+
+import java.net.URL;
+import java.util.ResourceBundle;
+
+import javafx.fxml.Initializable;
+
+public class ReportController implements Initializable {
+	
+	
+	
+	
+
+	@Override
+	public void initialize(URL arg0, ResourceBundle arg1) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

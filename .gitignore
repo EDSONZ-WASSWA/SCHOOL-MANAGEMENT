@@ -20,15 +20,4 @@ out/
 
 # Ignore JVM crash logs
 hs_err_pid*.log
-=======
-/target/
 
-/target/classes/META-INF/maven/com.nursing/management/pom.properties/
-/target/
-/target/
-
-/bin/
-
-"bin/" 
-
->>>>>>> c596cc6bb5e6116e2ef4d85107dfa112ea3fbba4
