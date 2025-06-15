@@ -10,64 +10,105 @@
 package com.nursing.management;
 
 import java.sql.Date;
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.ZoneId;
+
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleObjectProperty;
 
 public class studentsBio {
+    private String firstName;
+    private String middleName;
+    private String lastName;
+    private String religion;
+    private Date DOB;
+    private String studentNIN;
+    private String studentDistrict;
+    private String studentSubcounty;
+    private String studentCounty;
+    private String studentParish;
+    private String studentEmail;
+    private String studentGender;
+    //Guardians 1 Data
+    private String guardian1Name;
+    private String guardian1NIN;
+    private String guardian1Contact1;
+    private String guardian1Contact2;
+    private String guardian1District;
+    private String guardian1Subcounty;
+    private String guardian1County;
+    private String guardian1Parish;
+    private String guardian1Village;
+    private String guardian1Email;
+    private String guardian1Occupation;
+    //Guardian 2
+    private String guardian2Name;
+    private String guardian2NIN;
+    private String guardian2Contact1;
+    private String guardian2Contact2;
+    private String guardian2District;
+    private String guardian2Subcounty;
+    private String guardian2County;
+    private String guardian2Parish;
+    private String guardian2Village;
+    private String guardian2Email;
+    private String guardian2Occupation;
+    private String NSIN;
+    private Integer Alevel;
+    private Integer Olevel;
+    private String prevCourse;
+    private Integer courseYear;
+    private String emergencyName;
+    private String emergencyContact1;
+    private String emergencyContact2;
+    private String relationship;
+    private String physicianContact;
+    private String medConditions;
+    private String medication;
+    private String medProcedures;
+    private String specialNeeds;
+    private String studentContact1;
+    private String studentContact2;
+    //private Integer Age;
 
-	private String firstName;
-	private String middleName;
-	private String lastName;
-	private String religion;
-	private Date DOB;
-	private String studentNIN;
-	private String studentDistrict;
-	private String studentSubcounty;
-	private String studentCounty;
-	private String studentParish;
-	private String studentEmail;
-	private String studentGender;
-	// Guardians 1 Data
-	private String guardian1Name;
-	private String guardian1NIN;
-	private Integer guardian1Contact1;
-	private Integer guardian1Contact2;
-	private String guardian1District;
-	private String guardian1Subcounty;
-	private String guardian1County;
-	private String guardian1Parish;
-	private String guardian1Village;
-	private String guardian1Email;
-	private String guardian1Occupation;
-	// Guardian 2
-	private String guardian2Name;
-	private String guardian2NIN;
-	private Integer guardian2Contact1;
-	private Integer guardian2Contact2;
-	private String guardian2District;
-	private String guardian2Subcounty;
-	private String guardian2County;
-	private String guardian2Parish;
-	private String guardian2Village;
-	private String guardian2Email;
-	private String guardian2Occupation;
-	private String NSIN;
-	private Integer Alevel;
-	private Integer Olevel;
-	private String prevCourse;
-	private Integer courseYear;
-	private String emergencyName;
-	private Integer emergencyContact1;
-	private Integer emergencyContact2;
-	private String relationship;
-	private Integer physicianContact;
-	private String medConditions;
-	private String medication;
-	private String medProcedures;
-	private String specialNeeds;
-	private Integer studentContact1;
-	private Integer studentContact2;
-
-	// The constructor...
-
+    //Students Grades
+    private Integer sem1_p1;
+    private Integer sem1_p2;
+    private Integer sem1_p3;
+    private Integer sem1_p4;
+    
+    private Integer sem2_p1;
+    private Integer sem2_p2;
+    private Integer sem2_p3;
+    private Integer sem2_p4;
+    
+    private Integer sem3_p1;
+    private Integer sem3_p2;
+    private Integer sem3_p3;
+    private Integer sem3_p4;
+    
+    private Integer sem4_p1;
+    private Integer sem4_p2;
+    private Integer sem4_p3;
+    private Integer sem4_p4;
+    
+    private Integer sem5_p1;
+    private Integer sem5_p2;
+    private Integer sem5_p3;
+    private Integer sem5_p4;
+    
+    private String courseTaken;
+    private String courseLevel;
+    private String yearCourse;
+    private String courseSemister;
+    
+    private String studentsName;
+   
+    
+    //The constructor...
 	public studentsBio(String firstName, String middleName, String lastName, String religion, Date DOB,
 			String studentNIN, String studentDistrict, String studentSubcounty, String studentCounty,
 			String studentParish, String studentGender, String studentEmail, String guardian1Name, String guardian1NIN,
@@ -79,7 +120,7 @@ public class studentsBio {
 			String NSIN, Integer Alevel, Integer Olevel, String prevCourse, Integer courseYear, String emergencyName,
 			String emergencyContact1, String emergencyContact2, String relationship, String physicianContact,
 			String medConditions, String medication, String medProcedures, String specialNeeds, String studentContact1,
-			String studentContact2) {
+			String studentContact2,String courseTaken,String courseLevel,String yearCourse,String courseSemister) {
 		super();
 		this.firstName = firstName;
 		this.middleName = middleName;
@@ -117,7 +158,7 @@ public class studentsBio {
 		this.guardian2Occupation = guardian2Occupation;
 		this.NSIN = NSIN;
 		this.Alevel = Alevel;
-		this.Olevel = Olevel;
+		this.Olevel =Olevel;
 		this.prevCourse = prevCourse;
 		this.courseYear = courseYear;
 		this.emergencyName = emergencyName;
@@ -130,22 +171,32 @@ public class studentsBio {
 		this.medProcedures = medProcedures;
 		this.specialNeeds = specialNeeds;
 		this.studentContact1 = studentContact1;
-		this.studentContact2 = studentContact2;
+        this.studentContact2 = studentContact2;
+        this.courseTaken = courseTaken;
+        this.courseLevel = courseLevel;
+        this.yearCourse = yearCourse;
+        this.courseSemister = courseSemister;
+        //this.Age = Age;
 	}
 
-	// The getters
+	//Constructor for Students Grades
+	
+	
+	
+	
+	//The getters 
 	public String getFirstName() {
 		return firstName;
 	}
 
-	public String getmiddleName() {
+	public String getMiddleName() {
 		return middleName;
 	}
 
 	public String getLastName() {
 		return lastName;
 	}
-
+	
 	public String getReligion() {
 		return religion;
 	}
@@ -153,7 +204,31 @@ public class studentsBio {
 	public Date getDOB() {
 		return DOB;
 	}
-
+	//Method to change DOB to years!
+	public Integer getAge() {
+	    if (DOB == null) {
+	        //System.err.println("DOB is null for student: " + this.getFirstName() + " " + this.getLastName());
+	        return null;
+	    }
+	    
+	    try {
+	        LocalDate birthDate = DOB.toLocalDate();
+	        LocalDate now = LocalDate.now();
+	        
+	        // Additional validation
+	        if (birthDate.isAfter(now)) {
+	            System.err.println("Invalid future DOB for student: " + this.getFirstName());
+	            return null;
+	        }
+	        
+	        return Period.between(birthDate, now).getYears();
+	    } catch (Exception e) {
+	        System.err.println("Error calculating age for " + this.getFirstName() + 
+	                         ". DOB: " + DOB + ". Error: " + e.getMessage());
+	        return null;
+	    }
+	}
+	
 	public String getstudentNIN() {
 		return studentNIN;
 	}
@@ -173,7 +248,7 @@ public class studentsBio {
 	public String getstudentParish() {
 		return studentParish;
 	}
-
+	
 	public String getstudentEmail() {
 		return studentEmail;
 	}
@@ -181,6 +256,7 @@ public class studentsBio {
 	public String getStudentGender() {
 		return studentGender;
 	}
+
 
 	public String getguardian1Name() {
 		return guardian1Name;
@@ -285,6 +361,10 @@ public class studentsBio {
 	public String getprevCourse() {
 		return prevCourse;
 	}
+	
+	public Integer getCourseYear() {
+		return courseYear;
+	}
 
 	public String getemergencyName() {
 		return emergencyName;
@@ -329,15 +409,147 @@ public class studentsBio {
 	public String getstudentContact2() {
 		return studentContact2;
 	}
-
-	public Integer getcourseYear() {
-		return courseYear;
+	
+	public String getYearCourse() {
+		return yearCourse;
 	}
 
-//
-//	public String getEmail() {
-//		// TODO Auto-generated method stub
-//		return Email();
-//	}
+	public String getCourseTaken() {
+		return courseTaken;
+	}
 
+	public String getCourseLevel() {
+		return courseLevel;
+	}
+
+	public String getCourseSemister() {
+		return courseSemister;
+	}
+     
+	public studentsBio(String NSIN, String studentsName,Integer sem1_p1,
+			Integer sem1_p2, Integer sem1_p3, Integer sem1_p4, Integer sem2_p1, Integer sem2_p2, Integer sem2_p3,
+			Integer sem2_p4, Integer sem3_p1, Integer sem3_p2, Integer sem3_p3, Integer sem3_p4, Integer sem4_p1,
+			Integer sem4_p2, Integer sem4_p3, Integer sem4_p4, Integer sem5_p1, Integer sem5_p2, Integer sem5_p3,
+			Integer sem5_p4) {
+		super();
+		this.studentsName = studentsName;
+		this.NSIN = NSIN;
+		this.sem1_p1 = sem1_p1;
+		this.sem1_p2 = sem1_p2;
+		this.sem1_p3 = sem1_p3;
+		this.sem1_p4 = sem1_p4;
+		this.sem2_p1 = sem2_p1;
+		this.sem2_p2 = sem2_p2;
+		this.sem2_p3 = sem2_p3;
+		this.sem2_p4 = sem2_p4;
+		this.sem3_p1 = sem3_p1;
+		this.sem3_p2 = sem3_p2;
+		this.sem3_p3 = sem3_p3;
+		this.sem3_p4 = sem3_p4;
+		this.sem4_p1 = sem4_p1;
+		this.sem4_p2 = sem4_p2;
+		this.sem4_p3 = sem4_p3;
+		this.sem4_p4 = sem4_p4;
+		this.sem5_p1 = sem5_p1;
+		this.sem5_p2 = sem5_p2;
+		this.sem5_p3 = sem5_p3;
+		this.sem5_p4 = sem5_p4;
+	}
+ //The getters
+	
+	public String getStudentsName() {
+		return studentsName;
+	}
+
+	public Integer getSem1_p1() {
+		return sem1_p1;
+	}
+
+	public Integer getSem1_p2() {
+		return sem1_p2;
+	}
+
+	public Integer getSem1_p3() {
+		return sem1_p3;
+	}
+
+	public Integer getSem1_p4() {
+		return sem1_p4;
+	}
+
+	public Integer getSem2_p1() {
+		return sem2_p1;
+	}
+
+	public Integer getSem2_p2() {
+		return sem2_p2;
+	}
+
+	public Integer getSem2_p3() {
+		return sem2_p3;
+	}
+
+	public Integer getSem2_p4() {
+		return sem2_p4;
+	}
+
+	public Integer getSem3_p1() {
+		return sem3_p1;
+	}
+
+	public Integer getSem3_p2() {
+		return sem3_p2;
+	}
+
+	public Integer getSem3_p3() {
+		return sem3_p3;
+	}
+
+	public Integer getSem3_p4() {
+		return sem3_p4;
+	}
+
+	public Integer getSem4_p1() {
+		return sem4_p1;
+	}
+
+	public Integer getSem4_p2() {
+		return sem4_p2;
+	}
+
+	public Integer getSem4_p3() {
+		return sem4_p3;
+	}
+
+	public Integer getSem4_p4() {
+		return sem4_p4;
+	}
+
+	public Integer getSem5_p1() {
+		return sem5_p1;
+	}
+
+	public Integer getSem5_p2() {
+		return sem5_p2;
+	}
+
+	public Integer getSem5_p3() {
+		return sem5_p3;
+	}
+
+	public Integer getSem5_p4() {
+		return sem5_p4;
+	}
+	
+	//The Update Level Dynamically	
+	
 }
+
+
+
+
+
+
+
+
+
