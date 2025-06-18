@@ -12,7 +12,7 @@ public class DatabaseConnector {
 
 			String url = "jdbc:mysql://localhost:3306/nursing_school";
 			String user = "root";
-			String password = "";
+			String password = "Daniella101";
 
 			Connection connect = DriverManager.getConnection(url, user, password);
 			System.out.println("Database connected successfully!");

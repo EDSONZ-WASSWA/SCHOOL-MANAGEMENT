@@ -10,7 +10,7 @@ public class database {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			String url = "jdbc:mysql://localhost:3306/nursing_school?useSSL=false";
 			String user = "root";
-			String pass = ""; // Or your actual password
+			String pass = "Daniella101"; // Or your actual password
 
 			Connection connect = DriverManager.getConnection(url, user, pass);
 			System.out.println("Database connected successfully!");

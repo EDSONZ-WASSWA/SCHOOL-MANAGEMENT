@@ -6,15 +6,12 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="E:/JAVA_WORKSPACE/jbcrypt-0.4.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-16">
 		<attributes>
+			<attribute name="module" value="true"/>
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/javaFX"/>
-	<classpathentry kind="lib" path="E:/JAVA_WORKSPACE/mysql-connector-j-9.2.0.jar"/>
-	<classpathentry kind="lib" path="E:/JAVA_WORKSPACE/ojdbc14-10.2.0.2.0.jar"/>
 	<classpathentry excluding="**" kind="src" output="target/classes" path="src/main/resources">
 		<attributes>
 			<attribute name="maven.pomderived" value="true"/>
@@ -27,20 +24,28 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/sql"/>
-	<classpathentry kind="lib" path="E:/JAVA_WORKSPACE/jfreechart.jar"/>
 	<classpathentry kind="src" output="target/test-classes" path="src/test/java">
 		<attributes>
+			<attribute name="test" value="true"/>
 			<attribute name="optional" value="true"/>
 			<attribute name="maven.pomderived" value="true"/>
-			<attribute name="test" value="true"/>
 		</attributes>
 	</classpathentry>
 	<classpathentry excluding="**" kind="src" output="target/test-classes" path="src/test/resources">
 		<attributes>
-			<attribute name="maven.pomderived" value="true"/>
 			<attribute name="test" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
 			<attribute name="optional" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/JavaFX"/>
+	<classpathentry kind="lib" path="D:/Git_Repositories/project-rakai/SCHOOL-MANAGEMENT/src/main/resources/jars/jbcrypt-0.4.jar"/>
+	<classpathentry kind="lib" path="D:/Git_Repositories/project-rakai/SCHOOL-MANAGEMENT/src/main/resources/jars/jcommon-1.0.23.jar"/>
+	<classpathentry kind="lib" path="D:/Git_Repositories/project-rakai/SCHOOL-MANAGEMENT/src/main/resources/jars/jfreechart.jar"/>
+	<classpathentry kind="lib" path="D:/Git_Repositories/project-rakai/SCHOOL-MANAGEMENT/src/main/resources/jars/jfreechart-1.0.19.jar"/>
+	<classpathentry kind="lib" path="D:/Git_Repositories/project-rakai/SCHOOL-MANAGEMENT/src/main/resources/jars/mysql-connector-j-9.2.0.jar"/>
+	<classpathentry kind="lib" path="D:/Git_Repositories/project-rakai/SCHOOL-MANAGEMENT/src/main/resources/jars/mysql-connector-java-5.1.48.jar"/>
+	<classpathentry kind="lib" path="D:/Git_Repositories/project-rakai/SCHOOL-MANAGEMENT/src/main/resources/jars/ojdbc14-10.2.0.2.0.jar"/>
+	<classpathentry kind="lib" path="D:/Git_Repositories/project-rakai/SCHOOL-MANAGEMENT/src/main/resources/jars/olap4j-0.9.7.309-JS-3.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
