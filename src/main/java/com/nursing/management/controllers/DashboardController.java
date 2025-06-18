@@ -5,6 +5,7 @@
      * @KATO ELVIS.dev/2637/477/NRD.
      * */
 package com.nursing.management.controllers;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -145,7 +146,7 @@ public class DashboardController implements Initializable{
     
     
     @FXML
-    private Button close_btn;
+    private Button back_btn;
 
     @FXML
     private TextField gradeForm_NAME;
@@ -159,8 +160,9 @@ public class DashboardController implements Initializable{
     @FXML
     private AnchorPane grade_Form;
 
+
     @FXML
-    private Button grade_addBtn;
+    private Button generateReport_Btn;
 
     @FXML
     private Button grade_clearBtn;
@@ -1038,6 +1040,7 @@ public class DashboardController implements Initializable{
      	     	    	prepareGrades.setString(20, "0");
      	     	    	prepareGrades.setString(21, "0");
      	     	    	prepareGrades.setString(22, "0");
+     	     	    	prepareGrades.setString(23, "(String)register_gender.getSelectionModel().getSelectedItem()");
      	     	    	prepareGrades.executeUpdate();
                           alert = new Alert(AlertType.CONFIRMATION);
                           alert.setTitle("Confirmation Message");
@@ -1258,7 +1261,7 @@ public class DashboardController implements Initializable{
     	register_search.textProperty().addListener((Observable, oldValue, newValue) ->{
     		
     		filteredD.setPredicate(studentsData ->{  // If search is empty show, everything
-    			if(newValue == null || newValue.isEmpty() || newValue.isBlank()) {
+    			if(newValue == null || newValue.isEmpty()) {
     				return true;
     			}
     			String searchKey = newValue.toLowerCase(); // Change everything to LowerCase
@@ -1381,6 +1384,7 @@ public class DashboardController implements Initializable{
  	   Table_year3_sem1_p2.setCellValueFactory(new PropertyValueFactory<>("sem5_p2"));
  	   Table_year3_sem1_p3.setCellValueFactory(new PropertyValueFactory<>("sem5_p3"));
  	   Table_year3_sem1_p4.setCellValueFactory(new PropertyValueFactory<>("sem5_p4"));
+ 	   
  	   gradeTable.setItems(Grades);
     
     
@@ -1722,7 +1726,7 @@ public class DashboardController implements Initializable{
     
     
     
-    //The close window method..
+    //The back window method..
     public void close() {
     	System.exit(0);
     }
@@ -1866,15 +1870,49 @@ public class DashboardController implements Initializable{
 		
     }
     
+    @FXML
+    private void generateReport(ActionEvent event) throws IOException{
+    	FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/reportCard.fxml"));
+    	Parent root = loader.load();
+    	ReportController reportController = loader.getController();
+    	reportController.showInformation(gradeForm_NAME.getText(),
+    			gradeForm_NSIN.getText(),
+    			//sex && Gender,
+    	        year1_sem1_p1.getText(), 
+    			year1_sem1_p2.getText(),
+    			year1_sem1_p3.getText(),
+    			year1_sem1_p4.getText(),
+    			year1_sem2_p1.getText(),
+    			year1_sem2_p2.getText(),
+    			year1_sem2_p3.getText(),
+    			year1_sem2_p4.getText(),
+    			
+    			year2_sem_p1.getText(),
+    			year2_sem_p2.getText(),
+    			year2_sem_p3.getText(),
+    			year2_sem_p4.getText(),
+    			year2_sem2_p1.getText(),
+    			year2_sem2_p2.getText(),
+    			year2_sem2_p3.getText(),
+    			year2_sem2_p4.getText()
+    			
+    			);
+    	Stage stage = new Stage();
+    	stage.setScene(new Scene(root));
+    	stage.setTitle("Report View");
+    	stage.show();
+    }
 	 
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+
+		
 		//Placed here to load Immediately we add and open up the registration form..
 		addStudentsShowListData();
 		addGender();
 		addToListView();
-
+	
 		addLevel();
 		addCourse();
 		addYear();

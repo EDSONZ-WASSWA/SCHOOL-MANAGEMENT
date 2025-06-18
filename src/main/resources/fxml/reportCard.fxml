@@ -12,38 +12,38 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="715.0" prefWidth="758.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<StackPane fx:id="Report_Page" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="715.0" prefWidth="758.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.nursing.management.controllers.ReportController">
    <children>
       <SplitPane dividerPositions="0.22393162393162394" orientation="VERTICAL" prefHeight="663.0" prefWidth="758.0">
         <items>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" stylesheets="@css/dashboardDesign.css" SplitPane.resizableWithParent="false">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="179.0" prefWidth="756.0" stylesheets="@css/dashboardDesign.css" SplitPane.resizableWithParent="false">
                <children>
-                  <ImageView fitHeight="106.0" fitWidth="104.0" layoutX="12.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="91.0" fitWidth="88.0" layoutX="18.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../images/RCSN.jpg" />
                      </image>
                   </ImageView>
-                  <Label layoutX="136.0" layoutY="1.0" prefHeight="48.0" prefWidth="615.0" text="RAKAI COMMUNITY SCHOOL OF NURSING" textAlignment="JUSTIFY" textFill="#40e128">
+                  <Label layoutX="119.0" layoutY="1.0" prefHeight="48.0" prefWidth="615.0" text="RAKAI COMMUNITY SCHOOL OF NURSING" textAlignment="JUSTIFY" textFill="#40e128">
                      <font>
-                        <Font name="Tahoma Bold" size="25.0" />
+                        <Font name="Tahoma Bold" size="22.0" />
                      </font>
                   </Label>
-                  <Label layoutX="307.0" layoutY="41.0" prefHeight="17.0" prefWidth="170.0" text="&quot;We Serve for Better Health&quot;" textFill="#f50000">
+                  <Label layoutX="238.0" layoutY="41.0" prefHeight="17.0" prefWidth="170.0" text="&quot;We Serve for Better Health&quot;" textFill="#f50000">
                      <font>
                         <Font name="System Bold Italic" size="12.0" />
                      </font>
                   </Label>
-                  <Label layoutX="214.0" layoutY="55.0" prefHeight="32.0" prefWidth="459.0" text="P.O.Box 690113, Kyotera, Tel:0752609399 /0392878552 /0772672106">
+                  <Label layoutX="122.0" layoutY="53.0" prefHeight="32.0" prefWidth="459.0" text="P.O.Box 690113, Kyotera, Tel:0752609399 /0392878552 /0772672106">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label layoutX="297.0" layoutY="80.0" prefHeight="32.0" prefWidth="311.0" text="Email: help@rcsn.info | Website:www.rcsn.info">
+                  <Label layoutX="216.0" layoutY="72.0" prefHeight="32.0" prefWidth="311.0" text="Email: help@rcsn.info | Website:www.rcsn.info">
                      <font>
                         <Font name="System Bold" size="13.0" />
                      </font>
                   </Label>
-                  <ImageView fitHeight="42.0" fitWidth="50.0" layoutX="657.0" layoutY="164.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="42.0" fitWidth="50.0" layoutX="640.0" layoutY="164.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../images/icons8-printer-100%20(1).png" />
                      </image>
@@ -62,603 +62,284 @@
                         <String fx:value="shadow" />
                      </styleClass>
                      <children>
-                        <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="451.0" prefWidth="756.0" stylesheets="@css/dashboardDesign.css" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
-                           <styleClass>
-                              <String fx:value="white-bg" />
-                              <String fx:value="shadow" />
-                           </styleClass>
+                        <AnchorPane prefHeight="540.0" prefWidth="746.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
-                              <ImageView fitHeight="352.0" fitWidth="397.0" layoutX="171.0" layoutY="28.0" opacity="0.11" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../images/RCSN.jpg" />
-                                 </image>
-                              </ImageView>
-                              <Label layoutX="8.0" layoutY="4.0" prefHeight="26.0" prefWidth="119.0" text="STUDENT NAME:">
-                                 <font>
-                                    <Font name="System Bold" size="13.0" />
-                                 </font>
-                              </Label>
-                              <TextField layoutX="114.0" layoutY="-2.0" prefHeight="25.0" prefWidth="265.0" styleClass="textfield" stylesheets="@css/dashboardDesign.css">
-                                 <font>
-                                    <Font name="System Bold" size="12.0" />
-                                 </font></TextField>
-                              <Label layoutX="505.0" layoutY="4.0" prefHeight="26.0" prefWidth="34.0" text="SEX:">
-                                 <font>
-                                    <Font name="System Bold" size="13.0" />
-                                 </font>
-                              </Label>
-                              <TextField layoutX="532.0" prefHeight="25.0" prefWidth="104.0" styleClass="textfield" stylesheets="@css/dashboardDesign.css">
-                                 <font>
-                                    <Font name="System Bold" size="12.0" />
-                                 </font></TextField>
-                              <Label layoutX="8.0" layoutY="47.0" prefHeight="26.0" prefWidth="119.0" text="STUDENT NSIN:">
-                                 <font>
-                                    <Font name="System Bold" size="13.0" />
-                                 </font>
-                              </Label>
-                              <TextField layoutX="108.0" layoutY="41.0" prefHeight="25.0" prefWidth="265.0" styleClass="textfield" stylesheets="@css/dashboardDesign.css">
-                                 <font>
-                                    <Font name="System Bold" size="12.0" />
-                                 </font></TextField>
-                              <Label layoutX="505.0" layoutY="47.0" prefHeight="26.0" prefWidth="34.0" text="AGE:">
-                                 <font>
-                                    <Font name="System Bold" size="13.0" />
-                                 </font>
-                              </Label>
-                              <TextField layoutX="535.0" layoutY="41.0" prefHeight="25.0" prefWidth="104.0" styleClass="textfield" stylesheets="@css/dashboardDesign.css">
-                                 <font>
-                                    <Font name="System Bold" size="12.0" />
-                                 </font></TextField>
-                              <Label layoutX="283.0" layoutY="76.0" prefHeight="26.0" prefWidth="139.0" text="ASSESMENT SHEET">
-                                 <font>
-                                    <Font name="System Bold" size="14.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="8.0" layoutY="102.0" prefHeight="26.0" prefWidth="69.0" text="AWARD:">
-                                 <font>
-                                    <Font name="System Bold" size="13.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="79.0" layoutY="102.0" prefHeight="26.0" prefWidth="139.0" text="CERTIFICATE">
-                                 <font>
-                                    <Font name="System Bold" size="15.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="34.0" layoutY="131.0" prefHeight="26.0" prefWidth="139.0" text="SEMESTER 1">
-                                 <font>
-                                    <Font name="System Bold" size="14.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="437.0" layoutY="131.0" prefHeight="26.0" prefWidth="139.0" text="SEMESTER 2">
-                                 <font>
-                                    <Font name="System Bold" size="14.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="13.0" layoutY="164.0" prefHeight="26.0" prefWidth="34.0" text="P1:">
-                                 <font>
-                                    <Font name="System Bold" size="13.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="170.0" layoutY="164.0" prefHeight="26.0" prefWidth="34.0" text="P2:">
-                                 <font>
-                                    <Font name="System Bold" size="13.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="418.0" layoutY="164.0" prefHeight="26.0" prefWidth="34.0" text="P1:">
-                                 <font>
-                                    <Font name="System Bold" size="13.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="588.0" layoutY="164.0" prefHeight="26.0" prefWidth="34.0" text="P2:">
-                                 <font>
-                                    <Font name="System Bold" size="13.0" />
-                                 </font>
-                              </Label>
-                              <TextField layoutX="32.0" layoutY="158.0" prefHeight="25.0" prefWidth="69.0" styleClass="textfield" stylesheets="@css/dashboardDesign.css">
-                                 <font>
-                                    <Font name="System Bold" size="12.0" />
-                                 </font></TextField>
-                              <TextField layoutX="187.0" layoutY="158.0" prefHeight="25.0" prefWidth="69.0" styleClass="textfield" stylesheets="@css/dashboardDesign.css">
-                                 <font>
-                                    <Font name="System Bold" size="12.0" />
-                                 </font></TextField>
-                              <TextField layoutX="435.0" layoutY="158.0" prefHeight="25.0" prefWidth="69.0" styleClass="textfield" stylesheets="@css/dashboardDesign.css">
-                                 <font>
-                                    <Font name="System Bold" size="12.0" />
-                                 </font></TextField>
-                              <TextField layoutX="605.0" layoutY="158.0" prefHeight="25.0" prefWidth="69.0" styleClass="textfield" stylesheets="@css/dashboardDesign.css">
-                                 <font>
-                                    <Font name="System Bold" size="12.0" />
-                                 </font></TextField>
-                              <Line endX="24.0" endY="6.0" layoutX="310.0" layoutY="219.0" startX="24.0" startY="-84.0" />
-                              <Label layoutX="13.0" layoutY="197.0" prefHeight="26.0" prefWidth="34.0" text="P3:">
-                                 <font>
-                                    <Font name="System Bold" size="13.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="170.0" layoutY="197.0" prefHeight="26.0" prefWidth="34.0" text="P4:">
-                                 <font>
-                                    <Font name="System Bold" size="13.0" />
-                                 </font>
-                              </Label>
-                              <TextField layoutX="29.0" layoutY="191.0" prefHeight="25.0" prefWidth="69.0" styleClass="textfield" stylesheets="@css/dashboardDesign.css">
-                                 <font>
-                                    <Font name="System Bold" size="12.0" />
-                                 </font></TextField>
-                              <TextField layoutX="187.0" layoutY="191.0" prefHeight="25.0" prefWidth="69.0" styleClass="textfield" stylesheets="@css/dashboardDesign.css">
-                                 <font>
-                                    <Font name="System Bold" size="12.0" />
-                                 </font></TextField>
-                              <Label layoutX="418.0" layoutY="197.0" prefHeight="26.0" prefWidth="34.0" text="P3:">
-                                 <font>
-                                    <Font name="System Bold" size="13.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="588.0" layoutY="197.0" prefHeight="26.0" prefWidth="34.0" text="P4:">
-                                 <font>
-                                    <Font name="System Bold" size="13.0" />
-                                 </font>
-                              </Label>
-                              <TextField layoutX="435.0" layoutY="191.0" prefHeight="25.0" prefWidth="69.0" styleClass="textfield" stylesheets="@css/dashboardDesign.css">
-                                 <font>
-                                    <Font name="System Bold" size="12.0" />
-                                 </font></TextField>
-                              <TextField layoutX="605.0" layoutY="191.0" prefHeight="25.0" prefWidth="69.0" styleClass="textfield" stylesheets="@css/dashboardDesign.css">
-                                 <font>
-                                    <Font name="System Bold" size="12.0" />
-                                 </font></TextField>
-                              <Label layoutX="298.0" layoutY="109.0" prefHeight="26.0" prefWidth="139.0" text="YEAR ONE">
-                                 <font>
-                                    <Font name="System Bold" size="14.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="298.0" layoutY="226.0" prefHeight="26.0" prefWidth="139.0" text="YEAR TWO">
-                                 <font>
-                                    <Font name="System Bold" size="14.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="32.0" layoutY="236.0" prefHeight="26.0" prefWidth="139.0" text="SEMESTER 1">
-                                 <font>
-                                    <Font name="System Bold" size="14.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="435.0" layoutY="236.0" prefHeight="26.0" prefWidth="139.0" text="SEMESTER 2">
-                                 <font>
-                                    <Font name="System Bold" size="14.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="13.0" layoutY="266.0" prefHeight="26.0" prefWidth="34.0" text="P1:">
-                                 <font>
-                                    <Font name="System Bold" size="13.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="170.0" layoutY="266.0" prefHeight="26.0" prefWidth="34.0" text="P2:">
-                                 <font>
-                                    <Font name="System Bold" size="13.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="418.0" layoutY="266.0" prefHeight="26.0" prefWidth="34.0" text="P1:">
-                                 <font>
-                                    <Font name="System Bold" size="13.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="588.0" layoutY="266.0" prefHeight="26.0" prefWidth="34.0" text="P2:">
-                                 <font>
-                                    <Font name="System Bold" size="13.0" />
-                                 </font>
-                              </Label>
-                              <TextField layoutX="30.0" layoutY="260.0" prefHeight="25.0" prefWidth="69.0" styleClass="textfield" stylesheets="@css/dashboardDesign.css">
-                                 <font>
-                                    <Font name="System Bold" size="12.0" />
-                                 </font></TextField>
-                              <TextField layoutX="187.0" layoutY="260.0" prefHeight="25.0" prefWidth="69.0" styleClass="textfield" stylesheets="@css/dashboardDesign.css">
-                                 <font>
-                                    <Font name="System Bold" size="12.0" />
-                                 </font></TextField>
-                              <TextField layoutX="434.0" layoutY="260.0" prefHeight="25.0" prefWidth="69.0" styleClass="textfield" stylesheets="@css/dashboardDesign.css">
-                                 <font>
-                                    <Font name="System Bold" size="12.0" />
-                                 </font></TextField>
-                              <TextField layoutX="605.0" layoutY="260.0" prefHeight="25.0" prefWidth="69.0" styleClass="textfield" stylesheets="@css/dashboardDesign.css">
-                                 <font>
-                                    <Font name="System Bold" size="12.0" />
-                                 </font></TextField>
-                              <Label layoutX="13.0" layoutY="298.0" prefHeight="26.0" prefWidth="34.0" text="P3:">
-                                 <font>
-                                    <Font name="System Bold" size="13.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="170.0" layoutY="298.0" prefHeight="26.0" prefWidth="34.0" text="P4:">
-                                 <font>
-                                    <Font name="System Bold" size="13.0" />
-                                 </font>
-                              </Label>
-                              <TextField layoutX="31.0" layoutY="292.0" prefHeight="25.0" prefWidth="69.0" styleClass="textfield" stylesheets="@css/dashboardDesign.css">
-                                 <font>
-                                    <Font name="System Bold" size="12.0" />
-                                 </font></TextField>
-                              <TextField layoutX="187.0" layoutY="292.0" prefHeight="25.0" prefWidth="69.0" styleClass="textfield" stylesheets="@css/dashboardDesign.css">
-                                 <font>
-                                    <Font name="System Bold" size="12.0" />
-                                 </font></TextField>
-                              <Label layoutX="418.0" layoutY="298.0" prefHeight="26.0" prefWidth="34.0" text="P3:">
-                                 <font>
-                                    <Font name="System Bold" size="13.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="588.0" layoutY="298.0" prefHeight="26.0" prefWidth="34.0" text="P4:">
-                                 <font>
-                                    <Font name="System Bold" size="13.0" />
-                                 </font>
-                              </Label>
-                              <TextField layoutX="434.0" layoutY="292.0" prefHeight="25.0" prefWidth="69.0" styleClass="textfield" stylesheets="@css/dashboardDesign.css">
-                                 <font>
-                                    <Font name="System Bold" size="12.0" />
-                                 </font></TextField>
-                              <TextField layoutX="606.0" layoutY="292.0" prefHeight="25.0" prefWidth="69.0" styleClass="textfield" stylesheets="@css/dashboardDesign.css">
-                                 <font>
-                                    <Font name="System Bold" size="12.0" />
-                                 </font></TextField>
-                              <Label layoutX="287.0" layoutY="317.0" prefHeight="26.0" prefWidth="139.0" text="YEAR THREE">
-                                 <font>
-                                    <Font name="System Bold" size="14.0" />
-                                 </font>
-                              </Label>
-                              <Line endX="24.0" endY="-1.0" layoutX="310.0" layoutY="318.0" startX="24.0" startY="-72.0" />
-                              <Label layoutX="13.0" layoutY="355.0" prefHeight="26.0" prefWidth="34.0" text="P1:">
-                                 <font>
-                                    <Font name="System Bold" size="13.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="170.0" layoutY="355.0" prefHeight="26.0" prefWidth="34.0" text="P2:">
-                                 <font>
-                                    <Font name="System Bold" size="13.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="418.0" layoutY="355.0" prefHeight="26.0" prefWidth="34.0" text="P3:">
-                                 <font>
-                                    <Font name="System Bold" size="13.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="588.0" layoutY="355.0" prefHeight="26.0" prefWidth="34.0" text="P4:">
-                                 <font>
-                                    <Font name="System Bold" size="13.0" />
-                                 </font>
-                              </Label>
-                              <TextField layoutX="28.0" layoutY="349.0" prefHeight="25.0" prefWidth="69.0" styleClass="textfield" stylesheets="@css/dashboardDesign.css">
-                                 <font>
-                                    <Font name="System Bold" size="12.0" />
-                                 </font></TextField>
-                              <TextField layoutX="187.0" layoutY="349.0" prefHeight="25.0" prefWidth="69.0" styleClass="textfield" stylesheets="@css/dashboardDesign.css">
-                                 <font>
-                                    <Font name="System Bold" size="12.0" />
-                                 </font></TextField>
-                              <TextField layoutX="437.0" layoutY="349.0" prefHeight="25.0" prefWidth="69.0" styleClass="textfield" stylesheets="@css/dashboardDesign.css">
-                                 <font>
-                                    <Font name="System Bold" size="12.0" />
-                                 </font></TextField>
-                              <TextField layoutX="606.0" layoutY="349.0" prefHeight="25.0" prefWidth="69.0" styleClass="textfield" stylesheets="@css/dashboardDesign.css">
-                                 <font>
-                                    <Font name="System Bold" size="12.0" />
-                                 </font></TextField>
-                              <Button layoutX="585.0" layoutY="468.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="120.0" styleClass="update-btn" text="Print View">
-                                 <graphic>
-                                    <ImageView fitHeight="19.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true" x="-1.0">
-                                       <image>
-                                          <Image url="@../images/icons8-printer-100.png" />
-                                       </image>
-                                    </ImageView>
-                                 </graphic></Button>
-                           </children>
-                        </AnchorPane>
-                        <AnchorPane prefHeight="540.0" prefWidth="746.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                           <children>
-                              <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="464.0" prefWidth="726.0" stylesheets="@css/dashboardDesign.css" AnchorPane.bottomAnchor="68.0" AnchorPane.leftAnchor="6.0" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="10.0">
+                              <AnchorPane fx:id="printablePane" layoutX="-6.0" layoutY="-20.0" prefHeight="550.0" prefWidth="756.0" stylesheets="@css/dashboardDesign.css" AnchorPane.bottomAnchor="-3.0" AnchorPane.leftAnchor="-4.0" AnchorPane.rightAnchor="-4.0" AnchorPane.topAnchor="-7.0">
                                  <styleClass>
                                     <String fx:value="white-bg" />
                                     <String fx:value="shadow" />
                                  </styleClass>
                                  <children>
-                                    <ImageView fitHeight="352.0" fitWidth="397.0" layoutX="171.0" layoutY="28.0" opacity="0.11" pickOnBounds="true" preserveRatio="true">
+                                    <ImageView fitHeight="367.0" fitWidth="359.0" layoutX="181.0" layoutY="135.0" opacity="0.18" pickOnBounds="true" preserveRatio="true">
                                        <image>
                                           <Image url="@../images/RCSN.jpg" />
                                        </image>
                                     </ImageView>
-                                    <Label layoutX="8.0" layoutY="4.0" prefHeight="26.0" prefWidth="119.0" text="STUDENT NAME:">
+                                    <Label layoutX="41.0" layoutY="7.0" prefHeight="26.0" prefWidth="119.0" text="STUDENT NAME:">
                                        <font>
                                           <Font name="System Bold" size="13.0" />
                                        </font>
                                     </Label>
-                                    <TextField layoutX="114.0" layoutY="-2.0" prefHeight="25.0" prefWidth="265.0" styleClass="textfield" stylesheets="@css/dashboardDesign.css" />
-                                    <Label layoutX="505.0" layoutY="4.0" prefHeight="26.0" prefWidth="34.0" text="SEX:">
+                                    <TextField fx:id="name_printable" editable="false" focusTraversable="false" layoutX="147.0" layoutY="8.0" prefHeight="25.0" prefWidth="265.0" styleClass="printTextField" stylesheets="@css/dashboardDesign.css">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font></TextField>
+                                    <Label layoutX="538.0" layoutY="7.0" prefHeight="26.0" prefWidth="34.0" text="SEX:" visible="false">
                                        <font>
                                           <Font name="System Bold" size="13.0" />
                                        </font>
                                     </Label>
-                                    <TextField layoutX="532.0" prefHeight="25.0" prefWidth="88.0" styleClass="textfield" stylesheets="@css/dashboardDesign.css" />
-                                    <Label layoutX="8.0" layoutY="47.0" prefHeight="26.0" prefWidth="119.0" text="STUDENT NSIN:">
+                                    <TextField fx:id="sex_printable" editable="false" layoutX="565.0" layoutY="3.0" prefHeight="25.0" prefWidth="88.0" styleClass="textfield" stylesheets="@css/dashboardDesign.css" visible="false" />
+                                    <Label layoutX="41.0" layoutY="50.0" prefHeight="26.0" prefWidth="119.0" text="STUDENT NSIN:">
                                        <font>
                                           <Font name="System Bold" size="13.0" />
                                        </font>
                                     </Label>
-                                    <TextField layoutX="108.0" layoutY="41.0" prefHeight="25.0" prefWidth="265.0" styleClass="textfield" stylesheets="@css/dashboardDesign.css" />
-                                    <Label layoutX="505.0" layoutY="47.0" prefHeight="26.0" prefWidth="34.0" text="AGE:">
+                                    <TextField fx:id="nsin_printable" editable="false" focusTraversable="false" layoutX="141.0" layoutY="50.0" prefHeight="25.0" prefWidth="265.0" styleClass="printTextField" stylesheets="@css/dashboardDesign.css">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font></TextField>
+                                    <Label layoutX="538.0" layoutY="50.0" prefHeight="26.0" prefWidth="34.0" text="AGE:" visible="false">
                                        <font>
                                           <Font name="System Bold" size="13.0" />
                                        </font>
                                     </Label>
-                                    <TextField layoutX="535.0" layoutY="41.0" prefHeight="25.0" prefWidth="88.0" styleClass="textfield" stylesheets="@css/dashboardDesign.css" />
-                                    <Label layoutX="283.0" layoutY="76.0" prefHeight="26.0" prefWidth="139.0" text="ASSESMENT SHEET">
+                                    <TextField fx:id="age_printable" editable="false" layoutX="568.0" layoutY="44.0" prefHeight="25.0" prefWidth="88.0" styleClass="textfield" stylesheets="@css/dashboardDesign.css" visible="false" />
+                                    <Label layoutX="316.0" layoutY="79.0" prefHeight="26.0" prefWidth="139.0" text="ASSESMENT SHEET">
                                        <font>
                                           <Font name="System Bold" size="14.0" />
                                        </font>
                                     </Label>
-                                    <Label layoutX="8.0" layoutY="102.0" prefHeight="26.0" prefWidth="69.0" text="AWARD:">
+                                    <Label layoutX="41.0" layoutY="105.0" prefHeight="26.0" prefWidth="69.0" text="AWARD:">
                                        <font>
                                           <Font name="System Bold" size="13.0" />
                                        </font>
                                     </Label>
-                                    <Label layoutX="79.0" layoutY="102.0" prefHeight="26.0" prefWidth="139.0" text="CERTIFICATE">
+                                    <Label layoutX="112.0" layoutY="105.0" prefHeight="26.0" prefWidth="139.0" text="CERTIFICATE">
                                        <font>
                                           <Font name="System Bold" size="15.0" />
                                        </font>
                                     </Label>
-                                    <Label layoutX="34.0" layoutY="131.0" prefHeight="26.0" prefWidth="139.0" text="SEMESTER 1">
+                                    <Label layoutX="67.0" layoutY="197.0" prefHeight="26.0" prefWidth="139.0" text="SEMESTER 1">
                                        <font>
                                           <Font name="System Bold" size="14.0" />
                                        </font>
                                     </Label>
-                                    <Label layoutX="437.0" layoutY="131.0" prefHeight="26.0" prefWidth="139.0" text="SEMESTER 2">
+                                    <Label layoutX="470.0" layoutY="197.0" prefHeight="26.0" prefWidth="139.0" text="SEMESTER 2">
                                        <font>
                                           <Font name="System Bold" size="14.0" />
                                        </font>
                                     </Label>
-                                    <Label layoutX="13.0" layoutY="164.0" prefHeight="26.0" prefWidth="34.0" text="P1:">
+                                    <Label layoutX="46.0" layoutY="230.0" prefHeight="26.0" prefWidth="34.0" text="P1:">
                                        <font>
                                           <Font name="System Bold" size="13.0" />
                                        </font>
                                     </Label>
-                                    <Label layoutX="170.0" layoutY="164.0" prefHeight="26.0" prefWidth="34.0" text="P2:">
+                                    <Label layoutX="203.0" layoutY="230.0" prefHeight="26.0" prefWidth="34.0" text="P2:">
                                        <font>
                                           <Font name="System Bold" size="13.0" />
                                        </font>
                                     </Label>
-                                    <Label layoutX="438.0" layoutY="164.0" prefHeight="26.0" prefWidth="34.0" text="P1:">
+                                    <Label layoutX="471.0" layoutY="230.0" prefHeight="26.0" prefWidth="34.0" text="P1:">
                                        <font>
                                           <Font name="System Bold" size="13.0" />
                                        </font>
                                     </Label>
-                                    <Label layoutX="588.0" layoutY="164.0" prefHeight="26.0" prefWidth="34.0" text="P2:">
+                                    <Label layoutX="621.0" layoutY="230.0" prefHeight="26.0" prefWidth="34.0" text="P2:">
                                        <font>
                                           <Font name="System Bold" size="13.0" />
                                        </font>
                                     </Label>
-                                    <TextField layoutX="33.0" layoutY="164.0" prefHeight="25.0" prefWidth="69.0" styleClass="printTextField" stylesheets="@css/dashboardDesign.css">
+                                    <TextField fx:id="yr1_sem1_p1_printable" editable="false" focusTraversable="false" layoutX="66.0" layoutY="230.0" prefHeight="25.0" prefWidth="69.0" styleClass="printTextField" stylesheets="@css/dashboardDesign.css">
                                        <font>
                                           <Font name="System Bold" size="12.0" />
                                        </font>
                                     </TextField>
-                                    <TextField layoutX="190.0" layoutY="164.0" prefHeight="25.0" prefWidth="69.0" styleClass="printTextField" stylesheets="@css/dashboardDesign.css">
+                                    <TextField fx:id="yr1_sem1_p2_printable" editable="false" focusTraversable="false" layoutX="223.0" layoutY="230.0" prefHeight="25.0" prefWidth="69.0" styleClass="printTextField" stylesheets="@css/dashboardDesign.css">
                                        <font>
                                           <Font name="System Bold" size="12.0" />
                                        </font>
                                     </TextField>
-                                    <TextField layoutX="459.0" layoutY="164.0" prefHeight="25.0" prefWidth="69.0" styleClass="printTextField" stylesheets="@css/dashboardDesign.css">
+                                    <TextField fx:id="yr1_sem2_p1_printable" editable="false" focusTraversable="false" layoutX="492.0" layoutY="230.0" prefHeight="25.0" prefWidth="69.0" styleClass="printTextField" stylesheets="@css/dashboardDesign.css">
                                        <font>
                                           <Font name="System Bold" size="12.0" />
                                        </font>
                                     </TextField>
-                                    <TextField layoutX="607.0" layoutY="164.0" prefHeight="25.0" prefWidth="69.0" styleClass="printTextField" stylesheets="@css/dashboardDesign.css">
+                                    <TextField fx:id="yr1_sem2_p2_printable" editable="false" focusTraversable="false" layoutX="640.0" layoutY="230.0" prefHeight="25.0" prefWidth="69.0" styleClass="printTextField" stylesheets="@css/dashboardDesign.css">
                                        <font>
                                           <Font name="System Bold" size="12.0" />
                                        </font>
                                     </TextField>
-                                    <Line endX="24.0" endY="6.0" layoutX="310.0" layoutY="219.0" startX="24.0" startY="-84.0" />
-                                    <Label layoutX="13.0" layoutY="197.0" prefHeight="26.0" prefWidth="34.0" text="P3:">
+                                    <Line endX="24.0" endY="19.0" layoutX="343.0" layoutY="285.0" startX="24.0" startY="-95.0" />
+                                    <Label layoutX="46.0" layoutY="263.0" prefHeight="26.0" prefWidth="34.0" text="P3:">
                                        <font>
                                           <Font name="System Bold" size="13.0" />
                                        </font>
                                     </Label>
-                                    <Label layoutX="170.0" layoutY="197.0" prefHeight="26.0" prefWidth="34.0" text="P4:">
+                                    <Label layoutX="203.0" layoutY="263.0" prefHeight="26.0" prefWidth="34.0" text="P4:">
                                        <font>
                                           <Font name="System Bold" size="13.0" />
                                        </font>
                                     </Label>
-                                    <TextField layoutX="32.0" layoutY="197.0" prefHeight="25.0" prefWidth="69.0" styleClass="printTextField" stylesheets="@css/dashboardDesign.css">
+                                    <TextField fx:id="yr1_sem1_p3_printable" editable="false" focusTraversable="false" layoutX="65.0" layoutY="263.0" prefHeight="25.0" prefWidth="69.0" styleClass="printTextField" stylesheets="@css/dashboardDesign.css">
                                        <font>
                                           <Font name="System Bold" size="12.0" />
                                        </font>
                                     </TextField>
-                                    <TextField layoutX="184.0" layoutY="197.0" prefHeight="25.0" prefWidth="69.0" styleClass="printTextField" stylesheets="@css/dashboardDesign.css">
+                                    <TextField fx:id="yr1_sem1_p4_printable" editable="false" focusTraversable="false" layoutX="217.0" layoutY="263.0" prefHeight="25.0" prefWidth="69.0" styleClass="printTextField" stylesheets="@css/dashboardDesign.css">
                                        <font>
                                           <Font name="System Bold" size="12.0" />
                                        </font>
                                     </TextField>
-                                    <Label layoutX="438.0" layoutY="197.0" prefHeight="26.0" prefWidth="34.0" text="P3:">
+                                    <Label layoutX="471.0" layoutY="263.0" prefHeight="26.0" prefWidth="34.0" text="P3:">
                                        <font>
                                           <Font name="System Bold" size="13.0" />
                                        </font>
                                     </Label>
-                                    <Label layoutX="588.0" layoutY="197.0" prefHeight="26.0" prefWidth="34.0" text="P4:">
+                                    <Label layoutX="621.0" layoutY="263.0" prefHeight="26.0" prefWidth="34.0" text="P4:">
                                        <font>
                                           <Font name="System Bold" size="13.0" />
                                        </font>
                                     </Label>
-                                    <TextField layoutX="458.0" layoutY="197.0" prefHeight="25.0" prefWidth="69.0" styleClass="printTextField" stylesheets="@css/dashboardDesign.css">
+                                    <TextField fx:id="yr1_sem2_p3_printable" editable="false" focusTraversable="false" layoutX="491.0" layoutY="263.0" prefHeight="25.0" prefWidth="69.0" styleClass="printTextField" stylesheets="@css/dashboardDesign.css">
                                        <font>
                                           <Font name="System Bold" size="12.0" />
                                        </font>
                                     </TextField>
-                                    <TextField layoutX="607.0" layoutY="197.0" prefHeight="25.0" prefWidth="69.0" styleClass="printTextField" stylesheets="@css/dashboardDesign.css">
+                                    <TextField fx:id="yr1_sem2_p4_printable" editable="false" focusTraversable="false" layoutX="640.0" layoutY="263.0" prefHeight="25.0" prefWidth="69.0" styleClass="printTextField" stylesheets="@css/dashboardDesign.css">
                                        <font>
                                           <Font name="System Bold" size="12.0" />
                                        </font>
                                     </TextField>
-                                    <Label layoutX="298.0" layoutY="109.0" prefHeight="26.0" prefWidth="139.0" text="YEAR ONE">
+                                    <Label layoutX="331.0" layoutY="151.0" prefHeight="26.0" prefWidth="139.0" text="YEAR ONE">
                                        <font>
                                           <Font name="System Bold" size="14.0" />
                                        </font>
                                     </Label>
-                                    <Label layoutX="298.0" layoutY="226.0" prefHeight="26.0" prefWidth="139.0" text="YEAR TWO">
+                                    <Label layoutX="331.0" layoutY="313.0" prefHeight="26.0" prefWidth="139.0" text="YEAR TWO">
                                        <font>
                                           <Font name="System Bold" size="14.0" />
                                        </font>
                                     </Label>
-                                    <Label layoutX="32.0" layoutY="236.0" prefHeight="26.0" prefWidth="139.0" text="SEMESTER 1">
+                                    <Label layoutX="65.0" layoutY="364.0" prefHeight="26.0" prefWidth="139.0" text="SEMESTER 1">
                                        <font>
                                           <Font name="System Bold" size="14.0" />
                                        </font>
                                     </Label>
-                                    <Label layoutX="435.0" layoutY="236.0" prefHeight="26.0" prefWidth="139.0" text="SEMESTER 2">
+                                    <Label layoutX="468.0" layoutY="364.0" prefHeight="26.0" prefWidth="139.0" text="SEMESTER 2">
                                        <font>
                                           <Font name="System Bold" size="14.0" />
                                        </font>
                                     </Label>
-                                    <Label layoutX="13.0" layoutY="266.0" prefHeight="26.0" prefWidth="34.0" text="P1:">
+                                    <Label layoutX="46.0" layoutY="394.0" prefHeight="26.0" prefWidth="34.0" text="P1:">
                                        <font>
                                           <Font name="System Bold" size="13.0" />
                                        </font>
                                     </Label>
-                                    <Label layoutX="170.0" layoutY="266.0" prefHeight="26.0" prefWidth="34.0" text="P2:">
+                                    <Label layoutX="203.0" layoutY="394.0" prefHeight="26.0" prefWidth="34.0" text="P2:">
                                        <font>
                                           <Font name="System Bold" size="13.0" />
                                        </font>
                                     </Label>
-                                    <Label layoutX="438.0" layoutY="266.0" prefHeight="26.0" prefWidth="34.0" text="P1:">
+                                    <Label layoutX="471.0" layoutY="394.0" prefHeight="26.0" prefWidth="34.0" text="P1:">
                                        <font>
                                           <Font name="System Bold" size="13.0" />
                                        </font>
                                     </Label>
-                                    <Label layoutX="588.0" layoutY="266.0" prefHeight="26.0" prefWidth="34.0" text="P2:">
+                                    <Label layoutX="621.0" layoutY="394.0" prefHeight="26.0" prefWidth="34.0" text="P2:">
                                        <font>
                                           <Font name="System Bold" size="13.0" />
                                        </font>
                                     </Label>
-                                    <TextField layoutX="28.0" layoutY="266.0" prefHeight="25.0" prefWidth="69.0" styleClass="printTextField" stylesheets="@css/dashboardDesign.css">
+                                    <TextField fx:id="yr2_sem1_p1_printable" editable="false" focusTraversable="false" layoutX="61.0" layoutY="394.0" prefHeight="25.0" prefWidth="69.0" styleClass="printTextField" stylesheets="@css/dashboardDesign.css">
                                        <font>
                                           <Font name="System Bold" size="12.0" />
                                        </font>
                                     </TextField>
-                                    <TextField layoutX="187.0" layoutY="266.0" prefHeight="25.0" prefWidth="69.0" styleClass="printTextField" stylesheets="@css/dashboardDesign.css">
+                                    <TextField fx:id="yr2_sem1_p2_printable" editable="false" focusTraversable="false" layoutX="220.0" layoutY="394.0" prefHeight="25.0" prefWidth="69.0" styleClass="printTextField" stylesheets="@css/dashboardDesign.css">
                                        <font>
                                           <Font name="System Bold" size="12.0" />
                                        </font>
                                     </TextField>
-                                    <TextField layoutX="453.0" layoutY="266.0" prefHeight="25.0" prefWidth="69.0" styleClass="printTextField" stylesheets="@css/dashboardDesign.css">
+                                    <TextField fx:id="yr2_sem2_p1_printable" editable="false" focusTraversable="false" layoutX="486.0" layoutY="394.0" prefHeight="25.0" prefWidth="69.0" styleClass="printTextField" stylesheets="@css/dashboardDesign.css">
                                        <font>
                                           <Font name="System Bold" size="12.0" />
                                        </font>
                                     </TextField>
-                                    <TextField layoutX="605.0" layoutY="266.0" prefHeight="25.0" prefWidth="69.0" styleClass="printTextField" stylesheets="@css/dashboardDesign.css">
+                                    <TextField fx:id="yr2_sem2_p2_printable" editable="false" focusTraversable="false" layoutX="638.0" layoutY="394.0" prefHeight="25.0" prefWidth="69.0" styleClass="printTextField" stylesheets="@css/dashboardDesign.css">
                                        <font>
                                           <Font name="System Bold" size="12.0" />
                                        </font>
                                     </TextField>
-                                    <Label layoutX="13.0" layoutY="298.0" prefHeight="26.0" prefWidth="34.0" text="P3:">
+                                    <Label layoutX="46.0" layoutY="426.0" prefHeight="26.0" prefWidth="34.0" text="P3:">
                                        <font>
                                           <Font name="System Bold" size="13.0" />
                                        </font>
                                     </Label>
-                                    <Label layoutX="170.0" layoutY="298.0" prefHeight="26.0" prefWidth="34.0" text="P4:">
+                                    <Label layoutX="203.0" layoutY="426.0" prefHeight="26.0" prefWidth="34.0" text="P4:">
                                        <font>
                                           <Font name="System Bold" size="13.0" />
                                        </font>
                                     </Label>
-                                    <TextField layoutX="30.0" layoutY="298.0" prefHeight="25.0" prefWidth="69.0" styleClass="printTextField" stylesheets="@css/dashboardDesign.css">
+                                    <TextField fx:id="yr2_sem1_p3_printable" editable="false" focusTraversable="false" layoutX="63.0" layoutY="426.0" prefHeight="25.0" prefWidth="69.0" styleClass="printTextField" stylesheets="@css/dashboardDesign.css">
                                        <font>
                                           <Font name="System Bold" size="12.0" />
                                        </font>
                                     </TextField>
-                                    <TextField layoutX="187.0" layoutY="298.0" prefHeight="25.0" prefWidth="69.0" styleClass="printTextField" stylesheets="@css/dashboardDesign.css">
+                                    <TextField fx:id="yr2_sem1_p4_printable" editable="false" focusTraversable="false" layoutX="220.0" layoutY="426.0" prefHeight="25.0" prefWidth="69.0" styleClass="printTextField" stylesheets="@css/dashboardDesign.css">
                                        <font>
                                           <Font name="System Bold" size="12.0" />
                                        </font>
                                     </TextField>
-                                    <Label layoutX="438.0" layoutY="298.0" prefHeight="26.0" prefWidth="34.0" text="P3:">
+                                    <Label layoutX="471.0" layoutY="426.0" prefHeight="26.0" prefWidth="34.0" text="P3:">
                                        <font>
                                           <Font name="System Bold" size="13.0" />
                                        </font>
                                     </Label>
-                                    <Label layoutX="588.0" layoutY="298.0" prefHeight="26.0" prefWidth="34.0" text="P4:">
+                                    <Label layoutX="621.0" layoutY="426.0" prefHeight="26.0" prefWidth="34.0" text="P4:">
                                        <font>
                                           <Font name="System Bold" size="13.0" />
                                        </font>
                                     </Label>
-                                    <TextField layoutX="454.0" layoutY="298.0" prefHeight="25.0" prefWidth="69.0" styleClass="printTextField" stylesheets="@css/dashboardDesign.css">
+                                    <TextField fx:id="yr2_sem2_p3_printable" editable="false" focusTraversable="false" layoutX="487.0" layoutY="426.0" prefHeight="25.0" prefWidth="69.0" styleClass="printTextField" stylesheets="@css/dashboardDesign.css">
                                        <font>
                                           <Font name="System Bold" size="12.0" />
                                        </font>
                                     </TextField>
-                                    <TextField layoutX="604.0" layoutY="298.0" prefHeight="25.0" prefWidth="69.0" styleClass="printTextField" stylesheets="@css/dashboardDesign.css">
+                                    <TextField fx:id="yr2_sem2_p4_printable" editable="false" focusTraversable="false" layoutX="637.0" layoutY="426.0" prefHeight="25.0" prefWidth="69.0" styleClass="printTextField" stylesheets="@css/dashboardDesign.css">
                                        <font>
                                           <Font name="System Bold" size="12.0" />
                                        </font>
                                     </TextField>
-                                    <Label layoutX="287.0" layoutY="317.0" prefHeight="26.0" prefWidth="139.0" text="YEAR THREE">
-                                       <font>
-                                          <Font name="System Bold" size="14.0" />
-                                       </font>
-                                    </Label>
-                                    <Line endX="24.0" endY="-1.0" layoutX="310.0" layoutY="318.0" startX="24.0" startY="-72.0" />
-                                    <Label layoutX="13.0" layoutY="355.0" prefHeight="26.0" prefWidth="34.0" text="P1:">
-                                       <font>
-                                          <Font name="System Bold" size="13.0" />
-                                       </font>
-                                    </Label>
-                                    <Label layoutX="170.0" layoutY="355.0" prefHeight="26.0" prefWidth="34.0" text="P2:">
-                                       <font>
-                                          <Font name="System Bold" size="13.0" />
-                                       </font>
-                                    </Label>
-                                    <Label layoutX="438.0" layoutY="355.0" prefHeight="26.0" prefWidth="34.0" text="P3:">
-                                       <font>
-                                          <Font name="System Bold" size="13.0" />
-                                       </font>
-                                    </Label>
-                                    <Label layoutX="588.0" layoutY="355.0" prefHeight="26.0" prefWidth="34.0" text="P4:">
-                                       <font>
-                                          <Font name="System Bold" size="13.0" />
-                                       </font>
-                                    </Label>
-                                    <TextField layoutX="28.0" layoutY="355.0" prefHeight="25.0" prefWidth="69.0" styleClass="printTextField" stylesheets="@css/dashboardDesign.css">
-                                       <font>
-                                          <Font name="System Bold" size="12.0" />
-                                       </font>
-                                    </TextField>
-                                    <TextField layoutX="187.0" layoutY="355.0" prefHeight="25.0" prefWidth="69.0" styleClass="printTextField" stylesheets="@css/dashboardDesign.css">
-                                       <font>
-                                          <Font name="System Bold" size="12.0" />
-                                       </font>
-                                    </TextField>
-                                    <TextField layoutX="453.0" layoutY="355.0" prefHeight="25.0" prefWidth="69.0" styleClass="printTextField" stylesheets="@css/dashboardDesign.css">
-                                       <font>
-                                          <Font name="System Bold" size="12.0" />
-                                       </font>
-                                    </TextField>
-                                    <TextField layoutX="604.0" layoutY="355.0" prefHeight="25.0" prefWidth="69.0" styleClass="printTextField" stylesheets="@css/dashboardDesign.css">
-                                       <font>
-                                          <Font name="System Bold" size="12.0" />
-                                       </font>
-                                    </TextField>
-                                    <Label layoutX="613.0" layoutY="463.0" prefHeight="26.0" prefWidth="54.0" styleClass="printTextField" stylesheets="@css/dashboardDesign.css" text="PRINT">
+                                    <Line endX="24.0" endY="21.0" layoutX="343.0" layoutY="426.0" startX="24.0" startY="-72.0" />
+                                    <Label fx:id="printTxt" layoutX="670.0" layoutY="460.0" prefHeight="26.0" prefWidth="54.0" styleClass="printTextField" stylesheets="@css/dashboardDesign.css" text="PRINT">
                                        <font>
                                           <Font name="Tahoma Bold" size="13.0" />
                                        </font>
                                     </Label>
+                                    <Button fx:id="printBtn" layoutX="666.0" layoutY="490.0" mnemonicParsing="false" onAction="#handlePrintButton" prefHeight="42.0" prefWidth="69.0" styleClass="update-btn">
+                                       <graphic>
+                                          <ImageView fitHeight="33.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../images/icons8-printer-100%20(2).png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                       <font>
+                                          <Font name="System Bold" size="10.0" />
+                                       </font>
+                                    </Button>
+                                    <Line endX="-588.0" endY="-25.0" layoutX="587.0" layoutY="201.0" startX="324.0" startY="-25.0" strokeWidth="2.0" AnchorPane.leftAnchor="-2.0" AnchorPane.rightAnchor="-156.0" />
+                                    <Line endX="-561.0" endY="-25.0" layoutX="562.0" layoutY="173.0" startX="334.0" startY="-25.0" strokeWidth="2.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-141.0" />
+                                    <Line endX="-411.0" endY="-25.0" layoutX="410.0" layoutY="338.0" startX="346.0" startY="-25.0" strokeWidth="2.0" AnchorPane.leftAnchor="-2.0" AnchorPane.rightAnchor="-1.0" />
+                                    <Line endX="-411.0" endY="-25.0" layoutX="409.0" layoutY="364.0" startX="347.0" startY="-25.0" strokeWidth="2.0" AnchorPane.leftAnchor="-3.0" AnchorPane.rightAnchor="2.0" />
+                                    <Label alignment="CENTER" contentDisplay="CENTER" layoutX="7.0" layoutY="525.0" prefHeight="17.0" prefWidth="734.0" text="&quot;We Serve for Better Health&quot;">
+                                       <font>
+                                          <Font name="System Bold Italic" size="8.0" />
+                                       </font>
+                                    </Label>
                                  </children>
                               </AnchorPane>
-                              <Button layoutX="612.0" layoutY="496.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="69.0" styleClass="update-btn">
-                                 <graphic>
-                                    <ImageView fitHeight="33.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../images/icons8-printer-100%20(2).png" />
-                                       </image>
-                                    </ImageView>
-                                 </graphic>
-                                 <font>
-                                    <Font name="System Bold" size="10.0" />
-                                 </font>
-                              </Button>
                            </children>
                         </AnchorPane>
                      </children>
