@@ -163,6 +163,7 @@ public class LoginController implements Initializable {
 						Scene scene = new Scene(root);
 						stage.setScene(scene);
 						stage.setTitle("Student Dashboard");
+						stage.setFullScreen(true);
 						stage.show();
 					} else {
 						alert.errorMessage("Incorrect Password");

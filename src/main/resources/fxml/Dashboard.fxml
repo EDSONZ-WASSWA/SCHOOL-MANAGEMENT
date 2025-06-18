@@ -28,7 +28,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="700.0" maxWidth="1500.0" minHeight="700.0" minWidth="1500.0" prefHeight="700.0" prefWidth="1500.0" xmlns="http://javafx.com/javafx/24" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.nursing.management.controllers.DashboardController">
+<StackPane maxHeight="700.0" maxWidth="1500.0" minHeight="700.0" minWidth="1500.0" prefHeight="700.0" prefWidth="1500.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.nursing.management.controllers.DashboardController">
    <children>
       <AnchorPane fx:id="main_form" prefHeight="200.0" prefWidth="200.0">
          <children>
@@ -595,7 +595,7 @@
                                     </AnchorPane>
                                  </children>
                               </AnchorPane>
-                              <AnchorPane fx:id="grade_Form" layoutX="53.0" layoutY="77.0" prefHeight="561.0" prefWidth="1285.0" stylesheets="@css/dashboardDesign.css" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-5.0" AnchorPane.topAnchor="0.0">
+                              <AnchorPane fx:id="grade_Form" layoutX="53.0" layoutY="77.0" prefHeight="561.0" prefWidth="1285.0" stylesheets="@css/dashboardDesign.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-5.0" AnchorPane.topAnchor="0.0">
                                  <children>
                                     <AnchorPane layoutX="12.0" layoutY="14.0" prefHeight="551.0" prefWidth="447.0" stylesheets="@css/dashboardDesign.css" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="8.0" AnchorPane.topAnchor="5.0">
                                        <styleClass>
@@ -678,20 +678,20 @@
                                           <TextField fx:id="year2_sem_p4" layoutX="151.0" layoutY="398.0" prefHeight="26.0" prefWidth="50.0" styleClass="textfield" />
                                           <Label layoutX="125.0" layoutY="348.0" text="P2:" />
                                           <TextField fx:id="year2_sem_p2" layoutX="151.0" layoutY="338.0" prefHeight="26.0" prefWidth="50.0" styleClass="textfield" />
-                                          <Label alignment="CENTER" layoutX="17.0" layoutY="435.0" prefHeight="18.0" prefWidth="426.0" text="YEAR THREE">
+                                          <Label alignment="CENTER" layoutX="17.0" layoutY="435.0" prefHeight="18.0" prefWidth="426.0" text="YEAR THREE" visible="false">
                                              <font>
                                                 <Font name="Tahoma Bold" size="15.0" />
                                              </font>
                                           </Label>
-                                          <Label layoutX="248.0" layoutY="490.0" text="P3:" />
-                                          <TextField fx:id="year3_sem1_p3" layoutX="274.0" layoutY="480.0" prefHeight="26.0" prefWidth="50.0" styleClass="textfield" />
-                                          <Label layoutX="361.0" layoutY="485.0" text="P4:" />
-                                          <TextField fx:id="year3_sem2_p4" layoutX="387.0" layoutY="475.0" prefHeight="26.0" prefWidth="50.0" styleClass="textfield" />
-                                          <Label layoutX="12.0" layoutY="495.0" text="P1:" />
-                                          <TextField fx:id="year3_sem_p1" layoutX="38.0" layoutY="485.0" prefHeight="26.0" prefWidth="50.0" styleClass="textfield" />
-                                          <Label layoutX="125.0" layoutY="490.0" text="P2:" />
-                                          <TextField fx:id="year3_sem_p2" layoutX="151.0" layoutY="480.0" prefHeight="26.0" prefWidth="50.0" styleClass="textfield" />
-                                          <Label alignment="CENTER" layoutX="129.0" layoutY="456.0" prefHeight="19.0" prefWidth="192.0" text="SEM 1" underline="true">
+                                          <Label layoutX="248.0" layoutY="490.0" text="P3:" visible="false" />
+                                          <TextField fx:id="year3_sem1_p3" layoutX="274.0" layoutY="480.0" prefHeight="26.0" prefWidth="50.0" styleClass="textfield" visible="false" />
+                                          <Label layoutX="361.0" layoutY="485.0" text="P4:" visible="false" />
+                                          <TextField fx:id="year3_sem2_p4" layoutX="387.0" layoutY="475.0" prefHeight="26.0" prefWidth="50.0" styleClass="textfield" visible="false" />
+                                          <Label layoutX="12.0" layoutY="495.0" text="P1:" visible="false" />
+                                          <TextField fx:id="year3_sem_p1" layoutX="38.0" layoutY="485.0" prefHeight="26.0" prefWidth="50.0" styleClass="textfield" visible="false" />
+                                          <Label layoutX="125.0" layoutY="490.0" text="P2:" visible="false" />
+                                          <TextField fx:id="year3_sem_p2" layoutX="151.0" layoutY="480.0" prefHeight="26.0" prefWidth="50.0" styleClass="textfield" visible="false" />
+                                          <Label alignment="CENTER" layoutX="129.0" layoutY="456.0" prefHeight="19.0" prefWidth="192.0" text="SEM 1" underline="true" visible="false">
                                              <font>
                                                 <Font name="Tahoma Bold" size="15.0" />
                                              </font>
@@ -776,14 +776,17 @@
                                           </ImageView>
                                        </graphic>
                                     </Button>
-                                    <Button fx:id="grade_addBtn" disable="true" layoutX="996.0" layoutY="524.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="95.0" styleClass="add-btn" text="ADD">
+                                    <Button fx:id="generateReport_Btn" layoutX="996.0" layoutY="520.0" mnemonicParsing="false" onAction="#generateReport" prefHeight="42.0" prefWidth="102.0" styleClass="add-btn" text="REPORT">
                                        <graphic>
                                           <ImageView fitHeight="84.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
-                                                <Image url="@../images/icons8-add-properties-50.png" />
+                                                <Image url="@../images/icons8-report-50.png" />
                                              </image>
                                           </ImageView>
                                        </graphic>
+                                       <font>
+                                          <Font size="5.0" />
+                                       </font>
                                     </Button>
                                  </children>
                                  <styleClass>
