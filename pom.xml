@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.nursing</groupId>
   <artifactId>management</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>1.1.0-SNAPSHOT</version>
   <name>Student BioData</name>
   <description>This project manages student records using JavaFX and Maven.</description>
   
@@ -51,6 +51,16 @@
                 </descriptorRefs>
             </configuration>
         </plugin>
+        
+        <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.7.0</version>
+        <configuration>
+          <source>1.8</source>
+          <target>1.8</target>
+        </configuration>
+      </plugin>
+        
     </plugins>
 </build>
 

@@ -429,7 +429,7 @@ public class studentsBio {
 			Integer sem1_p2, Integer sem1_p3, Integer sem1_p4, Integer sem2_p1, Integer sem2_p2, Integer sem2_p3,
 			Integer sem2_p4, Integer sem3_p1, Integer sem3_p2, Integer sem3_p3, Integer sem3_p4, Integer sem4_p1,
 			Integer sem4_p2, Integer sem4_p3, Integer sem4_p4, Integer sem5_p1, Integer sem5_p2, Integer sem5_p3,
-			Integer sem5_p4, String studentGender) {
+			Integer sem5_p4) {
 		super();
 		this.studentsName = studentsName;
 		this.NSIN = NSIN;

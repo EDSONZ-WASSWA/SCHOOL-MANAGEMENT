@@ -1442,7 +1442,6 @@ public class DashboardController implements Initializable{
   	    int sem5_p3 = safeParse(year3_sem1_p3.getText());
   	    int sem5_p4 = safeParse(year3_sem2_p4.getText());
 
-  	    String studentName = gradeForm_NAME.getText().trim();
   	    String nsin = gradeForm_NSIN.getText().trim();
 
   	    if (nsin.isEmpty()) {
@@ -1454,7 +1453,7 @@ public class DashboardController implements Initializable{
   	        return;
   	    }
 
-  	    String sql = "UPDATE students_grades SET studentsName=?, "
+  	    String sql = "UPDATE students_grades SET "
   	            + "sem1_p1=?, sem1_p2=?, sem1_p3=?, sem1_p4=?, "
   	            + "sem2_p1=?, sem2_p2=?, sem2_p3=?, sem2_p4=?, "
   	            + "sem3_p1=?, sem3_p2=?, sem3_p3=?, sem3_p4=?, "
@@ -1463,6 +1462,7 @@ public class DashboardController implements Initializable{
   	            + "WHERE NSIN=?";
 
   	    connect = database.connectDb();
+  	    
 
   	    try {
   	        Alert confirmAlert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -1474,28 +1474,27 @@ public class DashboardController implements Initializable{
 
   	        if (option.isPresent() && option.get() == ButtonType.OK) {
   	            PreparedStatement ps = connect.prepareStatement(sql);
-  	            ps.setString(1, studentName);
-  	            ps.setInt(2, sem1_p1);
-  	            ps.setInt(3, sem1_p2);
-  	            ps.setInt(4, sem1_p3);
-  	            ps.setInt(5, sem1_p4);
-  	            ps.setInt(6, sem2_p1);
-  	            ps.setInt(7, sem2_p2);
-  	            ps.setInt(8, sem2_p3);
-  	            ps.setInt(9, sem2_p4);
-  	            ps.setInt(10, sem3_p1);
-  	            ps.setInt(11, sem3_p2);
-  	            ps.setInt(12, sem3_p3);
-  	            ps.setInt(13, sem3_p4);
-  	            ps.setInt(14, sem4_p1);
-  	            ps.setInt(15, sem4_p2);
-  	            ps.setInt(16, sem4_p3);
-  	            ps.setInt(17, sem4_p4);
-  	            ps.setInt(18, sem5_p1);
-  	            ps.setInt(19, sem5_p2);
-  	            ps.setInt(20, sem5_p3);
-  	            ps.setInt(21, sem5_p4);
-  	            ps.setString(22, nsin);
+  	            ps.setInt(1, sem1_p1);
+  	            ps.setInt(2, sem1_p2);
+  	            ps.setInt(3, sem1_p3);
+  	            ps.setInt(4, sem1_p4);
+  	            ps.setInt(5, sem2_p1);
+  	            ps.setInt(6, sem2_p2);
+  	            ps.setInt(7, sem2_p3);
+  	            ps.setInt(8, sem2_p4);
+  	            ps.setInt(9, sem3_p1);
+  	            ps.setInt(10, sem3_p2);
+  	            ps.setInt(11, sem3_p3);
+  	            ps.setInt(12, sem3_p4);
+  	            ps.setInt(13, sem4_p1);
+  	            ps.setInt(14, sem4_p2);
+  	            ps.setInt(15, sem4_p3);
+  	            ps.setInt(16, sem4_p4);
+  	            ps.setInt(17, sem5_p1);
+  	            ps.setInt(18, sem5_p2);
+  	            ps.setInt(19, sem5_p3);
+  	            ps.setInt(20, sem5_p4);
+  	            ps.setString(21, nsin);
   	            ps.executeUpdate();
                 
   	            Alert successAlert = new Alert(Alert.AlertType.INFORMATION);
@@ -1574,8 +1573,7 @@ public class DashboardController implements Initializable{
  	    				   ,result.getInt("Sem5_p1")
  	    				   ,result.getInt("Sem5_p2")
  	    				   ,result.getInt("Sem5_p3")
- 	    				   ,result.getInt("Sem5_p4")
- 	    				   ,result.getString("StudentGender"));
+ 	    				   ,result.getInt("Sem5_p4"));
  	    		   
  	    		   gradeList.add(studentD);
  	    	   }
