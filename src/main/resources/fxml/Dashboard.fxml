@@ -28,15 +28,15 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="700.0" maxWidth="1500.0" minHeight="700.0" minWidth="1500.0" prefHeight="700.0" prefWidth="1500.0" xmlns="http://javafx.com/javafx/24" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.nursing.management.controllers.DashboardController">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/24" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.nursing.management.controllers.DashboardController">
    <children>
-      <AnchorPane fx:id="main_form" prefHeight="200.0" prefWidth="200.0">
+      <AnchorPane fx:id="main_form" prefHeight="700.0" prefWidth="1100.0">
          <children>
-            <BorderPane layoutX="119.0" layoutY="55.0" prefHeight="700.0" prefWidth="1500.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <BorderPane layoutX="119.0" layoutY="55.0" prefHeight="700.0" prefWidth="1100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <top>
-                  <AnchorPane prefHeight="125.0" prefWidth="1500.0" styleClass="semi-top-form" stylesheets="@css/dashboardDesign.css" BorderPane.alignment="CENTER">
+                  <AnchorPane prefHeight="125.0" prefWidth="1100.0" styleClass="semi-top-form" stylesheets="@css/dashboardDesign.css" BorderPane.alignment="CENTER">
                      <children>
-                        <AnchorPane layoutX="63.0" layoutY="-37.0" prefHeight="125.6" prefWidth="1500.0" stylesheets="@css/dashboardDesign.css" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+                        <AnchorPane layoutX="63.0" layoutY="-37.0" prefHeight="125.6" prefWidth="1100.0" stylesheets="@css/dashboardDesign.css" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
                            <children>
                               <ImageView fitHeight="116.0" fitWidth="154.0" layoutX="6.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -90,9 +90,9 @@
                      </children></AnchorPane>
                </top>
                <left>
-                  <AnchorPane prefHeight="989.0" prefWidth="210.0" BorderPane.alignment="CENTER">
+                  <AnchorPane prefHeight="989.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                      <children>
-                        <AnchorPane layoutX="5.0" layoutY="106.4" prefHeight="566.0" prefWidth="210.0" stylesheets="@css/dashboardDesign.css" AnchorPane.bottomAnchor="4.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="2.0">
+                        <AnchorPane layoutX="5.0" layoutY="106.4" prefHeight="566.0" prefWidth="200.0" stylesheets="@css/dashboardDesign.css" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="2.0">
                            <children>
                               <ImageView fitHeight="100.0" fitWidth="95.0" layoutX="14.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -169,32 +169,32 @@
                   </AnchorPane>
                </left>
                <center>
-                  <AnchorPane prefHeight="570.0" prefWidth="1267.0" BorderPane.alignment="CENTER">
+                  <AnchorPane prefHeight="700.0" prefWidth="1100.0" BorderPane.alignment="CENTER">
                      <children>
-                        <AnchorPane layoutX="130.0" layoutY="75.0" prefHeight="574.4" prefWidth="1289.6" stylesheets="@css/dashboardDesign.css" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+                        <AnchorPane layoutX="130.0" layoutY="75.0" prefHeight="700.0" prefWidth="1100.0" stylesheets="@css/dashboardDesign.css" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
                            <children>
                               <ImageView fitHeight="545.0" fitWidth="565.0" layoutX="347.0" layoutY="9.0" opacity="0.09" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../images/RCSN.jpg" />
                                  </image>
                               </ImageView>
-                              <AnchorPane fx:id="register_Form" layoutX="86.0" layoutY="116.0" prefHeight="574.4" prefWidth="1289.6" stylesheets="@css/dashboardDesign.css" visible="false" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="12.0">
+                              <AnchorPane fx:id="register_Form" layoutX="86.0" layoutY="116.0" prefHeight="700.0" prefWidth="1100.0" stylesheets="@css/dashboardDesign.css" visible="false" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="12.0">
                                  <styleClass>
                                     <String fx:value="shadow" />
                                     <String fx:value="white-bg" />
                                  </styleClass>
                                  <children>
-                                    <AnchorPane fx:id="register_form" layoutX="83.0" layoutY="163.0" minWidth="-Infinity" prefHeight="538.0" prefWidth="1260.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <AnchorPane fx:id="register_form" layoutX="83.0" layoutY="163.0" minWidth="-Infinity" prefHeight="700.0" prefWidth="1100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                        <children>
-                                          <AnchorPane layoutX="21.0" layoutY="8.0" prefHeight="1147.2" prefWidth="1256.0" stylesheets="@css/dashboardDesign.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                          <AnchorPane layoutX="21.0" layoutY="8.0" prefHeight="1147.2" prefWidth="1100.0" stylesheets="@css/dashboardDesign.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                              <styleClass>
                                                 <String fx:value="white-bg" />
                                                 <String fx:value="shadow" />
                                              </styleClass>
                                              <children>
-                                                <ScrollPane layoutX="4.0" layoutY="294.4" prefHeight="211.0" prefWidth="1252.0" AnchorPane.bottomAnchor="41.0" AnchorPane.leftAnchor="4.0" AnchorPane.rightAnchor="4.0" AnchorPane.topAnchor="294.0">
+                                                <ScrollPane layoutX="4.0" layoutY="275.2" prefHeight="231.0" prefWidth="1241.0" AnchorPane.bottomAnchor="41.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="275.0">
                                                   <content>
-                                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1022.0" prefWidth="1229.0">
+                                                    <AnchorPane blendMode="SRC_ATOP" prefHeight="988.0" prefWidth="1248.0">
                                                          <children>
                                                             <Label layoutX="14.0" layoutY="46.0" prefHeight="18.0" prefWidth="73.0" text="First Name:" />
                                                             <TextField fx:id="register_fname" layoutX="88.0" layoutY="32.0" prefHeight="26.0" prefWidth="155.0" styleClass="textfield" />
@@ -219,7 +219,7 @@
                                                             <TextField fx:id="register_student_contact1" layoutX="81.0" layoutY="127.0" prefHeight="26.0" prefWidth="159.0" promptText="eg 077" styleClass="textfield" />
                                                             <Label layoutX="559.0" layoutY="139.0" prefHeight="18.0" prefWidth="41.0" text="Email:" />
                                                             <TextField fx:id="register_email" layoutX="597.0" layoutY="125.0" prefHeight="26.0" prefWidth="262.0" styleClass="textfield" />
-                                                            <Label alignment="CENTER" layoutX="99.0" layoutY="5.0" prefHeight="18.0" prefWidth="1062.0" text="REGISTRATION FORM" underline="true">
+                                                            <Label alignment="CENTER" layoutX="99.0" layoutY="5.0" prefHeight="18.0" prefWidth="1062.0" text="REGISTRATION FORM" underline="true" AnchorPane.rightAnchor="68.19999999999982">
                                                                <font>
                                                                   <Font name="Times New Roman Bold" size="22.0" />
                                                                </font>
@@ -391,7 +391,7 @@
                                                       <String fx:value="shadow" />
                                                    </styleClass>
                                                    <padding>
-                                                      <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                                      <Insets bottom="2.0" left="10.0" right="2.0" top="2.0" />
                                                    </padding>
                                                 </ScrollPane>
                                                 <Button fx:id="register_update_btn" layoutX="812.0" layoutY="508.6000000000001" mnemonicParsing="false" onAction="#updateStudents" prefHeight="35.0" prefWidth="106.0" styleClass="update-btn" text="Update" AnchorPane.bottomAnchor="2.6000000000000227">
@@ -432,13 +432,13 @@
                                                 </Button>
                                              </children>
                                           </AnchorPane>
-                                          <AnchorPane layoutX="15.0" layoutY="-7.2" prefHeight="266.0" prefWidth="1236.0" stylesheets="@css/dashboardDesign.css" AnchorPane.topAnchor="20.0">
+                                          <AnchorPane layoutX="15.0" layoutY="-7.2" prefHeight="266.0" prefWidth="1236.0" stylesheets="@css/dashboardDesign.css" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
                                              <styleClass>
                                                 <String fx:value="white-bg" />
                                                 <String fx:value="shadow" />
                                              </styleClass>
                                              <children>
-                                                <TextField fx:id="register_search" layoutX="8.0" layoutY="6.0" onKeyTyped="#studentSearch" prefHeight="32.0" prefWidth="230.0" promptText="Search here...">
+                                                <TextField fx:id="register_search" layoutX="8.0" layoutY="6.0" onKeyTyped="#studentSearch" prefHeight="32.0" prefWidth="356.0" promptText="Search here...">
                                                    <font>
                                                       <Font name="JetBrains Mono Regular" size="12.0" />
                                                    </font>
@@ -451,15 +451,15 @@
                                                       <Image url="@../images/people.png" />
                                                    </image>
                                                 </ImageView>
-                                                <TableView fx:id="register_tableView" layoutY="45.0" onMouseClicked="#addStudentsSelected" prefHeight="218.0" prefWidth="1218.0">
+                                                <TableView fx:id="register_tableView" layoutY="45.0" onMouseClicked="#addStudentsSelected" prefHeight="218.0" prefWidth="1218.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
                                                   <columns>
-                                                    <TableColumn fx:id="register_nsin_col" prefWidth="180.79999542236328" resizable="false" text="NSIN NUMBER" />
-                                                    <TableColumn fx:id="register_Fname_col" minWidth="0.0" prefWidth="240.00003051757812" resizable="false" text="First Name" />
-                                                      <TableColumn fx:id="register_Lname_col" minWidth="0.0" prefWidth="199.19992065429688" resizable="false" text="Last Name" />
-                                                      <TableColumn fx:id="register_contact_col" minWidth="0.0" prefWidth="164.0" resizable="false" text="CONTACT" />
-                                                      <TableColumn fx:id="register_gender_col" minWidth="0.0" prefWidth="161.60009765625" resizable="false" text="Gender" />
-                                                      <TableColumn fx:id="register_Age_col" minWidth="0.0" prefWidth="92.79986572265625" resizable="false" text="AGE (yrs)" />
-                                                      <TableColumn fx:id="register_religion_col" minWidth="0.0" prefWidth="176.0" resizable="false" text="Religion" />
+                                                    <TableColumn fx:id="register_nsin_col" prefWidth="207.19999676942825" resizable="false" text="NSIN NUMBER" />
+                                                    <TableColumn fx:id="register_Fname_col" minWidth="0.0" prefWidth="248.00010681152344" resizable="false" text="First Name" />
+                                                      <TableColumn fx:id="register_Lname_col" minWidth="0.0" prefWidth="216.00003051757812" resizable="false" text="Last Name" />
+                                                      <TableColumn fx:id="register_contact_col" minWidth="0.0" prefWidth="165.60003662109375" resizable="false" text="CONTACT" />
+                                                      <TableColumn fx:id="register_gender_col" minWidth="0.0" prefWidth="174.39996337890625" resizable="false" text="Gender" />
+                                                      <TableColumn fx:id="register_Age_col" minWidth="0.0" prefWidth="93.599853515625" resizable="false" text="AGE (yrs)" />
+                                                      <TableColumn fx:id="register_religion_col" minWidth="0.0" prefWidth="130.4000244140625" resizable="false" text="Religion" />
                                                   </columns>
                                                 </TableView>
                                              </children>
@@ -468,11 +468,11 @@
                                     </AnchorPane>
                                  </children>
                               </AnchorPane>
-                              <AnchorPane fx:id="home_Form" prefHeight="574.4" prefWidth="1289.6" stylesheets="@css/dashboardDesign.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                              <AnchorPane fx:id="home_Form" prefHeight="700.0" prefWidth="1100.0" stylesheets="@css/dashboardDesign.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <children>
                                     <AnchorPane layoutX="14.4" layoutY="15.0" prefHeight="156.0" prefWidth="1289.6" stylesheets="@css/dashboardDesign.css" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="15.0">
                                        <children>
-                                          <AnchorPane layoutX="33.0" layoutY="20.0" prefHeight="126.0" prefWidth="290.0" styleClass="card">
+                                          <AnchorPane layoutX="33.0" layoutY="20.0" prefHeight="126.0" prefWidth="290.0" styleClass="card" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="12.0">
                                              <children>
                                                 <Label alignment="CENTER" layoutX="53.0" layoutY="88.0" prefHeight="20.0" prefWidth="222.0" styleClass="lable-white1" text="TOTAL POPULATION" textFill="WHITE">
                                                    <font>
@@ -491,7 +491,7 @@
                                                 </Label>
                                              </children>
                                           </AnchorPane>
-                                          <AnchorPane layoutX="469.0" layoutY="20.0" prefHeight="126.0" prefWidth="290.0" styleClass="card">
+                                          <AnchorPane layoutX="500.0" layoutY="15.0" prefHeight="126.0" prefWidth="290.0" styleClass="card" AnchorPane.bottomAnchor="14.599999999999994" AnchorPane.rightAnchor="462.4">
                                              <children>
                                                 <Label alignment="CENTER" layoutX="55.0" layoutY="93.0" prefHeight="20.0" prefWidth="222.0" styleClass="lable-white1" text="FEMALE" textFill="WHITE">
                                                    <font>
@@ -510,7 +510,7 @@
                                                 </Label>
                                              </children>
                                           </AnchorPane>
-                                          <AnchorPane layoutX="950.0" layoutY="20.0" prefHeight="126.0" prefWidth="290.0" styleClass="card">
+                                          <AnchorPane layoutX="950.0" layoutY="20.0" prefHeight="126.0" prefWidth="290.0" styleClass="card" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="10.0">
                                              <children>
                                                 <Label alignment="CENTER" layoutX="61.0" layoutY="85.0" prefHeight="20.0" prefWidth="222.0" styleClass="lable-white1" text="MALE" textFill="WHITE">
                                                    <font>
@@ -522,7 +522,7 @@
                                                       <Image url="@../images/icons8-man-in-a-tuxedo-64.png" />
                                                    </image>
                                                 </ImageView>
-                                                <Label fx:id="home_male_total" alignment="TOP_RIGHT" layoutX="101.0" layoutY="11.0" prefHeight="20.0" prefWidth="184.0" styleClass="lable-white" text="0" textFill="WHITE">
+                                                <Label fx:id="home_male_total" alignment="TOP_RIGHT" layoutX="101.0" layoutY="11.0" prefHeight="20.0" prefWidth="184.0" styleClass="lable-white" text="0" textFill="WHITE" AnchorPane.rightAnchor="5.399999999999977">
                                                    <font>
                                                       <Font name="Tahoma Bold" size="42.0" />
                                                    </font>
@@ -545,13 +545,13 @@
                                           <String fx:value="shadow" />
                                        </styleClass>
                                     </AnchorPane>
-                                    <AnchorPane layoutX="26.0" layoutY="188.0" prefHeight="354.0" prefWidth="610.0" stylesheets="@css/dashboardDesign.css">
+                                    <AnchorPane layoutX="30.0" layoutY="185.0" prefHeight="325.0" prefWidth="610.0" stylesheets="@css/dashboardDesign.css" AnchorPane.bottomAnchor="32.60000000000002" AnchorPane.topAnchor="184.80000000000007">
                                        <styleClass>
                                           <String fx:value="shadow" />
                                           <String fx:value="white-bg" />
                                        </styleClass>
                                        <children>
-                                          <BarChart fx:id="home_total_chart" layoutX="28.0" layoutY="26.0" prefHeight="302.0" prefWidth="567.0" title="TOTAL POPULATION CHART">
+                                          <BarChart fx:id="home_total_chart" layoutX="28.0" layoutY="26.0" prefHeight="319.0" prefWidth="567.0" title="TOTAL POPULATION CHART" AnchorPane.bottomAnchor="10.0" AnchorPane.topAnchor="10.0">
                                             <xAxis>
                                               <CategoryAxis side="BOTTOM" />
                                             </xAxis>
@@ -561,13 +561,13 @@
                                           </BarChart>
                                        </children>
                                     </AnchorPane>
-                                    <AnchorPane layoutX="654.0" layoutY="185.0" prefHeight="167.0" prefWidth="610.0" stylesheets="@css/dashboardDesign.css">
+                                    <AnchorPane layoutX="654.0" layoutY="26.0" prefHeight="167.0" prefWidth="610.0" stylesheets="@css/dashboardDesign.css" AnchorPane.bottomAnchor="300.0" AnchorPane.topAnchor="184.0">
                                        <styleClass>
                                           <String fx:value="shadow" />
                                           <String fx:value="white-bg" />
                                        </styleClass>
                                        <children>
-                                          <AreaChart fx:id="home_female_chart" layoutX="28.0" layoutY="8.0" prefHeight="154.0" prefWidth="536.0" title="FEMALE REGESTERED STUDENTS">
+                                          <AreaChart fx:id="home_female_chart" layoutX="30.0" layoutY="8.0" prefHeight="154.0" prefWidth="536.0" title="FEMALE REGESTERED STUDENTS" AnchorPane.bottomAnchor="4.799999999999983" AnchorPane.topAnchor="7.999999999999972">
                                             <xAxis>
                                               <CategoryAxis side="BOTTOM" />
                                             </xAxis>
@@ -577,13 +577,13 @@
                                           </AreaChart>
                                        </children>
                                     </AnchorPane>
-                                    <AnchorPane layoutX="657.0" layoutY="374.0" prefHeight="167.0" prefWidth="610.0" stylesheets="@css/dashboardDesign.css">
+                                    <AnchorPane layoutX="654.0" layoutY="404.8" prefHeight="202.0" prefWidth="610.0" stylesheets="@css/dashboardDesign.css" AnchorPane.bottomAnchor="40.0" AnchorPane.topAnchor="443.20000000000005">
                                        <styleClass>
                                           <String fx:value="shadow" />
                                           <String fx:value="white-bg" />
                                        </styleClass>
                                        <children>
-                                          <AreaChart fx:id="home_male_chart" layoutX="46.0" layoutY="9.0" prefHeight="147.0" prefWidth="536.0" title="MALE REGESTERED STUDENTS">
+                                          <AreaChart fx:id="home_male_chart" layoutX="46.0" layoutY="9.0" prefHeight="147.0" prefWidth="536.0" title="MALE REGESTERED STUDENTS" AnchorPane.bottomAnchor="5.0" AnchorPane.topAnchor="5.0">
                                              <xAxis>
                                                 <CategoryAxis side="BOTTOM" />
                                              </xAxis>
@@ -595,9 +595,9 @@
                                     </AnchorPane>
                                  </children>
                               </AnchorPane>
-                              <AnchorPane fx:id="grade_Form" layoutX="53.0" layoutY="77.0" prefHeight="561.0" prefWidth="1285.0" stylesheets="@css/dashboardDesign.css" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-5.0" AnchorPane.topAnchor="0.0">
+                              <AnchorPane fx:id="grade_Form" layoutX="53.0" layoutY="77.0" pickOnBounds="false" prefHeight="600.0" prefWidth="1100.0" stylesheets="@css/dashboardDesign.css" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-5.0" AnchorPane.topAnchor="0.0">
                                  <children>
-                                    <AnchorPane layoutX="12.0" layoutY="14.0" prefHeight="551.0" prefWidth="447.0" stylesheets="@css/dashboardDesign.css" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="8.0" AnchorPane.topAnchor="5.0">
+                                    <AnchorPane layoutX="12.0" layoutY="14.0" pickOnBounds="false" prefHeight="551.0" prefWidth="447.0" stylesheets="@css/dashboardDesign.css" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="20.0">
                                        <styleClass>
                                           <String fx:value="white-bg" />
                                           <String fx:value="shadow" />
@@ -698,23 +698,27 @@
                                           </Label>
                                        </children>
                                     </AnchorPane>
-                                    <AnchorPane layoutX="468.8" layoutY="-4.8" prefHeight="518.0" prefWidth="1226.0" stylesheets="@css/dashboardDesign.css" AnchorPane.bottomAnchor="48.0" AnchorPane.leftAnchor="469.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-5.0">
+                                    <AnchorPane layoutX="468.8" layoutY="-4.8" prefHeight="518.0" prefWidth="1226.0" stylesheets="@css/dashboardDesign.css" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="469.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0">
                                        <styleClass>
                                           <String fx:value="white-bg" />
                                           <String fx:value="shadow" />
                                        </styleClass>
                                        <children>
-                                          <TextField fx:id="grade_search" layoutX="14.0" layoutY="8.0" onKeyPressed="#gradeSearch" onKeyTyped="#gradeSearch" prefHeight="26.0" prefWidth="311.0" promptText="Search Name or NSIN" styleClass="search" />
+                                          <TextField fx:id="grade_search" layoutX="14.0" layoutY="8.0" onKeyPressed="#gradeSearch" onKeyTyped="#gradeSearch" prefHeight="26.0" prefWidth="410.0" promptText="Search Name or NSIN">
+                                             <styleClass>
+                                                <String fx:value="textfield" />
+                                                <String fx:value="search" />
+                                             </styleClass></TextField>
                                           <ImageView fitHeight="18.0" fitWidth="20.0" layoutX="17.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
                                                 <Image url="@../images/people.png" />
                                              </image>
                                           </ImageView>
-                                          <TableView fx:id="gradeTable" layoutX="5.0" layoutY="51.0" onMouseClicked="#gradeSelect" prefHeight="466.0" prefWidth="808.0">
+                                          <TableView fx:id="gradeTable" layoutX="5.0" layoutY="51.0" onMouseClicked="#gradeSelect" prefHeight="466.0" prefWidth="808.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="50.0">
                                             <columns>
-                                              <TableColumn fx:id="Table_nsin" prefWidth="121.60000801086426" resizable="false" text="NSIN NUMBER" />
-                                              <TableColumn fx:id="Table_name" prefWidth="172.79998779296875" resizable="false" text="NAME" />
-                                                <TableColumn fx:id="Table_year1_sem1" prefWidth="163.20001220703125" resizable="false" text="YEAR1/SEM 1">
+                                              <TableColumn fx:id="Table_nsin" prefWidth="148.79995441436768" resizable="false" text="NSIN NUMBER" />
+                                              <TableColumn fx:id="Table_name" prefWidth="240.00001525878906" resizable="false" text="NAME" />
+                                                <TableColumn fx:id="Table_year1_sem1" prefWidth="96.800048828125" resizable="false" text="YEAR1/SEM 1">
                                                    <columns>
                                                       <TableColumn fx:id="Table_year1_sem1_p1" prefWidth="36.0" resizable="false" text="P1" />
                                                       <TableColumn fx:id="Table_year1_sem1_p2" prefWidth="36.0" resizable="false" text="P2" />
@@ -758,7 +762,7 @@
                                           </TableView>
                                        </children>
                                     </AnchorPane>
-                                    <Button fx:id="grade_clearBtn" layoutX="742.0" layoutY="524.0" mnemonicParsing="false" onAction="#gradeUpdate" prefHeight="39.0" prefWidth="102.0" styleClass="clear-btn" text="UPDATE">
+                                    <Button fx:id="grade_clearBtn" layoutX="742.0" layoutY="524.0" mnemonicParsing="false" onAction="#gradeUpdate" prefHeight="39.0" prefWidth="102.0" styleClass="clear-btn" text="UPDATE" AnchorPane.bottomAnchor="25.0">
                                        <graphic>
                                           <ImageView fitHeight="84.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
@@ -767,7 +771,7 @@
                                           </ImageView>
                                        </graphic>
                                     </Button>
-                                    <Button fx:id="grade_DelBtn" layoutX="871.0" layoutY="524.0" mnemonicParsing="false" onAction="#gradeClear" prefHeight="38.0" prefWidth="95.0" styleClass="delete-btn" text="CLEAR">
+                                    <Button fx:id="grade_DelBtn" layoutX="871.0" layoutY="524.0" mnemonicParsing="false" onAction="#gradeClear" prefHeight="38.0" prefWidth="95.0" styleClass="delete-btn" text="CLEAR" AnchorPane.bottomAnchor="25.0">
                                        <graphic>
                                           <ImageView fitHeight="84.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
@@ -776,7 +780,7 @@
                                           </ImageView>
                                        </graphic>
                                     </Button>
-                                    <Button fx:id="grade_addBtn" disable="true" layoutX="996.0" layoutY="524.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="95.0" styleClass="add-btn" text="ADD">
+                                    <Button fx:id="grade_addBtn" disable="true" layoutX="996.0" layoutY="524.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="95.0" styleClass="add-btn" text="ADD" AnchorPane.bottomAnchor="25.0">
                                        <graphic>
                                           <ImageView fitHeight="84.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
@@ -791,7 +795,7 @@
                                     <String fx:value="shadow" />
                                  </styleClass>
                               </AnchorPane>
-                              <AnchorPane fx:id="details_Form" layoutX="83.0" layoutY="85.0" prefHeight="570.4000000000001" prefWidth="1280.0" stylesheets="@css/dashboardDesign.css" visible="false" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+                              <AnchorPane fx:id="details_Form" layoutX="83.0" layoutY="85.0" prefHeight="700.0" prefWidth="1100.0" stylesheets="@css/dashboardDesign.css" visible="false" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
                                  <styleClass>
                                     <String fx:value="white-bg" />
                                     <String fx:value="shadow" />
@@ -803,18 +807,22 @@
                                           <String fx:value="shadow" />
                                        </styleClass>
                                        <children>
-                                          <TableView fx:id="details_tableView" layoutY="48.8" onMouseClicked="#addStudentsSelected" prefHeight="502.0" prefWidth="1259.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="7.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="49.0">
+                                          <TableView fx:id="details_tableView" layoutY="48.8" onMouseClicked="#addStudentsSelected" prefHeight="502.0" prefWidth="1259.0" stylesheets="@css/dashboardDesign.css" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="7.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="49.0">
                                              <columns>
-                                                <TableColumn fx:id="details_nsin_col" prefWidth="154.40003365278244" resizable="false" text="NSIN NUMBER" />
-                                                <TableColumn fx:id="details_Fname_col" minWidth="0.0" prefWidth="282.3999481201172" resizable="false" text="First Name" />
-                                                <TableColumn fx:id="details_Lname_col" minWidth="0.0" prefWidth="264.79998779296875" resizable="false" text="Last Name" />
-                                                <TableColumn fx:id="details_contact_col" minWidth="0.0" prefWidth="163.99993896484375" resizable="false" text="CONTACT" />
-                                                <TableColumn fx:id="details_gender_col" minWidth="0.0" prefWidth="92.00006103515625" resizable="false" text="Gender" />
-                                                <TableColumn fx:id="details_Age_col" minWidth="0.0" prefWidth="129.59991455078125" resizable="false" text="AGE (YRS)" />
-                                                <TableColumn fx:id="details_religion_col" minWidth="0.0" prefWidth="165.5999755859375" resizable="false" text="Religion" />
+                                                <TableColumn fx:id="details_nsin_col" prefWidth="275.2000100016594" resizable="false" text="NSIN NUMBER" />
+                                                <TableColumn fx:id="details_Fname_col" minWidth="0.0" prefWidth="234.4000244140625" resizable="false" text="First Name" />
+                                                <TableColumn fx:id="details_Lname_col" minWidth="0.0" prefWidth="225.5999755859375" resizable="false" text="Last Name" />
+                                                <TableColumn fx:id="details_contact_col" minWidth="0.0" prefWidth="165.60009765625" resizable="false" text="CONTACT" />
+                                                <TableColumn fx:id="details_gender_col" minWidth="0.0" prefWidth="108.7999267578125" resizable="false" text="Gender" />
+                                                <TableColumn fx:id="details_Age_col" minWidth="0.0" prefWidth="83.2000732421875" resizable="false" text="AGE (YRS)" />
+                                                <TableColumn fx:id="details_religion_col" minWidth="-1.0" prefWidth="160.0" text="Religion" />
                                              </columns>
+                                             <styleClass>
+                                                <String fx:value="table-column" />
+                                                <String fx:value="column-header-background" />
+                                             </styleClass>
                                           </TableView>
-                                          <TextField fx:id="detailsSearch" layoutX="17.0" layoutY="14.0" onKeyTyped="#listSearch" prefHeight="26.0" prefWidth="266.0" promptText="Search NSIN..." stylesheets="@css/dashboardDesign.css">
+                                          <TextField fx:id="detailsSearch" layoutX="17.0" layoutY="14.0" onKeyTyped="#listSearch" prefHeight="26.0" prefWidth="546.0" promptText="Search NSIN..." stylesheets="@css/dashboardDesign.css">
                                              <styleClass>
                                                 <String fx:value="white-bg" />
                                                 <String fx:value="shadow" />

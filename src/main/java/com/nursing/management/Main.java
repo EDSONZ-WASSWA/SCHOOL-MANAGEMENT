@@ -1,9 +1,12 @@
  package com.nursing.management;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -14,8 +17,13 @@ public class Main extends Application {
 	@Override
 
 	public void start(Stage stage) throws Exception {
-		Parent root = FXMLLoader.load(getClass().getResource("/fxml/Dashboard.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("/fxml/login.fxml"));
 		Scene scene = new Scene(root);
+		stage.setTitle("LOGIN PAGE");
+		Image image = new Image("/images/RCSN.jpg"); //Adding the Icon
+		stage.getIcons().add(image);
+		stage.centerOnScreen();
+		
 		root.setOnMousePressed((MouseEvent event) -> {
 			x = event.getSceneX();
 			y = event.getSceneY();

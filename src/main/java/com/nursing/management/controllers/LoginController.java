@@ -1,9 +1,11 @@
 package com.nursing.management.controllers;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ResourceBundle;
 
@@ -22,6 +24,7 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -142,41 +145,85 @@ public class LoginController implements Initializable {
 
 	@FXML
 	public void login() {
-	
-		try {
+	    try {
+	        // Check if password field is empty
+	        if (login_password.getText().isEmpty()) {
+	            alert.errorMessage("Please enter password");
+	            return;
+	        }
 
-			if (login_password.getText().isEmpty()) {
-				alert.errorMessage("Enter Password in the space");
-				return;
-			} else {
-				String selectData = "SELECT password FROM logindata WHERE password =?";
-				connect = DatabaseConnector.connectDb();
-				try {
-					prepare = connect.prepareStatement(selectData);
-					prepare.setString(1, login_password.getText());
-					result = prepare.executeQuery();
-					if (result.next()) {
-						alert.successMessage("****Welcome****");
-						System.out.println("gone to DashBoard");
-						Stage currentStage = (Stage) login_password.getScene().getWindow();
-						currentStage.close();
-						Parent root = FXMLLoader.load(getClass().getResource("/fxml/Dashboard.fxml"));
-						Stage stage = new Stage();
-						Scene scene = new Scene(root);
-						stage.setScene(scene);
-						stage.setTitle("Student Dashboard");
-						stage.show();
-					} else {
-						alert.errorMessage("Incorrect Password");
+	        String selectData = "SELECT password FROM logindata WHERE BINARY password = ?";
+	        connect = DatabaseConnector.connectDb();
+	        
+	        try {
+	            prepare = connect.prepareStatement(selectData);
+	            prepare.setString(1, login_password.getText().trim());
+	            result = prepare.executeQuery();
+	            
+	            if (result.next()) {
+	                String dbPassword = result.getString("password");
+	                login_password_txtField.setVisible(true);
+	                login_password.setVisible(false);
+	                // Verify password match
+	                if (dbPassword.equals(login_password.getText().trim())) {
+	                   // alert.successMessage("LOGIN SUCCESS!!");
+	                    
+	                    // Close current login window
+	                    Stage currentStage = (Stage) login_password.getScene().getWindow();
+	                    currentStage.close();
+	                    
+	                    // Load dashboard
+	                    Parent root = FXMLLoader.load(getClass().getResource("/fxml/Dashboard.fxml"));
+	                    Stage stage = new Stage();
+	                    Scene scene = new Scene(root);
+	                    stage.setScene(scene);
+	                    stage.setTitle("RAKAI SCHOOL OF NURSING - STUDENTS DATA MANAGEMENT SYSTEM");
+	                    
+	                    // Set application icon
+	                    Image image = new Image("/images/RCSN.jpg");
+	                    stage.getIcons().add(image);
+	                    
+	                    stage.centerOnScreen();
+	                    stage.setMaximized(true);
+	                    stage.resizableProperty().setValue(false);
+	                    stage.show();
+	                } else {
+	                    alert.errorMessage("Please Enter the correct Password!");
+	                }
+	            } else {
+	                alert.errorMessage("Please Enter a password");
+	            }
+	        } catch (SQLException e) {
+	            alert.errorMessage("Database error: " + e.getMessage());
+	            e.printStackTrace();
+	        } finally {
+	            // Close resources
+	            if (result != null)
+					try {
+						result.close();
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
 					}
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+	            if (prepare != null)
+					try {
+						prepare.close();
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+	            if (connect != null)
+					try {
+						connect.close();
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+	        }
+	    } catch (IOException e) {
+	        alert.errorMessage("Error loading dashboard: " + e.getMessage());
+	        e.printStackTrace();
+	    }
 	}
 
 	// database tools
@@ -243,18 +290,33 @@ public class LoginController implements Initializable {
 
 	@FXML
 	public void showPassword() {
-	
-		String textBoxContent = login_password_txtField.getText();
-		String PasswordField = login_password.getText();
-		if (showPassword.isSelected()) {
-		login_password_txtField.setText(PasswordField);
-		login_password_txtField.setVisible(true);
-		login_password.setVisible(false);
-		} else {
-			login_password.setText(textBoxContent);
-			login_password_txtField.setVisible(false);
-			login_password.setVisible(true);
-		}
+	    try {
+	        if (showPassword.isSelected()) {
+	            // Show password in clear text
+	            String password = login_password.getText();
+	            login_password_txtField.setText(password);
+	            login_password_txtField.setVisible(true);
+	            login_password.setVisible(false);
+	            
+	            // Optional: Focus on the text field when shown
+	            login_password_txtField.requestFocus();
+	        } else {
+	            // Hide password (switch back to password field)
+	            String visibleText = login_password_txtField.getText();
+	            login_password.setText(visibleText);
+	            login_password_txtField.setVisible(false);
+	            login_password.setVisible(true);
+	            
+	            // Optional: Focus on the password field when hidden
+	            login_password.requestFocus();
+	        }
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	        // Show error message if something goes wrong
+	        if (alert != null) {
+	            alert.errorMessage("Failed to toggle password visibility");
+	        }
+	    }
 	}
 
 	@FXML

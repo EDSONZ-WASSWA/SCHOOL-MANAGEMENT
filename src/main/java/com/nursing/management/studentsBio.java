@@ -30,8 +30,8 @@ public class studentsBio {
     private String studentSubcounty;
     private String studentCounty;
     private String studentParish;
-    private String studentEmail;
     private String studentGender;
+    private String studentEmail;
     //Guardians 1 Data
     private String guardian1Name;
     private String guardian1NIN;
@@ -111,7 +111,7 @@ public class studentsBio {
     //The constructor...
 	public studentsBio(String firstName, String middleName, String lastName, String religion, Date DOB,
 			String studentNIN, String studentDistrict, String studentSubcounty, String studentCounty,
-			String studentParish, String studentGender, String studentEmail, String guardian1Name, String guardian1NIN,
+			String studentParish, String studentEmail,String studentGender, String guardian1Name, String guardian1NIN,
 			String guardian1Contact1, String guardian1Contact2, String guardian1District, String guardian1Subcounty,
 			String guardian1County, String guardian1Parish, String guardian1Village, String guardian1Email,
 			String guardian1Occupation, String guardian2Name, String guardian2NIN, String guardian2Contact1,
@@ -129,10 +129,10 @@ public class studentsBio {
 		this.DOB = DOB;
 		this.studentNIN = studentNIN;
 		this.studentDistrict = studentDistrict;
+		this.studentGender = studentGender;
 		this.studentSubcounty = studentSubcounty;
 		this.studentCounty = studentCounty;
 		this.studentParish = studentParish;
-		this.studentGender = studentGender;
 		this.studentEmail = studentEmail;
 		this.guardian1Name = guardian1Name;
 		this.guardian1NIN = guardian1NIN;
@@ -244,19 +244,18 @@ public class studentsBio {
 	public String getstudentCounty() {
 		return studentCounty;
 	}
-
+	
 	public String getstudentParish() {
 		return studentParish;
 	}
 	
-	public String getstudentEmail() {
+	public String getStudentEmail() {
 		return studentEmail;
 	}
-
+	
 	public String getStudentGender() {
 		return studentGender;
 	}
-
 
 	public String getguardian1Name() {
 		return guardian1Name;
@@ -430,7 +429,7 @@ public class studentsBio {
 			Integer sem1_p2, Integer sem1_p3, Integer sem1_p4, Integer sem2_p1, Integer sem2_p2, Integer sem2_p3,
 			Integer sem2_p4, Integer sem3_p1, Integer sem3_p2, Integer sem3_p3, Integer sem3_p4, Integer sem4_p1,
 			Integer sem4_p2, Integer sem4_p3, Integer sem4_p4, Integer sem5_p1, Integer sem5_p2, Integer sem5_p3,
-			Integer sem5_p4) {
+			Integer sem5_p4, String studentGender) {
 		super();
 		this.studentsName = studentsName;
 		this.NSIN = NSIN;

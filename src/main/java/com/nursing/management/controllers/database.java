@@ -24,6 +24,7 @@ public class database {
 			e.printStackTrace();
 		} catch (SQLException e) {
 			System.err.println("Connection failed!");
+			System.out.println("Please Enter a Databse password!");
 			System.err.println("SQLState: " + e.getSQLState());
 			System.err.println("Error Code: " + e.getErrorCode());
 			System.err.println("Message: " + e.getMessage());
@@ -31,8 +32,5 @@ public class database {
 		}
 		return null;
 	}
-<<<<<<< HEAD
-=======
 
 }
->>>>>>> c596cc6bb5e6116e2ef4d85107dfa112ea3fbba4

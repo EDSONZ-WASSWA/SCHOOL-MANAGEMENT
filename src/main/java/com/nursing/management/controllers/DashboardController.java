@@ -21,6 +21,7 @@ import com.nursing.management.studentsBio;
 import com.nursing.management.auth.DatabaseConnector;
 import com.nursing.management.dao.alertMessage;
 
+import javafx.animation.PauseTransition;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -53,6 +54,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import javafx.util.Duration;
 
 
 public class DashboardController implements Initializable{
@@ -489,7 +491,6 @@ public class DashboardController implements Initializable{
 
     @FXML
     private TextField year3_sem1_p3;
-    
 
     @FXML
     private TableColumn<studentsBio, Integer> details_Age_col;
@@ -624,8 +625,642 @@ public class DashboardController implements Initializable{
     		 UpdateLevel = false;
     	 }
      }
+    
+     //Method to add data to the table view...
+   
+     //Method to add data to details View.
+      public void addToListView() {    	
+     	addStudentsList = addStudentsListData();
+         details_nsin_col.setCellValueFactory(new PropertyValueFactory<>("NSIN"));
+         details_Fname_col.setCellValueFactory(new PropertyValueFactory<>("FirstName"));
+         details_Lname_col.setCellValueFactory(new PropertyValueFactory<>("LastName"));
+         details_contact_col.setCellValueFactory(new PropertyValueFactory<>("StudentContact1"));
+         details_Age_col.setCellValueFactory(new PropertyValueFactory<>("Age"));  //Method to calculate age
+         details_gender_col.setCellValueFactory(new PropertyValueFactory<>("StudentGender"));
+     	details_religion_col.setCellValueFactory(new PropertyValueFactory<>("Religion"));
+     	details_tableView.setItems(addStudentsList);
+     }
+
+    //Search Functionality...
+      private final PauseTransition searchDebounce = new PauseTransition(Duration.millis(400));
+      public void studentSearch() {
+    	    addStudentsShowListData();
+    	    FilteredList<studentsBio> filter = new FilteredList<>(addStudentsList, b -> true);
+    	    
+    	    // Initial filter update with current search text
+    	    updateStudentFilter(filter, register_search.getText());
+    	    
+    	    searchDebounce.setOnFinished(event ->  updateStudentFilter(filter, register_search.getText()));
+    	    
+    	    // Listen for text changes
+    	    register_search.textProperty().addListener((obs, oldVal, newVal) -> {
+    	        //updateStudentFilter(filter, newVal);
+    	        searchDebounce.playFromStart();
+    	    });
+    	    
+    	    SortedList<studentsBio> sortedList = new SortedList<>(filter);
+    	    sortedList.comparatorProperty().bind(register_tableView.comparatorProperty());
+    	    register_tableView.setItems(sortedList);
+    	}
+
+    	// Helper method to safely check field values
+    	private boolean containsIgnoreNull(Object fieldValue, String searchKey) {
+    	    if (fieldValue == null) return false;
+    	    return String.valueOf(fieldValue).toLowerCase().contains(searchKey);
+    	}
+
+    	// Helper method to update filter predicate
+    	private void updateStudentFilter(FilteredList<studentsBio> filter, String searchText) {
+    	    filter.setPredicate(student -> {
+    	        if (searchText == null || searchText.isEmpty()) {
+    	            return true;
+    	        }
+    	        
+    	        String searchKey = searchText.toLowerCase();
+    	        
+    	        // Check all fields with null safety
+    	        if (containsIgnoreNull(student.getNSIN(), searchKey) ||
+    	            containsIgnoreNull(student.getFirstName(), searchKey) ||
+    	            containsIgnoreNull(student.getStudentGender(), searchKey) ||
+    	            containsIgnoreNull(student.getAge(), searchKey) ||
+    	            containsIgnoreNull(student.getReligion(), searchKey) ||
+    	            containsIgnoreNull(student.getMiddleName(), searchKey) ||
+    	            containsIgnoreNull(student.getstudentDistrict(), searchKey) ||
+    	            containsIgnoreNull(student.getLastName(), searchKey)) {
+    	            return true;
+    	        }
+    	        return false;
+    	    });
+    	}
+    
+     public void listSearch() {
+    	    FilteredList<studentsBio> filter = new FilteredList<>(addStudentsList, e -> true);
+    	    
+    	    // Initialize the predicate once (handles initial search text)
+    	    updateFilter(filter, detailsSearch.getText());
+    	    
+    	    // Update filter when text changes
+    	    detailsSearch.textProperty().addListener((obs, oldVal, newVal) -> {
+    	        updateFilter(filter, newVal);
+    	    });
+    	    
+    	    SortedList<studentsBio> sortedL = new SortedList<>(filter);
+    	    sortedL.comparatorProperty().bind(details_tableView.comparatorProperty());
+    	    details_tableView.setItems(sortedL);
+    	}
+
+    	// Helper method to update the filter predicate
+    	private void updateFilter(FilteredList<studentsBio> filter, String searchText) {
+    	    filter.setPredicate(student -> {
+    	        if (searchText == null || searchText.isEmpty()) {
+    	            return true; // Show all when no search
+    	        }
+    	        
+    	        String searchKey = searchText.toLowerCase();
+    	        
+    	        // Safely check fields (handle nulls with Objects.toString)
+    	        if (containsIgnoreNull(student.getNSIN(), searchKey) ||
+    	            containsIgnoreNull(student.getFirstName(), searchKey) ||
+    	            containsIgnoreNull(student.getReligion(), searchKey) ||
+    	            containsIgnoreNull(student.getMiddleName(), searchKey) ||
+    	            containsIgnoreNull(student.getLastName(), searchKey) ||
+    	            (student.getAge() != null && 
+    	             student.getAge().toString().contains(searchKey))) {
+    	            return true;
+    	        }
+    	        return false;
+    	    });
+    	}
+
+    	// Helper method to safely check string containment
+    	private boolean containsIgnoreNull(String fieldValue, String searchKey) {
+    	    return fieldValue != null && fieldValue.toLowerCase().contains(searchKey);
+    	}
      
-     //STUDENTS REGISTER FORM.
+   //java.sql.Date DOB = java.sql.Date.valueOf(register_DOB.getValue());
+     // Add students Method. this is by clicking the add 
+      public void addStudents() { 
+      	String insertData = "INSERT INTO studentsbio (firstName, middleName, lastName, religion, DOB, studentNIN, studentDistrict, studentSubcounty, studentCounty, studentParish, studentEmail, studentGender,  guardian1Name, guardian1NIN, guardian1Contact1, guardian1Contact2, guardian1District, guardian1Subcounty, guardian1County, guardian1Parish, guardian1Village, guardian1Email, guardian1Occupation, guardian2Name, guardian2NIN, guardian2Contact1, guardian2Contact2, guardian2District, guardian2Subcounty, guardian2County, guardian2Parish, guardian2Village, guardian2Email, guardian2Occupation, NSIN, Alevel, Olevel, prevCourse, courseYear, emergencyName, emergencyContact1, emergencyContact2, relationship, physicianContact, medConditions, medication, medProcedures, specialNeeds, studentContact1, studentContact2,courseTaken,courseLevel,yearCourse,courseSemister )  VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, "
+      			+ "?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?,?,?,?)";
+      	           connect = database.connectDb();
+      	    try {
+      	    	
+      	    	Alert alert;
+      	    	boolean IsEmpty = false;
+      	    	if(register_fname.getText().isEmpty()) {
+      	    		register_fname.setStyle("-fx-border-color: red;-fx-border-width: 0 0 0.8px 0;");
+      	    		IsEmpty = true;
+      	    	} else {
+      	    		register_fname.setStyle("");
+      	    		
+      	    	}
+      	    	
+      	    	if(register_LName.getText().isEmpty()) {
+      	    		register_LName.setStyle("-fx-border-color: red; -fx-border-width: 0 0 0.8px 0;");
+      	    		IsEmpty = true;
+      	    	} else {
+      	    		register_LName.setStyle("");
+      	    		
+      	    	}
+      	    	
+      	    	if(register_NSIN.getText().isEmpty()) {
+      	    		register_NSIN.setStyle("-fx-border-color: red; -fx-border-width: 0 0 0.8px 0;");
+      	    		IsEmpty = true;
+      	    	} else {
+      	    		register_NSIN.setStyle("");
+      	    		
+      	    	}
+      	    	
+      	    	if(register_gender.getSelectionModel().isEmpty()) {
+      	    		register_gender.setStyle("-fx-border-color: red; -fx-border-width: 0 0 0.8px 0;");
+      	    		IsEmpty = true;
+      	    	} else {
+      	    		register_gender.setStyle("");
+      	    		
+      	    	}
+      	    	
+      	    	if(register_DOB.getValue() == null) {
+      	    		register_DOB.setStyle("-fx-border-color: red; -fx-border-width: 0 0 0.8px 0;");
+      	    		IsEmpty = true;
+      	    	} else {
+      	    		register_DOB.setStyle("");
+      	    		
+      	    	}
+      	    	
+      	    	
+      	    	if(register_district.getText().isEmpty()) {
+      	    		register_district.setStyle("-fx-border-color: red; -fx-border-width: 0 0 0.8px 0;");
+      	    		IsEmpty = true;
+      	    	} else {
+      	    		register_district.setStyle("");
+      	    		
+      	    	}
+      	    	
+      	    	if(register_courseTaken.getValue() == null) {
+      	    		register_courseTaken.setStyle("-fx-border-color: red; -fx-border-width: 0 0 0.8px 0;");
+      	    		IsEmpty = true;
+      	    	} else {
+      	    		register_courseTaken.setStyle("");
+      	    		
+      	    	}
+      	    	
+      	    	if(register_courseLevel.getValue() == null) {
+      	    		register_courseLevel.setStyle("-fx-border-color: red; -fx-border-width: 0 0 0.8px 0;");
+      	    		IsEmpty = true;
+      	    	} else {
+      	    		register_courseLevel.setStyle("");
+      	    		
+      	    	}
+      	    	
+      	    	if(register_courseYear.getValue() == null) {
+      	    		register_courseYear.setStyle("-fx-border-color: red; -fx-border-width: 0 0 0.8px 0;");
+      	    		IsEmpty = true;
+      	    	} else {
+      	    		register_courseYear.setStyle("");
+      	    		
+      	    	}
+      	    	
+      	    	if(register_semester.getValue() == null) {
+      	    		register_semester.setStyle("-fx-border-color: red; -fx-border-width: 0 0 0.8px 0;");
+      	    		IsEmpty = true;
+      	    	} else {
+      	    		register_semester.setStyle("");
+      	    		
+      	    	}
+      	    	
+      	    	if(IsEmpty){
+      	    		alert = new Alert(AlertType.ERROR);
+      	    		alert.setTitle("Error Message");
+      	    		alert.setHeaderText(null);
+      	    		alert.setContentText("Please fill all compulsory fields");
+      	    		alert.showAndWait();
+      	    		
+      	    	}else {
+      	    		// Checks if The data is already available in the data base
+      	    		String CheckData = "SELECT NSIN FROM studentsbio WHERE NSIN = '"
+      	    				+register_NSIN.getText()+"'";  
+      	    		statement = connect.createStatement();
+      	    		System.out.println("Checking data...");
+      	    		result = statement.executeQuery(CheckData);
+      	    		
+      	    		if(result.next()) {
+      	    			alert = new Alert(AlertType.WARNING);
+      	    			alert.setTitle("Warning");
+      	    			alert.setHeaderText(null);
+      	    			alert.setContentText("Students NSIN:"+register_NSIN.getText()+"Already Registered!");
+      	    			alert.showAndWait();
+      	    		}else {
+      	    			 prepare = connect.prepareStatement(insertData);
+      	     	    	 prepare.setString(1, register_fname.getText().toUpperCase());
+      	     	    	 prepare.setString(2, register_middleName.getText().toUpperCase());
+      	     	    	 prepare.setString(3, register_LName.getText().toUpperCase());
+      	     	    	 prepare.setString(4, register_religion.getText().toUpperCase());
+      	     	    	 
+      	     	    	 if(register_DOB.getValue() == null) {
+      	     	    		 prepare.setNull(5, java.sql.Types.DATE);
+      	     	    		
+      	     	    	 }else {
+//      	     	    		 java.sql.Date sqlDate = java.sql.Date.valueOf(register_DOB.getValue());
+//      	     	    		 prepare.setDate(5,sqlDate );
+      	     	    		prepare.setString(5, String.valueOf(register_DOB.getValue()));
+      	     	    	 }
+                           // Potential Bug @kelvis
+      	     	    	 prepare.setString(6, register_NIN.getText().toUpperCase());
+      	     	    	 prepare.setString(7, register_district.getText().toUpperCase());
+      	     	    	 prepare.setString(8, register_subcounty.getText().toUpperCase());
+      	     	    	 prepare.setString(9, register_county.getText().toUpperCase());
+      	     	    	 prepare.setString(10, register_parish.getText().toUpperCase());
+      	     	    	 prepare.setString(11, register_email.getText().toLowerCase());
+      	     	    	 prepare.setString(12, (String)register_gender.getSelectionModel().getSelectedItem());  //This to all prompted Values
+      	     	    	 prepare.setString(13, register_gardianName1.getText().toUpperCase());
+      	     	    	 prepare.setString(14, register_gardian1_nin.getText().toUpperCase());
+      	     	    	 prepare.setString(15, register_gardian1_contact1.getText());
+      	     	    	 prepare.setString(16, register_gardian1_contact2.getText());
+      	     	    	 prepare.setString(17, register_gardian1_district.getText().toUpperCase());
+      	     	    	 prepare.setString(18, register_gardian1_subcounty.getText().toUpperCase());
+      	     	    	 prepare.setString(19, register_gardian1_county.getText().toUpperCase());
+      	     	    	 prepare.setString(20, register_gardian1_parish.getText().toUpperCase());
+      	     	    	 prepare.setString(21, register_gardian1_village.getText().toUpperCase());
+      	     	    	 prepare.setString(22, register_gardian1_email.getText().toLowerCase());
+      	     	    	 prepare.setString(23, register_gardian1_occupation.getText().toUpperCase());
+      	     	    	 prepare.setString(24, register_gardian2_name.getText().toUpperCase());
+      	     	    	 prepare.setString(25, register_gardian2_nin.getText().toUpperCase());
+      	     	    	 prepare.setString(26, register_gardian2_contact1.getText());
+      	     	    	 prepare.setString(27, register_gardian2_contact2.getText());
+      	     	    	 prepare.setString(28, register_gardian2_district.getText().toUpperCase());
+      	     	    	 prepare.setString(29, register_gardian2_subcounty.getText().toUpperCase());
+      	     	    	 prepare.setString(30, register_gardian2_county.getText().toUpperCase());
+      	     	    	 prepare.setString(31, register_gardian2_parish.getText().toUpperCase());
+      	     	    	 prepare.setString(32, register_gardian2_village.getText().toUpperCase());
+      	     	    	 prepare.setString(33, register_gardian2_email.getText().toLowerCase());
+      	     	    	 prepare.setString(34, register_gardian2_occupation.getText().toUpperCase());
+      	     	    	 prepare.setString(35, register_NSIN.getText().toUpperCase());
+      	     	    	 
+      	     	    	 String ALevel = register_Alevel.getText().trim();
+      	     	    	 if(ALevel.isEmpty()) {
+      	     	    		 prepare.setNull(36, java.sql.Types.INTEGER);
+      	     	    	 }else {
+      	     	    		 try {
+      	     	    			 prepare.setInt(36,Integer.parseInt(ALevel));
+      	     	    		 }catch(NumberFormatException e) {
+      	     	    			register_Alevel.setStyle("-fx-border-color:red");
+      	     	    			ALERT.showError("Input must be a digit. ie 96");
+      	     	    			return;
+      	     	    		 }
+      	     	    	 }
+      	     	    	 
+      	     	    	 String OLevel = register_Olevel.getText().trim();
+      	     	    	 if(OLevel.isEmpty()) {
+      	     	    		 prepare.setNull(37, java.sql.Types.INTEGER);
+      	     	    	 }else {
+      	     	    		 try {
+      	     	    			 prepare.setInt(37, Integer.parseInt(OLevel));
+      	     	    		 }catch(NumberFormatException e) {
+      	     	    			register_Olevel.setStyle("-fx-border-color:red");
+      	     	    			ALERT.showError("Input must be a digit. ie 97");
+      	     	    			return;
+      	     	    		 }
+      	     	    	 }
+      	     	    	 
+      	     	    	 prepare.setString(38, register_doneCourse.getText());
+      	     	    	 
+      	     	    	 String Year = register_year_done.getText().trim();
+      	     	    	 if(Year.isEmpty()) {
+      	     	    		 prepare.setNull(39, java.sql.Types.INTEGER);
+      	     	    	 }else {
+      	     	    		 try {
+      	     	    			 prepare.setInt(39, Integer.parseInt(Year));
+      	     	    		 }catch(NumberFormatException e) {
+      	     	    			register_doneCourse.setStyle("-fx-border-color:red");
+      	     	    			ALERT.showError("Enter a valid year eg: 2025");
+      	     	    			return;
+      	     	    		 }
+      	     	    	 }
+      	     	    	 prepare.setString(40, register_emergency_name.getText().toUpperCase());
+      	     	    	 prepare.setString(41, register_emrgency_contact1.getText().toUpperCase());
+      	     	    	 prepare.setString(42, register_emrgency_contact2.getText().toUpperCase());
+      	     	    	 prepare.setString(43, register_relationship.getText().toUpperCase());
+      	     	    	 prepare.setString(44, register_physician_contact.getText());
+      	     	    	 prepare.setString(45, register_medical_conditions.getText());
+      	     	    	 prepare.setString(46, register_current_medication.getText());
+      	     	    	 prepare.setString(47, register_emergencyProcedures.getText());
+      	     	    	 prepare.setString(48, register_specialNeeds.getText());
+      	     	    	 prepare.setString(49, register_student_contact1.getText());
+      	     	    	 prepare.setString(50, register_student_contact2.getText());
+      	     	    	 prepare.setString(51, register_courseTaken.getSelectionModel().getSelectedItem());
+      	     	    	 prepare.setString(52, register_courseLevel.getSelectionModel().getSelectedItem());
+      	     	    	 prepare.setString(53, register_courseYear.getSelectionModel().getSelectedItem());
+      	     	    	 prepare.setString(54, register_semester.getSelectionModel().getSelectedItem());
+      	     	    	 prepare.executeUpdate();
+      	     	    	 
+      	     	    	 //Inserting Students Grades
+      	     	    	 //Sets students grades to 0 when a student is registered.
+      	     	    	 String insertGrades = "INSERT INTO students_grades (NSIN, studentsName, sem1_p1, sem1_p2, sem1_p3, sem1_p4, sem2_p1, sem2_p2,"
+      	     	    	 		+ " sem2_p3, sem2_p4,sem3_p1, sem3_p2, sem3_p3, sem3_p4, sem4_p1, sem4_p2, sem4_p3, sem4_p4, sem5_p1, sem5_p2, sem5_p3, "
+      	     	    	 		+ "sem5_p4,studentGender) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+      	     	    	PreparedStatement prepareGrades = connect.prepareStatement(insertGrades);
+      	     	    	prepareGrades.setString(1, register_NSIN.getText().toUpperCase());  // Caution!
+      	     	    	prepareGrades.setString(2, register_fname.getText().toUpperCase() +" "+register_middleName.getText().toUpperCase()+" "+ register_LName.getText().toUpperCase());
+      	     	    	prepareGrades.setString(3, "0");
+      	     	    	prepareGrades.setString(4, "0");
+      	     	    	prepareGrades.setString(5, "0");
+      	     	    	prepareGrades.setString(6, "0");
+      	     	    	prepareGrades.setString(7, "0");
+      	     	    	prepareGrades.setString(8, "0");
+      	     	    	prepareGrades.setString(9, "0");
+      	     	    	prepareGrades.setString(10, "0");
+      	     	    	prepareGrades.setString(11, "0");
+      	     	    	prepareGrades.setString(12, "0");
+      	     	    	prepareGrades.setString(13, "0");
+      	     	    	prepareGrades.setString(14, "0");
+      	     	    	prepareGrades.setString(15, "0");
+      	     	    	prepareGrades.setString(16, "0");
+      	     	    	prepareGrades.setString(17, "0");
+      	     	    	prepareGrades.setString(18, "0");
+      	     	    	prepareGrades.setString(19, "0");
+      	     	    	prepareGrades.setString(20, "0");
+      	     	    	prepareGrades.setString(21, "0");
+      	     	    	prepareGrades.setString(22, "0");
+      	     	    	prepareGrades.setString(23, (String)register_gender.getSelectionModel().getSelectedItem());
+      	     	    	prepareGrades.executeUpdate();
+                           alert = new Alert(AlertType.CONFIRMATION);
+                           alert.setTitle("Confirmation Message");
+                           alert.setHeaderText(null);
+                           alert.setContentText("Student has been Added Successfully");
+      	     	    	 alert.showAndWait();
+      	     	    	addStudentsShowListData();
+      	     	    	addStudentsShowListData();//load students 
+      	     	    	clearInputs();//Clear the text
+      	    		}
+      	    	}
+      	    }catch(Exception e) {e.printStackTrace();
+      	    System.err.println("SQL Error: " + e.getMessage());
+      	    System.err.println("Failed query: " + insertData);
+      	    }
+         }
+     
+     //DELETE STUDENTS BY NSIN NO.
+     public void delete() {
+    	    String deleteData = "DELETE FROM students_grades WHERE NSIN = '"+register_NSIN.getText()+"'";
+
+    	    connect = database.connectDb();
+
+    	    try {
+    	        Alert alert;
+
+    	        if (register_fname.getText().isEmpty() || register_LName.getText().isEmpty() || register_NSIN.getText().isEmpty()) {
+    	            alert = new Alert(AlertType.ERROR);
+    	            alert.setTitle("Error Message");
+    	            alert.setHeaderText(null);
+    	            alert.setContentText("Please select the information to delete.");
+    	            alert.showAndWait();
+    	        } else {
+    	            alert = new Alert(AlertType.CONFIRMATION);
+    	            alert.setTitle("Confirmation Message");
+    	            alert.setHeaderText(null);
+    	            alert.setContentText("Are you sure you want to delete Student with NSIN: " +register_NSIN.getText() + " ?");
+    	            Optional<ButtonType> option = alert.showAndWait();
+
+    	            if (option.get().equals(ButtonType.OK)) {
+    	                // Delete grades first
+    	                statement = connect.prepareStatement(deleteData);
+    	                statement.executeUpdate(deleteData);
+
+    	                String checkData = "SELECT NSIN FROM studentsbio "
+                                + "WHERE NSIN = '" + register_NSIN.getText()+ "'";
+    	                prepare = connect.prepareStatement(checkData);
+    	                result = prepare.executeQuery();
+    	                if (result.next()) {
+                            String deleteGrade = "DELETE FROM studentsbio WHERE "
+                                    + "NSIN = '" + register_NSIN.getText() + "'";
+                            
+                            statement = connect.createStatement();
+                            statement.executeUpdate(deleteGrade);
+                        }
+    	                
+    	                alert = new Alert(AlertType.INFORMATION);
+    	                alert.setTitle("Information Message");
+    	                alert.setHeaderText(null);
+    	                alert.setContentText("Student Deleted Successfully!");
+    	                alert.showAndWait();
+
+    	                showGradeList();
+    	                addStudentsShowListData();
+    	                clearInputs();
+    	            }else return;
+    	        }
+    	    } catch (Exception e) {
+    	        e.printStackTrace();
+    	    }
+
+     }
+     
+  // THE METHOD TO UPDATE THE DATA IN THE DATABASE
+     public void updateStudents() {
+    	    // Step 1: Validation
+    	    if (register_NSIN.getText().isEmpty()) {
+    	        register_NSIN.setStyle("-fx-border-color: red; -fx-border-width: 0 0 0.8px 0;");
+    	        Alert alert = new Alert(Alert.AlertType.ERROR);
+    	        alert.setTitle("Error Message");
+    	        alert.setHeaderText(null);
+    	        alert.setContentText("Please fill all required fields.");
+    	        alert.showAndWait();
+    	        return;
+    	    } else {
+    	        register_NSIN.setStyle("");
+    	    }
+
+    	    // Step 2: Confirmation
+    	    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+    	    alert.setTitle("Confirmation Message");
+    	    alert.setHeaderText(null);
+    	    alert.setContentText("Are you sure about this?\nStudent NSIN: " + register_NSIN.getText() + " will be UPDATED!");
+    	    Optional<ButtonType> option = alert.showAndWait();
+
+    	    if (option.isEmpty() || option.get() != ButtonType.OK) return;
+
+    	    // Step 3: Prepare database update
+    	    try {
+    	        connect = database.connectDb();
+    	        String oldNsin = oldNSIN; // ←  Must store this when loading the form
+    	        String newNsin = register_NSIN.getText().trim();
+    	        String fullName = register_fname.getText().trim() + " " +
+    	                          register_middleName.getText().trim() + " " +
+    	                          register_LName.getText().trim();
+
+    	        // Update grades
+    	        String updateGradeSql = "UPDATE students_grades SET NSIN = ?, studentsName = ? WHERE NSIN = ?";
+    	        PreparedStatement psGrade = connect.prepareStatement(updateGradeSql);
+    	        psGrade.setString(1, newNsin);
+    	        psGrade.setString(2, fullName);
+    	        psGrade.setString(3, oldNsin);
+    	        psGrade.executeUpdate();
+
+    	        // Update bio
+    	        String updateBioSql = "UPDATE studentsbio SET "
+    	                + "firstName=?, middleName=?, lastName=?, religion=?, DOB=?, "
+    	                + "studentNIN=?, studentDistrict=?, studentSubcounty=?, studentCounty=?, studentParish=?, studentEmail=?, "
+    	                + "studentGender=?, guardian1Name=?, guardian1NIN=?, guardian1Contact1=?, guardian1Contact2=?, "
+    	                + "guardian1District=?, guardian1Subcounty=?, guardian1County=?, guardian1Parish=?, guardian1Village=?, "
+    	                + "guardian1Email=?, guardian1Occupation=?, guardian2Name=?, guardian2NIN=?, guardian2Contact1=?, "
+    	                + "guardian2Contact2=?, guardian2District=?, guardian2Subcounty=?, guardian2County=?, guardian2Parish=?, "
+    	                + "guardian2Village=?, guardian2Email=?, guardian2Occupation=?, NSIN=?, Alevel=?, Olevel=?, prevCourse=?, "
+    	                + "courseYear=?, emergencyName=?, emergencyContact1=?, emergencyContact2=?, relationship=?, "
+    	                + "physicianContact=?, medConditions=?, medication=?, medProcedures=?, specialNeeds=?, "
+    	                + "studentContact1=?, studentContact2=?, courseTaken=?, courseLevel=?, yearCourse=?, courseSemister=? "
+    	                + "WHERE NSIN=?";
+
+    	        PreparedStatement psBio = connect.prepareStatement(updateBioSql);
+
+    	        int aLevel = safeParse(register_Alevel.getText());
+    	        int oLevel = safeParse(register_Olevel.getText());
+    	        int courseYear = safeParse(register_year_done.getText());
+
+    	        psBio.setString(1, register_fname.getText().trim().toUpperCase());
+    	        psBio.setString(2, register_middleName.getText().trim().toUpperCase());
+    	        psBio.setString(3, register_LName.getText().trim().toUpperCase());
+    	        psBio.setString(4, register_religion.getText().trim().toUpperCase());
+    	        psBio.setDate(5, java.sql.Date.valueOf(register_DOB.getValue()));
+    	        psBio.setString(6, register_NIN.getText().trim().toUpperCase());
+    	        psBio.setString(7, register_district.getText().trim().toUpperCase());
+    	        psBio.setString(8, register_subcounty.getText().trim().toUpperCase());
+    	        psBio.setString(9, register_county.getText().trim().toUpperCase());
+    	        psBio.setString(10, register_parish.getText().trim().toUpperCase());
+    	        psBio.setString(11, register_email.getText().trim().toUpperCase());
+    	        psBio.setString(12, (String) register_gender.getSelectionModel().getSelectedItem());
+    	        psBio.setString(13, register_gardianName1.getText().trim().toUpperCase());
+    	        psBio.setString(14, register_gardian1_nin.getText().trim().toUpperCase());
+    	        psBio.setString(15, register_gardian1_contact1.getText().trim().toUpperCase());
+    	        psBio.setString(16, register_gardian2_contact1.getText().trim().toUpperCase());
+    	        psBio.setString(17, register_gardian1_district.getText().trim().toUpperCase());
+    	        psBio.setString(18, register_gardian1_subcounty.getText().trim().toUpperCase());
+    	        psBio.setString(19, register_gardian1_county.getText().trim().toUpperCase());
+    	        psBio.setString(20, register_gardian1_parish.getText().trim().toUpperCase());
+    	        psBio.setString(21, register_gardian1_village.getText().trim().toUpperCase());
+    	        psBio.setString(22, register_gardian1_email.getText().trim().toUpperCase());
+    	        psBio.setString(23, register_gardian1_occupation.getText().trim().toUpperCase());
+    	        psBio.setString(24, register_gardian2_name.getText().trim().toUpperCase());
+    	        psBio.setString(25, register_gardian2_nin.getText().trim().toUpperCase());
+    	        psBio.setString(26, register_gardian2_contact1.getText().trim().toUpperCase());
+    	        psBio.setString(27, register_gardian2_contact2.getText().trim().toUpperCase());
+    	        psBio.setString(28, register_gardian2_district.getText().trim().toUpperCase());
+    	        psBio.setString(29, register_gardian2_subcounty.getText().trim().toUpperCase());
+    	        psBio.setString(30, register_gardian2_county.getText().trim().toUpperCase());
+    	        psBio.setString(31, register_gardian2_parish.getText().trim().toUpperCase());
+    	        psBio.setString(32, register_gardian2_village.getText().trim().toUpperCase());
+    	        psBio.setString(33, register_gardian2_email.getText().trim().toUpperCase());
+    	        psBio.setString(34, register_gardian2_occupation.getText().trim().toUpperCase());
+    	        psBio.setString(35, newNsin); // New NSIN
+    	        psBio.setInt(36, aLevel);
+    	        psBio.setInt(37, oLevel);
+    	        psBio.setString(38, register_doneCourse.getText().trim().toUpperCase());
+    	        psBio.setInt(39, courseYear);
+    	        psBio.setString(40, register_emergency_name.getText().trim().toUpperCase());
+    	        psBio.setString(41, register_emrgency_contact1.getText().trim().toUpperCase());
+    	        psBio.setString(42, register_emrgency_contact2.getText().trim().toUpperCase());
+    	        psBio.setString(43, register_relationship.getText().trim().toUpperCase());
+    	        psBio.setString(44, register_physician_contact.getText().trim().toUpperCase());
+    	        psBio.setString(45, register_medical_conditions.getText().trim().toUpperCase());
+    	        psBio.setString(46, register_current_medication.getText().trim().toUpperCase());
+    	        psBio.setString(47, register_emergencyProcedures.getText().trim().toUpperCase());
+    	        psBio.setString(48, register_specialNeeds.getText().trim().toUpperCase());
+    	        psBio.setString(49, register_student_contact1.getText().trim().toUpperCase());
+    	        psBio.setString(50, register_student_contact2.getText().trim().toUpperCase());
+    	        psBio.setString(51, (String) register_courseTaken.getSelectionModel().getSelectedItem());
+    	        psBio.setString(52, (String) register_courseLevel.getSelectionModel().getSelectedItem());
+    	        psBio.setString(53, (String) register_courseYear.getSelectionModel().getSelectedItem());
+    	        psBio.setString(54, (String) register_semester.getSelectionModel().getSelectedItem());
+    	        psBio.setString(55, oldNsin); // Old NSIN for WHERE
+
+    	        psBio.executeUpdate();
+
+    	        // Step 4: Success
+    	        Alert successAlert = new Alert(Alert.AlertType.INFORMATION);
+    	        successAlert.setTitle("Success");
+    	        successAlert.setHeaderText(null);
+    	        successAlert.setContentText("Student data updated successfully.");
+    	        successAlert.showAndWait();
+
+    	        addStudentsShowListData();
+    	        clearInputs();
+
+    	    } catch (Exception e) {
+    	        e.printStackTrace();
+    	        Alert errorAlert = new Alert(Alert.AlertType.ERROR);
+    	        errorAlert.setTitle("Error");
+    	        errorAlert.setHeaderText(null);
+    	        errorAlert.setContentText("Failed to update data: " + e.getMessage());
+    	        errorAlert.showAndWait();
+    	    }
+    	}
+     
+     // Clear Method
+     public void clearInputs() {
+     	register_fname.setText("");
+     	register_middleName.setText("");
+     	register_LName.setText("");
+     	register_religion.setText("");
+     	register_DOB.setValue(null);
+     	register_NIN.setText("");
+     	register_district.setText("");
+     	register_subcounty.setText("");
+     	register_county.setText("");
+     	register_parish.setText("");
+     	register_gender.setValue(null);
+     	register_email.setText("");
+     	register_gardianName1.setText("");
+     	register_gardian1_contact1.setText("");
+     	register_gardian1_contact2.setText("");
+     	register_Alevel.setText("");
+     	register_Olevel.setText("");
+     	register_doneCourse.setText("");
+     	register_year_done.setText("");
+     	register_emergency_name.setText("");
+     	register_emrgency_contact1.setText("");
+     	register_emrgency_contact2.setText("");
+     	register_relationship.setText("");
+     	register_physician_contact.setText("");
+     	register_medical_conditions.setText("");
+     	register_current_medication.setText("");
+     	register_emergencyProcedures.setText("");
+     	register_specialNeeds.setText("");
+     	register_student_contact1.setText("");
+     	register_student_contact2.setText("");
+     	register_gardian1_nin.setText("");
+     	register_gardian1_district.setText("");
+     	register_gardian1_subcounty.setText("");
+     	register_gardian1_county.setText("");
+     	register_gardian1_parish.setText("");
+     	register_gardian1_village.setText("");
+     	register_gardian1_email.setText("");
+     	register_gardian1_occupation.setText("");
+     	register_gardian2_name.setText("");
+     	register_gardian2_nin.setText("");
+     	register_gardian2_contact1.setText("");
+     	register_gardian2_contact2.setText("");
+     	register_gardian2_district.setText("");
+     	register_gardian2_subcounty.setText("");
+     	register_gardian2_county.setText("");
+     	register_gardian2_parish.setText("");
+     	register_gardian2_village.setText("");
+     	register_gardian2_email.setText("");
+     	register_gardian2_occupation.setText("");
+     	register_NSIN.setText("");
+     	register_courseTaken.setValue(null);
+     	register_courseLevel.setValue(null);
+     	register_courseYear.setValue(null);
+     	register_semester.setValue(null);
+     	
+     	register_fname.setStyle("");
+ 	    register_LName.setStyle("");
+ 	    register_NSIN.setStyle("");
+ 	    register_courseTaken.setStyle("");
+ 	    register_courseLevel.setStyle("");
+ 	    register_courseYear.setStyle("");
+ 	    register_semester.setStyle("");    
+     }
+     
+ //STUDENTS REGISTER FORM.
      
      public ObservableList<studentsBio> addStudentsListData(){  //addStudentsListData: object to add students data
      	   ObservableList<studentsBio> listStudents = FXCollections.observableArrayList();
@@ -700,620 +1335,214 @@ public class DashboardController implements Initializable{
  		} catch (SQLException e) {e.printStackTrace();}
  		     return listStudents;
      }
-    
-     private ObservableList<studentsBio> addStudentsList = FXCollections.observableArrayList();// Object to show lists on the table
-     //Method to add data to the table view...
+     
+     private ObservableList<studentsBio> addStudentsList = FXCollections.observableArrayList();// Object to show lists on the table 
      public void addStudentsShowListData() {
-     	addStudentsList = addStudentsListData();
-     	register_nsin_col.setCellValueFactory(new PropertyValueFactory<>("NSIN"));
-     	register_Fname_col.setCellValueFactory(new PropertyValueFactory<>("FirstName"));
-     	register_Lname_col.setCellValueFactory(new PropertyValueFactory<>("LastName"));
-     	register_contact_col.setCellValueFactory(new PropertyValueFactory<>("StudentContact1"));
-     	register_Age_col.setCellValueFactory(cellData -> {Integer age = cellData.getValue().getAge();return new SimpleObjectProperty<>(age != null ? age : null);});  //Method to calculate age!
-     	register_gender_col.setCellValueFactory(new PropertyValueFactory<>("StudentGender"));
-     	register_religion_col.setCellValueFactory(new PropertyValueFactory<>("Religion"));
-     	register_tableView.setItems(addStudentsList);
-     }
-   
-     //Method to add data to details View.
-      public void addToListView() {    	
-     	addStudentsList = addStudentsListData();
-         details_nsin_col.setCellValueFactory(new PropertyValueFactory<>("NSIN"));
-         details_Fname_col.setCellValueFactory(new PropertyValueFactory<>("FirstName"));
-         details_Lname_col.setCellValueFactory(new PropertyValueFactory<>("LastName"));
-         details_contact_col.setCellValueFactory(new PropertyValueFactory<>("StudentContact1"));
-         details_Age_col.setCellValueFactory(new PropertyValueFactory<>("Age"));  //Method to calculate age
-         details_gender_col.setCellValueFactory(new PropertyValueFactory<>("StudentGender"));
-     	details_religion_col.setCellValueFactory(new PropertyValueFactory<>("Religion"));
-     	details_tableView.setItems(addStudentsList);
-     }
-     
-     //Method to auto detect Selected Student
-     public void addStudentsSelected(){
-     	studentsBio studentsData = register_tableView.getSelectionModel().getSelectedItem();
-     	int num = register_tableView.getSelectionModel().getSelectedIndex();
-     	if((num -1) < -1) {return;}
-     	register_fname.setText(studentsData.getFirstName());
-     	register_middleName.setText(studentsData.getMiddleName());
-     	register_LName.setText(studentsData.getLastName());
-     	register_religion.setText(studentsData.getReligion());
-     	register_DOB.setValue(LocalDate.parse(String.valueOf(studentsData.getDOB())));  // Date converted to String
-     	register_NIN.setText(studentsData.getstudentNIN());
-     	register_district.setText(studentsData.getstudentNIN());
-     	register_subcounty.setText(studentsData.getstudentSubcounty());
-     	register_county.setText(studentsData.getstudentCounty());
-     	register_gender.setPromptText(studentsData.getStudentGender());
-     	register_email.setText(studentsData.getstudentEmail());
-     	register_parish.setText(studentsData.getstudentParish());
-     	// Guardian 1 information
-     	register_gardianName1.setText(studentsData.getguardian1Name());
-     	register_gardian1_nin.setText(studentsData.getguardian1NIN());
-     	register_gardian1_parish.setText(studentsData.getguardian1Parish());
-     	register_gardian1_contact1.setText(String.valueOf(studentsData.getguardian1Contact1()));  // Integer
-     	register_gardian1_occupation.setText(studentsData.getguardian1Occupation());
-     	register_gardian1_district.setText(studentsData.getguardian1District());
-     	register_gardian1_subcounty.setText(studentsData.getguardian1Subcounty());
-     	register_gardian1_county.setText(studentsData.getguardian1County());
-     	register_gardian1_village.setText(studentsData.getguardian1Village());
-     	register_gardian1_email.setText(studentsData.getguardian1Email());
-     	register_gardian1_contact2.setText(String.valueOf(studentsData.getguardian1Contact2()));  // Integer
-     	// Guardian 2 information
-     	register_gardian2_name.setText(studentsData.getguardian2Name());
-     	register_gardian2_nin.setText(studentsData.getguardian2NIN());
-     	register_gardian2_parish.setText(studentsData.getguardian2Parish());
-     	register_gardian2_contact1.setText(String.valueOf(studentsData.getguardian2Contact1()));  // Integer
-     	register_gardian2_occupation.setText(studentsData.getguardian2Occupation());
-     	register_gardian2_district.setText(studentsData.getguardian2District());
-     	register_gardian2_subcounty.setText(studentsData.getguardian2Subcounty());
-     	register_gardian2_county.setText(studentsData.getguardian2County());
-     	register_gardian2_village.setText(studentsData.getguardian2Village());
-     	register_gardian2_email.setText(studentsData.getguardian2Email());
-     	register_gardian2_contact2.setText(String.valueOf(studentsData.getguardian2Contact2()));  // Integer
-     	// Academic information
-     	register_NSIN.setText(studentsData.getNSIN());
-     	register_Alevel.setText(String.valueOf(studentsData.getAlevel()));  // Integer
-     	register_Olevel.setText(String.valueOf(studentsData.getOlevel()));  // Integer
-     	register_doneCourse.setText(studentsData.getprevCourse());
-     	register_year_done.setText(String.valueOf(studentsData.getCourseYear()));
-     	// Emergency contact information
-     	register_emergency_name.setText(studentsData.getemergencyName());
-     	register_emrgency_contact1.setText(String.valueOf(studentsData.getemergencyContact1()));  // Integer
-     	register_emrgency_contact2.setText(String.valueOf(studentsData.getemergencyContact2()));  // Integer
-     	register_relationship.setText(studentsData.getrelationship());
-     	// Medical information
-     	register_emergencyProcedures.setText(studentsData.getmedProcedures());
-     	register_physician_contact.setText(String.valueOf(studentsData.getphysicianContact()));  // Integer
-     	register_medical_conditions.setText(studentsData.getmedConditions());
-     	register_current_medication.setText(studentsData.getmedication());
-     	register_specialNeeds.setText(studentsData.getspecialNeeds());
-     	register_student_contact1.setText(String.valueOf(studentsData.getStudentContact1()));
-     	register_student_contact2.setText(String.valueOf(studentsData.getstudentContact2()));
-     	register_courseTaken.setPromptText(studentsData.getCourseTaken());
-     	register_courseLevel.setPromptText(studentsData.getCourseLevel());
-     	register_courseYear.setPromptText(studentsData.getYearCourse());
-     	register_semester.setPromptText(studentsData.getCourseSemister());
-     }
-     
-    //-------------------------------------------------------------------------------------------------------------
-    //java.sql.Date DOB = java.sql.Date.valueOf(register_DOB.getValue());
-    // Add students Method. this is by clicking the add 
-     public void addStudents() { 
-     	String insertData = "INSERT INTO studentsbio (firstName, middleName, lastName, religion, DOB, studentNIN, studentDistrict, studentSubcounty, studentCounty, studentParish, studentEmail, studentGender,  guardian1Name, guardian1NIN, guardian1Contact1, guardian1Contact2, guardian1District, guardian1Subcounty, guardian1County, guardian1Parish, guardian1Village, guardian1Email, guardian1Occupation, guardian2Name, guardian2NIN, guardian2Contact1, guardian2Contact2, guardian2District, guardian2Subcounty, guardian2County, guardian2Parish, guardian2Village, guardian2Email, guardian2Occupation, NSIN, Alevel, Olevel, prevCourse, courseYear, emergencyName, emergencyContact1, emergencyContact2, relationship, physicianContact, medConditions, medication, medProcedures, specialNeeds, studentContact1, studentContact2,courseTaken,courseLevel,yearCourse,courseSemister )  VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, "
-     			+ "?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?,?,?,?)";
-     	           connect = database.connectDb();
-     	    try {
-     	    	
-     	    	Alert alert;
-     	    	boolean IsEmpty = false;
-     	    	if(register_fname.getText().isEmpty()) {
-     	    		register_fname.setStyle("-fx-border-color: red;-fx-border-width: 0 0 0.8px 0;");
-     	    		IsEmpty = true;
-     	    	} else {
-     	    		register_fname.setStyle("");
-     	    		
-     	    	}
-     	    	
-     	    	if(register_LName.getText().isEmpty()) {
-     	    		register_LName.setStyle("-fx-border-color: red; -fx-border-width: 0 0 0.8px 0;");
-     	    		IsEmpty = true;
-     	    	} else {
-     	    		register_LName.setStyle("");
-     	    		
-     	    	}
-     	    	
-     	    	if(register_NSIN.getText().isEmpty()) {
-     	    		register_NSIN.setStyle("-fx-border-color: red; -fx-border-width: 0 0 0.8px 0;");
-     	    		IsEmpty = true;
-     	    	} else {
-     	    		register_NSIN.setStyle("");
-     	    		
-     	    	}
-     	    	
-     	    	if(register_gender.getSelectionModel().isEmpty()) {
-     	    		register_gender.setStyle("-fx-border-color: red; -fx-border-width: 0 0 0.8px 0;");
-     	    		IsEmpty = true;
-     	    	} else {
-     	    		register_gender.setStyle("");
-     	    		
-     	    	}
-     	    	
-     	    	if(register_DOB.getValue() == null) {
-     	    		register_DOB.setStyle("-fx-border-color: red; -fx-border-width: 0 0 0.8px 0;");
-     	    		IsEmpty = true;
-     	    	} else {
-     	    		register_DOB.setStyle("");
-     	    		
-     	    	}
-     	    	
-     	    	
-     	    	if(register_district.getText().isEmpty()) {
-     	    		register_district.setStyle("-fx-border-color: red; -fx-border-width: 0 0 0.8px 0;");
-     	    		IsEmpty = true;
-     	    	} else {
-     	    		register_district.setStyle("");
-     	    		
-     	    	}
-     	    	
-     	    	if(register_courseTaken.getValue() == null) {
-     	    		register_courseTaken.setStyle("-fx-border-color: red; -fx-border-width: 0 0 0.8px 0;");
-     	    		IsEmpty = true;
-     	    	} else {
-     	    		register_courseTaken.setStyle("");
-     	    		
-     	    	}
-     	    	
-     	    	if(register_courseLevel.getValue() == null) {
-     	    		register_courseLevel.setStyle("-fx-border-color: red; -fx-border-width: 0 0 0.8px 0;");
-     	    		IsEmpty = true;
-     	    	} else {
-     	    		register_courseLevel.setStyle("");
-     	    		
-     	    	}
-     	    	
-     	    	if(register_courseYear.getValue() == null) {
-     	    		register_courseYear.setStyle("-fx-border-color: red; -fx-border-width: 0 0 0.8px 0;");
-     	    		IsEmpty = true;
-     	    	} else {
-     	    		register_courseYear.setStyle("");
-     	    		
-     	    	}
-     	    	
-     	    	if(register_semester.getValue() == null) {
-     	    		register_semester.setStyle("-fx-border-color: red; -fx-border-width: 0 0 0.8px 0;");
-     	    		IsEmpty = true;
-     	    	} else {
-     	    		register_semester.setStyle("");
-     	    		
-     	    	}
-     	    	
-     	    	if(IsEmpty){
-     	    		alert = new Alert(AlertType.ERROR);
-     	    		alert.setTitle("Error Message");
-     	    		alert.setHeaderText(null);
-     	    		alert.setContentText("Please fill all compulsory fields");
-     	    		alert.showAndWait();
-     	    		
-     	    	}else {
-     	    		// Checks if The data is already available in the data base
-     	    		String CheckData = "SELECT NSIN FROM studentsbio WHERE NSIN = '"
-     	    				+register_NSIN.getText()+"'";  
-     	    		statement = connect.createStatement();
-     	    		System.out.println("Checking data...");
-     	    		result = statement.executeQuery(CheckData);
-     	    		
-     	    		if(result.next()) {
-     	    			alert = new Alert(AlertType.WARNING);
-     	    			alert.setTitle("Warning");
-     	    			alert.setHeaderText(null);
-     	    			alert.setContentText("Students NSIN:"+register_NSIN.getText()+"Already Registered!");
-     	    			alert.showAndWait();
-     	    		}else {
-     	    			 prepare = connect.prepareStatement(insertData);
-     	     	    	 prepare.setString(1, register_fname.getText());
-     	     	    	 prepare.setString(2, register_middleName.getText());
-     	     	    	 prepare.setString(3, register_LName.getText());
-     	     	    	 prepare.setString(4, register_religion.getText());
-     	     	    	 
-     	     	    	 if(register_DOB.getValue() == null) {
-     	     	    		 prepare.setNull(5, java.sql.Types.DATE);
-     	     	    		
-     	     	    	 }else {
-//     	     	    		 java.sql.Date sqlDate = java.sql.Date.valueOf(register_DOB.getValue());
-//     	     	    		 prepare.setDate(5,sqlDate );
-     	     	    		prepare.setString(5, String.valueOf(register_DOB.getValue()));
-     	     	    	 }
-                          // Potential Bug @kelvis
-     	     	    	 prepare.setString(6, register_NIN.getText());
-     	     	    	 prepare.setString(7, register_district.getText());
-     	     	    	 prepare.setString(8, register_subcounty.getText());
-     	     	    	 prepare.setString(9, register_county.getText());
-     	     	    	 prepare.setString(10, register_parish.getText());
-     	     	    	 prepare.setString(11, register_email.getText());
-     	     	    	 prepare.setString(12, (String)register_gender.getSelectionModel().getSelectedItem());  //This to all prompted Values
-     	     	    	 prepare.setString(13, register_gardianName1.getText());
-     	     	    	 prepare.setString(14, register_gardian1_nin.getText());
-     	     	    	 prepare.setString(15, register_gardian1_contact1.getText());
-     	     	    	 prepare.setString(16, register_gardian1_contact2.getText());
-     	     	    	 prepare.setString(17, register_gardian1_district.getText());
-     	     	    	 prepare.setString(18, register_gardian1_subcounty.getText());
-     	     	    	 prepare.setString(19, register_gardian1_county.getText());
-     	     	    	 prepare.setString(20, register_gardian1_parish.getText());
-     	     	    	 prepare.setString(21, register_gardian1_village.getText());
-     	     	    	 prepare.setString(22, register_gardian1_email.getText());
-     	     	    	 prepare.setString(23, register_gardian1_occupation.getText());
-     	     	    	 prepare.setString(24, register_gardian2_name.getText());
-     	     	    	 prepare.setString(25, register_gardian2_nin.getText());
-     	     	    	 prepare.setString(26, register_gardian2_contact1.getText());
-     	     	    	 prepare.setString(27, register_gardian2_contact2.getText());
-     	     	    	 prepare.setString(28, register_gardian2_district.getText());
-     	     	    	 prepare.setString(29, register_gardian2_subcounty.getText());
-     	     	    	 prepare.setString(30, register_gardian2_county.getText());
-     	     	    	 prepare.setString(31, register_gardian2_parish.getText());
-     	     	    	 prepare.setString(32, register_gardian2_village.getText());
-     	     	    	 prepare.setString(33, register_gardian2_email.getText());
-     	     	    	 prepare.setString(34, register_gardian2_occupation.getText());
-     	     	    	 prepare.setString(35, register_NSIN.getText());
-     	     	    	 
-     	     	    	 String ALevel = register_Alevel.getText().trim();
-     	     	    	 if(ALevel.isEmpty()) {
-     	     	    		 prepare.setNull(36, java.sql.Types.INTEGER);
-     	     	    	 }else {
-     	     	    		 try {
-     	     	    			 prepare.setInt(36,Integer.parseInt(ALevel));
-     	     	    		 }catch(NumberFormatException e) {
-     	     	    			register_Alevel.setStyle("-fx-border-color:red");
-     	     	    			ALERT.showError("Input must be a digit. ie 96");
-     	     	    			return;
-     	     	    		 }
-     	     	    	 }
-     	     	    	 
-     	     	    	 String OLevel = register_Olevel.getText().trim();
-     	     	    	 if(OLevel.isEmpty()) {
-     	     	    		 prepare.setNull(37, java.sql.Types.INTEGER);
-     	     	    	 }else {
-     	     	    		 try {
-     	     	    			 prepare.setInt(37, Integer.parseInt(OLevel));
-     	     	    		 }catch(NumberFormatException e) {
-     	     	    			register_Olevel.setStyle("-fx-border-color:red");
-     	     	    			ALERT.showError("Input must be a digit. ie 97");
-     	     	    			return;
-     	     	    		 }
-     	     	    	 }
-     	     	    	 
-     	     	    	 prepare.setString(38, register_doneCourse.getText());
-     	     	    	 
-     	     	    	 String Year = register_year_done.getText().trim();
-     	     	    	 if(Year.isEmpty()) {
-     	     	    		 prepare.setNull(39, java.sql.Types.INTEGER);
-     	     	    	 }else {
-     	     	    		 try {
-     	     	    			 prepare.setInt(39, Integer.parseInt(Year));
-     	     	    		 }catch(NumberFormatException e) {
-     	     	    			register_doneCourse.setStyle("-fx-border-color:red");
-     	     	    			ALERT.showError("Enter a valid year eg: 2025");
-     	     	    			return;
-     	     	    		 }
-     	     	    	 }
-     	     	    	 prepare.setString(40, register_emergency_name.getText());
-     	     	    	 prepare.setString(41, register_emrgency_contact1.getText());
-     	     	    	 prepare.setString(42, register_emrgency_contact2.getText());
-     	     	    	 prepare.setString(43, register_relationship.getText());
-     	     	    	 prepare.setString(44, register_physician_contact.getText());
-     	     	    	 prepare.setString(45, register_medical_conditions.getText());
-     	     	    	 prepare.setString(46, register_current_medication.getText());
-     	     	    	 prepare.setString(47, register_emergencyProcedures.getText());
-     	     	    	 prepare.setString(48, register_specialNeeds.getText());
-     	     	    	 prepare.setString(49, register_student_contact1.getText());
-     	     	    	 prepare.setString(50, register_student_contact2.getText());
-     	     	    	 prepare.setString(51, register_courseTaken.getSelectionModel().getSelectedItem());
-     	     	    	 prepare.setString(52, register_courseLevel.getSelectionModel().getSelectedItem());
-     	     	    	 prepare.setString(53, register_courseYear.getSelectionModel().getSelectedItem());
-     	     	    	 prepare.setString(54, register_semester.getSelectionModel().getSelectedItem());
-     	     	    	 prepare.executeUpdate();
-     	     	    	 
-     	     	    	 //Inserting Students Grades
-     	     	    	 //Sets students grades to 0 when a student is registered.
-     	     	    	 String insertGrades = "INSERT INTO students_grades (NSIN, studentsName, sem1_p1, sem1_p2, sem1_p3, sem1_p4, sem2_p1, sem2_p2,"
-     	     	    	 		+ " sem2_p3, sem2_p4,sem3_p1, sem3_p2, sem3_p3, sem3_p4, sem4_p1, sem4_p2, sem4_p3, sem4_p4, sem5_p1, sem5_p2, sem5_p3, "
-     	     	    	 		+ "sem5_p4) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-     	     	    	PreparedStatement prepareGrades = connect.prepareStatement(insertGrades);
-     	     	    	prepareGrades.setString(1, register_NIN.getText());  // Caution!
-     	     	    	prepareGrades.setString(2, register_fname.getText() +" "+register_middleName.getText()+" "+ register_LName.getText());
-     	     	    	prepareGrades.setString(3, "0");
-     	     	    	prepareGrades.setString(4, "0");
-     	     	    	prepareGrades.setString(5, "0");
-     	     	    	prepareGrades.setString(6, "0");
-     	     	    	prepareGrades.setString(7, "0");
-     	     	    	prepareGrades.setString(8, "0");
-     	     	    	prepareGrades.setString(9, "0");
-     	     	    	prepareGrades.setString(10, "0");
-     	     	    	prepareGrades.setString(11, "0");
-     	     	    	prepareGrades.setString(12, "0");
-     	     	    	prepareGrades.setString(13, "0");
-     	     	    	prepareGrades.setString(14, "0");
-     	     	    	prepareGrades.setString(15, "0");
-     	     	    	prepareGrades.setString(16, "0");
-     	     	    	prepareGrades.setString(17, "0");
-     	     	    	prepareGrades.setString(18, "0");
-     	     	    	prepareGrades.setString(19, "0");
-     	     	    	prepareGrades.setString(20, "0");
-     	     	    	prepareGrades.setString(21, "0");
-     	     	    	prepareGrades.setString(22, "0");
-     	     	    	prepareGrades.executeUpdate();
-                          alert = new Alert(AlertType.CONFIRMATION);
-                          alert.setTitle("Confirmation Message");
-                          alert.setHeaderText(null);
-                          alert.setContentText("Student has been Added Successfully");
-     	     	    	 alert.showAndWait();
-     	     	    	addStudentsShowListData();
-     	     	    	addStudentsShowListData();//load students 
-     	     	    	clearInputs();//Clear the text
-     	    		}
-     	    	}
-     	    }catch(Exception e) {e.printStackTrace();
-     	    System.err.println("SQL Error: " + e.getMessage());
-     	    System.err.println("Failed query: " + insertData);
-     	    }
-        }
-    //#################################################################################################
-    // Clear Method
-    
-     public void clearInputs() {
-     	register_fname.setText("");
-     	register_middleName.setText("");
-     	register_LName.setText("");
-     	register_religion.setText("");
-     	register_DOB.setValue(null);
-     	register_NIN.setText("");
-     	register_district.setText("");
-     	register_subcounty.setText("");
-     	register_county.setText("");
-     	register_parish.setText("");
-     	register_gender.getSelectionModel().clearSelection();
-     	register_email.setText("");
-     	register_gardianName1.setText("");
-     	register_gardian1_contact1.setText("");
-     	register_gardian1_contact2.setText("");
-     	register_Alevel.setText("");
-     	register_Olevel.setText("");
-     	register_doneCourse.setText("");
-     	register_year_done.setText("");
-     	register_emergency_name.setText("");
-     	register_emrgency_contact1.setText("");
-     	register_emrgency_contact2.setText("");
-     	register_relationship.setText("");
-     	register_physician_contact.setText("");
-     	register_medical_conditions.setText("");
-     	register_current_medication.setText("");
-     	register_emergencyProcedures.setText("");
-     	register_specialNeeds.setText("");
-     	register_student_contact1.setText("");
-     	register_student_contact2.setText("");
-     	register_gardian1_nin.setText("");
-     	register_gardian1_district.setText("");
-     	register_gardian1_subcounty.setText("");
-     	register_gardian1_county.setText("");
-     	register_gardian1_parish.setText("");
-     	register_gardian1_village.setText("");
-     	register_gardian1_email.setText("");
-     	register_gardian1_occupation.setText("");
-     	register_gardian2_name.setText("");
-     	register_gardian2_nin.setText("");
-     	register_gardian2_contact1.setText("");
-     	register_gardian2_contact2.setText("");
-     	register_gardian2_district.setText("");
-     	register_gardian2_subcounty.setText("");
-     	register_gardian2_county.setText("");
-     	register_gardian2_parish.setText("");
-     	register_gardian2_village.setText("");
-     	register_gardian2_email.setText("");
-     	register_gardian2_occupation.setText("");
-     	register_NSIN.setText("");
-     	register_courseTaken.getSelectionModel().clearSelection();
-     	register_courseLevel.getSelectionModel().clearSelection();
-     	register_courseYear.getSelectionModel().clearSelection();
-     	register_semester.getSelectionModel().clearSelection();
-     	
-     	register_fname.setStyle("");
- 	    register_LName.setStyle("");
- 	    register_NSIN.setStyle("");
- 	    register_courseTaken.setStyle("");
- 	    register_courseLevel.setStyle("");
- 	    register_courseYear.setStyle("");
- 	    register_semester.setStyle("");    
-     }
-    
-    // THE METHOD TO UPDATE THE DATA IN THE DATABASE
-     public void updateStudents() {
-     	String ALevel = register_Alevel.getText().trim();
-     	String OLevel = register_Olevel.getText().trim();
-     	String Year = register_year_done.getText().trim();
-     	String updateData = "UPDATE studentsbio SET firstName = '"+register_fname.getText()+"',middleName ='"+ register_middleName.getText()+"',"
-     			+ "lastName ='"+register_LName.getText()+"',religion ='"+register_religion.getText()+"',DOB = '"+register_DOB.getValue()+"',"
-     					+ "studentNIN = '"+register_NIN.getText()+"',studentDistrict = '"+register_district.getText()+"',studentSubcounty = '"+register_subcounty.getText()+"',"
-     					+ "studentCounty = '"+register_county.getText()+"',studentParish = '"+register_parish.getText()+"', studentEmail = '"+register_email.getText()+"',"
-     					+ "studentGender = '"+(String)register_gender.getSelectionModel().getSelectedItem()+"',guardian1Name='"+register_gardianName1.getText()+"',"
-     					+ "guardian1NIN = '"+register_gardian1_nin.getText()+"',guardian1Contact1='"+register_gardian1_contact1.getText()+"',guardian1Contact2 ='"+register_gardian2_contact1.getText()+"',"
-     					+ "guardian1District = '"+register_gardian1_district.getText()+"',guardian1Subcounty = '"+register_gardian1_subcounty.getText()+"',guardian1County='"+register_gardian1_county.getText()+"',"
-     					+ "guardian1Parish='"+register_gardian1_parish.getText()+"',guardian1Village='"+register_gardian1_village.getText()+"',guardian1Email='"+register_gardian1_email.getText()+"',"
-     					+ "guardian1Occupation='"+register_gardian1_occupation.getText()+"',guardian2Name='"+ register_gardian2_name.getText()+"',guardian2NIN='"+register_gardian2_nin.getText()+"',"
-     					+ "guardian2Contact1='"+register_gardian2_contact1.getText()+"',guardian2Contact2='"+register_gardian2_contact2.getText()+"',guardian2District='"+register_gardian2_district.getText()+"',"
-     					+ "guardian2Subcounty='"+register_gardian2_subcounty.getText()+"',guardian2County='"+register_gardian2_county.getText()+"',guardian2Parish='"+register_gardian2_parish.getText()+"',"
-     					+ "guardian2Village='"+register_gardian2_village.getText()+"',guardian2Email='"+register_gardian2_email.getText()+"',guardian2Occupation='"+register_gardian2_occupation.getText()+"',"
-     					+ "Alevel='"+Integer.parseInt(ALevel)+"',Olevel='"+Integer.parseInt(OLevel)+"',prevCourse='"+register_doneCourse.getText()+"',"
-     					+ "courseYear='"+Integer.parseInt(Year)+"',emergencyName='"+register_emergency_name.getText()+"',emergencyContact1='"+register_emrgency_contact1.getText()+"',"
-     					+ "emergencyContact2='"+register_emrgency_contact2.getText()+"',relationship='"+register_relationship.getText()+"',physicianContact='"+register_physician_contact.getText()+"',"
-     					+ "medConditions='"+register_medical_conditions.getText()+"',medication='"+register_current_medication.getText()+"',medProcedures='"+register_emergencyProcedures.getText()+"',"
-     					+ "specialNeeds='"+register_specialNeeds.getText()+"',studentContact1='"+register_student_contact1.getText()+"',studentContact2='"+register_student_contact2.getText()+"',"
-     					+ "courseTaken='"+register_courseTaken.getSelectionModel().getSelectedItem()+"',courseLevel='"+register_courseLevel.getSelectionModel().getSelectedItem()+"',"
-     					+ "yearCourse='"+register_courseYear.getSelectionModel().getSelectedItem()+"',courseSemister='"+register_semester.getSelectionModel().getSelectedItem()+"' WHERE NSIN = '"+register_NSIN.getText()+"'";
-                 
-     	        connect = database.connectDb();
-     	        try {
-     	        	Alert alert;
-     	        	if(register_NSIN.getText().isEmpty()) {
-     	        	    		register_NSIN.setStyle("-fx-border-color: red; -fx-border-width: 0 0 0.8px 0;");
-
-     	        	    		alert = new Alert(AlertType.ERROR);
-     	        	    		alert.setTitle("Error Message");
-     	        	    		alert.setHeaderText(null);
-     	        	    		alert.setContentText("Please fill all Required fields");
-     	        	    		alert.showAndWait();    	
-     	        	  
-         	    		}else {
-         	    			    register_NSIN.setStyle(""); 
- 	        	    			//Prompt Confirmation for Update
- 	        	    			alert = new Alert(AlertType.CONFIRMATION);
- 	        	    			alert.setTitle("Confirmation Message");
- 	        	    			alert.setHeaderText(null);
- 	        	    			alert.setContentText("Are you sure about this?\n Student NSIN: "+register_NSIN.getText()+" To be UPDATED!");
- 	        	    			Optional<ButtonType> option = alert.showAndWait();
-         	    			
-         	    			if(option.get().equals(ButtonType.OK)) {
-         	    				prepare = connect.prepareStatement(updateData);
-         	    				statement = connect.createStatement();
-             	    			statement.executeUpdate(updateData);
-             	    			
-             	    			alert = new Alert(AlertType.INFORMATION);
-             	    			alert.setTitle("Information Message");
-             	    			alert.setHeaderText(null);
-             	    			alert.setContentText("Data update Succesfull!");
-             	    			alert.showAndWait();
-             	     	    	addStudentsShowListData(); //load students 
-             	     	    	clearInputs(); //Clear the text
-             	    			
-         	    			}else return;	
-         	    		}
-     	        	
-     	        }catch(Exception e) {e.printStackTrace();
-     	        Alert alert = new Alert(Alert.AlertType.ERROR);
-     	        alert.setTitle("Error");
-     	        alert.setHeaderText(null);
-     	        alert.setContentText("Failed to update data: " + e.getMessage());
-     	        alert.showAndWait();
-     	        }
+      	addStudentsList = addStudentsListData();
+      	register_nsin_col.setCellValueFactory(new PropertyValueFactory<>("NSIN"));
+      	register_Fname_col.setCellValueFactory(new PropertyValueFactory<>("FirstName"));
+      	register_Lname_col.setCellValueFactory(new PropertyValueFactory<>("LastName"));
+      	register_contact_col.setCellValueFactory(new PropertyValueFactory<>("StudentContact1"));
+      	register_Age_col.setCellValueFactory(cellData -> {Integer age = cellData.getValue().getAge();return new SimpleObjectProperty<>(age != null ? age : null);});  //Method to calculate age!
+      	register_gender_col.setCellValueFactory(new PropertyValueFactory<>("StudentGender"));
+      	register_religion_col.setCellValueFactory(new PropertyValueFactory<>("Religion"));
+      	register_tableView.setItems(addStudentsList);
       }
-    
-    //DELETE STUDENTS BY NSIN NO.
-     public void delete() {
-    	    String deleteData = "DELETE FROM studentsbio WHERE NSIN = '"+register_NSIN.getText()+"'";
+     
+   //Method to auto detect Selected Student
+     private String oldNSIN;
+    public void addStudentsSelected(){
+    	studentsBio studentsData = register_tableView.getSelectionModel().getSelectedItem();
+    	int num = register_tableView.getSelectionModel().getSelectedIndex();
+    	if((num -1) < -1) {return;}
+    	register_fname.setText(studentsData.getFirstName());
+    	register_middleName.setText(studentsData.getMiddleName());
+    	register_LName.setText(studentsData.getLastName());
+    	register_religion.setText(studentsData.getReligion());
+    	register_DOB.setValue(LocalDate.parse(String.valueOf(studentsData.getDOB())));  // Date converted to String
+    	register_NIN.setText(studentsData.getstudentNIN());
+    	register_district.setText(studentsData.getstudentNIN());
+    	register_subcounty.setText(studentsData.getstudentSubcounty());
+    	register_county.setText(studentsData.getstudentCounty());
+    	register_parish.setText(studentsData.getstudentParish());
+    	register_email.setText(studentsData.getStudentEmail());
+    	register_gender.getSelectionModel().select(studentsData.getStudentGender());
+    	// Guardian 1 information
+    	register_gardianName1.setText(studentsData.getguardian1Name());
+    	register_gardian1_nin.setText(studentsData.getguardian1NIN());
+    	register_gardian1_parish.setText(studentsData.getguardian1Parish());
+    	register_gardian1_contact1.setText(String.valueOf(studentsData.getguardian1Contact1()));  // Integer
+    	register_gardian1_occupation.setText(studentsData.getguardian1Occupation());
+    	register_gardian1_district.setText(studentsData.getguardian1District());
+    	register_gardian1_subcounty.setText(studentsData.getguardian1Subcounty());
+    	register_gardian1_county.setText(studentsData.getguardian1County());
+    	register_gardian1_village.setText(studentsData.getguardian1Village());
+    	register_gardian1_email.setText(studentsData.getguardian1Email());
+    	register_gardian1_contact2.setText(String.valueOf(studentsData.getguardian1Contact2()));  // Integer
+    	// Guardian 2 information
+    	register_gardian2_name.setText(studentsData.getguardian2Name());
+    	register_gardian2_nin.setText(studentsData.getguardian2NIN());
+    	register_gardian2_parish.setText(studentsData.getguardian2Parish());
+    	register_gardian2_contact1.setText(String.valueOf(studentsData.getguardian2Contact1()));  // Integer
+    	register_gardian2_occupation.setText(studentsData.getguardian2Occupation());
+    	register_gardian2_district.setText(studentsData.getguardian2District());
+    	register_gardian2_subcounty.setText(studentsData.getguardian2Subcounty());
+    	register_gardian2_county.setText(studentsData.getguardian2County());
+    	register_gardian2_village.setText(studentsData.getguardian2Village());
+    	register_gardian2_email.setText(studentsData.getguardian2Email());
+    	register_gardian2_contact2.setText(String.valueOf(studentsData.getguardian2Contact2()));  // Integer
+    	// Academic information
+    	register_NSIN.setText(studentsData.getNSIN());
+    	register_Alevel.setText(String.valueOf(studentsData.getAlevel()));  // Integer
+    	register_Olevel.setText(String.valueOf(studentsData.getOlevel()));  // Integer
+    	register_doneCourse.setText(studentsData.getprevCourse());
+    	register_year_done.setText(String.valueOf(studentsData.getCourseYear()));
+    	// Emergency contact information
+    	register_emergency_name.setText(studentsData.getemergencyName());
+    	register_emrgency_contact1.setText(String.valueOf(studentsData.getemergencyContact1()));  // Integer
+    	register_emrgency_contact2.setText(String.valueOf(studentsData.getemergencyContact2()));  // Integer
+    	register_relationship.setText(studentsData.getrelationship());
+    	// Medical information
+    	register_emergencyProcedures.setText(studentsData.getmedProcedures());
+    	register_physician_contact.setText(String.valueOf(studentsData.getphysicianContact()));  // Integer
+    	register_medical_conditions.setText(studentsData.getmedConditions());
+    	register_current_medication.setText(studentsData.getmedication());
+    	register_specialNeeds.setText(studentsData.getspecialNeeds());
+    	register_student_contact1.setText(String.valueOf(studentsData.getStudentContact1()));
+    	register_student_contact2.setText(String.valueOf(studentsData.getstudentContact2()));
+    	register_courseTaken.setPromptText(studentsData.getCourseTaken());
+    	register_courseLevel.setPromptText(studentsData.getCourseLevel());
+    	register_courseYear.setPromptText(studentsData.getYearCourse());
+    	register_semester.setPromptText(studentsData.getCourseSemister());
+    	 oldNSIN = studentsData.getNSIN();
+    }
+     
+     
+     //# STUDENTS GRADES  17/06/25 02:21:36 EAT  @KELVIS
+     public void gradeUpdate() {
+  	    // Get integer values safely from text fields
+  	    int sem1_p1 = safeParse(year1_sem1_p1.getText());
+  	    int sem1_p2 = safeParse(year1_sem1_p2.getText());
+  	    int sem1_p3 = safeParse(year1_sem1_p3.getText());
+  	    int sem1_p4 = safeParse(year1_sem1_p4.getText());
+  	    int sem2_p1 = safeParse(year1_sem2_p1.getText());
+  	    int sem2_p2 = safeParse(year1_sem2_p2.getText());
+  	    int sem2_p3 = safeParse(year1_sem2_p3.getText());
+  	    int sem2_p4 = safeParse(year1_sem2_p4.getText());
+  	    int sem3_p1 = safeParse(year2_sem_p1.getText());
+  	    int sem3_p2 = safeParse(year2_sem_p2.getText());
+  	    int sem3_p3 = safeParse(year2_sem_p3.getText());
+  	    int sem3_p4 = safeParse(year2_sem_p4.getText());
+  	    int sem4_p1 = safeParse(year2_sem2_p1.getText());
+  	    int sem4_p2 = safeParse(year2_sem2_p2.getText());
+  	    int sem4_p3 = safeParse(year2_sem2_p3.getText());
+  	    int sem4_p4 = safeParse(year2_sem2_p4.getText());
+  	    int sem5_p1 = safeParse(year3_sem_p1.getText());
+  	    int sem5_p2 = safeParse(year3_sem_p2.getText());
+  	    int sem5_p3 = safeParse(year3_sem1_p3.getText());
+  	    int sem5_p4 = safeParse(year3_sem2_p4.getText());
 
-    	    connect = database.connectDb();
+  	    String studentName = gradeForm_NAME.getText().trim();
+  	    String nsin = gradeForm_NSIN.getText().trim();
 
-    	    try {
-    	        Alert alert;
+  	    if (nsin.isEmpty()) {
+  	        Alert alert = new Alert(Alert.AlertType.ERROR);
+  	        alert.setTitle("Alert Message!");
+  	        alert.setHeaderText(null);
+  	        alert.setContentText("Please select a Student NSIN.");
+  	        alert.showAndWait();
+  	        return;
+  	    }
 
-    	        if (register_fname.getText().isEmpty() || register_LName.getText().isEmpty() || register_NSIN.getText().isEmpty()) {
-    	            alert = new Alert(AlertType.ERROR);
-    	            alert.setTitle("Error Message");
-    	            alert.setHeaderText(null);
-    	            alert.setContentText("Please select the information to delete.");
-    	            alert.showAndWait();
-    	        } else {
-    	            alert = new Alert(AlertType.CONFIRMATION);
-    	            alert.setTitle("Confirmation Message");
-    	            alert.setHeaderText(null);
-    	            alert.setContentText("Are you sure you want to delete Student with NSIN: " +register_NSIN.getText() + " ?");
-    	            Optional<ButtonType> option = alert.showAndWait();
+  	    String sql = "UPDATE students_grades SET studentsName=?, "
+  	            + "sem1_p1=?, sem1_p2=?, sem1_p3=?, sem1_p4=?, "
+  	            + "sem2_p1=?, sem2_p2=?, sem2_p3=?, sem2_p4=?, "
+  	            + "sem3_p1=?, sem3_p2=?, sem3_p3=?, sem3_p4=?, "
+  	            + "sem4_p1=?, sem4_p2=?, sem4_p3=?, sem4_p4=?, "
+  	            + "sem5_p1=?, sem5_p2=?, sem5_p3=?, sem5_p4=? "
+  	            + "WHERE NSIN=?";
 
-    	            if (option.get().equals(ButtonType.OK)) {
-    	                // Delete grades first
-    	                statement = connect.prepareStatement(deleteData);
-    	                statement.executeUpdate(deleteData);
+  	    connect = database.connectDb();
 
-    	                String checkData = "SELECT NSIN FROM students_grades "
-                                + "WHERE NSIN = '" + register_NSIN.getText()+ "'";
-    	                prepare = connect.prepareStatement(checkData);
-    	                result = prepare.executeQuery();
-    	                if (result.next()) {
-                            String deleteGrade = "DELETE FROM students_grades WHERE "
-                                    + "studentNum = '" + register_NSIN.getText() + "'";
+  	    try {
+  	        Alert confirmAlert = new Alert(Alert.AlertType.CONFIRMATION);
+  	        confirmAlert.setTitle("Confirmation");
+  	        confirmAlert.setHeaderText(null);
+  	        confirmAlert.setContentText("Are you sure you want to update grades for student: " + nsin + "?");
 
-                            statement = connect.createStatement();
-                            statement.executeUpdate(deleteGrade);
-                        }
-    	                
-    	                alert = new Alert(AlertType.INFORMATION);
-    	                alert.setTitle("Information Message");
-    	                alert.setHeaderText(null);
-    	                alert.setContentText("Student Deleted Successfully!");
-    	                alert.showAndWait();
+  	        Optional<ButtonType> option = confirmAlert.showAndWait();
 
-    	                showGradeList();
-    	                addStudentsShowListData();
-    	                clearInputs();
-    	            }else return;
-    	        }
-    	    } catch (Exception e) {
-    	        e.printStackTrace();
-    	    }
-
+  	        if (option.isPresent() && option.get() == ButtonType.OK) {
+  	            PreparedStatement ps = connect.prepareStatement(sql);
+  	            ps.setString(1, studentName);
+  	            ps.setInt(2, sem1_p1);
+  	            ps.setInt(3, sem1_p2);
+  	            ps.setInt(4, sem1_p3);
+  	            ps.setInt(5, sem1_p4);
+  	            ps.setInt(6, sem2_p1);
+  	            ps.setInt(7, sem2_p2);
+  	            ps.setInt(8, sem2_p3);
+  	            ps.setInt(9, sem2_p4);
+  	            ps.setInt(10, sem3_p1);
+  	            ps.setInt(11, sem3_p2);
+  	            ps.setInt(12, sem3_p3);
+  	            ps.setInt(13, sem3_p4);
+  	            ps.setInt(14, sem4_p1);
+  	            ps.setInt(15, sem4_p2);
+  	            ps.setInt(16, sem4_p3);
+  	            ps.setInt(17, sem4_p4);
+  	            ps.setInt(18, sem5_p1);
+  	            ps.setInt(19, sem5_p2);
+  	            ps.setInt(20, sem5_p3);
+  	            ps.setInt(21, sem5_p4);
+  	            ps.setString(22, nsin);
+  	            ps.executeUpdate();
+                
+  	            Alert successAlert = new Alert(Alert.AlertType.INFORMATION);
+  	            successAlert.setTitle("Success");
+  	            successAlert.setHeaderText(null);
+  	            successAlert.setContentText("Grades updated successfully for NSIN: " + nsin);
+  	            successAlert.showAndWait();
+  	           showGradeList();
+  	           gradeClear();
+  	        }
+  	    } catch (Exception e) {
+  	        e.printStackTrace();
+  	        Alert errorAlert = new Alert(Alert.AlertType.ERROR);
+  	        errorAlert.setTitle("Error");
+  	        errorAlert.setHeaderText(null);
+  	        errorAlert.setContentText("An error occurred while updating the grades.");
+  	        errorAlert.showAndWait();
+  	    }
      }
-    
-    //Search Functionality...
-    public void studentSearch() {
-    	
-    	FilteredList<studentsBio> filteredD = new FilteredList<>(addStudentsList, b -> true);
-    	register_search.textProperty().addListener((Observable, oldValue, newValue) ->{
-    		
-    		filteredD.setPredicate(studentsData ->{  // If search is empty show, everything
-    			if(newValue == null || newValue.isEmpty() || newValue.isBlank()) {
-    				return true;
-    			}
-    			String searchKey = newValue.toLowerCase(); // Change everything to LowerCase
-    			
-    			if(studentsData.getNSIN().toString().contains(searchKey)) {
-    				return true;
-    			}else if(studentsData.getFirstName().toLowerCase().contains(searchKey)) {
-    				return true;
-    			}else if(studentsData.getStudentGender().toLowerCase().contains(searchKey)) {
-                    return true;
-    			}else if(studentsData.getReligion().toLowerCase().contains(searchKey)) {
-    				return true;
-    			}else if(studentsData.getMiddleName().toLowerCase().contains(searchKey)) {
-                    return true;
-    			}else if(studentsData.getLastName().toLowerCase().contains(searchKey)) {
-    				return true;
-    			}else {return false;}
-    			
-    		});
-    	});
-    	SortedList<studentsBio> shortList = new SortedList<>(filteredD);
-    	shortList.comparatorProperty().bind(register_tableView.comparatorProperty());
-    	register_tableView.setItems(shortList);
-    }
-    
-    public void listSearch() {
-    	FilteredList<studentsBio> listSearch =new FilteredList<>(addStudentsList, e -> true);
-    	detailsSearch.textProperty().addListener((observable, oldValue, newValue) -> {
-    		listSearch.setPredicate(predicateListData ->{
-    			if(newValue == null || newValue.isEmpty()) {
-    				return true;
-    			}
-    			String SKey = newValue.toLowerCase();
-    			if(predicateListData.getNSIN().toLowerCase().contains(SKey)){
-    				return true;
-    			}else if(predicateListData.getFirstName().toLowerCase().contains(SKey)) {
-    				return true;
-    			}else if(predicateListData.getReligion().toLowerCase().contains(SKey)) {
-    				return true;
-    			}else if(predicateListData.getMiddleName().toLowerCase().contains(SKey)) {
-    				return true;
-    			}else if(predicateListData.getLastName().toLowerCase().contains(SKey)) {
-    				return true;
-    			}else if(predicateListData.getAge().toString().contains(SKey)) {
-    				return true;
-    			}else {return false;}
-    		});
-    	});
-    	
-    	SortedList<studentsBio> sortedL = new SortedList<>(listSearch);
-    	sortedL.comparatorProperty().bind(details_tableView.comparatorProperty());
-    	details_tableView.setItems(sortedL);
-    }
-
+     
+     public void gradeClear() {
+   	   gradeForm_NSIN.setText("");
+   	   gradeForm_NAME.setText("");
+   	   year1_sem1_p1.setText("");
+   	   year1_sem1_p2.setText("");
+   	   year1_sem1_p3.setText("");
+   	   year1_sem1_p4.setText("");
+   	   year1_sem2_p1.setText("");
+   	   year1_sem2_p2.setText("");
+   	   year1_sem2_p3.setText("");
+   	   year1_sem2_p4.setText("");
+   	   year2_sem_p1.setText("");
+   	   year2_sem_p2.setText("");
+   	   year2_sem_p3.setText("");
+   	   year2_sem_p4.setText("");
+   	   year2_sem2_p1.setText("");
+   	   year2_sem2_p2.setText("");
+   	   year2_sem2_p3.setText("");
+   	   year2_sem2_p4.setText("");
+   	   year3_sem_p1.setText("");
+   	   year3_sem_p2.setText("");
+   	   year3_sem1_p3.setText("");
+   	   year3_sem2_p4.setText("");
+      }
+      
  // The grades and Staff;
-    public ObservableList<studentsBio> gradesListData(){
+    public ObservableList<studentsBio> studentGradesList(){
  	      ObservableList<studentsBio> gradeList = FXCollections.observableArrayList();
  	      
  	      String SQL = "SELECT * FROM students_grades";
@@ -1345,7 +1574,8 @@ public class DashboardController implements Initializable{
  	    				   ,result.getInt("Sem5_p1")
  	    				   ,result.getInt("Sem5_p2")
  	    				   ,result.getInt("Sem5_p3")
- 	    				   ,result.getInt("Sem5_p4"));
+ 	    				   ,result.getInt("Sem5_p4")
+ 	    				   ,result.getString("StudentGender"));
  	    		   
  	    		   gradeList.add(studentD);
  	    	   }
@@ -1355,9 +1585,15 @@ public class DashboardController implements Initializable{
  	      return gradeList;
     }
 
-    private ObservableList<studentsBio> Grades;
+    private ObservableList<studentsBio> studentGradesList;
+    
+ // Helper to safely convert text to int
+    int safeParse(String text) {
+        return text.trim().isEmpty() ? 0 : Integer.parseInt(text.trim());
+    }
+    
     public void showGradeList() {
- 	   Grades = gradesListData();
+    	studentGradesList = studentGradesList();
  	   Table_nsin.setCellValueFactory(new PropertyValueFactory<>("NSIN"));
  	   Table_name.setCellValueFactory(new PropertyValueFactory<>("StudentsName"));
  	   Table_year1_sem1_p1.setCellValueFactory(new PropertyValueFactory<>("sem1_p1"));
@@ -1380,12 +1616,13 @@ public class DashboardController implements Initializable{
  	   Table_year3_sem1_p2.setCellValueFactory(new PropertyValueFactory<>("sem5_p2"));
  	   Table_year3_sem1_p3.setCellValueFactory(new PropertyValueFactory<>("sem5_p3"));
  	   Table_year3_sem1_p4.setCellValueFactory(new PropertyValueFactory<>("sem5_p4"));
- 	   gradeTable.setItems(Grades);
+ 	
+ 	   gradeTable.setItems(studentGradesList);
     
     
     }
     
-  //Grades Select
+    //Grades Select
     public void gradeSelect() {
  	   studentsBio studentsData = gradeTable.getSelectionModel().getSelectedItem();
  	   int Num = gradeTable.getSelectionModel().getSelectedIndex();
@@ -1413,164 +1650,42 @@ public class DashboardController implements Initializable{
  		   year3_sem_p2.setText(String.valueOf(studentsData.getSem4_p2()));
  		   year3_sem1_p3.setText(String.valueOf(studentsData.getSem4_p3()));
  		   year3_sem2_p4.setText(String.valueOf(studentsData.getSem4_p4()));
+ 		 
     }
-    
+
     public void gradeSearch() {
- 	FilteredList<studentsBio> gradeFilter = new FilteredList<>(Grades, e-> true);
- 	grade_search.textProperty().addListener((Observable, oldVlaue, newValue) -> {
- 		gradeFilter.setPredicate(predicateStudentsGrade ->{
- 			if(newValue == null || newValue.isEmpty()) {
- 				return true;
- 			}
- 			
- 			String searchKey = newValue.toLowerCase();
- 			if(predicateStudentsGrade.getNSIN().toString().contains(searchKey)) {
- 				return true;
- 			}else if(predicateStudentsGrade.getStudentsName().toString().contains(searchKey)) {
- 				return true;
- 			}else if(predicateStudentsGrade.getFirstName().toString().contains(searchKey)) {
- 				return true;
- 			}else if(predicateStudentsGrade.getMiddleName().toString().contains(searchKey)) {
- 				return true;
- 			}else if(predicateStudentsGrade.getLastName().toString().contains(searchKey)) {
- 				return true;
- 			}else return false;
- 			
- 		});
- 	});
- 	SortedList<studentsBio> sortGrades = new SortedList<>(gradeFilter);
- 	sortGrades.comparatorProperty().bind(gradeTable.comparatorProperty());
- 	gradeTable.setItems(sortGrades);
+     	FilteredList<studentsBio> filter = new FilteredList<>(studentGradesList, e -> true);
+     	updateFilter(filter,grade_search.getText());
+     	
+     	grade_search.textProperty().addListener((Observable, oldValue, newValue) -> {
+     		updateFilter(filter, newValue);
+     	});
+     	
+     	SortedList<studentsBio> sortList = new SortedList<>(filter);
+     	sortList.comparatorProperty().bind(gradeTable.comparatorProperty());
+     	gradeTable.setItems(sortList);
+
+        }
+    
+    private void updateGradeFilter(FilteredList<studentsBio> filter , String searchT) {
+    	filter.setPredicate(gradeData -> {
+    		if(searchT == null || searchT.isBlank() || searchT.isEmpty()) {
+    			return true;
+    		}
+    		
+    		String searchKey = searchT.toLowerCase();
+    		
+    		if((containsIgnoreNullG(gradeData.getStudentsName(), searchKey) ||  //
+    			containsIgnoreNullG(gradeData.getNSIN(), searchKey) )) {
+    			return true;
+    		}
+    		return false;
+    	});
     }
     
-
-    public void gradeClear() {
- 	   gradeForm_NSIN.setText("");
- 	   gradeForm_NAME.setText("");
- 	   year1_sem1_p1.setText("");
- 	   year1_sem1_p2.setText("");
- 	   year1_sem1_p3.setText("");
- 	   year1_sem1_p4.setText("");
- 	   year1_sem2_p1.setText("");
- 	   year1_sem2_p2.setText("");
- 	   year1_sem2_p3.setText("");
- 	   year1_sem2_p4.setText("");
- 	   year2_sem_p1.setText("");
- 	   year2_sem_p2.setText("");
- 	   year2_sem_p3.setText("");
- 	   year2_sem_p4.setText("");
- 	   year2_sem2_p1.setText("");
- 	   year2_sem2_p2.setText("");
- 	   year2_sem2_p3.setText("");
- 	   year2_sem2_p4.setText("");
- 	   year3_sem_p1.setText("");
- 	   year3_sem_p2.setText("");
- 	   year3_sem1_p3.setText("");
- 	   year3_sem2_p4.setText("");
+    private boolean containsIgnoreNullG(String fieldValue , String searchKey) {
+    	return fieldValue != null && fieldValue.toLowerCase().contains(searchKey);
     }
-    
- // Helper to safely convert text to int
-    int safeParse(String text) {
-        return text.trim().isEmpty() ? 0 : Integer.parseInt(text.trim());
-    }
-    public void gradeUpdate() {
- 	    // Get integer values safely from text fields
- 	    int sem1_p1 = safeParse(year1_sem1_p1.getText());
- 	    int sem1_p2 = safeParse(year1_sem1_p2.getText());
- 	    int sem1_p3 = safeParse(year1_sem1_p3.getText());
- 	    int sem1_p4 = safeParse(year1_sem1_p4.getText());
- 	    int sem2_p1 = safeParse(year1_sem2_p1.getText());
- 	    int sem2_p2 = safeParse(year1_sem2_p2.getText());
- 	    int sem2_p3 = safeParse(year1_sem2_p3.getText());
- 	    int sem2_p4 = safeParse(year1_sem2_p4.getText());
- 	    int sem3_p1 = safeParse(year2_sem_p1.getText());
- 	    int sem3_p2 = safeParse(year2_sem_p2.getText());
- 	    int sem3_p3 = safeParse(year2_sem_p3.getText());
- 	    int sem3_p4 = safeParse(year2_sem_p4.getText());
- 	    int sem4_p1 = safeParse(year2_sem2_p1.getText());
- 	    int sem4_p2 = safeParse(year2_sem2_p2.getText());
- 	    int sem4_p3 = safeParse(year2_sem2_p3.getText());
- 	    int sem4_p4 = safeParse(year2_sem2_p4.getText());
- 	    int sem5_p1 = safeParse(year3_sem_p1.getText());
- 	    int sem5_p2 = safeParse(year3_sem_p2.getText());
- 	    int sem5_p3 = safeParse(year3_sem1_p3.getText());
- 	    int sem5_p4 = safeParse(year3_sem2_p4.getText());
-
- 	    String studentName = gradeForm_NAME.getText().trim();
- 	    String nsin = gradeForm_NSIN.getText().trim();
-
- 	    if (nsin.isEmpty()) {
- 	        Alert alert = new Alert(Alert.AlertType.ERROR);
- 	        alert.setTitle("Alert Message!");
- 	        alert.setHeaderText(null);
- 	        alert.setContentText("Please select a Student NSIN.");
- 	        alert.showAndWait();
- 	        return;
- 	    }
-
- 	    String sql = "UPDATE students_grades SET studentsName=?, "
- 	            + "sem1_p1=?, sem1_p2=?, sem1_p3=?, sem1_p4=?, "
- 	            + "sem2_p1=?, sem2_p2=?, sem2_p3=?, sem2_p4=?, "
- 	            + "sem3_p1=?, sem3_p2=?, sem3_p3=?, sem3_p4=?, "
- 	            + "sem4_p1=?, sem4_p2=?, sem4_p3=?, sem4_p4=?, "
- 	            + "sem5_p1=?, sem5_p2=?, sem5_p3=?, sem5_p4=? "
- 	            + "WHERE NSIN=?";
-
- 	    connect = database.connectDb();
-
- 	    try {
- 	        Alert confirmAlert = new Alert(Alert.AlertType.CONFIRMATION);
- 	        confirmAlert.setTitle("Confirmation");
- 	        confirmAlert.setHeaderText(null);
- 	        confirmAlert.setContentText("Are you sure you want to update grades for student: " + nsin + "?");
-
- 	        Optional<ButtonType> option = confirmAlert.showAndWait();
-
- 	        if (option.isPresent() && option.get() == ButtonType.OK) {
- 	            PreparedStatement ps = connect.prepareStatement(sql);
- 	            ps.setString(1, studentName);
- 	            ps.setInt(2, sem1_p1);
- 	            ps.setInt(3, sem1_p2);
- 	            ps.setInt(4, sem1_p3);
- 	            ps.setInt(5, sem1_p4);
- 	            ps.setInt(6, sem2_p1);
- 	            ps.setInt(7, sem2_p2);
- 	            ps.setInt(8, sem2_p3);
- 	            ps.setInt(9, sem2_p4);
- 	            ps.setInt(10, sem3_p1);
- 	            ps.setInt(11, sem3_p2);
- 	            ps.setInt(12, sem3_p3);
- 	            ps.setInt(13, sem3_p4);
- 	            ps.setInt(14, sem4_p1);
- 	            ps.setInt(15, sem4_p2);
- 	            ps.setInt(16, sem4_p3);
- 	            ps.setInt(17, sem4_p4);
- 	            ps.setInt(18, sem5_p1);
- 	            ps.setInt(19, sem5_p2);
- 	            ps.setInt(20, sem5_p3);
- 	            ps.setInt(21, sem5_p4);
- 	            ps.setString(22, nsin);
- 	            ps.executeUpdate();
-               
- 	            Alert successAlert = new Alert(Alert.AlertType.INFORMATION);
- 	            successAlert.setTitle("Success");
- 	            successAlert.setHeaderText(null);
- 	            successAlert.setContentText("Grades updated successfully for NSIN: " + nsin);
- 	            successAlert.showAndWait();
- 	           showGradeList();
- 	           gradeClear();
- 	        }
- 	    } catch (Exception e) {
- 	        e.printStackTrace();
- 	        Alert errorAlert = new Alert(Alert.AlertType.ERROR);
- 	        errorAlert.setTitle("Error");
- 	        errorAlert.setHeaderText(null);
- 	        errorAlert.setContentText("An error occurred while updating the grades.");
- 	        errorAlert.showAndWait();
- 	    }
-    }
-    
-    
     
     private double x = 0;
     private double y = 0;
@@ -1850,14 +1965,7 @@ public class DashboardController implements Initializable{
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		//Placed here to load Immediately we add and open up the registration form..
-		addStudentsShowListData();
-		addGender();
-		addToListView();
-		addLevel();
-		addCourse();
-		addYear();
-		addSem();
-		showGradeList();
+		home_btn.setStyle("-fx-background-color: linear-gradient(to bottom right,  #3eac5b, #30bc86)");
 		
 		homeDisplayTotalaenrolledStudents();
 	    homeDisplayMaleEnrolled();
@@ -1865,6 +1973,20 @@ public class DashboardController implements Initializable{
 	    homeDisplayMaleEnrolledChart();
 	    homeDisplayFemaleEnrolledChart();
 	    homeDisplayTotalEnrolledChart ();
+	    
+		addStudentsShowListData();
+		addLevel();
+		addCourse();
+		addYear();
+		addSem();
+		addGender();
+		
+		addToListView();
+		
+		showGradeList();
+		gradeSearch();
+		
+		
 
 		
 	    //The date picker and the contents...
